@@ -247,7 +247,6 @@ nav {
 .logo-slide {
     display: flex;
     animation: slide 30s linear infinite;
-    margin-right: 50px;
     align-items: center;
 }
 
@@ -276,7 +275,7 @@ nav {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-100%);
+        transform: translateX(-50%);
     }
 }
 
