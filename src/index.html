@@ -5,10 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matteo - The Future of Innovation</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
     <script src="https://kit.fontawesome.com/77b2f5a2d5.js" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update copyright year
+            const yearElement = document.getElementById('current-year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
 </head>
 <body>
     <header>
+        <!-- Navbar directly included -->
         <nav>
             <div class="logo"><a href="index.html">Matteo</a></div>
             <ul class="nav-links">
@@ -24,14 +35,14 @@
     <section id="hero">
         <div class="hero-content">
             <h1>Transform Your Business with Matteo</h1>
-            <p>The innovative platform that boosts productivity, scales with your needs, and simplifies complex workflows.</p>
+            <p>The innovative platform (engineer) that boosts productivity, scales with your needs, and simplifies complex workflows.</p>
             <div class="hero-buttons">
-                <button class="primary-button">Try for Free</button>
+                <button class="primary-button">Try Now</button>
                 <a href="https://youtube.com/@mbianchidev" target="_blank" class="secondary-button">Watch Demo</a>
             </div>
         </div>
-        <div class="hero-image">
-            <img src="https://via.placeholder.com/600x400" alt="Matteo platform visualization">
+        <div class="hero-image"> <!-- 600x400 -->
+            <img src="https://github.com/mbianchidev/mbianchidev/blob/master/images/2024/KCD%20Denmark%202024/54170961528_19266e2856_o.jpg?raw=true" alt="Matteo platform visualization">
         </div>
     </section>
 
@@ -74,14 +85,16 @@
         <h2>Loved and trusted by people at</h2>
         <div class="logo-carousel">
             <div class="logo-slide">
-                <img src="https://via.placeholder.com/150x50?text=Google" alt="Google">
-                <img src="https://via.placeholder.com/150x50?text=Microsoft" alt="Microsoft">
-                <img src="https://via.placeholder.com/150x50?text=Uber" alt="Uber">
-                <img src="https://via.placeholder.com/150x50?text=Amazon" alt="Amazon">
-                <img src="https://via.placeholder.com/150x50?text=Meta" alt="Meta">
-                <img src="https://via.placeholder.com/150x50?text=Apple" alt="Apple">
-                <img src="https://via.placeholder.com/150x50?text=Netflix" alt="Netflix">
-                <img src="https://via.placeholder.com/150x50?text=Tesla" alt="Tesla">
+                <img src="https://cdn.worldvectorlogo.com/logos/google-cloud-1.svg" alt="Google">
+                <img src="https://cdn.worldvectorlogo.com/logos/microsoft-5.svg" alt="Microsoft">
+                <img src="https://cdn.worldvectorlogo.com/logos/uber-2.svg" alt="Uber">
+                <img src="https://cdn.worldvectorlogo.com/logos/logo-amazon.svg" alt="Amazon">
+                <img src="https://cdn.worldvectorlogo.com/logos/meta-3.svg" alt="Meta">
+                <img src="https://cdn.worldvectorlogo.com/logos/apple-14.svg" alt="Apple">
+                <img src="https://cdn.worldvectorlogo.com/logos/netflix-logo-icon.svg" alt="Netflix">
+                <img src="https://cdn.worldvectorlogo.com/logos/tesla-pure.svg" alt="Tesla">
+                <img src="https://cdn.worldvectorlogo.com/logos/nvidia.svg" alt="NVidia">
+                
             </div>
         </div>
     </section>
@@ -91,10 +104,11 @@
         <div class="icon-cloud">
             <div class="icon-item"><i class="fab fa-slack"></i><span>Slack</span></div>
             <div class="icon-item"><i class="fab fa-github"></i><span>GitHub</span></div>
-            <div class="icon-item"><i class="fab fa-linux"></i><span>Linux</span></div>
             <div class="icon-item"><i class="fab fa-trello"></i><span>Trello</span></div>
             <div class="icon-item"><i class="fab fa-google-drive"></i><span>Google Drive</span></div>
             <div class="icon-item"><i class="fab fa-salesforce"></i><span>Salesforce</span></div>
+            <div class="icon-item"><i class="fab fa-linux"></i><span>Linux</span></div>
+            <div class="icon-item"><i class="fa-solid fa-dharmachakra"></i><span>Kubernetes</span></div>
             <div class="icon-item"><i class="fab fa-golang"></i><span>Golang</span></div>
             <div class="icon-item"><i class="fab fa-docker"></i><span>Docker</span></div>
             <div class="icon-item"><i class="fa-brands fa-react"></i><span>React</span></div>
@@ -106,17 +120,17 @@
     <section id="cloud">
         <h2>Works with any cloud</h2>
         <div class="cloud-carousel">
-            <div class="cloud-slide">
-                <div class="cloud-item">
-                    <img src="https://via.placeholder.com/200x100?text=AWS" alt="Amazon Web Services">
+            <div class="cloud-slide"> 
+                <div class="cloud-item"> <!-- 100x200 -->
+                    <img src="https://cdn.worldvectorlogo.com/logos/aws-2.svg" alt="Amazon Web Services">
                     <h3>Amazon Web Services</h3>
                 </div>
                 <div class="cloud-item">
-                    <img src="https://via.placeholder.com/200x100?text=Azure" alt="Microsoft Azure">
+                    <img src="https://cdn.worldvectorlogo.com/logos/azure-2.svg" alt="Microsoft Azure">
                     <h3>Microsoft Azure</h3>
                 </div>
                 <div class="cloud-item">
-                    <img src="https://via.placeholder.com/200x100?text=GCP" alt="Google Cloud Platform">
+                    <img src="https://cdn.worldvectorlogo.com/logos/google-cloud-1.svg" alt="Google Cloud Platform">
                     <h3>Google Cloud Platform</h3>
                 </div>
             </div>
@@ -148,12 +162,12 @@
 
     <section id="media">
         <h2>As (not) seen (yet) in...</h2>
-        <div class="media-logos">
-            <img src="https://via.placeholder.com/180x60?text=Forbes" alt="Forbes">
-            <img src="https://via.placeholder.com/180x60?text=NYTimes" alt="New York Times">
-            <img src="https://via.placeholder.com/180x60?text=BusinessInsider" alt="Business Insider">
-            <img src="https://via.placeholder.com/180x60?text=Wired" alt="Wired">
-            <img src="https://via.placeholder.com/180x60?text=HBR" alt="Harvard Business Review">
+        <div class="media-logos"> <!-- 180x60 -->
+            <img src="https://cdn.worldvectorlogo.com/logos/forbes-2.svg" alt="Forbes">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/NewYorkTimes.svg/2880px-NewYorkTimes.svg.png?20190313030219" alt="New York Times">
+            <img src="https://cdn.worldvectorlogo.com/logos/business-insider-1.svg" alt="Business Insider">
+            <img src="https://cdn.worldvectorlogo.com/logos/wired.svg" alt="Wired">
+            <img src="https://cdn.worldvectorlogo.com/logos/harvard-business-review.svg" alt="Harvard Business Review">
         </div>
     </section>
 
@@ -194,6 +208,7 @@
     </section>
 
     <footer>
+        <!-- Footer directly included -->
         <div class="footer-content">
             <div class="footer-logo">
                 <div class="logo"><a href="index.html">Matteo</a></div>
