@@ -417,22 +417,27 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     padding: 30px;
     background-color: var(--light-gray);
     border-radius: 15px;
     transition: var(--transition);
     width: 280px;
+    height: 300px;
 }
 
 .cloud-item img {
-    max-width: 100%;
-    margin-bottom: 20px;
+    max-width: 150px;
+    max-height: 150px;
+    margin-top: 20px;
     transition: var(--transition);
+    object-fit: contain;
 }
 
 .cloud-item h3 {
     font-size: 1.2rem;
     text-align: center;
+    margin-top: auto;
 }
 
 .cloud-item:hover {
