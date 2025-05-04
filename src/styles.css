@@ -103,6 +103,16 @@ nav {
     color: var(--primary-color);
 }
 
+.logo a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.logo a:hover {
+    color: var(--secondary-color);
+}
+
 .nav-links {
     display: flex;
     gap: 30px;
@@ -614,6 +624,14 @@ footer {
 
 .footer-logo p {
     color: #a0aec0;
+}
+
+.footer-logo .logo a {
+    color: var(--white);
+}
+
+.footer-logo .logo a:hover {
+    color: var(--accent-color);
 }
 
 .footer-links {
