@@ -692,6 +692,74 @@ footer {
     transform: translateY(-3px);
 }
 
+/* Privacy and Terms pages */
+.terms-privacy-page section p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    color: var(--dark-gray);
+}
+
+.terms-privacy-page section h2 {
+    margin-bottom: 30px;
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+.terms-privacy-page section h2:after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 15px auto 0;
+}
+
+.terms-privacy-page main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.terms-privacy-page section {
+    margin-bottom: 40px;
+    padding: 30px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+}
+
+.terms-privacy-page section a {
+    color: var(--primary-color);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.terms-privacy-page section a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Media queries for privacy and terms pages */
+@media (max-width: 768px) {
+    .terms-privacy-page section {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .terms-privacy-page section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .terms-privacy-page section p {
+        font-size: 0.95rem;
+    }
+    
+    .terms-privacy-page main {
+        margin: 20px auto;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     #hero {
