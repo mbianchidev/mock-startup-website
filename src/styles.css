@@ -24,6 +24,11 @@ body {
     overflow-x: hidden;
 }
 
+/* Class added when mobile menu is open to prevent scrolling */
+body.menu-open {
+    overflow: hidden;
+}
+
 a {
     text-decoration: none;
     color: var(--text-color);
@@ -125,6 +130,38 @@ nav {
 
 .nav-links a:hover {
     color: var(--primary-color);
+}
+
+/* Mobile menu toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    transition: var(--transition);
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
 }
 
 .cta-button {
@@ -716,21 +753,46 @@ footer {
 
 @media (max-width: 768px) {
     nav {
-        flex-direction: column;
-        padding: 20px 5%;
+        flex-direction: row; /* Keep horizontal layout for logo and menu toggle */
+        padding: 15px 5%;
+        justify-content: space-between;
+        align-items: center;
     }
-
+    
     .logo {
-        margin-bottom: 20px;
+        margin-bottom: 0; /* Remove margin that was pushing content down */
     }
-
+    
+    .menu-toggle {
+        display: flex; /* Show the menu toggle on mobile */
+    }
+    
     .nav-links {
+        position: absolute;
+        top: 70px; /* Position below the navbar */
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
         flex-direction: column;
         align-items: center;
         gap: 15px;
-        margin-bottom: 20px;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        transform: translateY(-100vh); /* Hide it off-screen */
+        opacity: 0;
+        transition: transform 0.4s ease, opacity 0.3s ease;
+        z-index: 99;
     }
-
+    
+    .nav-links.active {
+        transform: translateY(0); /* Show the menu when active */
+        opacity: 1;
+    }
+    
+    .cta-button {
+        display: none; /* Hide CTA button on mobile, can be shown in mobile menu if desired */
+    }
+    
     .hero-content h1 {
         font-size: 2.5rem;
     }
