@@ -255,21 +255,45 @@ addRevealStyles();
 
 // Handle mobile menu toggle
 const setupMobileMenu = () => {
-    // For future mobile menu implementation
+    // Create mobile menu toggle button
     const menuToggle = document.createElement('div');
     menuToggle.className = 'menu-toggle';
     menuToggle.innerHTML = '<span></span><span></span><span></span>';
     
     const nav = document.querySelector('nav');
     const navLinks = document.querySelector('.nav-links');
+    const ctaButton = document.querySelector('.cta-button');
     
     // Only create mobile menu for smaller screens
     if (window.innerWidth <= 768) {
+        // Insert toggle button after logo
         nav.insertBefore(menuToggle, navLinks);
         
+        // Move the CTA button into the mobile menu for smaller screens
+        if (ctaButton && navLinks) {
+            const ctaListItem = document.createElement('li');
+            const clonedCta = ctaButton.cloneNode(true);
+            ctaListItem.appendChild(clonedCta);
+            navLinks.appendChild(ctaListItem);
+        }
+        
+        // Add click event to toggle menu
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             menuToggle.classList.toggle('active');
+            
+            // Add/remove a class to prevent body scrolling when menu is open
+            document.body.classList.toggle('menu-open');
+        });
+        
+        // Close menu when a link is clicked
+        const navLinkAnchors = navLinks.querySelectorAll('a');
+        navLinkAnchors.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
         });
     }
 };
@@ -284,6 +308,13 @@ window.addEventListener('resize', () => {
     if (existingToggle) {
         existingToggle.remove();
     }
+    
+    // Reset any menu-related classes
+    const navLinks = document.querySelector('.nav-links');
+    if (navLinks) {
+        navLinks.classList.remove('active');
+    }
+    document.body.classList.remove('menu-open');
     
     // Re-setup based on new size
     setupMobileMenu();
