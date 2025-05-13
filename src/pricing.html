@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Security Headers via Meta Tags -->
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://kit.fontawesome.com https://ka-f.fontawesome.com https://cdn.worldvectorlogo.com https://cdn.prod.website-files.com https://upload.wikimedia.org https://github.com https://raw.githubusercontent.com https://mb-consulting.dev https://youtube.com/@mbianchidev https://blog.mb-consulting.dev; script-src 'self' 'unsafe-inline' https://kit.fontawesome.com https://ka-f.fontawesome.com; style-src 'self' 'unsafe-inline' https://ka-f.fontawesome.com https://cdnjs.cloudflare.com; img-src 'self' data: https://cdn.worldvectorlogo.com https://upload.wikimedia.org https://cdn.prod.website-files.com https://github.com https://raw.githubusercontent.com; font-src 'self' https://ka-f.fontawesome.com data:; connect-src 'self' https://ka-f.fontawesome.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://kit.fontawesome.com https://ka-f.fontawesome.com https://cdn.worldvectorlogo.com https://cdn.prod.website-files.com https://upload.wikimedia.org https://github.com https://raw.githubusercontent.com https://mb-consulting.dev https://youtube.com/@mbianchidev https://blog.mb-consulting.dev; script-src 'self' 'unsafe-inline' https://kit.fontawesome.com https://ka-f.fontawesome.com; style-src 'self' 'unsafe-inline' https://ka-f.fontawesome.com; img-src 'self' data: https://cdn.worldvectorlogo.com https://upload.wikimedia.org https://cdn.prod.website-files.com https://github.com https://raw.githubusercontent.com; font-src 'self' https://ka-f.fontawesome.com data:; connect-src 'self' https://ka-f.fontawesome.com;">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
     <title>Pricing - Matteo Platform</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/77b2f5a2d5.js" crossorigin="anonymous"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Update copyright year
@@ -267,7 +269,7 @@
                     <p class="plan-description">Perfect for small teams getting started with modern development practices</p>
                     <div class="plan-price">
                         <span class="currency">$</span>
-                        499
+                        999
                         <span class="period">/month</span>
                     </div>
                     <ul class="plan-features">
@@ -285,7 +287,7 @@
                         </li>
                         <li class="feature-item">
                             <i class="fas fa-check"></i>
-                            <span>Terraform & Ansible Integration</span>
+                            <span>OpenTofu & Ansible Integration</span>
                         </li>
                         <li class="feature-item">
                             <i class="fas fa-check"></i>
@@ -304,7 +306,7 @@
                             <span>Multi-Cloud Support</span>
                         </li>
                     </ul>
-                    <a href="#" class="plan-cta secondary-plan-button">Get Started</a>
+                    <a href="#" class="plan-cta secondary-plan-button">Free Trial</a>
                 </div>
 
                 <!-- Pro Plan -->
@@ -314,7 +316,7 @@
                     <p class="plan-description">Ideal for growing organizations with advanced infrastructure needs</p>
                     <div class="plan-price">
                         <span class="currency">$</span>
-                        1,299
+                        1,999
                         <span class="period">/month</span>
                     </div>
                     <ul class="plan-features">
@@ -332,7 +334,7 @@
                         </li>
                         <li class="feature-item">
                             <i class="fas fa-check"></i>
-                            <span>Full IaC Suite (Terraform, Pulumi)</span>
+                            <span>Full IaC Suite (OpenTofu, Pulumi)</span>
                         </li>
                         <li class="feature-item">
                             <i class="fas fa-check"></i>
@@ -360,7 +362,7 @@
                     <p class="plan-description">Full-scale platform for large organizations with complex requirements</p>
                     <div class="plan-price">
                         <span class="currency">$</span>
-                        4,999
+                        9,999
                         <span class="period">/month</span>
                     </div>
                     <ul class="plan-features">
@@ -437,8 +439,8 @@
                         </tr>
                         <tr>
                             <td><strong>Infrastructure as Code</strong></td>
-                            <td>Terraform, Ansible</td>
-                            <td>Terraform, Pulumi, Ansible</td>
+                            <td>OpenTofu, Ansible</td>
+                            <td>OpenTofu, Pulumi, Ansible</td>
                             <td>Full IaC Suite + Custom Tools</td>
                         </tr>
                         <tr>
@@ -517,12 +519,12 @@
                 
                 <div class="faq-item">
                     <h3>What IaC tools are supported?</h3>
-                    <p>We support all major infrastructure as code tools including Terraform, CloudFormation, Pulumi, Ansible, and Chef. Our platform provides a unified interface for managing resources across these tools.</p>
+                    <p>We support all major Infrastructure as Code and Configuration Management tools including OpenTofu, CloudFormation, Pulumi, Ansible, and Puppet. Our platform provides a unified interface for managing resources across these tools.</p>
                 </div>
                 
                 <div class="faq-item">
                     <h3>Do you offer custom pricing for startups?</h3>
-                    <p>Yes, we have special startup programs for early-stage companies. Please contact our sales team to discuss your specific needs and eligibility.</p>
+                    <p>Yes, we have special startup programs for early-stage companies. Please contact our sales team to discuss your specific needs and eligibility. Discount is directly based on the % of stocks you'll grant in return.</p>
                 </div>
             </div>
         </div>
@@ -540,46 +542,47 @@
     </section>
 
     <footer>
-      <div class="footer-content">
-          <div class="footer-logo">
-              <div class="logo"><a href="index.html">Matteo</a></div>
-              <p>Transforming businesses since 2015</p>
-          </div>
-          <div class="footer-links">
-              <div class="link-column">
-                  <h3>Product</h3>
-                  <a href="#features">Features</a>
-                  <a href="pricing.html">Pricing</a>
-                  <a href="#integrations">Integrations</a>
-                  <a href="#">Roadmap</a>
-              </div>
-              <div class="link-column">
-                  <h3>Company</h3>
-                  <a href="#">About</a>
-                  <a href="#">Careers</a>
-                  <a href="#">Blog</a>
-                  <a href="#">Press</a>
-              </div>
-              <div class="link-column">
-                  <h3>Resources</h3>
-                  <a href="#">Documentation</a>
-                  <a href="#">Support</a>
-                  <a href="#">Community</a>
-                  <a href="#">Contact</a>
-              </div>
-          </div>
-      </div>
-      <div class="footer-bottom">
-          <p>&copy; <span id="current-year">2025</span> Synctune. All rights reserved.</p>
-          <p class="copilot-credit">Vibe coded with 💙 and GitHub Copilot</p>
-          <p>Privacy Policy | Terms of Service</p>
-          <div class="social-icons">
-              <a href="#"><i class="fa-brands fa-square-bluesky"></i></a>
-              <a href="#"><i class="fab fa-linkedin"></i></a>
-              <a href="#"><i class="fab fa-github"></i></a>
-          </div>
-      </div>
-  </footer>
+        <!-- Footer directly included -->
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo"><a href="index.html">Matte⚙️</a></div>
+                <p>Transforming businesses since 2015</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h3>Product</h3>
+                    <a href="#features">Features</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="#integrations">Integrations</a>
+                    <a href="roadmap.html">Roadmap</a>
+                </div>
+                <div class="link-column">
+                    <h3>Company</h3>
+                    <a href="about.html">About</a>
+                    <a href="careers.html">Careers</a>
+                    <a href="https://blog.mb-consulting.dev" target="_blank">Blog</a>
+                    <a href="#press.html">Press</a>
+                </div>
+                <div class="link-column">
+                    <h3>Resources</h3>
+                    <a href="documentation.html">Documentation</a>
+                    <a href="support.html">Support</a>
+                    <a href="community.html">Community</a>
+                    <a href="mailto:info@mb-consulting.dev">Contact</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year">2025</span> Synctune. All rights reserved.</p>
+            <p class="copilot-credit">Vibe coded with 💙 and GitHub Copilot</p>
+            <p class="footer-links link-column"><a href="privacy.html">Privacy</a> | <a href="terms.html">Terms of Service</a></p>
+            <div class="social-icons">
+                <a href="https://mbianchidev.bsky.social" target="_blank"><i class="fa-brands fa-square-bluesky"></i></a>
+                <a href="https://www.linkedin.com/in/mbianchidev" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/mbianchidev" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
