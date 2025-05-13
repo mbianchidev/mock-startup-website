@@ -857,8 +857,23 @@ footer {
         opacity: 1;
     }
     
-    .cta-button {
-        display: none; /* Hide CTA button on mobile, can be shown in mobile menu if desired */
+    /* Hide the original CTA button position, not the button itself */
+    nav > .cta-button {
+        display: none;
+    }
+    
+    /* Style the CTA button inside the mobile navigation */
+    .mobile-cta-item {
+        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .mobile-cta-item .cta-button {
+        display: inline-block; /* Ensure it's visible in the mobile menu */
+        width: 80%;
+        text-align: center;
     }
     
     .hero-content h1 {

@@ -269,11 +269,12 @@ const setupMobileMenu = () => {
         // Insert toggle button after logo
         nav.insertBefore(menuToggle, navLinks);
         
-        // Move the CTA button into the mobile menu for smaller screens
+        // Move the original CTA button into the mobile menu for smaller screens instead of cloning
         if (ctaButton && navLinks) {
             const ctaListItem = document.createElement('li');
-            const clonedCta = ctaButton.cloneNode(true);
-            ctaListItem.appendChild(clonedCta);
+            ctaListItem.className = 'mobile-cta-item';
+            // Use the original button instead of cloning it
+            ctaListItem.appendChild(ctaButton);
             navLinks.appendChild(ctaListItem);
         }
         
@@ -295,6 +296,14 @@ const setupMobileMenu = () => {
                 document.body.classList.remove('menu-open');
             });
         });
+    } else {
+        // For desktop view, ensure the CTA button is back in its original position
+        const mobileCta = document.querySelector('.mobile-cta-item');
+        if (mobileCta && ctaButton) {
+            // If we previously moved the button to mobile menu, move it back to nav
+            nav.appendChild(ctaButton);
+            mobileCta.remove();
+        }
     }
 };
 
