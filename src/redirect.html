@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background: #f8f9fa;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            margin: 20px 0;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Redirecting...</h1>
+    <p>You are being redirected to the appropriate page.</p>
+    <p>If you are not redirected automatically, please <a id="redirect-link" href="#">click here</a>.</p>
+
+    <script>
+        // Map of redirects - path to target URL
+        const redirectMap = {
+            
+            // -- External stuff --
+            
+            // Dev community profiles
+            '/gh': 'https://github.com/mbianchidev',
+            '/github': 'https://github.com/mbianchidev',
+            '/so': 'https://stackoverflow.com/users/7410528/mbianchidev',
+            '/stack': 'https://stackshare.io/mbianchidev/known-techs',
+            '/cncf': 'https://community.cncf.io/u/m9crwf/#/about',
+            
+            // Resumes and CVs
+            '/cv': '/static/Matteo_Bianchi.pdf',
+            '/resume': '/static/Matteo_Bianchi_resume.pdf',
+            '/cv-swe': '/static/Matteo_Bianchi_swe.pdf',
+            '/resume/swe': '/static/Matteo_Bianchi_swe.pdf',
+            '/cv-ops': '/static/Matteo_Bianchi_devops.pdf',
+            '/resume/ops': '/static/Matteo_Bianchi_devops.pdf',
+            '/cv-man': '/static/Matteo_Bianchi_eng_man.pdf',
+            '/resume/man': '/static/Matteo_Bianchi_eng_man.pdf',
+            '/cv-devrel': '/static/Matteo_Bianchi_devrel.pdf',
+            '/resume/devrel': '/static/Matteo_Bianchi_devrel.pdf',
+            
+            // Social media
+            '/tg': 'https://t.me/mbianchidev_bot',
+            '/telegram': 'https://t.me/mbianchidev_bot',
+            '/li': 'https://www.linkedin.com/in/mbianchidev/',
+            '/linkedin': 'https://www.linkedin.com/in/mbianchidev/',
+            '/x': 'https://twitter.com/mbianchidev',
+            '/bsky': 'https://mbianchidev.bsky.social',
+            '/mastodon': 'https://hachyderm.io/@mbianchidev',
+            
+            // Blogs and articles
+            '/blog': 'https://blog.mb-consulting.dev',
+            '/medium': 'https://medium.com/@mbianchidev',
+            '/devto': 'https://dev.to/mbianchidev',
+            '/nl': 'https://funews.substack.com/',
+            '/newsletter': 'https://funews.substack.com/',
+            
+            // Mentoring
+            '/mentor': 'https://mentors.to/mbianchidev',
+            '/mentorship': 'https://mentors.to/mbianchidev',
+            
+            // Public speaking
+            '/sessionize': 'https://sessionize.com/mbianchidev/',
+            '/speakerdeck': 'https://speakerdeck.com/mbianchidev',
+            
+            // Achievements and certifications
+            '/badges': 'https://www.credly.com/users/mbianchidev/badges',
+            '/credly': 'https://www.credly.com/users/mbianchidev/badges',
+            
+            // Bookings
+            '/cal': 'https://calendly.com/mbianchidev/book-a-session',
+            '/bookings': 'https://cal.com/mbianchidev',
+            '/book15': 'https://cal.com/mbianchidev/intro',
+            '/book15.html': 'https://cal.com/mbianchidev/intro',
+            '/book30': 'https://cal.com/mbianchidev/chat',
+            '/book30.html': 'https://cal.com/mbianchidev/chat',
+            '/book60': 'https://cal.com/mbianchidev/1-1-session',
+            '/book60.html': 'https://cal.com/mbianchidev/1-1-session',
+            '/secret': 'https://cal.com/mbianchidev/secret',
+            
+            // Referral links
+            '/ib': 'https://ibkr.com/referral/matteo953',
+            '/revolut': 'https://www.revolut.com/referral/?referral-code=matteonojl!SEP1-23-AR-L1',
+            '/mentorcruise': 'http://mentorcruise.com/referrals/ELUv37rO1sSaC861SLnRDxwewvJxzpiR0Buq0S0M',
+            
+            // Future links for future projects
+            '/tw': 'https://www.twitch.tv/mbianchidev',
+            '/yt': 'https://youtube.com/mbianchidev',
+            '/youtube': 'https://youtube.com/@mbianchidev',
+            '/podcast': 'TODO',
+            '/discord': '/work-in-progress',
+            '/instagram': 'https://www.instagram.com/b143ck_',
+            
+            // Every other link
+            '/all-links': 'https://linktr.ee/mbianchidev'
+        };
+
+        // Get the path from current URL or from query parameter
+        let path = '';
+        
+        // Check if there's a path parameter (this would come from the 404.html page)
+        const urlParams = new URLSearchParams(window.location.search);
+        const pathParam = urlParams.get('goto');
+        
+        if (pathParam) {
+            path = pathParam;
+        } else {
+            path = window.location.pathname;
+        }
+        
+        const cleanPath = path.endsWith('/') ? path.slice(0, -1) : path;
+        
+        // Check if we have a redirect for this path
+        let targetUrl = null;
+        
+        // First, try exact match
+        if (redirectMap[cleanPath]) {
+            targetUrl = redirectMap[cleanPath];
+        } else {
+            // Then try to match parts of the path (for example, extracting 'book30' from '/src/book30.html')
+            const pathParts = cleanPath.split('/');
+            const lastPart = pathParts[pathParts.length - 1];
+            
+            // Check if the lastPart (e.g., 'book30.html') is in our map
+            if (redirectMap['/' + lastPart]) {
+                targetUrl = redirectMap['/' + lastPart];
+            } else if (lastPart.includes('.')) {
+                // Try without extension (e.g., convert 'book30.html' to 'book30')
+                const nameWithoutExt = lastPart.split('.')[0];
+                if (redirectMap['/' + nameWithoutExt]) {
+                    targetUrl = redirectMap['/' + nameWithoutExt];
+                } else if (redirectMap['/' + nameWithoutExt + '.html']) {
+                    targetUrl = redirectMap['/' + nameWithoutExt + '.html'];
+                }
+            }
+        }
+
+        // If we found a target URL, redirect to it
+        if (targetUrl) {
+            document.getElementById('redirect-link').href = targetUrl;
+            window.location.href = targetUrl;
+        } else {
+            // If no redirect found, show an error or redirect to homepage
+            document.body.innerHTML = `
+                <h1>Redirect Not Found</h1>
+                <p>Sorry, we couldn't find a redirect for this URL: ${path}</p>
+                <p><a href="/">Go to Homepage</a></p>
+            `;
+        }
+    </script>
+</body>
+</html>

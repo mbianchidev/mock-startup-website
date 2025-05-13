@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - Matteo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    <script src="https://kit.fontawesome.com/77b2f5a2d5.js" crossorigin="anonymous"></script>
+    <style>
+        .error-container {
+            text-align: center;
+            padding: 100px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .error-code {
+            font-size: 120px;
+            font-weight: bold;
+            margin: 0;
+            line-height: 1;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .error-message {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .home-link {
+            display: inline-block;
+            margin-top: 30px;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+        .home-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if this might be a redirect path
+            const path = window.location.pathname;
+            
+            // Extract the last part of the path (e.g., "book30.html" from "/src/book30.html")
+            const pathParts = path.split('/');
+            const lastPart = pathParts[pathParts.length - 1];
+            
+            // Check if it might be a booking link or other redirect
+            if (lastPart.startsWith('book') || 
+                lastPart === 'github' || 
+                lastPart === 'linkedin' || 
+                lastPart === 'youtube' || 
+                lastPart === 'blog') {
+                
+                // Redirect to our redirect.html with the original path as a query parameter
+                window.location.href = '/redirect.html?goto=' + encodeURIComponent(path);
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html">Matte⚙️</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#integrations">Integrations</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+            </ul>
+            <button class="cta-button" onclick="window.open('https://mb-consulting.dev/book15', '_blank')">Get Started</button>
+        </nav>
+    </header>
+
+    <div class="error-container">
+        <h1 class="error-code">404</h1>
+        <h2 class="error-message">Page Not Found</h2>
+        <p>The page you're looking for doesn't exist or has been moved.</p>
+        <a href="index.html" class="home-link">Back to Home</a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo"><a href="index.html">Matte⚙️</a></div>
+                <p>Transforming businesses since 2015</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h3>Product</h3>
+                    <a href="#features">Features</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="#integrations">Integrations</a>
+                    <a href="roadmap.html">Roadmap</a>
+                </div>
+                <div class="link-column">
+                    <h3>Company</h3>
+                    <a href="about.html">About</a>
+                    <a href="careers.html">Careers</a>
+                    <a href="https://blog.mb-consulting.dev" target="_blank">Blog</a>
+                    <a href="#press.html">Press</a>
+                </div>
+                <div class="link-column">
+                    <h3>Resources</h3>
+                    <a href="documentation.html">Documentation</a>
+                    <a href="support.html">Support</a>
+                    <a href="community.html">Community</a>
+                    <a href="mailto:info@mb-consulting.dev">Contact</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year">2025</span> Synctune. All rights reserved.</p>
+            <p class="copilot-credit">Vibe coded with 💙 and GitHub Copilot</p>
+            <p class="footer-links link-column"><a href="privacy.html">Privacy</a> | <a href="terms.html">Terms of Service</a></p>
+            <div class="social-icons">
+                <a href="https://mbianchidev.bsky.social" target="_blank"><i class="fa-brands fa-square-bluesky"></i></a>
+                <a href="https://www.linkedin.com/in/mbianchidev" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/mbianchidev" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update copyright year
+            const yearElement = document.getElementById('current-year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>
