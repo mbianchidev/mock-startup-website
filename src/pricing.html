@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Security Headers via Meta Tags -->
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -21,6 +19,212 @@
             if (yearElement) {
                 yearElement.textContent = new Date().getFullYear();
             }
+            
+            // Add toggle buttons and functionality for mobile
+            setupMobilePricingToggles();
+            
+            // Setup FAQ toggles
+            setupFaqToggles();
+        });
+        
+        function setupFaqToggles() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                // Hide all answer paragraphs initially
+                const answer = item.querySelector('p');
+                if (answer) {
+                    answer.style.display = 'block'; // Ensure display is block for animation
+                    answer.style.maxHeight = '0';
+                    answer.style.marginTop = '0';
+                    answer.style.opacity = '0';
+                    answer.setAttribute('aria-hidden', 'true');
+                    answer.id = 'faq-answer-' + Math.random().toString(36).substring(2, 9);
+                    item.setAttribute('aria-controls', answer.id);
+                }
+                
+                // Handle click events
+                const toggleFaq = function() {
+                    const wasActive = item.classList.contains('active');
+                    
+                    // Close other FAQ items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                            otherItem.setAttribute('aria-expanded', 'false');
+                            const otherAnswer = otherItem.querySelector('p');
+                            if (otherAnswer) {
+                                otherAnswer.style.maxHeight = '0';
+                                otherAnswer.style.marginTop = '0';
+                                otherAnswer.style.opacity = '0';
+                                otherAnswer.setAttribute('aria-hidden', 'true');
+                            }
+                        }
+                    });
+                    
+                    // Toggle this item
+                    if (wasActive) {
+                        item.classList.remove('active');
+                        item.setAttribute('aria-expanded', 'false');
+                        if (answer) {
+                            answer.style.maxHeight = '0';
+                            answer.style.marginTop = '0';
+                            answer.style.opacity = '0';
+                            answer.setAttribute('aria-hidden', 'true');
+                        }
+                    } else {
+                        item.classList.add('active');
+                        item.setAttribute('aria-expanded', 'true');
+                        if (answer) {
+                            // Get the actual height needed for animation
+                            answer.style.maxHeight = 'none'; // Temporarily remove max-height to measure full height
+                            const scrollHeight = answer.scrollHeight;
+                            answer.style.maxHeight = '0'; // Reset to animate from 0
+                            
+                            // Force a reflow to ensure the animation runs
+                            void answer.offsetWidth;
+                            
+                            // Start animation
+                            answer.style.maxHeight = scrollHeight + 'px';
+                            answer.style.marginTop = '15px';
+                            answer.style.opacity = '1';
+                            answer.setAttribute('aria-hidden', 'false');
+                        }
+                    }
+                };
+                
+                // Add click event listener
+                item.addEventListener('click', toggleFaq);
+                
+                // Add keyboard support
+                item.addEventListener('keydown', function(e) {
+                    // Handle Enter and Space keys
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleFaq();
+                    }
+                });
+            });
+            
+            // Optionally open the first FAQ item by default
+            // Uncomment the following lines if you want the first item to be open initially
+            // if(faqItems.length > 0) {
+            //    faqItems[0].click();
+            // }
+        }
+        
+        function setupMobilePricingToggles() {
+            // Only setup for mobile devices
+            if (window.innerWidth <= 768) {
+                const pricingPlans = document.querySelectorAll('.pricing-plan');
+                const pricingContainer = document.querySelector('.pricing-container');
+                
+                // Add mobile hint
+                if (pricingContainer) {
+                    const mobileHint = document.createElement('div');
+                    mobileHint.className = 'mobile-pricing-hint';
+                    mobileHint.innerHTML = '<i class="fas fa-hand-pointer"></i> Tap on a plan to view features';
+                    pricingContainer.parentNode.insertBefore(mobileHint, pricingContainer);
+                    
+                    // Hide hint after 5 seconds
+                    setTimeout(() => {
+                        mobileHint.style.opacity = '0';
+                        setTimeout(() => {
+                            mobileHint.style.display = 'none';
+                        }, 500);
+                    }, 5000);
+                }
+                
+                pricingPlans.forEach(plan => {
+                    // Add toggle element
+                    const toggleElement = document.createElement('div');
+                    toggleElement.className = 'plan-toggle';
+                    toggleElement.innerHTML = 'View Features <i class="fas fa-chevron-down"></i>';
+                    
+                    // Insert toggle after price
+                    const planPrice = plan.querySelector('.plan-price');
+                    if (planPrice) {
+                        planPrice.after(toggleElement);
+                    }
+                    
+                    // Add click event to entire plan
+                    plan.addEventListener('click', function(e) {
+                        // If clicking on CTA button, don't expand
+                        if (e.target.closest('.plan-cta')) {
+                            return;
+                        }
+                        
+                        // Toggle expanded class
+                        this.classList.toggle('expanded');
+                        
+                        // Update toggle text
+                        const toggle = this.querySelector('.plan-toggle');
+                        if (toggle) {
+                            toggle.innerHTML = this.classList.contains('expanded') 
+                                ? 'Hide Features <i class="fas fa-chevron-up"></i>' 
+                                : 'View Features <i class="fas fa-chevron-down"></i>';
+                        }
+                        
+                        // Show plan description when expanded
+                        const description = this.querySelector('.plan-description');
+                        if (description) {
+                            description.style.display = this.classList.contains('expanded') ? 'block' : 'none';
+                        }
+                        
+                        // Close other expanded plans
+                        pricingPlans.forEach(otherPlan => {
+                            if (otherPlan !== this && otherPlan.classList.contains('expanded')) {
+                                otherPlan.classList.remove('expanded');
+                                const otherToggle = otherPlan.querySelector('.plan-toggle');
+                                if (otherToggle) {
+                                    otherToggle.innerHTML = 'View Features <i class="fas fa-chevron-down"></i>';
+                                }
+                                
+                                // Hide description for other plans
+                                const otherDescription = otherPlan.querySelector('.plan-description');
+                                if (otherDescription) {
+                                    otherDescription.style.display = 'none';
+                                }
+                            }
+                        });
+                        
+                        // Hide mobile hint when any plan is clicked
+                        const mobileHint = document.querySelector('.mobile-pricing-hint');
+                        if (mobileHint) {
+                            mobileHint.style.opacity = '0';
+                            setTimeout(() => {
+                                mobileHint.style.display = 'none';
+                            }, 500);
+                        }
+                    });
+                });
+            }
+        }
+        
+        // Re-setup on window resize
+        window.addEventListener('resize', function() {
+            // Remove existing toggles
+            document.querySelectorAll('.plan-toggle').forEach(toggle => toggle.remove());
+            
+            // Remove mobile hint
+            const mobileHint = document.querySelector('.mobile-pricing-hint');
+            if (mobileHint) {
+                mobileHint.remove();
+            }
+            
+            // Reset expanded classes
+            document.querySelectorAll('.pricing-plan').forEach(plan => {
+                plan.classList.remove('expanded');
+                
+                // Reset plan description display
+                const description = plan.querySelector('.plan-description');
+                if (description) {
+                    description.style.display = window.innerWidth <= 768 ? 'none' : 'block';
+                }
+            });
+            
+            // Setup again if mobile
+            setupMobilePricingToggles();
         });
     </script>
     <style>
@@ -48,6 +252,12 @@
             flex-direction: column;
         }
 
+        @media (max-width: 768px) {
+            .pricing-plan {
+                padding: 30px 20px;
+            }
+        }
+
         .pricing-plan:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(67, 97, 238, 0.15);
@@ -71,10 +281,22 @@
             color: var(--secondary-color);
         }
 
+        @media (max-width: 768px) {
+            .plan-name {
+                text-align: center;
+            }
+        }
+
         .plan-description {
             color: var(--dark-gray);
             margin-bottom: 25px;
             line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            .plan-description {
+                display: none;
+            }
         }
 
         .plan-price {
@@ -83,6 +305,13 @@
             margin-bottom: 5px;
             display: flex;
             align-items: flex-start;
+        }
+
+        @media (max-width: 768px) {
+            .plan-price {
+                margin-bottom: 15px;
+                justify-content: center;
+            }
         }
 
         .plan-price .currency {
@@ -102,6 +331,14 @@
         .plan-features {
             margin: 30px 0;
             flex-grow: 1;
+        }
+        
+        .plan-features-header {
+            display: none;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            text-align: center;
         }
 
         .plan-features .feature-item {
@@ -133,6 +370,16 @@
             transition: var(--transition);
             text-align: center;
             margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            .plan-cta {
+                margin-top: 15px;
+            }
+            
+            .pricing-plan.expanded .plan-cta {
+                margin-top: 25px;
+            }
         }
 
         .primary-plan-button {
@@ -212,11 +459,97 @@
         @media (max-width: 768px) {
             .pricing-plan {
                 min-width: 100%;
+                cursor: pointer;
+                position: relative;
+                padding: 30px 20px;
+                transition: all 0.3s ease-in-out;
             }
             
             .compare-table {
                 overflow-x: auto;
                 display: block;
+            }
+            
+            .pricing-plan .plan-features {
+                display: none;
+                margin-top: 20px;
+                border-top: 1px solid #eee;
+                padding-top: 20px;
+            }
+            
+            .pricing-plan.expanded .plan-features {
+                display: block;
+                animation: fadeIn 0.3s ease-in-out;
+            }
+            
+            .pricing-plan .plan-features-header {
+                display: block;
+            }
+            
+            .pricing-plan.expanded {
+                box-shadow: 0 8px 25px rgba(67, 97, 238, 0.15);
+            }
+            
+            .pricing-plan .plan-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 15px;
+                color: var(--primary-color);
+                font-weight: 600;
+                font-size: 0.9rem;
+                position: relative;
+            }
+            
+            .pricing-plan .plan-toggle::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: radial-gradient(circle, rgba(67, 97, 238, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+                opacity: 0;
+                transform: scale(0.8);
+                transition: opacity 0.3s ease, transform 0.3s ease;
+                z-index: -1;
+                border-radius: 50%;
+            }
+            
+            .pricing-plan:active .plan-toggle::before {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+            
+            .pricing-plan .plan-toggle i {
+                margin-left: 5px;
+                transition: transform 0.3s ease;
+            }
+            
+            .pricing-plan.expanded .plan-toggle i {
+                transform: rotate(180deg);
+            }
+            
+            .mobile-pricing-hint {
+                text-align: center;
+                padding: 10px;
+                background-color: var(--light-gray);
+                border-radius: 8px;
+                margin-bottom: 20px;
+                font-size: 0.9rem;
+                color: var(--dark-gray);
+                transition: opacity 0.5s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .mobile-pricing-hint i {
+                margin-right: 8px;
+                color: var(--primary-color);
+            }
+            
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(-10px); }
+                to { opacity: 1; transform: translateY(0); }
             }
         }
         
@@ -226,17 +559,76 @@
             margin: 0 auto;
         }
         
+        .faq-intro {
+            text-align: center;
+            color: var(--dark-gray);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
         .faq-item {
             margin-bottom: 20px;
             background-color: var(--white);
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-item:focus {
+            outline: 2px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.2);
         }
         
         .faq-item h3 {
             margin-bottom: 10px;
             color: var(--secondary-color);
+            position: relative;
+            padding-right: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .faq-item h3::after {
+            content: '\f107';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            transition: transform 0.3s ease;
+            color: var(--primary-color);
+        }
+        
+        .faq-item.active h3::after {
+            transform: rotate(180deg);
+        }
+        
+        .faq-item p {
+            margin-top: 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, margin-top 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+            line-height: 1.6;
+        }
+        
+        .faq-item.active p {
+            max-height: 1000px;
+            opacity: 1;
+            margin-top: 15px;
+        }
+        
+        .faq-item.active {
+            background-color: var(--white);
+            border-left: 3px solid var(--primary-color);
         }
     </style>
 </head>
@@ -273,6 +665,7 @@
                         <span class="period">/month</span>
                     </div>
                     <ul class="plan-features">
+                        <div class="plan-features-header">Starter Plan Features</div>
                         <li class="feature-item">
                             <i class="fas fa-check"></i>
                             <span>Single Kubernetes Cluster Management</span>
@@ -320,6 +713,7 @@
                         <span class="period">/month</span>
                     </div>
                     <ul class="plan-features">
+                        <div class="plan-features-header">Professional Plan Features</div>
                         <li class="feature-item">
                             <i class="fas fa-check"></i>
                             <span>Multi-Cluster Kubernetes Management</span>
@@ -366,6 +760,7 @@
                         <span class="period">/month</span>
                     </div>
                     <ul class="plan-features">
+                        <div class="plan-features-header">Enterprise Plan Features</div>
                         <li class="feature-item">
                             <i class="fas fa-check"></i>
                             <span>Unlimited Kubernetes Clusters</span>
@@ -500,31 +895,42 @@
     <section id="faq">
         <div class="container">
             <h2>Frequently Asked Questions</h2>
+            <p class="faq-intro">Find answers to common questions about our platform. Click on a question to see the answer.</p>
             
             <div class="faq-container">
-                <div class="faq-item">
+                <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
                     <h3>Can I start with the Starter plan and upgrade later?</h3>
                     <p>Absolutely! You can upgrade to a higher tier plan at any time. Your existing configuration and data will automatically transfer to your new plan.</p>
                 </div>
                 
-                <div class="faq-item">
+                <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
                     <h3>What kind of Kubernetes clusters are supported?</h3>
                     <p>We support all CNCF-certified Kubernetes distributions including EKS, AKS, GKE, as well as self-managed clusters like Rancher, OpenShift, and plain vanilla Kubernetes.</p>
                 </div>
                 
-                <div class="faq-item">
+                <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
                     <h3>How do you handle multi-cloud deployments?</h3>
                     <p>Our Professional and Enterprise plans include tooling for unified management across different cloud providers. This includes normalized infrastructure definitions, cross-cloud networking, and unified observability.</p>
                 </div>
                 
-                <div class="faq-item">
+                <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
                     <h3>What IaC tools are supported?</h3>
-                    <p>We support all major Infrastructure as Code and Configuration Management tools including OpenTofu, CloudFormation, Pulumi, Ansible, and Puppet. Our platform provides a unified interface for managing resources across these tools.</p>
+                    <p>We support all major infrastructure as code tools including OpenTofu, CloudFormation, Pulumi, Ansible, and Puppet. Our platform provides a unified interface for managing resources across these tools.</p>
                 </div>
                 
-                <div class="faq-item">
+                <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
                     <h3>Do you offer custom pricing for startups?</h3>
-                    <p>Yes, we have special startup programs for early-stage companies. Please contact our sales team to discuss your specific needs and eligibility. Discount is directly based on the % of stocks you'll grant in return.</p>
+                    <p>Yes, we have special startup programs for early-stage companies. Please contact our sales team to discuss your specific needs and eligibility. Discount % varies 1:1 based on the % of stocks you give up. Just pay cash and do not bargain.</p>
+                </div>
+                
+                <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
+                    <h3>How does your support work?</h3>
+                    <p>Each plan includes different levels of support. Starter plans include business hours support via email and chat. Professional plans add extended hours and priority response times. Enterprise plans include 24/7 support with dedicated technical account managers and guaranteed response times.</p>
+                </div>
+                
+                <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
+                    <h3>Can I try before I buy?</h3>
+                    <p>Yes! We offer a 14-day free trial of any plan with full functionality. No credit card required to start. You can also schedule a personalized demo with our team to see how the platform addresses your specific needs.</p>
                 </div>
             </div>
         </div>
