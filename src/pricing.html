@@ -226,6 +226,86 @@
             // Setup again if mobile
             setupMobilePricingToggles();
         });
+
+        // Cost Calculator Functionality
+        function initCostCalculator() {
+            const tierSelect = document.getElementById('tier-select');
+            const hoursSlider = document.getElementById('hours-slider');
+            const hoursInput = document.getElementById('hours-input');
+            const presetButtons = document.querySelectorAll('.preset-btn');
+            
+            // Sync slider and input
+            function syncHoursInputs() {
+                hoursSlider.value = hoursInput.value;
+                hoursInput.value = hoursSlider.value;
+                updateCostCalculation();
+            }
+            
+            hoursSlider.addEventListener('input', () => {
+                hoursInput.value = hoursSlider.value;
+                updateCostCalculation();
+            });
+            
+            hoursInput.addEventListener('input', () => {
+                hoursSlider.value = hoursInput.value;
+                updateCostCalculation();
+            });
+            
+            // Preset buttons
+            presetButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const hours = btn.dataset.hours;
+                    hoursSlider.value = hours;
+                    hoursInput.value = hours;
+                    
+                    // Update active preset
+                    presetButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    updateCostCalculation();
+                });
+            });
+            
+            // Tier selection change
+            tierSelect.addEventListener('change', updateCostCalculation);
+            
+            function updateCostCalculation() {
+                const selectedOption = tierSelect.options[tierSelect.selectedIndex];
+                const hourlyRate = parseInt(selectedOption.dataset.rate);
+                const hours = parseInt(hoursInput.value);
+                const tierName = selectedOption.value;
+                
+                // Calculate costs
+                const monthlyTotal = hourlyRate * hours;
+                const dailyCost = Math.round((monthlyTotal / 30) * 100) / 100;
+                const maxMonthlyCost = 150 * 744; // Max possible cost (Production tier, full month)
+                const costPercentage = (monthlyTotal / maxMonthlyCost) * 100;
+                
+                // Update display elements
+                document.getElementById('monthly-total').textContent = `€${monthlyTotal.toLocaleString()}`;
+                document.getElementById('hourly-rate').textContent = `€${hourlyRate}/hour`;
+                document.getElementById('monthly-hours').textContent = `${hours} hours`;
+                document.getElementById('daily-cost').textContent = `€${dailyCost}/day`;
+                document.getElementById('cost-bar-fill').style.width = `${Math.min(costPercentage, 100)}%`;
+                document.getElementById('cta-tier').textContent = tierName.charAt(0).toUpperCase() + tierName.slice(1);
+                
+                // Update preset button active state based on current hours
+                presetButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (parseInt(btn.dataset.hours) === hours) {
+                        btn.classList.add('active');
+                    }
+                });
+            }
+            
+            // Initial calculation
+            updateCostCalculation();
+        }
+        
+        // Initialize calculator when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initCostCalculator();
+        });
     </script>
     <style>
         /* Pricing page specific styles */
@@ -630,6 +710,285 @@
             background-color: var(--white);
             border-left: 3px solid var(--primary-color);
         }
+
+        /* Cost Calculator Styles */
+        #cost-calculator {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
+            padding: 80px 0;
+        }
+
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .calculator-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+        }
+
+        .calculator-header p {
+            font-size: 1.2rem;
+            color: var(--medium-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .calculator-container {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto 40px auto;
+        }
+
+        .calculator-inputs .input-group {
+            margin-bottom: 30px;
+        }
+
+        .calculator-inputs label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark-gray);
+            font-size: 1.1rem;
+        }
+
+        .calculator-select,
+        .calculator-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e1e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .calculator-select:focus,
+        .calculator-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .calculator-slider {
+            width: 100%;
+            margin: 10px 0;
+            height: 6px;
+            border-radius: 3px;
+            background: #e1e8f0;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .calculator-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(67, 97, 238, 0.3);
+        }
+
+        .calculator-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 6px rgba(67, 97, 238, 0.3);
+        }
+
+        .preset-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .preset-btn {
+            padding: 15px;
+            border: 2px solid #e1e8f0;
+            border-radius: 10px;
+            background: var(--white);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+
+        .preset-btn span {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--medium-gray);
+            margin-top: 5px;
+        }
+
+        .preset-btn:hover,
+        .preset-btn.active {
+            border-color: var(--primary-color);
+            background: rgba(67, 97, 238, 0.05);
+            color: var(--primary-color);
+        }
+
+        .preset-btn.active span {
+            color: var(--primary-color);
+        }
+
+        .calculator-results {
+            padding: 20px;
+            background: #f8f9ff;
+            border-radius: 15px;
+        }
+
+        .cost-display {
+            margin-bottom: 30px;
+        }
+
+        .total-cost {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .cost-label {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--medium-gray);
+            margin-bottom: 5px;
+        }
+
+        .cost-amount {
+            display: block;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .cost-breakdown {
+            border-top: 1px solid #e1e8f0;
+            padding-top: 20px;
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 5px 0;
+        }
+
+        .breakdown-item span:first-child {
+            color: var(--medium-gray);
+        }
+
+        .breakdown-item span:last-child {
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+
+        .cost-chart h4 {
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+        }
+
+        .chart-container {
+            margin-bottom: 15px;
+        }
+
+        .cost-bar {
+            position: relative;
+            height: 30px;
+            background: #e1e8f0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), #8B7AE6);
+            border-radius: 15px;
+            transition: width 0.3s ease;
+            width: 21.5%;
+        }
+
+        .bar-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+        }
+
+        .savings-note {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--success-color);
+            background: rgba(46, 160, 67, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .calculator-cta {
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .calculator-cta .primary-button {
+            margin-right: 15px;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 30px 20px;
+            }
+
+            .calculator-header h2 {
+                font-size: 2rem;
+            }
+
+            .cost-amount {
+                font-size: 2.5rem;
+            }
+
+            .preset-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .calculator-cta .primary-button,
+            .calculator-cta .secondary-button {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #cost-calculator {
+                padding: 60px 0;
+            }
+
+            .calculator-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .cost-amount {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -643,32 +1002,32 @@
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="index.html#testimonials">Testimonials</a></li>
             </ul>
-            <button class="cta-button">Get Started</button>
+            <button class="cta-button" onclick="window.open('https://mb-consulting.dev/book15', '_blank')">Get Started</button>
         </nav>
     </header>
 
     <section id="pricing-hero">
         <div class="container">
             <div class="pricing-header">
-                <h2>Simple, Transparent Pricing</h2>
-                <p>Choose the plan that's right for your team and scale as you grow. All plans include core platform features, updates, and basic support.</p>
+                <h2>Pay-Per-Use Pricing</h2>
+                <p>Only pay for what you use with transparent hourly rates. No upfront costs, no long-term commitments. Scale your compute resources as needed with our flexible tiers.</p>
             </div>
 
             <div class="pricing-container">
                 <!-- Starter Plan -->
                 <div class="pricing-plan">
-                    <h3 class="plan-name">Starter</h3>
-                    <p class="plan-description">Perfect for small teams getting started with modern development practices</p>
+                    <h3 class="plan-name">Development</h3>
+                    <p class="plan-description">Perfect for development environments and small workloads</p>
                     <div class="plan-price">
-                        <span class="currency">$</span>
-                        999
-                        <span class="period">/month</span>
+                        <span class="currency">€</span>
+                        100
+                        <span class="period">/hour</span>
                     </div>
                     <ul class="plan-features">
-                        <div class="plan-features-header">Starter Plan Features</div>
+                        <div class="plan-features-header">Development Tier Includes</div>
                         <li class="feature-item">
                             <i class="fas fa-check"></i>
-                            <span>Single Kubernetes Cluster Management</span>
+                            <span>Single Kubernetes Cluster</span>
                         </li>
                         <li class="feature-item">
                             <i class="fas fa-check"></i>
@@ -676,7 +1035,7 @@
                         </li>
                         <li class="feature-item">
                             <i class="fas fa-check"></i>
-                            <span>Developer Portal (10 users)</span>
+                            <span>Developer Portal (up to 10 users)</span>
                         </li>
                         <li class="feature-item">
                             <i class="fas fa-check"></i>
@@ -684,7 +1043,7 @@
                         </li>
                         <li class="feature-item">
                             <i class="fas fa-check"></i>
-                            <span>API Gateway & Management</span>
+                            <span>Basic Monitoring & Logging</span>
                         </li>
                         <li class="feature-item not-included">
                             <i class="fas fa-times"></i>
@@ -692,28 +1051,28 @@
                         </li>
                         <li class="feature-item not-included">
                             <i class="fas fa-times"></i>
-                            <span>Advanced GitOps Automation</span>
+                            <span>Advanced GitOps Features</span>
                         </li>
                         <li class="feature-item not-included">
                             <i class="fas fa-times"></i>
-                            <span>Multi-Cloud Support</span>
+                            <span>24/7 Support</span>
                         </li>
                     </ul>
-                    <a href="#" class="plan-cta secondary-plan-button">Free Trial</a>
+                    <a href="#" class="plan-cta secondary-plan-button">Free trial</a>
                 </div>
 
                 <!-- Pro Plan -->
                 <div class="pricing-plan">
                     <div class="popular-badge">Most Popular</div>
-                    <h3 class="plan-name">Professional</h3>
-                    <p class="plan-description">Ideal for growing organizations with advanced infrastructure needs</p>
+                    <h3 class="plan-name">Production</h3>
+                    <p class="plan-description">Standard rate for production workloads and growing teams</p>
                     <div class="plan-price">
-                        <span class="currency">$</span>
-                        1,999
-                        <span class="period">/month</span>
+                        <span class="currency">€</span>
+                        150
+                        <span class="period">/hour</span>
                     </div>
                     <ul class="plan-features">
-                        <div class="plan-features-header">Professional Plan Features</div>
+                        <div class="plan-features-header">Production Tier Includes</div>
                         <li class="feature-item">
                             <i class="fas fa-check"></i>
                             <span>Multi-Cluster Kubernetes Management</span>
@@ -724,7 +1083,7 @@
                         </li>
                         <li class="feature-item">
                             <i class="fas fa-check"></i>
-                            <span>Developer Portal (50 users)</span>
+                            <span>Developer Portal (up to 50 users)</span>
                         </li>
                         <li class="feature-item">
                             <i class="fas fa-check"></i>
@@ -736,7 +1095,7 @@
                         </li>
                         <li class="feature-item">
                             <i class="fas fa-check"></i>
-                            <span>Observability & Monitoring</span>
+                            <span>Advanced Observability & Monitoring</span>
                         </li>
                         <li class="feature-item">
                             <i class="fas fa-check"></i>
@@ -744,23 +1103,23 @@
                         </li>
                         <li class="feature-item not-included">
                             <i class="fas fa-times"></i>
-                            <span>Custom Enterprise Integrations</span>
+                            <span>Dedicated Support Team</span>
                         </li>
                     </ul>
-                    <a href="#" class="plan-cta primary-plan-button">Get Started</a>
+                    <a href="#" class="plan-cta primary-plan-button">Start Computing</a>
                 </div>
 
                 <!-- Enterprise Plan -->
                 <div class="pricing-plan">
                     <h3 class="plan-name">Enterprise</h3>
-                    <p class="plan-description">Full-scale for large organizations with complex requirements</p>
+                    <p class="plan-description">Premium tier for mission-critical workloads and large organizations</p>
                     <div class="plan-price">
-                        <span class="currency">$</span>
-                        9,999
-                        <span class="period">/month</span>
+                        <span class="currency"></span>
+                        Contact Sales
+                        <span class="period"></span>
                     </div>
                     <ul class="plan-features">
-                        <div class="plan-features-header">Enterprise Plan Features</div>
+                        <div class="plan-features-header">Enterprise Tier Includes</div>
                         <li class="feature-item">
                             <i class="fas fa-check"></i>
                             <span>Unlimited Kubernetes Clusters</span>
@@ -783,7 +1142,7 @@
                         </li>
                         <li class="feature-item">
                             <i class="fas fa-check"></i>
-                            <span>Advanced Security Controls</span>
+                            <span>Advanced Security & Compliance</span>
                         </li>
                         <li class="feature-item">
                             <i class="fas fa-check"></i>
@@ -802,15 +1161,15 @@
 
     <section id="feature-comparison">
         <div class="container">
-            <h2>Feature Comparison</h2>
+            <h2>Compute Tier Comparison</h2>
             <div class="compare-table">
                 <table>
                     <thead>
                         <tr>
                             <th>Feature</th>
-                            <th>Starter</th>
-                            <th>Professional</th>
-                            <th>Enterprise</th>
+                            <th>Development<br><small>€100/hour</small></th>
+                            <th>Production<br><small>€150/hour</small></th>
+                            <th>Enterprise<br><small>Contact Sales</small></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -846,7 +1205,7 @@
                         </tr>
                         <tr>
                             <td><strong>API Management</strong></td>
-                            <td>Gateway & Basic Management</td>
+                            <td>Basic Gateway</td>
                             <td>Design & Lifecycle</td>
                             <td>Governance & Mesh Architecture</td>
                         </tr>
@@ -869,15 +1228,15 @@
                             <td>Full Observability Suite</td>
                         </tr>
                         <tr>
-                            <td><strong>Security Controls</strong></td>
-                            <td>Basic</td>
-                            <td>Advanced</td>
-                            <td>Enterprise-grade</td>
+                            <td><strong>Security & Compliance</strong></td>
+                            <td>Basic Security</td>
+                            <td>Advanced Security</td>
+                            <td>Enterprise-grade + Compliance</td>
                         </tr>
                         <tr>
-                            <td><strong>Support SLA</strong></td>
-                            <td>Business Hours</td>
-                            <td>Extended Hours</td>
+                            <td><strong>Support Level</strong></td>
+                            <td>Community Support</td>
+                            <td>Business Hours Support</td>
                             <td>24/7 Priority Support</td>
                         </tr>
                         <tr>
@@ -885,6 +1244,10 @@
                             <td><i class="fas fa-times"></i></td>
                             <td><i class="fas fa-times"></i></td>
                             <td><i class="fas fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Billing Model</strong></td>
+                            <td colspan="3" style="text-align: center; font-style: italic;">Pay only for actual compute hours used • No monthly minimums • Scale to zero</td>
                         </tr>
                     </tbody>
                 </table>
@@ -899,50 +1262,126 @@
             
             <div class="faq-container">
                 <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-                    <h3>Can I start with the Starter plan and upgrade later?</h3>
-                    <p>Absolutely! You can upgrade to a higher tier plan at any time. Your existing configuration and data will automatically transfer to your new plan.</p>
+                    <h3>How does pay-per-use billing work?</h3>
+                    <p>You only pay for the actual Matteo compute hours your workloads use. Billing is calculated per hour with minute-level precision. When your services scale to zero, you pay nothing. No upfront costs, no monthly minimums.</p>
                 </div>
                 
                 <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-                    <h3>What kind of Kubernetes clusters are supported?</h3>
-                    <p>We support all CNCF-certified Kubernetes distributions including EKS, AKS, GKE, as well as self-managed clusters like Rancher, OpenShift, and plain vanilla Kubernetes.</p>
+                    <h3>Can I switch between compute tiers?</h3>
+                    <p>Yes! You can change your compute tier at any time. Different workloads can even use different tiers simultaneously. Your billing will reflect the actual tier used for each compute hour.</p>
+                </div>
+                
+                <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
+                    <h3>What's included in the hourly rate?</h3>
+                    <p>The hourly rate includes all platform features for your tier, infrastructure management, monitoring, security, and support. There are no hidden fees or additional charges for data transfer within the same cloud region.</p>
                 </div>
                 
                 <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
                     <h3>How do you handle multi-cloud deployments?</h3>
-                    <p>Our Professional and Enterprise plans include tooling for unified management across different cloud providers. This includes normalized infrastructure definitions, cross-cloud networking, and unified observability.</p>
+                    <p>Our Production and Enterprise tiers include tooling for unified management across different cloud providers. Billing is calculated per compute hour regardless of which cloud provider hosts your workloads.</p>
                 </div>
                 
                 <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-                    <h3>What IaC tools are supported?</h3>
-                    <p>We support all major infrastructure as code tools including OpenTofu, CloudFormation, Pulumi, Ansible, and Puppet. Our platform provides a unified interface for managing resources across these tools.</p>
+                    <h3>Do you offer volume discounts?</h3>
+                    <p>Yes! For organizations using at least 160 compute hours per month, we offer custom pricing with volume discounts. Contact our sales team to discuss enterprise pricing that scales with your usage.</p>
                 </div>
                 
                 <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-                    <h3>Do you offer custom pricing for startups?</h3>
-                    <p>Yes, we have special startup programs for early-stage companies. Please contact our sales team to discuss your specific needs and eligibility. Discount % varies 1:1 based on the % of stocks you give up. Just pay cash and do not bargain.</p>
+                    <h3>How does support work with pay-per-use?</h3>
+                    <p>Support level depends on your compute tier. Development tier includes community support, Production tier gets business hours support, and Enterprise tier includes 24/7 priority support with dedicated account management.</p>
                 </div>
                 
                 <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-                    <h3>How does your support work?</h3>
-                    <p>Each plan includes different levels of support. Starter plans include business hours support via email and chat. Professional plans add extended hours and priority response times. Enterprise plans include 24/7 support with dedicated technical account managers and guaranteed response times.</p>
-                </div>
-                
-                <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-                    <h3>Can I try before I buy?</h3>
-                    <p>Yes! We offer a 14-day free trial of any plan with full functionality. No credit card required to start. You can also schedule a personalized demo with our team to see how the platform addresses your specific needs.</p>
+                    <h3>Can I estimate my monthly costs?</h3>
+                    <p>Absolutely! We provide cost estimation tools and usage analytics. Most development workloads average 20-40 hours/week (€3,000-€6,000), while production workloads typically run 100-150 hours/month (€15,000-€22,500).</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="cta">
+    <section id="cost-calculator">
         <div class="container">
-            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
-                <h2>Ready to Transform Your Platform Engineering?</h2>
-                <p style="font-size: 1.2rem; margin-bottom: 30px;">Join dozens of organizations that have simplified their cloud infrastructure with Matteo.</p>
-                <button class="primary-button" style="margin-right: 15px;">Start Free Trial</button>
-                <button class="secondary-button">Schedule a Demo</button>
+            <div class="calculator-header">
+                <h2>Cost Calculator</h2>
+                <p>Estimate your monthly costs with our transparent pay-per-use pricing. Adjust the parameters below to see real-time cost calculations.</p>
+            </div>
+            
+            <div class="calculator-container">
+                <div class="calculator-inputs">
+                    <div class="input-group">
+                        <label for="tier-select">Pricing Tier</label>
+                        <select id="tier-select" class="calculator-select">
+                            <option value="development" data-rate="100">Development - €100/hour</option>
+                            <option value="production" data-rate="150" selected>Production - €150/hour</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="hours-input">Estimated Hours per Month</label>
+                        <input type="range" id="hours-slider" min="1" max="744" value="160" class="calculator-slider">
+                        <input type="number" id="hours-input" min="1" max="744" value="160" class="calculator-input">
+                        <small>Range: 1-744 hours (full month)</small>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Quick Presets</label>
+                        <div class="preset-buttons">
+                            <button type="button" class="preset-btn" data-hours="40">40h/month<span>Part-time</span></button>
+                            <button type="button" class="preset-btn active" data-hours="160">160h/month<span>Standard</span></button>
+                            <button type="button" class="preset-btn" data-hours="320">320h/month<span>High Usage</span></button>
+                            <button type="button" class="preset-btn" data-hours="744">744h/month<span>24/7</span></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="calculator-results">
+                    <div class="cost-display">
+                        <div class="total-cost">
+                            <span class="cost-label">Monthly Total</span>
+                            <span class="cost-amount" id="monthly-total">€24,000</span>
+                        </div>
+                        <div class="cost-breakdown">
+                            <div class="breakdown-item">
+                                <span>Hourly Rate:</span>
+                                <span id="hourly-rate">€150/hour</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span>Monthly Hours:</span>
+                                <span id="monthly-hours">160 hours</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span>Daily Average:</span>
+                                <span id="daily-cost">€800/day</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cost-chart">
+                        <h4>Cost Projection</h4>
+                        <div class="chart-container">
+                            <div class="cost-bar">
+                                <div class="bar-fill" id="cost-bar-fill"></div>
+                                <div class="bar-labels">
+                                    <span>€0</span>
+                                    <span>€111,600</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="savings-note">
+                            <i class="fas fa-info-circle"></i>
+                            <span>No upfront costs • Pay only for actual usage • Cancel anytime</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="calculator-cta">
+                <button class="primary-button" onclick="window.open('https://mb-consulting.dev/book15', '_blank')">
+                    Start with <span id="cta-tier">Production</span> Tier
+                </button>
+                <button class="secondary-button" onclick="window.location.href='mailto:info@mb-consulting.dev?subject=Enterprise Pricing Inquiry'">
+                    Contact for Enterprise
+                </button>
             </div>
         </div>
     </section>
