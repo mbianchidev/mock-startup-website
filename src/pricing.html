@@ -387,6 +387,11 @@
             align-items: flex-start;
         }
 
+        /* Make Contact Sales text smaller in Enterprise plan */
+        .pricing-plan:last-child .plan-price {
+            font-size: 2.5rem;
+        }
+
         @media (max-width: 768px) {
             .plan-price {
                 margin-bottom: 15px;
@@ -1010,7 +1015,7 @@
         <div class="container">
             <div class="pricing-header">
                 <h2>Pay-Per-Use Pricing</h2>
-                <p>Only pay for what you use with transparent hourly rates. No upfront costs, no long-term commitments. Scale your compute resources as needed with our flexible tiers.</p>
+                <p>Only pay for what you use. No upfront costs. No credit card required. Scale your compute resources as needed with our flexible tiers.</p>
             </div>
 
             <div class="pricing-container">
@@ -1255,50 +1260,6 @@
         </div>
     </section>
 
-    <section id="faq">
-        <div class="container">
-            <h2>Frequently Asked Questions</h2>
-            <p class="faq-intro">Find answers to common questions about our platform. Click on a question to see the answer.</p>
-            
-            <div class="faq-container">
-                <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-                    <h3>How does pay-per-use billing work?</h3>
-                    <p>You only pay for the actual Matteo compute hours your workloads use. Billing is calculated per hour with minute-level precision. When your services scale to zero, you pay nothing. No upfront costs, no monthly minimums.</p>
-                </div>
-                
-                <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-                    <h3>Can I switch between compute tiers?</h3>
-                    <p>Yes! You can change your compute tier at any time. Different workloads can even use different tiers simultaneously. Your billing will reflect the actual tier used for each compute hour.</p>
-                </div>
-                
-                <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-                    <h3>What's included in the hourly rate?</h3>
-                    <p>The hourly rate includes all platform features for your tier, infrastructure management, monitoring, security, and support. There are no hidden fees or additional charges for data transfer within the same cloud region.</p>
-                </div>
-                
-                <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-                    <h3>How do you handle multi-cloud deployments?</h3>
-                    <p>Our Production and Enterprise tiers include tooling for unified management across different cloud providers. Billing is calculated per compute hour regardless of which cloud provider hosts your workloads.</p>
-                </div>
-                
-                <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-                    <h3>Do you offer volume discounts?</h3>
-                    <p>Yes! For organizations using at least 160 compute hours per month, we offer custom pricing with volume discounts. Contact our sales team to discuss enterprise pricing that scales with your usage.</p>
-                </div>
-                
-                <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-                    <h3>How does support work with pay-per-use?</h3>
-                    <p>Support level depends on your compute tier. Development tier includes community support, Production tier gets business hours support, and Enterprise tier includes 24/7 priority support with dedicated account management.</p>
-                </div>
-                
-                <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-                    <h3>Can I estimate my monthly costs?</h3>
-                    <p>Absolutely! We provide cost estimation tools and usage analytics. Most development workloads average 20-40 hours/week (€3,000-€6,000), while production workloads typically run 100-150 hours/month (€15,000-€22,500).</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="cost-calculator">
         <div class="container">
             <div class="calculator-header">
@@ -1374,7 +1335,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="calculator-cta">
                 <button class="primary-button" onclick="window.open('https://mb-consulting.dev/book15', '_blank')">
                     Start with <span id="cta-tier">Production</span> Tier
@@ -1382,6 +1343,50 @@
                 <button class="secondary-button" onclick="window.location.href='mailto:info@mb-consulting.dev?subject=Enterprise Pricing Inquiry'">
                     Contact for Enterprise
                 </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <p class="faq-intro">Find answers to common questions about our platform. Click on a question to see the answer.</p>
+            
+            <div class="faq-container">
+                <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
+                    <h3>How does pay-per-use billing work?</h3>
+                    <p>You only pay for the actual Matteo compute hours your workloads use. Billing is calculated per hour with minute-level precision. When your services scale to zero, you pay nothing. No upfront costs, no monthly minimums.</p>
+                </div>
+                
+                <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
+                    <h3>Can I switch between compute tiers?</h3>
+                    <p>Yes! You can change your compute tier at any time. Different workloads can even use different tiers simultaneously. Your billing will reflect the actual tier used for each compute hour.</p>
+                </div>
+                
+                <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
+                    <h3>What's included in the hourly rate?</h3>
+                    <p>The hourly rate includes all platform features for your tier, infrastructure management, monitoring, security, and support. There are no hidden fees or additional charges for data transfer within the same cloud region.</p>
+                </div>
+                
+                <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
+                    <h3>How do you handle multi-cloud deployments?</h3>
+                    <p>Our Production and Enterprise tiers include tooling for unified management across different cloud providers. Billing is calculated per compute hour regardless of which cloud provider hosts your workloads.</p>
+                </div>
+                
+                <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
+                    <h3>Do you offer volume discounts?</h3>
+                    <p>Yes! For organizations using at least 160 compute hours per month, we offer custom pricing with volume discounts. Contact our sales team to discuss enterprise pricing that scales with your usage.</p>
+                </div>
+                
+                <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
+                    <h3>How does support work with pay-per-use?</h3>
+                    <p>Support level depends on your compute tier. Development tier includes community support, Production tier gets business hours support, and Enterprise tier includes 24/7 priority support with dedicated account management.</p>
+                </div>
+                
+                <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
+                    <h3>Can I estimate my monthly costs?</h3>
+                    <p>Absolutely! We provide cost estimation tools and usage analytics. Most development workloads average 20-40 hours/week (€3,000-€6,000), while production workloads typically run 100-150 hours/month (€15,000-€22,500).</p>
+                </div>
             </div>
         </div>
     </section>
