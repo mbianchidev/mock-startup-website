@@ -16,10 +16,12 @@ document.addEventListener('DOMContentLoaded', function() {
 // Cloud carousel functionality
 function initCloudCarousel() {
     const indicators = document.querySelectorAll('.indicator');
-    const cloudSlide = document.querySelector('.cloud-slide');
+    const cloudSlidesContainer = document.querySelector('.cloud-slides-container');
+    const cloudSlides = document.querySelectorAll('.cloud-slide');
+    const cloudCarousel = document.querySelector('.cloud-carousel');
     let currentSlide = 0;
+    let autoRotationInterval;
     
-    // For future slides
     const totalSlides = indicators.length;
     
     // Set up click events for indicators
@@ -28,27 +30,64 @@ function initCloudCarousel() {
             currentSlide = index;
             updateCarousel();
         });
+        
+        // Add keyboard support
+        indicator.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                currentSlide = index;
+                updateCarousel();
+            }
+        });
+        
+        // Make indicators focusable
+        indicator.setAttribute('tabindex', '0');
+        indicator.setAttribute('role', 'button');
+        indicator.setAttribute('aria-label', `Go to slide ${index + 1}`);
     });
     
     function updateCarousel() {
-        // Remove active class from all indicators
-        indicators.forEach(ind => ind.classList.remove('active'));
+        // Remove active class from all indicators and slides
+        indicators.forEach((ind, idx) => {
+            ind.classList.remove('active');
+            ind.setAttribute('aria-selected', 'false');
+        });
+        cloudSlides.forEach(slide => slide.classList.remove('active'));
         
-        // Add active class to current indicator
+        // Add active class to current indicator and slide
         indicators[currentSlide].classList.add('active');
+        indicators[currentSlide].setAttribute('aria-selected', 'true');
+        cloudSlides[currentSlide].classList.add('active');
         
-        // Update the transform of the slide
-        // This is a placeholder for future slides
-        // cloudSlide.style.transform = `translateX(-${currentSlide * 100}%)`;
+        // Update the transform of the slides container
+        if (cloudSlidesContainer) {
+            cloudSlidesContainer.style.transform = `translateX(-${currentSlide * 20}%)`;
+            cloudSlidesContainer.setAttribute('aria-live', 'polite');
+        }
     }
     
-    // Auto rotation (can be enabled for future slides)
-    /*
-    setInterval(() => {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        updateCarousel();
-    }, 5000);
-    */
+    function startAutoRotation() {
+        autoRotationInterval = setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }, 5000);
+    }
+    
+    function stopAutoRotation() {
+        if (autoRotationInterval) {
+            clearInterval(autoRotationInterval);
+        }
+    }
+    
+    // Pause auto rotation on hover
+    if (cloudCarousel) {
+        cloudCarousel.addEventListener('mouseenter', stopAutoRotation);
+        cloudCarousel.addEventListener('mouseleave', startAutoRotation);
+    }
+    
+    // Initialize with first slide and start auto rotation
+    updateCarousel();
+    startAutoRotation();
 }
 
 // Icon cloud hover animations
