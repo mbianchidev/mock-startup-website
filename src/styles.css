@@ -132,6 +132,65 @@ nav {
     color: var(--primary-color);
 }
 
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: flex !important;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown-toggle i {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-toggle i {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 200px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    padding: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--text-color);
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--light-gray);
+    color: var(--primary-color);
+}
+
 /* Mobile menu toggle */
 .menu-toggle {
     display: none;
@@ -935,6 +994,24 @@ footer {
     .nav-links.active {
         transform: translateY(0); /* Show the menu when active */
         opacity: 1;
+    }
+    
+    /* Mobile dropdown styles */
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background: var(--light-gray);
+        margin-top: 10px;
+        border-radius: 8px;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        padding: 0;
+    }
+    
+    .dropdown-menu a {
+        padding: 10px 20px;
+        font-size: 0.9rem;
     }
     
     /* Hide the original CTA button position, not the button itself */
