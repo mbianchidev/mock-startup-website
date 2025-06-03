@@ -78,21 +78,38 @@
             showLoadingAnimation(timelineContainer);
             
             try {
-                // Try to fetch data from JSON file first
-                const response = await fetch('../data/customers.json');
-                if (response.ok) {
-                    const jsonData = await response.json();
-                    if (jsonData && jsonData.companies && Array.isArray(jsonData.companies)) {
-                        currentData = jsonData.companies;
-                        console.log('Successfully loaded data from JSON file');
-                        
-                        // Add a small delay to show the loading animation
-                        await new Promise(resolve => setTimeout(resolve, 500));
+                // Try multiple paths to fetch data from JSON file
+                let response;
+                let jsonData;
+                
+                // First try: absolute path from web root (works when server is run from repo root)
+                try {
+                    response = await fetch('/data/customers.json');
+                    if (response.ok) {
+                        jsonData = await response.json();
                     } else {
-                        throw new Error('Invalid JSON structure');
+                        throw new Error(`Failed to fetch from /data/customers.json: ${response.status}`);
                     }
+                } catch (firstError) {
+                    console.log('First attempt failed, trying relative path:', firstError.message);
+                    
+                    // Second try: relative path (works when server is run from src directory)
+                    response = await fetch('../data/customers.json');
+                    if (response.ok) {
+                        jsonData = await response.json();
+                    } else {
+                        throw new Error(`Failed to fetch from ../data/customers.json: ${response.status}`);
+                    }
+                }
+                
+                if (jsonData && jsonData.companies && Array.isArray(jsonData.companies)) {
+                    currentData = jsonData.companies;
+                    console.log('Successfully loaded data from JSON file');
+                    
+                    // Add a small delay to show the loading animation
+                    await new Promise(resolve => setTimeout(resolve, 500));
                 } else {
-                    throw new Error(`Failed to fetch: ${response.status}`);
+                    throw new Error('Invalid JSON structure');
                 }
             } catch (error) {
                 console.warn('Could not load data from JSON file (this is expected when running locally):', error.message);
