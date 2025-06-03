@@ -258,6 +258,28 @@ function initScrollReveal() {
         item.classList.add('reveal-item');
         iconObserver.observe(item);
     });
+    
+    // Add scroll reveal to the kubernetes items
+    const kubernetesItems = document.querySelectorAll('.kubernetes-item');
+    
+    const kubernetesObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Add a staggered delay for grid animation
+                setTimeout(() => {
+                    entry.target.classList.add('revealed');
+                }, index * 100);
+                kubernetesObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+    
+    kubernetesItems.forEach(item => {
+        item.classList.add('reveal-item');
+        kubernetesObserver.observe(item);
+    });
 }
 
 // Add CSS for reveal animations programmatically

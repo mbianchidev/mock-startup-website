@@ -132,6 +132,65 @@ nav {
     color: var(--primary-color);
 }
 
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: flex !important;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown-toggle i {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-toggle i {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 200px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    padding: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--text-color);
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--light-gray);
+    color: var(--primary-color);
+}
+
 /* Mobile menu toggle */
 .menu-toggle {
     display: none;
@@ -525,6 +584,68 @@ nav {
     background-color: var(--primary-color);
 }
 
+/* Kubernetes Section */
+#kubernetes {
+    background-color: var(--light-gray);
+    padding: var(--section-padding);
+    position: relative;
+}
+
+.kubernetes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.kubernetes-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    background-color: var(--white);
+    border-radius: 15px;
+    transition: var(--transition);
+    height: 280px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.kubernetes-item img {
+    max-width: 120px;
+    max-height: 120px;
+    margin-bottom: 20px;
+    transition: var(--transition);
+    object-fit: contain;
+    filter: grayscale(20%);
+}
+
+.kubernetes-item h3 {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.kubernetes-item p {
+    font-size: 0.9rem;
+    text-align: center;
+    color: var(--dark-gray);
+    font-weight: 500;
+}
+
+.kubernetes-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.kubernetes-item:hover img {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
 /* Numbers Section */
 #numbers {
     background-color: var(--primary-color);
@@ -875,6 +996,24 @@ footer {
         opacity: 1;
     }
     
+    /* Mobile dropdown styles */
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background: var(--light-gray);
+        margin-top: 10px;
+        border-radius: 8px;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        padding: 0;
+    }
+    
+    .dropdown-menu a {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
     /* Hide the original CTA button position, not the button itself */
     nav > .cta-button {
         display: none;
@@ -927,6 +1066,22 @@ footer {
     
     .carousel-indicators {
         margin-top: 30px;
+    }
+
+    .kubernetes-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .kubernetes-item {
+        height: 240px;
+        padding: 20px;
+    }
+
+    .kubernetes-item img {
+        max-width: 100px;
+        max-height: 100px;
     }
 
     .footer-content {
