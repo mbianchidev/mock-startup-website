@@ -9,8 +9,172 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://kit.fontawesome.com https://ka-f.fontawesome.com https://cdn.worldvectorlogo.com https://cdn.prod.website-files.com https://upload.wikimedia.org https://github.com https://raw.githubusercontent.com https://mb-consulting.dev https://youtube.com/@mbianchidev https://blog.mb-consulting.dev; script-src 'self' 'unsafe-inline' https://kit.fontawesome.com https://ka-f.fontawesome.com; style-src 'self' 'unsafe-inline' https://ka-f.fontawesome.com https://cdnjs.cloudflare.com; img-src 'self' data: https://cdn.worldvectorlogo.com https://upload.wikimedia.org https://cdn.prod.website-files.com https://github.com https://raw.githubusercontent.com; font-src 'self' https://ka-f.fontawesome.com data:; connect-src 'self' https://ka-f.fontawesome.com;">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+    <title>Careers - Matteo Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    <script src="https://kit.fontawesome.com/77b2f5a2d5.js" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update copyright year
+            const yearElement = document.getElementById('current-year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
 </head>
 <body>
-    <!-- Page content goes here -->
+    <header>
+        <!-- Navbar directly included -->
+        <nav>
+            <div class="logo"><a href="index.html">Matte⚙️</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html#features">Features</a></li>
+                <li class="dropdown">
+                    <a href="index.html#integrations" class="dropdown-toggle">Integrations <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#integrations">Tools</a></li>
+                        <li><a href="index.html#cloud">Cloud platforms</a></li>
+                        <li><a href="index.html#kubernetes">Kubernetes distros</a></li>
+                    </ul>
+                </li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+            </ul>
+            <button class="cta-button" onclick="window.open('https://mb-consulting.dev/book15', '_blank')">Get Started</button>
+        </nav>
+    </header>
+
+    <section id="roadmap-hero">
+        <div class="container">
+            <h2>Career Journey</h2>
+            <p class="section-description">Discover the professional journey and work experience that shaped our expertise</p>
+        </div>
+    </section>
+
+    <section id="roadmap">
+        <div class="container">
+            <div class="timeline">
+                <!-- GitHub -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024-now</div>
+                        <h3>GitHub</h3>
+                        <div class="company-info">
+                            <span class="company-type">🇺🇸 Corporate</span>
+                            <span class="company-sector">DevTools</span>
+                        </div>
+                        <h4>Solutions Engineer (Corporate)</h4>
+                        <p>Finding solutions to engineering problems for GitHub's corporate customers. <a href="https://github.com/" target="_blank">Learn more about GitHub</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="openings">
+        <div class="container">
+            <h2>Open Positions</h2>
+            <p class="section-description">Join our team and help shape the future of platform engineering</p>
+            
+            <div class="job-openings">
+                <div class="job-card">
+                    <h3>Developer Advocate</h3>
+                    <div class="job-location">Remote / San Francisco</div>
+                    <p>Help developers succeed with our platform through technical content, community engagement, and developer experience improvements. You'll create tutorials, speak at conferences, and gather feedback to improve our tools.</p>
+                    <div class="job-skills">
+                        <span class="skill-tag">Technical Writing</span>
+                        <span class="skill-tag">Public Speaking</span>
+                        <span class="skill-tag">Developer Experience</span>
+                        <span class="skill-tag">Community Building</span>
+                    </div>
+                </div>
+
+                <div class="job-card">
+                    <h3>Product Manager (Kubernetes)</h3>
+                    <div class="job-location">Remote / Amsterdam</div>
+                    <p>Drive the product strategy for our Kubernetes platform offerings. Work closely with engineering teams to define features, gather customer requirements, and ensure successful product launches in the cloud-native ecosystem.</p>
+                    <div class="job-skills">
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Product Strategy</span>
+                        <span class="skill-tag">Stakeholder Management</span>
+                        <span class="skill-tag">Cloud Native</span>
+                    </div>
+                </div>
+
+                <div class="job-card">
+                    <h3>Senior Software Engineer</h3>
+                    <div class="job-location">Remote / Berlin</div>
+                    <p>Build scalable platform solutions using modern technologies. You'll work on core platform features, API design, and system architecture while mentoring junior developers and contributing to technical decisions.</p>
+                    <div class="job-skills">
+                        <span class="skill-tag">Go</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Microservices</span>
+                        <span class="skill-tag">System Design</span>
+                    </div>
+                </div>
+
+                <div class="job-card">
+                    <h3>Staff Platform Engineer</h3>
+                    <div class="job-location">Remote / London</div>
+                    <p>Lead the design and implementation of our core platform infrastructure. Drive technical vision, architect scalable systems, and provide technical leadership across multiple teams in a fast-paced environment.</p>
+                    <div class="job-skills">
+                        <span class="skill-tag">Platform Engineering</span>
+                        <span class="skill-tag">Infrastructure as Code</span>
+                        <span class="skill-tag">Technical Leadership</span>
+                        <span class="skill-tag">Distributed Systems</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <!-- Footer directly included -->
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo"><a href="index.html">Matte⚙️</a></div>
+                <p>Transforming businesses since 2015</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h3>Product</h3>
+                    <a href="index.html#features">Features</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="index.html#integrations">Integrations</a>
+                    <a href="roadmap.html">Roadmap</a>
+                </div>
+                <div class="link-column">
+                    <h3>Company</h3>
+                    <a href="about.html">About</a>
+                    <a href="careers.html">Careers</a>
+                    <a href="https://blog.mb-consulting.dev" target="_blank">Blog</a>
+                    <a href="#press.html">Press</a>
+                </div>
+                <div class="link-column">
+                    <h3>Resources</h3>
+                    <a href="documentation.html">Documentation</a>
+                    <a href="support.html">Support</a>
+                    <a href="community.html">Community</a>
+                    <a href="mailto:info@mb-consulting.dev">Contact</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year">2025</span> Synctune. All rights reserved.</p>
+            <p class="copilot-credit">Vibe coded with 💙 and GitHub Copilot</p>
+            <p class="footer-links link-column"><a href="privacy.html">Privacy</a> | <a href="terms.html">Terms of Service</a></p>
+            <div class="social-icons">
+                <a href="https://mbianchidev.bsky.social" target="_blank"><i class="fa-brands fa-square-bluesky"></i></a>
+                <a href="https://www.linkedin.com/in/mbianchidev" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/mbianchidev" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
