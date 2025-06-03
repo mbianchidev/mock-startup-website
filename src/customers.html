@@ -9,7 +9,7 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://kit.fontawesome.com https://ka-f.fontawesome.com https://cdn.worldvectorlogo.com https://cdn.prod.website-files.com https://upload.wikimedia.org https://github.com https://raw.githubusercontent.com https://mb-consulting.dev https://youtube.com/@mbianchidev https://blog.mb-consulting.dev; script-src 'self' 'unsafe-inline' https://kit.fontawesome.com https://ka-f.fontawesome.com; style-src 'self' 'unsafe-inline' https://ka-f.fontawesome.com https://cdnjs.cloudflare.com; img-src 'self' data: https://cdn.worldvectorlogo.com https://upload.wikimedia.org https://cdn.prod.website-files.com https://github.com https://raw.githubusercontent.com; font-src 'self' https://ka-f.fontawesome.com data:; connect-src 'self' https://ka-f.fontawesome.com;">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
-    <title>Careers - Matteo Platform</title>
+    <title>Customers - Matteo Platform</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
     <script src="https://kit.fontawesome.com/77b2f5a2d5.js" crossorigin="anonymous"></script>
@@ -25,7 +25,7 @@
             loadCareersTimeline();
         });
         
-        // Careers data embedded to avoid CORS issues when running locally
+        // Minimal fallback data in case JSON loading fails (e.g., when running locally)
         const fallbackCareersData = [
             {
                 "code": "GHB",
@@ -53,157 +53,163 @@
                 "companyLogoY": 62,
                 "companyUrl": "https://mb-consulting.dev",
                 "role": "Founder & Cloud Native Officer",
-                "story": "Leading companies towards Cloud Native, providing a range of specialized services, ranging from Engineering to DevOps coaching, Kubernetes training, fractional CTOing and so on. Offering advisory to startups (pre-seed, seed, series A) operating in the DevTools, AI, Healthcare and Fashion verticals. Making their infrastructure journey as easy as possible. Volunteering to organize events in the Cloud Native space, contributing to Kubernetes, speaking at international conferences, educating and creating content about Cloud Native.",
+                "story": "Leading companies towards Cloud Native, providing specialized services including DevOps coaching, Kubernetes training, and fractional CTO work.",
                 "year": "2021-now",
                 "show": true,
                 "icon": "fas fa-briefcase",
                 "achievements": []
-            },
-            {
-                "code": "MNTCRS",
-                "companyName": "MentorCruise",
-                "companyType": "🇺🇸 Startup",
-                "companySector": "Education Services",
-                "companyLogo": "/images/employers/mentor-cruise.webp",
-                "companyLogoX": 200,
-                "companyLogoY": 1000,
-                "companyUrl": "https://mb-consulting.dev/mentor",
-                "role": "Software Engineering & Career Mentor",
-                "story": "I started mentoring on MentorCruise in 2023 and I can't wait to help more people to achieve their goals.",
-                "year": "2023-now",
-                "show": true,
-                "icon": "fas fa-graduation-cap",
-                "achievements": []
-            },
-            {
-                "code": "OMN",
-                "companyName": "Omnistrate",
-                "companyType": "🇺🇸 Startup",
-                "companySector": "DevTools",
-                "companyLogo": "/images/employers/omnistrate.webp",
-                "companyLogoX": 200,
-                "companyLogoY": 500,
-                "companyUrl": "https://omnistrate.com/",
-                "role": "Head of Developer Relations",
-                "story": "Building the function from ground up, advocating for cloud native SaaS, producing written and video content, documenting features, showcasing the platform capabilities through demos, contributing to GTM strategy, product growth, DevEx and more.",
-                "year": "2023-2024",
-                "show": true,
-                "icon": "fas fa-user-tie",
-                "achievements": []
-            },
-            {
-                "code": "KLB",
-                "companyName": "KubeLab",
-                "companyType": "🇪🇺 Startup",
-                "companySector": "Cloud Infrastructure",
-                "companyLogo": "/images/employers/kubelab.webp",
-                "companyLogoX": 200,
-                "companyLogoY": 500,
-                "companyUrl": "https://www.linkedin.com/company/kubelab/",
-                "role": "Co-Founder & CTO",
-                "story": "Co-founded and led a Platform Engineering startup focused on multi-cloud Kubernetes management. Successfully raised €200k in pre-seed funding and built the initial MVP.",
-                "year": "2023-2024",
-                "show": true,
-                "icon": "fas fa-rocket",
-                "achievements": [
-                    {
-                        "type": "list",
-                        "items": [
-                            {
-                                "type": "startup",
-                                "icon": "fas fa-chart-line",
-                                "text": "€200k Pre-seed Funding Secured"
-                            },
-                            {
-                                "icon": "fas fa-users",
-                                "text": "Managed 7+ engineers across the globe"
-                            },
-                            {
-                                "icon": "fas fa-cloud",
-                                "text": "SaaS reached 600k ARR"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "code": "ZEF",
-                "companyName": "Zefi.ai",
-                "companyType": "🇮🇹 Startup",
-                "companySector": "Artificial Intelligence",
-                "companyLogo": "/images/clients/zefi.webp",
-                "companyLogoX": 200,
-                "companyLogoY": 500,
-                "companyUrl": "https://zefi.ai",
-                "role": "Strategic Advisor | Technical Advisor",
-                "story": "Infrastructure advisory, product testing, support for their AI platform helping Product Managers to take data-driven decisions.",
-                "year": "2023-2024",
-                "show": true,
-                "icon": "fas fa-brain",
-                "achievements": []
-            },
-            {
-                "code": "ABL",
-                "companyName": "Abila",
-                "companyType": "🇮🇹 Enterprise",
-                "companySector": "IT Services",
-                "companyLogo": "/images/clients/abila.webp",
-                "companyLogoX": 200,
-                "companyLogoY": 500,
-                "companyUrl": "https://abila.it/",
-                "role": "Lead Cloud Native Consultant",
-                "story": "As a Lead Cloud Native Consultant for Abila, I helped them to build a new Cloud Native practice and to deliver Cloud Native to their customers.",
-                "year": "2023-2024",
-                "show": true,
-                "icon": "fas fa-cloud",
-                "achievements": []
-            },
-            {
-                "code": "NKI",
-                "companyName": "Nederlandse Kanker Instituut (NKI) - Antoni van Leeuwenhoek",
-                "companyType": "🇳🇱 Research center - Hospital",
-                "companySector": "Healthcare",
-                "companyLogo": "/images/clients/NKI.webp",
-                "companyLogoX": 187,
-                "companyLogoY": 62,
-                "companyUrl": "https://www.nki.nl/",
-                "role": "Lead Cloud Native Consultant | Data Manager",
-                "story": "Supporting computational pathology and ML/AI workloads to train image pattern recognition models on biopsy data, plus annotate and label such data. I was responsible for the whole Azure infrastructure.Objective of the project is to increase the efficiency of diagnosis in breast cancer.",
-                "year": "2022-2023",
-                "show": true,
-                "icon": "fas fa-hospital",
-                "achievements": []
             }
         ];
         
-        // Function to load and render careers timeline from embedded data
-        function loadCareersTimeline() {
+        // Configuration for pagination
+        let currentData = [];
+        let displayedItems = 0;
+        const itemsPerPage = 5;
+        
+        // Function to load and render careers timeline from JSON or fallback data
+        async function loadCareersTimeline() {
+            const timelineContainer = document.getElementById('careers-timeline');
+            if (!timelineContainer) {
+                console.error('Timeline container not found');
+                return;
+            }
+            
+            // Show loading animation
+            showLoadingAnimation(timelineContainer);
+            
             try {
-                const timelineContainer = document.getElementById('careers-timeline');
-                if (!timelineContainer) {
-                    console.error('Timeline container not found');
+                // Try to fetch data from JSON file first
+                const response = await fetch('../data/customers.json');
+                if (response.ok) {
+                    const jsonData = await response.json();
+                    if (jsonData && jsonData.companies && Array.isArray(jsonData.companies)) {
+                        currentData = jsonData.companies;
+                        console.log('Successfully loaded data from JSON file');
+                    } else {
+                        throw new Error('Invalid JSON structure');
+                    }
+                } else {
+                    throw new Error(`Failed to fetch: ${response.status}`);
+                }
+            } catch (error) {
+                console.warn('Could not load data from JSON file (this is expected when running locally):', error.message);
+                console.log('Using fallback data instead');
+                currentData = fallbackCareersData;
+            }
+            
+            // Filter and render data
+            renderTimeline(timelineContainer);
+        }
+        
+        // Function to show loading animation
+        function showLoadingAnimation(container) {
+            container.innerHTML = `
+                <div class="loading-container" style="text-align: center; padding: 40px;">
+                    <div class="loading-spinner" style="
+                        display: inline-block;
+                        width: 40px;
+                        height: 40px;
+                        border: 3px solid #f3f3f3;
+                        border-top: 3px solid #0066cc;
+                        border-radius: 50%;
+                        animation: spin 1s linear infinite;
+                    "></div>
+                    <p style="margin-top: 20px; color: #666;">Loading customer data...</p>
+                </div>
+                <style>
+                    @keyframes spin {
+                        0% { transform: rotate(0deg); }
+                        100% { transform: rotate(360deg); }
+                    }
+                </style>
+            `;
+        }
+        
+        // Function to render timeline with pagination
+        function renderTimeline(container) {
+            try {
+                // Clear existing content
+                container.innerHTML = '';
+                
+                // Filter and render only visible items
+                const visibleCareers = currentData.filter(career => career.show);
+                
+                if (visibleCareers.length === 0) {
+                    container.innerHTML = '<p>No customer data available.</p>';
                     return;
                 }
                 
-                // Clear existing content
-                timelineContainer.innerHTML = '';
+                // Initial load
+                displayedItems = 0;
+                loadMoreItems(container, visibleCareers);
                 
-                // Filter and render only visible items
-                const visibleCareers = fallbackCareersData.filter(career => career.show);
-                
-                visibleCareers.forEach(career => {
-                    const timelineItem = createTimelineItem(career);
-                    timelineContainer.appendChild(timelineItem);
-                });
+                // Add "Load More" button if there are more items to show
+                if (visibleCareers.length > itemsPerPage) {
+                    addLoadMoreButton(container, visibleCareers);
+                }
                 
             } catch (error) {
-                console.error('Error loading careers data:', error);
-                // Fallback: show an error message
-                const timelineContainer = document.getElementById('careers-timeline');
-                if (timelineContainer) {
-                    timelineContainer.innerHTML = '<p>Unable to load career timeline data.</p>';
-                }
+                console.error('Error rendering timeline data:', error);
+                container.innerHTML = '<p>Unable to load customer timeline data.</p>';
             }
+        }
+        
+        // Function to load more items
+        function loadMoreItems(container, visibleCareers) {
+            const itemsToLoad = Math.min(itemsPerPage, visibleCareers.length - displayedItems);
+            
+            for (let i = 0; i < itemsToLoad; i++) {
+                const career = visibleCareers[displayedItems + i];
+                const timelineItem = createTimelineItem(career);
+                container.appendChild(timelineItem);
+            }
+            
+            displayedItems += itemsToLoad;
+        }
+        
+        // Function to add "Load More" button
+        function addLoadMoreButton(container, visibleCareers) {
+            const loadMoreButton = document.createElement('div');
+            loadMoreButton.className = 'load-more-container';
+            loadMoreButton.style.cssText = 'text-align: center; margin: 30px 0;';
+            
+            const button = document.createElement('button');
+            button.className = 'load-more-btn';
+            button.textContent = `Load More (${visibleCareers.length - displayedItems} remaining)`;
+            button.style.cssText = `
+                background: #0066cc;
+                color: white;
+                border: none;
+                padding: 12px 24px;
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: background 0.3s ease;
+            `;
+            
+            button.addEventListener('click', () => {
+                // Remove the current button
+                loadMoreButton.remove();
+                
+                // Load more items
+                loadMoreItems(container, visibleCareers);
+                
+                // Add button again if there are still more items
+                if (displayedItems < visibleCareers.length) {
+                    addLoadMoreButton(container, visibleCareers);
+                }
+            });
+            
+            button.addEventListener('mouseover', () => {
+                button.style.background = '#0052a3';
+            });
+            
+            button.addEventListener('mouseout', () => {
+                button.style.background = '#0066cc';
+            });
+            
+            loadMoreButton.appendChild(button);
+            container.appendChild(loadMoreButton);
         }
         
         // Function to create a timeline item from career data
