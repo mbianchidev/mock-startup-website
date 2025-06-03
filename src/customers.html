@@ -82,23 +82,35 @@
                 let response;
                 let jsonData;
                 
-                // First try: absolute path from web root (works when server is run from repo root)
+                // First try: local copy in src directory (works when server is run from src directory)
                 try {
-                    response = await fetch('/data/customers.json');
+                    response = await fetch('customers.json');
                     if (response.ok) {
                         jsonData = await response.json();
                     } else {
-                        throw new Error(`Failed to fetch from /data/customers.json: ${response.status}`);
+                        throw new Error(`Failed to fetch from customers.json: ${response.status}`);
                     }
                 } catch (firstError) {
-                    console.log('First attempt failed, trying relative path:', firstError.message);
+                    console.log('First attempt failed, trying absolute path:', firstError.message);
                     
-                    // Second try: relative path (works when server is run from src directory)
-                    response = await fetch('../data/customers.json');
-                    if (response.ok) {
-                        jsonData = await response.json();
-                    } else {
-                        throw new Error(`Failed to fetch from ../data/customers.json: ${response.status}`);
+                    // Second try: absolute path from web root (works when server is run from repo root)
+                    try {
+                        response = await fetch('/data/customers.json');
+                        if (response.ok) {
+                            jsonData = await response.json();
+                        } else {
+                            throw new Error(`Failed to fetch from /data/customers.json: ${response.status}`);
+                        }
+                    } catch (secondError) {
+                        console.log('Second attempt failed, trying relative path:', secondError.message);
+                        
+                        // Third try: relative path (fallback)
+                        response = await fetch('../data/customers.json');
+                        if (response.ok) {
+                            jsonData = await response.json();
+                        } else {
+                            throw new Error(`Failed to fetch from ../data/customers.json: ${response.status}`);
+                        }
                     }
                 }
                 
