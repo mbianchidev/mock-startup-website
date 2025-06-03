@@ -206,7 +206,7 @@
         function addLoadMoreButton(container, visibleCareers) {
             const loadMoreButton = document.createElement('div');
             loadMoreButton.className = 'load-more-container';
-            loadMoreButton.style.cssText = 'text-align: center; margin: 30px 0;';
+            loadMoreButton.style.cssText = 'text-align: center; margin: 50px 0; position: relative; z-index: 20;';
             
             const button = document.createElement('button');
             button.className = 'load-more-btn';
@@ -220,6 +220,10 @@
                 cursor: pointer;
                 font-size: 16px;
                 transition: background 0.3s ease;
+                box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+                position: relative;
+                background: linear-gradient(135deg, #0066cc, #004499);
+                border: 2px solid white;
             `;
             
             button.addEventListener('click', () => {
@@ -236,11 +240,11 @@
             });
             
             button.addEventListener('mouseover', () => {
-                button.style.background = '#0052a3';
+                button.style.background = 'linear-gradient(135deg, #0052a3, #003366)';
             });
             
             button.addEventListener('mouseout', () => {
-                button.style.background = '#0066cc';
+                button.style.background = 'linear-gradient(135deg, #0066cc, #004499)';
             });
             
             loadMoreButton.appendChild(button);
