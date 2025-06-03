@@ -11,15 +11,25 @@
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
 </head>
 <body>
-<nav>
-  <div class="logo"><a href="index.html">Matte⚙️</a></div>
-  <ul class="nav-links">
-      <li><a href="#features">Features</a></li>
-      <li><a href="#integrations">Integrations</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
-  </ul>
-  <button class="cta-button">Get Started</button>
-</nav>
+    <header>
+        <!-- Navbar directly included -->
+        <nav>
+            <div class="logo"><a href="index.html">Matte⚙️</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html#features">Features</a></li>
+                <li class="dropdown">
+                    <a href="index.html#integrations" class="dropdown-toggle">Integrations <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#integrations">Tools</a></li>
+                        <li><a href="index.html#cloud">Cloud platforms</a></li>
+                        <li><a href="index.html#kubernetes">Kubernetes distros</a></li>
+                    </ul>
+                </li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+            </ul>
+            <button class="cta-button" onclick="window.open('https://mb-consulting.dev/book15', '_blank')">Get Started</button>
+        </nav>
+    </header>
 </body>
 </html>
