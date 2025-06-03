@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Security Headers via Meta Tags -->
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://kit.fontawesome.com https://ka-f.fontawesome.com https://cdn.worldvectorlogo.com https://cdn.prod.website-files.com https://upload.wikimedia.org https://github.com https://raw.githubusercontent.com https://mb-consulting.dev https://youtube.com/@mbianchidev https://blog.mb-consulting.dev; script-src 'self' 'unsafe-inline' https://kit.fontawesome.com https://ka-f.fontawesome.com; style-src 'self' 'unsafe-inline' https://ka-f.fontawesome.com https://cdnjs.cloudflare.com; img-src 'self' data: https://cdn.worldvectorlogo.com https://upload.wikimedia.org https://cdn.prod.website-files.com https://github.com https://raw.githubusercontent.com; font-src 'self' https://ka-f.fontawesome.com data:; connect-src 'self' https://ka-f.fontawesome.com;">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+    <title>Careers - Matteo Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    <script src="https://kit.fontawesome.com/77b2f5a2d5.js" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update copyright year
+            const yearElement = document.getElementById('current-year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+            
+            // Load careers timeline data
+            loadCareersTimeline();
+        });
+        
+        // Careers data embedded to avoid CORS issues when running locally
+        const fallbackCareersData = [
+            {
+                "code": "GHB",
+                "companyName": "GitHub",
+                "companyType": "🇺🇸 Corporate",
+                "companySector": "DevTools",
+                "companyLogo": "/images/employers/github.webp",
+                "companyLogoX": 200,
+                "companyLogoY": 500,
+                "companyUrl": "https://github.com/",
+                "role": "Solutions Engineer (Corporate)",
+                "story": "Finding solutions to engineering problems for GitHub's corporate customers.",
+                "year": "2024-now",
+                "show": true,
+                "icon": "fab fa-github",
+                "achievements": []
+            },
+            {
+                "code": "FREE",
+                "companyName": "SyncTune",
+                "companyType": "Self-Employed",
+                "companySector": "Engineering Services",
+                "companyLogo": "/images/logo.webp",
+                "companyLogoX": 187,
+                "companyLogoY": 62,
+                "companyUrl": "https://mb-consulting.dev",
+                "role": "Founder & Cloud Native Officer",
+                "story": "Leading companies towards Cloud Native, providing a range of specialized services, ranging from Engineering to DevOps coaching, Kubernetes training, fractional CTOing and so on. Offering advisory to startups (pre-seed, seed, series A) operating in the DevTools, AI, Healthcare and Fashion verticals. Making their infrastructure journey as easy as possible. Volunteering to organize events in the Cloud Native space, contributing to Kubernetes, speaking at international conferences, educating and creating content about Cloud Native.",
+                "year": "2021-now",
+                "show": true,
+                "icon": "fas fa-briefcase",
+                "achievements": []
+            },
+            {
+                "code": "MNTCRS",
+                "companyName": "MentorCruise",
+                "companyType": "🇺🇸 Startup",
+                "companySector": "Education Services",
+                "companyLogo": "/images/employers/mentor-cruise.webp",
+                "companyLogoX": 200,
+                "companyLogoY": 1000,
+                "companyUrl": "https://mb-consulting.dev/mentor",
+                "role": "Software Engineering & Career Mentor",
+                "story": "I started mentoring on MentorCruise in 2023 and I can't wait to help more people to achieve their goals.",
+                "year": "2023-now",
+                "show": true,
+                "icon": "fas fa-graduation-cap",
+                "achievements": []
+            },
+            {
+                "code": "OMN",
+                "companyName": "Omnistrate",
+                "companyType": "🇺🇸 Startup",
+                "companySector": "DevTools",
+                "companyLogo": "/images/employers/omnistrate.webp",
+                "companyLogoX": 200,
+                "companyLogoY": 500,
+                "companyUrl": "https://omnistrate.com/",
+                "role": "Head of Developer Relations",
+                "story": "Building the function from ground up, advocating for cloud native SaaS, producing written and video content, documenting features, showcasing the platform capabilities through demos, contributing to GTM strategy, product growth, DevEx and more.",
+                "year": "2023-2024",
+                "show": true,
+                "icon": "fas fa-user-tie",
+                "achievements": []
+            },
+            {
+                "code": "KLB",
+                "companyName": "KubeLab",
+                "companyType": "🇪🇺 Startup",
+                "companySector": "Cloud Infrastructure",
+                "companyLogo": "/images/employers/kubelab.webp",
+                "companyLogoX": 200,
+                "companyLogoY": 500,
+                "companyUrl": "https://www.linkedin.com/company/kubelab/",
+                "role": "Co-Founder & CTO",
+                "story": "Co-founded and led a Platform Engineering startup focused on multi-cloud Kubernetes management. Successfully raised €200k in pre-seed funding and built the initial MVP.",
+                "year": "2023-2024",
+                "show": true,
+                "icon": "fas fa-rocket",
+                "achievements": [
+                    {
+                        "type": "list",
+                        "items": [
+                            {
+                                "type": "startup",
+                                "icon": "fas fa-chart-line",
+                                "text": "€200k Pre-seed Funding Secured"
+                            },
+                            {
+                                "icon": "fas fa-users",
+                                "text": "Managed 7+ engineers across the globe"
+                            },
+                            {
+                                "icon": "fas fa-cloud",
+                                "text": "SaaS reached 600k ARR"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "ZEF",
+                "companyName": "Zefi.ai",
+                "companyType": "🇮🇹 Startup",
+                "companySector": "Artificial Intelligence",
+                "companyLogo": "/images/clients/zefi.webp",
+                "companyLogoX": 200,
+                "companyLogoY": 500,
+                "companyUrl": "https://zefi.ai",
+                "role": "Strategic Advisor | Technical Advisor",
+                "story": "Infrastructure advisory, product testing, support for their AI platform helping Product Managers to take data-driven decisions.",
+                "year": "2023-2024",
+                "show": true,
+                "icon": "fas fa-brain",
+                "achievements": []
+            },
+            {
+                "code": "ABL",
+                "companyName": "Abila",
+                "companyType": "🇮🇹 Enterprise",
+                "companySector": "IT Services",
+                "companyLogo": "/images/clients/abila.webp",
+                "companyLogoX": 200,
+                "companyLogoY": 500,
+                "companyUrl": "https://abila.it/",
+                "role": "Lead Cloud Native Consultant",
+                "story": "As a Lead Cloud Native Consultant for Abila, I helped them to build a new Cloud Native practice and to deliver Cloud Native to their customers.",
+                "year": "2023-2024",
+                "show": true,
+                "icon": "fas fa-cloud",
+                "achievements": []
+            },
+            {
+                "code": "NKI",
+                "companyName": "Nederlandse Kanker Instituut (NKI) - Antoni van Leeuwenhoek",
+                "companyType": "🇳🇱 Research center - Hospital",
+                "companySector": "Healthcare",
+                "companyLogo": "/images/clients/NKI.webp",
+                "companyLogoX": 187,
+                "companyLogoY": 62,
+                "companyUrl": "https://www.nki.nl/",
+                "role": "Lead Cloud Native Consultant | Data Manager",
+                "story": "Supporting computational pathology and ML/AI workloads to train image pattern recognition models on biopsy data, plus annotate and label such data. I was responsible for the whole Azure infrastructure.Objective of the project is to increase the efficiency of diagnosis in breast cancer.",
+                "year": "2022-2023",
+                "show": true,
+                "icon": "fas fa-hospital",
+                "achievements": []
+            }
+        ];
+        
+        // Function to load and render careers timeline from embedded data
+        function loadCareersTimeline() {
+            try {
+                const timelineContainer = document.getElementById('careers-timeline');
+                if (!timelineContainer) {
+                    console.error('Timeline container not found');
+                    return;
+                }
+                
+                // Clear existing content
+                timelineContainer.innerHTML = '';
+                
+                // Filter and render only visible items
+                const visibleCareers = fallbackCareersData.filter(career => career.show);
+                
+                visibleCareers.forEach(career => {
+                    const timelineItem = createTimelineItem(career);
+                    timelineContainer.appendChild(timelineItem);
+                });
+                
+            } catch (error) {
+                console.error('Error loading careers data:', error);
+                // Fallback: show an error message
+                const timelineContainer = document.getElementById('careers-timeline');
+                if (timelineContainer) {
+                    timelineContainer.innerHTML = '<p>Unable to load career timeline data.</p>';
+                }
+            }
+        }
+        
+        // Function to create a timeline item from career data
+        function createTimelineItem(career) {
+            const timelineItem = document.createElement('div');
+            timelineItem.className = 'timeline-item';
+            
+            // Create timeline marker
+            const marker = document.createElement('div');
+            marker.className = 'timeline-marker';
+            const icon = document.createElement('i');
+            icon.className = career.icon;
+            marker.appendChild(icon);
+            
+            // Create timeline content
+            const content = document.createElement('div');
+            content.className = 'timeline-content';
+            
+            // Date
+            const date = document.createElement('div');
+            date.className = 'timeline-date';
+            date.textContent = career.year;
+            
+            // Company name
+            const companyName = document.createElement('h3');
+            companyName.textContent = career.companyName;
+            
+            // Company info
+            const companyInfo = document.createElement('div');
+            companyInfo.className = 'company-info';
+            
+            const companyType = document.createElement('span');
+            companyType.className = 'company-type';
+            companyType.textContent = career.companyType;
+            
+            const companySector = document.createElement('span');
+            companySector.className = 'company-sector';
+            companySector.textContent = career.companySector;
+            
+            companyInfo.appendChild(companyType);
+            companyInfo.appendChild(companySector);
+            
+            // Role
+            const role = document.createElement('h4');
+            role.textContent = career.role;
+            
+            // Story/description
+            const story = document.createElement('p');
+            if (career.companyUrl && career.companyUrl !== '#') {
+                story.innerHTML = `${career.story} <a href="${career.companyUrl}" target="_blank">Learn more about ${career.companyName}</a>`;
+            } else {
+                story.textContent = career.story;
+            }
+            
+            // Assemble content
+            content.appendChild(date);
+            content.appendChild(companyName);
+            content.appendChild(companyInfo);
+            content.appendChild(role);
+            content.appendChild(story);
+            
+            // Add achievements if they exist
+            if (career.achievements && career.achievements.length > 0) {
+                career.achievements.forEach(achievement => {
+                    const achievementElement = createAchievementElement(achievement);
+                    if (achievementElement) {
+                        content.appendChild(achievementElement);
+                    }
+                });
+            }
+            
+            // Assemble timeline item
+            timelineItem.appendChild(marker);
+            timelineItem.appendChild(content);
+            
+            return timelineItem;
+        }
+        
+        // Function to create achievement elements
+        function createAchievementElement(achievement) {
+            if (achievement.type === 'startup' || achievement.type === 'content') {
+                const badge = document.createElement('div');
+                badge.className = `achievement-badge ${achievement.type}`;
+                
+                const icon = document.createElement('i');
+                icon.className = achievement.icon;
+                
+                const span = document.createElement('span');
+                span.textContent = achievement.text;
+                
+                badge.appendChild(icon);
+                badge.appendChild(span);
+                
+                return badge;
+            } else if (achievement.type === 'list' && achievement.items) {
+                const list = document.createElement('div');
+                list.className = 'achievement-list';
+                
+                achievement.items.forEach(item => {
+                    const listItem = document.createElement('div');
+                    listItem.className = 'achievement-item';
+                    
+                    const icon = document.createElement('i');
+                    icon.className = item.icon;
+                    
+                    const span = document.createElement('span');
+                    span.textContent = item.text;
+                    
+                    listItem.appendChild(icon);
+                    listItem.appendChild(span);
+                    list.appendChild(listItem);
+                });
+                
+                return list;
+            }
+            
+            return null;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <!-- Navbar directly included -->
+        <nav>
+            <div class="logo"><a href="index.html">Matte⚙️</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html#features">Features</a></li>
+                <li class="dropdown">
+                    <a href="index.html#integrations" class="dropdown-toggle">Integrations <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#integrations">Tools</a></li>
+                        <li><a href="index.html#cloud">Cloud platforms</a></li>
+                        <li><a href="index.html#kubernetes">Kubernetes distros</a></li>
+                    </ul>
+                </li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+            </ul>
+            <button class="cta-button" onclick="window.open('https://mb-consulting.dev/book15', '_blank')">Get Started</button>
+        </nav>
+    </header>
+
+    <section id="roadmap-hero">
+        <div class="container">
+            <h2>Customers</h2>
+            <p class="section-description">Discover the professional journey and work experience that shaped our expertise</p>
+        </div>
+    </section>
+
+    <section id="roadmap">
+        <div class="container">
+            <div class="timeline" id="careers-timeline">
+                <!-- Timeline items will be dynamically loaded from JSON -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <!-- Footer directly included -->
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo"><a href="index.html">Matte⚙️</a></div>
+                <p>Transforming businesses since 2015</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h3>Product</h3>
+                    <a href="#features">Features</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="#integrations">Integrations</a>
+                    <a href="roadmap.html">Roadmap</a>
+                </div>
+                <div class="link-column">
+                    <h3>Company</h3>
+                    <a href="about.html">About</a>
+                    <a href="careers.html">Careers</a>
+                    <a href="https://blog.mb-consulting.dev" target="_blank">Blog</a>
+                    <a href="press.html">Press</a>
+                </div>
+                <div class="link-column">
+                    <h3>Resources</h3>
+                    <a href="documentation.html">Documentation</a>
+                    <a href="support.html">Support</a>
+                    <a href="community.html">Community</a>
+                    <a href="mailto:info@mb-consulting.dev">Contact</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year">2025</span> Matteo. All rights reserved.</p>
+            <p class="copilot-credit">Vibe coded with 💙 and GitHub Copilot</p>
+            <p class="footer-links link-column"><a href="privacy.html">Privacy</a> | <a href="terms.html">Terms of Service</a></p>
+            <div class="social-icons">
+                <a href="https://mbianchidev.bsky.social" target="_blank"><i class="fa-brands fa-square-bluesky"></i></a>
+                <a href="https://www.linkedin.com/in/mbianchidev" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/mbianchidev" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
