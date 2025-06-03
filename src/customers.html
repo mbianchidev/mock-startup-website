@@ -85,6 +85,9 @@
                     if (jsonData && jsonData.companies && Array.isArray(jsonData.companies)) {
                         currentData = jsonData.companies;
                         console.log('Successfully loaded data from JSON file');
+                        
+                        // Add a small delay to show the loading animation
+                        await new Promise(resolve => setTimeout(resolve, 500));
                     } else {
                         throw new Error('Invalid JSON structure');
                     }
@@ -95,6 +98,9 @@
                 console.warn('Could not load data from JSON file (this is expected when running locally):', error.message);
                 console.log('Using fallback data instead');
                 currentData = fallbackCareersData;
+                
+                // Add a small delay for fallback case too, for consistent UX
+                await new Promise(resolve => setTimeout(resolve, 300));
             }
             
             // Filter and render data
