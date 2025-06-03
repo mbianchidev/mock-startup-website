@@ -20,7 +20,160 @@
             if (yearElement) {
                 yearElement.textContent = new Date().getFullYear();
             }
+            
+            // Load careers timeline data
+            loadCareersTimeline();
         });
+        
+        // Function to load and render careers timeline from JSON
+        async function loadCareersTimeline() {
+            try {
+                const response = await fetch('careers-data.json');
+                const careersData = await response.json();
+                
+                const timelineContainer = document.getElementById('careers-timeline');
+                if (!timelineContainer) {
+                    console.error('Timeline container not found');
+                    return;
+                }
+                
+                // Clear existing content
+                timelineContainer.innerHTML = '';
+                
+                // Filter and render only visible items
+                const visibleCareers = careersData.filter(career => career.show);
+                
+                visibleCareers.forEach(career => {
+                    const timelineItem = createTimelineItem(career);
+                    timelineContainer.appendChild(timelineItem);
+                });
+                
+            } catch (error) {
+                console.error('Error loading careers data:', error);
+                // Fallback: show an error message or keep existing HTML
+                const timelineContainer = document.getElementById('careers-timeline');
+                if (timelineContainer) {
+                    timelineContainer.innerHTML = '<p>Unable to load career timeline data.</p>';
+                }
+            }
+        }
+        
+        // Function to create a timeline item from career data
+        function createTimelineItem(career) {
+            const timelineItem = document.createElement('div');
+            timelineItem.className = 'timeline-item';
+            
+            // Create timeline marker
+            const marker = document.createElement('div');
+            marker.className = 'timeline-marker';
+            const icon = document.createElement('i');
+            icon.className = career.icon;
+            marker.appendChild(icon);
+            
+            // Create timeline content
+            const content = document.createElement('div');
+            content.className = 'timeline-content';
+            
+            // Date
+            const date = document.createElement('div');
+            date.className = 'timeline-date';
+            date.textContent = career.year;
+            
+            // Company name
+            const companyName = document.createElement('h3');
+            companyName.textContent = career.companyName;
+            
+            // Company info
+            const companyInfo = document.createElement('div');
+            companyInfo.className = 'company-info';
+            
+            const companyType = document.createElement('span');
+            companyType.className = 'company-type';
+            companyType.textContent = career.companyType;
+            
+            const companySector = document.createElement('span');
+            companySector.className = 'company-sector';
+            companySector.textContent = career.companySector;
+            
+            companyInfo.appendChild(companyType);
+            companyInfo.appendChild(companySector);
+            
+            // Role
+            const role = document.createElement('h4');
+            role.textContent = career.role;
+            
+            // Story/description
+            const story = document.createElement('p');
+            if (career.companyUrl && career.companyUrl !== '#') {
+                story.innerHTML = `${career.story} <a href="${career.companyUrl}" target="_blank">Learn more about ${career.companyName}</a>`;
+            } else {
+                story.textContent = career.story;
+            }
+            
+            // Assemble content
+            content.appendChild(date);
+            content.appendChild(companyName);
+            content.appendChild(companyInfo);
+            content.appendChild(role);
+            content.appendChild(story);
+            
+            // Add achievements if they exist
+            if (career.achievements && career.achievements.length > 0) {
+                career.achievements.forEach(achievement => {
+                    const achievementElement = createAchievementElement(achievement);
+                    if (achievementElement) {
+                        content.appendChild(achievementElement);
+                    }
+                });
+            }
+            
+            // Assemble timeline item
+            timelineItem.appendChild(marker);
+            timelineItem.appendChild(content);
+            
+            return timelineItem;
+        }
+        
+        // Function to create achievement elements
+        function createAchievementElement(achievement) {
+            if (achievement.type === 'startup' || achievement.type === 'content') {
+                const badge = document.createElement('div');
+                badge.className = `achievement-badge ${achievement.type}`;
+                
+                const icon = document.createElement('i');
+                icon.className = achievement.icon;
+                
+                const span = document.createElement('span');
+                span.textContent = achievement.text;
+                
+                badge.appendChild(icon);
+                badge.appendChild(span);
+                
+                return badge;
+            } else if (achievement.type === 'list' && achievement.items) {
+                const list = document.createElement('div');
+                list.className = 'achievement-list';
+                
+                achievement.items.forEach(item => {
+                    const listItem = document.createElement('div');
+                    listItem.className = 'achievement-item';
+                    
+                    const icon = document.createElement('i');
+                    icon.className = item.icon;
+                    
+                    const span = document.createElement('span');
+                    span.textContent = item.text;
+                    
+                    listItem.appendChild(icon);
+                    listItem.appendChild(span);
+                    list.appendChild(listItem);
+                });
+                
+                return list;
+            }
+            
+            return null;
+        }
     </script>
 </head>
 <body>
@@ -54,109 +207,8 @@
 
     <section id="roadmap">
         <div class="container">
-            <div class="timeline">
-                <!-- GitHub -->
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2024-now</div>
-                        <h3>GitHub</h3>
-                        <div class="company-info">
-                            <span class="company-type">🇺🇸 Corporate</span>
-                            <span class="company-sector">DevTools</span>
-                        </div>
-                        <h4>Solutions Engineer (Corporate)</h4>
-                        <p>Finding solutions to engineering problems for GitHub's corporate customers. <a href="https://github.com/" target="_blank">Learn more about GitHub</a></p>
-                    </div>
-                </div>
-
-                <!-- KubeLab Startup -->
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2023-2024</div>
-                        <h3>KubeLab</h3>
-                        <div class="company-info">
-                            <span class="company-type">🇪🇺 Startup</span>
-                            <span class="company-sector">Cloud Infrastructure</span>
-                        </div>
-                        <h4>Founder & CEO</h4>
-                        <p>Founded and led a Platform Engineering startup focused on multi-cloud Kubernetes management. Successfully raised €200k in pre-seed funding and built the initial MVP. <a href="https://www.linkedin.com/company/kubelab/" target="_blank">Learn more about KubeLab</a></p>
-                        <div class="achievement-badge startup">
-                            <i class="fas fa-chart-line"></i>
-                            <span>€200k Pre-seed Funding Secured</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Microsoft Azure -->
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <i class="fab fa-microsoft"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2021-2023</div>
-                        <h3>Microsoft Azure</h3>
-                        <div class="company-info">
-                            <span class="company-type">🇺🇸 Corporate</span>
-                            <span class="company-sector">Cloud Computing</span>
-                        </div>
-                        <h4>Senior Platform Engineer</h4>
-                        <p>Architected and implemented scalable cloud infrastructure solutions for enterprise customers. Led technical workshops and contributed to Azure Kubernetes Service improvements.</p>
-                        <div class="achievement-list">
-                            <div class="achievement-item">
-                                <i class="fas fa-users"></i>
-                                <span>Mentored 15+ engineers across multiple teams</span>
-                            </div>
-                            <div class="achievement-item">
-                                <i class="fas fa-cloud"></i>
-                                <span>Managed infrastructure serving 10M+ monthly users</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tech Consultancy -->
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2019-2021</div>
-                        <h3>CloudTech Solutions</h3>
-                        <div class="company-info">
-                            <span class="company-type">🇬🇧 Scaleup</span>
-                            <span class="company-sector">Technology Consulting</span>
-                        </div>
-                        <h4>DevOps Engineer</h4>
-                        <p>Designed and implemented CI/CD pipelines for clients across various industries. Specialized in containerization, infrastructure automation, and cloud migrations.</p>
-                    </div>
-                </div>
-
-                <!-- First Tech Role -->
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2017-2019</div>
-                        <h3>TechStart Inc</h3>
-                        <div class="company-info">
-                            <span class="company-type">🇺🇸 Startup</span>
-                            <span class="company-sector">Financial Technology</span>
-                        </div>
-                        <h4>Software Engineer</h4>
-                        <p>Developed web applications and APIs using modern JavaScript frameworks. Gained experience in agile development, testing practices, and software architecture.</p>
-                        <div class="achievement-badge content">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>First Professional Development Role</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="timeline" id="careers-timeline">
+                <!-- Timeline items will be dynamically loaded from JSON -->
             </div>
         </div>
     </section>
