@@ -1132,3 +1132,253 @@ footer {
         height: 100px;
     }
 }
+
+/* Roadmap & Timeline Styles */
+#roadmap-hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--white);
+    padding: 80px 0;
+}
+
+#roadmap-hero h2 {
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+#roadmap-hero h2:after {
+    background-color: var(--white);
+}
+
+#roadmap-hero .section-description {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin: 60px 0;
+    width: 100%;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-left: calc(50% + 40px);
+    text-align: left;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-right: calc(50% + 40px);
+    text-align: right;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+    z-index: 10;
+}
+
+.timeline-marker i {
+    color: var(--white);
+    font-size: 1.5rem;
+}
+
+.timeline-content {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    position: relative;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    width: 0;
+    height: 0;
+    border: 15px solid;
+}
+
+.timeline-item:nth-child(odd) .timeline-content::before {
+    left: -30px;
+    border-color: transparent var(--white) transparent transparent;
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+    right: -30px;
+    border-color: transparent transparent transparent var(--white);
+}
+
+.timeline-date {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: var(--white);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.timeline-content h3 {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.timeline-content p {
+    color: var(--dark-gray);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.timeline-content a {
+    color: var(--primary-color);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.timeline-content a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.achievement-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    color: #2d3748;
+    padding: 10px 16px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
+}
+
+.achievement-badge.startup {
+    background: linear-gradient(135deg, #48bb78, #68d391);
+    color: var(--white);
+    box-shadow: 0 4px 10px rgba(72, 187, 120, 0.3);
+}
+
+.achievement-badge.content {
+    background: linear-gradient(135deg, #ed64a6, #f687b3);
+    color: var(--white);
+    box-shadow: 0 4px 10px rgba(237, 100, 166, 0.3);
+}
+
+.achievement-badge i {
+    font-size: 1rem;
+}
+
+.achievement-list {
+    margin-top: 20px;
+}
+
+.achievement-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 12px 0;
+    padding: 12px;
+    background: var(--light-gray);
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.achievement-item i {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    min-width: 20px;
+}
+
+.achievement-item span {
+    color: var(--dark-gray);
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.achievement-item:hover {
+    background: rgba(67, 97, 238, 0.05);
+    transform: translateX(5px);
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile timeline styles */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        margin-left: 80px;
+        margin-right: 0;
+        text-align: left;
+    }
+    
+    .timeline-marker {
+        left: 30px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .timeline-marker i {
+        font-size: 1.2rem;
+    }
+    
+    .timeline-content::before {
+        left: -15px !important;
+        right: auto !important;
+        border: 10px solid;
+        border-color: transparent var(--white) transparent transparent !important;
+        top: 25px;
+    }
+    
+    .timeline-content {
+        padding: 25px;
+    }
+    
+    .timeline-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .achievement-badge {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+}

@@ -9,8 +9,196 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://kit.fontawesome.com https://ka-f.fontawesome.com https://cdn.worldvectorlogo.com https://cdn.prod.website-files.com https://upload.wikimedia.org https://github.com https://raw.githubusercontent.com https://mb-consulting.dev https://youtube.com/@mbianchidev https://blog.mb-consulting.dev; script-src 'self' 'unsafe-inline' https://kit.fontawesome.com https://ka-f.fontawesome.com; style-src 'self' 'unsafe-inline' https://ka-f.fontawesome.com https://cdnjs.cloudflare.com; img-src 'self' data: https://cdn.worldvectorlogo.com https://upload.wikimedia.org https://cdn.prod.website-files.com https://github.com https://raw.githubusercontent.com; font-src 'self' https://ka-f.fontawesome.com data:; connect-src 'self' https://ka-f.fontawesome.com;">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+    <title>Roadmap - Matteo Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    <script src="https://kit.fontawesome.com/77b2f5a2d5.js" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update copyright year
+            const yearElement = document.getElementById('current-year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
 </head>
 <body>
-    <!-- Page content goes here -->
+    <header>
+        <!-- Navbar directly included -->
+        <nav>
+            <div class="logo"><a href="index.html">Matte⚙️</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html#features">Features</a></li>
+                <li class="dropdown">
+                    <a href="index.html#integrations" class="dropdown-toggle">Integrations <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#integrations">Tools</a></li>
+                        <li><a href="index.html#cloud">Cloud platforms</a></li>
+                        <li><a href="index.html#kubernetes">Kubernetes distros</a></li>
+                    </ul>
+                </li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+            </ul>
+            <button class="cta-button" onclick="window.open('https://mb-consulting.dev/book15', '_blank')">Get Started</button>
+        </nav>
+    </header>
+
+    <section id="roadmap-hero">
+        <div class="container">
+            <h2>Our Journey</h2>
+            <p class="section-description">From vision to reality - discover the milestones that shaped Matteo into the platform (engineer) it is today</p>
+        </div>
+    </section>
+
+    <section id="roadmap">
+        <div class="container">
+            <div class="timeline">
+                <!-- 2025 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025</div>
+                        <h3>Platform Evolution</h3>
+                        <p>Released Kubernetes v1.33 as branch manager, expanding our enterprise capabilities. Spoke at KubeCon EU London 2025 with 3 different sessions, sharing our vision for the future of cloud-native platforms.</p>
+                        <div class="achievement-badge">
+                            <i class="fas fa-crown"></i>
+                            <span>Delivered first Keynote at KCD Denmark</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2024 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024-2025</div>
+                        <h3>Industry Recognition</h3>
+                        <p>Nominated as <a href="https://www.credly.com/badges/bc458baf-3bd8-4c38-a73e-21c68b259798/public_url" target="_blank">CNCF Ambassador</a>, recognizing our contributions to the cloud-native ecosystem. Led communications for <a href="https://github.com/kubernetes/sig-release/issues/2586#issuecomment-2290160721" target="_blank">Kubernetes v1.32</a> release.</p>
+                        <div class="achievement-list">
+                            <div class="achievement-item">
+                                <i class="fas fa-microphone"></i>
+                                <span>Global conference speaker at Cloud Native Rejekts, DevOpsDays</span>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-users"></i>
+                                <span>Program Committee Member for KubeCon NA, EU, Japan, Hong Kong</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Open Source Contributions -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024</div>
+                        <h3>Open Source Impact</h3>
+                        <p>Contributed as <a href="https://github.com/kubernetes/org/issues/4975" target="_blank">Kubernetes v1.31 Comms Shadow</a>.</p>
+                        <div class="achievement-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Guest Lecturer at University of Turin - Cloud Native Technologies 101</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Startup Foundation -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023-2024</div>
+                        <h3>Startup Launch</h3>
+                        <p><a href="https://www.linkedin.com/company/kubelab/" target="_blank">Founded KubeLab</a> - Building a Platform Engineering tool to streamline multi-cloud Kubernetes management. Successfully raised 200k in pre-seed funding to accelerate development.</p>
+                        <div class="achievement-badge startup">
+                            <i class="fas fa-chart-line"></i>
+                            <span>€200k Pre-seed Funding Secured</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Impact -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2021-2022</div>
+                        <h3>Social Impact</h3>
+                        <p><a href="https://www.linkedin.com/pulse/kubelab-netherlands-cancer-institute-partner-around-ai-peter-comstock/?utm_source=rss&utm_campaign=articles_sitemaps&utm_medium=google_news" target="_blank">Helped a cancer research center save more lives</a> through Machine Learning on Azure Cloud infrastructure, connected to a mobile gaming app - a true game changer!</p>
+                    </div>
+                </div>
+
+                <!-- Content Creation -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2019</div>
+                        <h3>Knowledge Sharing</h3>
+                        <p>Built <a href="https://mb-consulting.dev/blog" target="_blank">industry-leading tech blog</a> reaching 50k+ monthly views with 1400+ subscribers. Sharing insights, tutorials, and thought leadership in cloud native technologies.</p>
+                        <div class="achievement-badge content">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>50k+ Monthly Blog Readers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <!-- Footer directly included -->
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo"><a href="index.html">Matte⚙️</a></div>
+                <p>Transforming businesses since 2015</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h3>Product</h3>
+                    <a href="index.html#features">Features</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="index.html#integrations">Integrations</a>
+                    <a href="roadmap.html">Roadmap</a>
+                </div>
+                <div class="link-column">
+                    <h3>Company</h3>
+                    <a href="about.html">About</a>
+                    <a href="careers.html">Careers</a>
+                    <a href="https://blog.mb-consulting.dev" target="_blank">Blog</a>
+                    <a href="#press.html">Press</a>
+                </div>
+                <div class="link-column">
+                    <h3>Resources</h3>
+                    <a href="documentation.html">Documentation</a>
+                    <a href="support.html">Support</a>
+                    <a href="community.html">Community</a>
+                    <a href="mailto:info@mb-consulting.dev">Contact</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year">2025</span> Synctune. All rights reserved.</p>
+            <p class="copilot-credit">Vibe coded with 💙 and GitHub Copilot</p>
+            <p class="footer-links link-column"><a href="privacy.html">Privacy</a> | <a href="terms.html">Terms of Service</a></p>
+            <div class="social-icons">
+                <a href="https://mbianchidev.bsky.social" target="_blank"><i class="fa-brands fa-square-bluesky"></i></a>
+                <a href="https://www.linkedin.com/in/mbianchidev" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/mbianchidev" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
