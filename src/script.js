@@ -19,6 +19,12 @@ function initCloudCarousel() {
     const cloudSlidesContainer = document.querySelector('.cloud-slides-container');
     const cloudSlides = document.querySelectorAll('.cloud-slide');
     const cloudCarousel = document.querySelector('.cloud-carousel');
+    
+    // Check if carousel elements exist (they only exist on homepage)
+    if (indicators.length === 0 || !cloudSlidesContainer || cloudSlides.length === 0) {
+        return; // Exit early if carousel elements don't exist
+    }
+    
     let currentSlide = 0;
     let autoRotationInterval;
     
