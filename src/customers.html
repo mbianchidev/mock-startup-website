@@ -27,38 +27,22 @@
         
         // Minimal fallback data in case JSON loading fails (e.g., when running locally)
         const fallbackCareersData = [
-            {
-                "code": "GHB",
-                "companyName": "GitHub",
-                "companyType": "🇺🇸 Corporate",
-                "companySector": "DevTools",
-                "companyLogo": "/images/employers/github.webp",
-                "companyLogoX": 200,
-                "companyLogoY": 500,
-                "companyUrl": "https://github.com/",
-                "role": "Solutions Engineer (Corporate)",
-                "story": "Finding solutions to engineering problems for GitHub's corporate customers.",
-                "year": "2024-now",
-                "show": true,
-                "icon": "fab fa-github",
-                "achievements": []
-            },
-            {
-                "code": "FREE",
-                "companyName": "SyncTune",
-                "companyType": "Self-Employed",
-                "companySector": "Engineering Services",
-                "companyLogo": "/images/logo.webp",
-                "companyLogoX": 187,
-                "companyLogoY": 62,
-                "companyUrl": "https://mb-consulting.dev",
-                "role": "Founder & Cloud Native Officer",
-                "story": "Leading companies towards Cloud Native, providing specialized services including DevOps coaching, Kubernetes training, and fractional CTO work.",
-                "year": "2021-now",
-                "show": true,
-                "icon": "fas fa-briefcase",
-                "achievements": []
-            }
+          {
+            "code": "FREE",
+            "companyName": "SyncTune",
+            "companyType": "SMB",
+            "companySector": "Cloud Native",
+            "companyLogo": "/images/logo.webp",
+            "companyLogoX": 187,
+            "companyLogoY": 62,
+            "companyUrl": "https://mb-consulting.dev",
+            "role": "Founder & Cloud Native Officer",
+            "story": "Leading companies towards Cloud Native, providing a range of specialized services, ranging from Engineering to DevOps coaching, Kubernetes training, fractional CTOing and so on. Offering advisory to startups (pre-seed, seed, series A) operating in the DevTools, AI, Healthcare and Fashion verticals. Making their infrastructure journey as easy as possible. Volunteering to organize events in the Cloud Native space, contributing to Kubernetes, speaking at international conferences, educating and creating content about Cloud Native.",
+            "year": "2021-now",
+            "show": true,
+            "icon": "fas fa-briefcase",
+            "achievements": []
+          }
         ];
         
         // Configuration for pagination
@@ -298,7 +282,7 @@
             // Story/description
             const story = document.createElement('p');
             if (career.companyUrl && career.companyUrl !== '#') {
-                story.innerHTML = `${career.story} <a href="${career.companyUrl}" target="_blank">Learn more about ${career.companyName}</a>`;
+                story.innerHTML = `${career.story} <a href="${career.companyUrl}" target="_blank">Learn more</a>`;
             } else {
                 story.textContent = career.story;
             }
