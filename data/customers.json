@@ -3,7 +3,8 @@
     {
       "code": "GHB",
       "companyName": "GitHub (Microsoft)",
-      "companyType": "🇺🇸 Enterprise",
+      "countryFlag": "🇺🇸",
+      "companyType": "Enterprise",
       "companySector": "DevTools",
       "companyLogo": "/images/employers/github.webp",
       "companyLogoX": 200,
@@ -19,6 +20,7 @@
     {
       "code": "FREE",
       "companyName": "SyncTune",
+      "countryFlag": "🌐",
       "companyType": "SMB",
       "companySector": "DevTools",
       "companyLogo": "/images/logo.webp",
@@ -57,7 +59,8 @@
     {
       "code": "MNTCRS",
       "companyName": "MentorCruise",
-      "companyType": "🇺🇸 Startup",
+      "countryFlag": "🇺🇸",
+      "companyType": "Startup",
       "companySector": "Education",
       "companyLogo": "/images/employers/mentor-cruise.webp",
       "companyLogoX": 200,
@@ -83,7 +86,8 @@
     {
       "code": "OMN",
       "companyName": "Omnistrate",
-      "companyType": "🇺🇸 Startup",
+      "countryFlag": "🇺🇸",
+      "companyType": "Startup",
       "companySector": "DevTools",
       "companyLogo": "/images/employers/omnistrate.webp",
       "companyLogoX": 200,
@@ -113,7 +117,8 @@
     {
       "code": "KLB",
       "companyName": "KubeLab",
-      "companyType": "🇪🇺 Startup",
+      "countryFlag": "🇪🇺",
+      "companyType": "Startup",
       "companySector": "DevTools",
       "companyLogo": "/images/employers/kubelab.webp",
       "companyLogoX": 200,
@@ -148,7 +153,7 @@
     {
       "code": "ZEF",
       "companyName": "Zefi.ai",
-      "companyType": "🇮🇹 Startup",
+      "companyType": "Startup",
       "companySector": "Artificial Intelligence",
       "companyLogo": "/images/clients/zefi.webp",
       "companyLogoX": 200,
@@ -159,12 +164,13 @@
       "year": "2023-2024",
       "show": true,
       "icon": "fas fa-brain",
-      "achievements": []
+      "achievements": [],
+      "countryFlag": "🇮🇹"
     },
     {
       "code": "ABL",
       "companyName": "Abila",
-      "companyType": "🇮🇹 SMB",
+      "companyType": "SMB",
       "companySector": "IT Services",
       "companyLogo": "/images/clients/abila.webp",
       "companyLogoX": 200,
@@ -175,12 +181,13 @@
       "year": "2023-2024",
       "show": true,
       "icon": "fas fa-bolt",
-      "achievements": []
+      "achievements": [],
+      "countryFlag": "🇮🇹"
     },
     {
       "code": "NKI",
       "companyName": "NKI - Antoni van Leeuwenhoek",
-      "companyType": "🇳🇱 NGO",
+      "companyType": "NGO",
       "companySector": "Healthcare",
       "companyLogo": "/images/clients/NKI.webp",
       "companyLogoX": 187,
@@ -201,12 +208,13 @@
             }
           ]
         }
-      ]
+      ],
+      "countryFlag": "🇳🇱"
     },
     {
       "code": "ROAR",
       "companyName": "Roar",
-      "companyType": "🇺🇸 SMB",
+      "companyType": "SMB",
       "companySector": "SaaS",
       "companyLogo": "/images/clients/roar.webp",
       "companyLogoX": 187,
@@ -227,12 +235,13 @@
             }
           ]
         }
-      ]
+      ],
+      "countryFlag": "🇺🇸"
     },
     {
       "code": "CPLS",
       "companyName": "Coopolis",
-      "companyType": "🇮🇹 Cooperative",
+      "companyType": "Cooperative",
       "companySector": "Public Sector",
       "companyLogo": "/images/clients/coopolis.webp",
       "companyLogoX": 187,
@@ -253,12 +262,14 @@
             }
           ]
         }
-      ]
+      ],
+      "countryFlag": "🇮🇹"
     },
     {
       "code": "EXT_RDHT",
-      "companyName": "Extraord (RedHat Partner)",
-      "companyType": "🇮🇹 SMB",
+      "companyName": "Extraordy (RedHat Partner)",
+      "countryFlag": "🇮🇹",
+      "companyType": "SMB",
       "companySector": "Education",
       "companyLogo": "/images/employers/RedHat.webp",
       "companyLogoX": 187,
@@ -274,7 +285,7 @@
     {
       "code": "GRNC",
       "companyName": "GreenChic",
-      "companyType": "🇮🇹 Startup",
+      "companyType": "Startup",
       "companySector": "Fashion",
       "companyLogo": "/images/clients/greenchic.webp",
       "companyLogoX": 80,
@@ -295,12 +306,13 @@
             }
           ]
         }
-      ]
+      ],
+      "countryFlag": "🇮🇹"
     },
     {
       "code": "GDF",
       "companyName": "Italian Ministery of Economics and Finance",
-      "companyType": "🇮🇹 Public Sector",
+      "companyType": "Public Sector",
       "companySector": "Government Agency",
       "companyLogo": "/images/clients/gdf.webp",
       "companyLogoX": 125,
@@ -311,12 +323,13 @@
       "year": "2021",
       "show": true,
       "icon": "fas fa-building-shield",
-      "achievements": []
+      "achievements": [],
+      "countryFlag": "🇮🇹"
     },
     {
       "code": "MVCTCH",
       "companyName": "MVC Technologies",
-      "companyType": "🇮🇹 Enterprise",
+      "companyType": "Enterprise",
       "companySector": "IT Services",
       "companyLogo": "/images/clients/mvc.webp",
       "companyLogoX": 190,
@@ -327,12 +340,13 @@
       "year": "2021",
       "show": true,
       "icon": "fas fa-chalkboard-teacher",
-      "achievements": []
+      "achievements": [],
+      "countryFlag": "🇮🇹"
     },
     {
       "code": "DSHR",
       "companyName": "D-Share",
-      "companyType": "🇮🇹 Enterprise",
+      "companyType": "Enterprise",
       "companySector": "News & Media",
       "companyLogo": "/images/clients/dshare.webp",
       "companyLogoX": 190,
@@ -353,12 +367,13 @@
             }
           ]
         }
-      ]
+      ],
+      "countryFlag": "🇮🇹"
     },
     {
       "code": "ICE",
       "companyName": "Infocert",
-      "companyType": "🇮🇹 Enterprise",
+      "companyType": "Enterprise",
       "companySector": "Certificate Authority & Digital Signature",
       "companyLogo": "/images/employers/infocert.webp",
       "companyLogoX": 169,
@@ -383,12 +398,13 @@
             }
           ]
         }
-      ]
+      ],
+      "countryFlag": "🇮🇹"
     },
     {
       "code": "GEN",
       "companyName": "Generali",
-      "companyType": "🇮🇹 Enterprise",
+      "companyType": "Enterprise",
       "companySector": "Insurance",
       "companyLogo": "/images/employers/generali.webp",
       "companyLogoX": 100,
@@ -399,12 +415,13 @@
       "year": "2019-2021",
       "show": true,
       "icon": "fas fa-signature",
-      "achievements": []
+      "achievements": [],
+      "countryFlag": "🇮🇹"
     },
     {
       "code": "GAS",
       "companyName": "Enel",
-      "companyType": "🇮🇹 Enterprise",
+      "companyType": "Enterprise",
       "companySector": "Oil & Gas",
       "companyLogo": "/images/employers/Enel.webp",
       "companyLogoX": 250,
@@ -415,12 +432,14 @@
       "year": "2019-2021",
       "show": true,
       "icon": "fas fa-oil-well",
-      "achievements": []
+      "achievements": [],
+      "countryFlag": "🇮🇹"
     },
     {
       "code": "ALL",
       "companyName": "Allianz",
-      "companyType": "🇮🇹 / 🇫🇷 Enterprise",
+      "countryFlag": "🇮🇹🇫🇷",
+      "companyType": "Enterprise",
       "companySector": "Insurance",
       "companyLogo": "/images/employers/Allianz.webp",
       "companyLogoX": 350,
@@ -436,7 +455,7 @@
     {
       "code": "LEO",
       "companyName": "Leonardo",
-      "companyType": "🇮🇹 Enterprise (State Controlled)",
+      "companyType": "Enterprise (State Controlled)",
       "companySector": "Areospace & Defense",
       "companyLogo": "/images/employers/Leonardo.webp",
       "companyLogoX": 350,
@@ -447,12 +466,13 @@
       "year": "2019-2021",
       "show": true,
       "icon": "fas fa-fighter-jet",
-      "achievements": []
+      "achievements": [],
+      "countryFlag": "🇮🇹"
     },
     {
       "code": "FRX",
       "companyName": "Frontex",
-      "companyType": "🇪🇺 / 🇵🇱 Public Sector",
+      "companyType": "Public Sector",
       "companySector": "Government Agency",
       "companyLogo": "/images/employers/Frontex.webp",
       "companyLogoX": 350,
@@ -463,12 +483,13 @@
       "year": "2019-2021",
       "show": true,
       "icon": "fas fa-passport",
-      "achievements": []
+      "achievements": [],
+      "countryFlag": "🇪🇺🇵🇱"
     },
     {
       "code": "BAR",
       "companyName": "Barilla",
-      "companyType": "🇮🇹 Enterprise",
+      "companyType": "Enterprise",
       "companySector": "Food",
       "companyLogo": "/images/employers/Barilla.webp",
       "companyLogoX": 250,
@@ -479,12 +500,13 @@
       "year": "2019-2021",
       "show": true,
       "icon": "fas fa-utensils",
-      "achievements": []
+      "achievements": [],
+      "countryFlag": "🇮🇹"
     },
     {
       "code": "BMW",
       "companyName": "BMW",
-      "companyType": "🇮🇹 / 🇩🇪 Enterprise",
+      "companyType": "Enterprise",
       "companySector": "Automotive",
       "companyLogo": "/images/employers/BMW.webp",
       "companyLogoX": 100,
@@ -495,12 +517,13 @@
       "year": "2019-2021",
       "show": true,
       "icon": "fas fa-car",
-      "achievements": []
+      "achievements": [],
+      "countryFlag": "🇮🇹🇩🇪"
     },
     {
       "code": "UNC",
       "companyName": "Unicredit",
-      "companyType": "🇮🇹 / 🇷🇸 Enterprise",
+      "companyType": "Enterprise",
       "companySector": "Banking",
       "companyLogo": "/images/employers/Unicredit.webp",
       "companyLogoX": 300,
@@ -511,12 +534,13 @@
       "year": "2019-2021",
       "show": true,
       "icon": "fas fa-building-columns",
-      "achievements": []
+      "achievements": [],
+      "countryFlag": "🇮🇹🇷🇸"
     },
     {
       "code": "RPL",
       "companyName": "Reply",
-      "companyType": "🇮🇹 Corporate",
+      "companyType": "Corporate",
       "companySector": "IT Services",
       "companyLogo": "/images/employers/reply.webp",
       "companyLogoX": 510,
@@ -527,12 +551,13 @@
       "year": "2019-2021",
       "show": true,
       "icon": "fas fa-user-tie",
-      "achievements": []
+      "achievements": [],
+      "countryFlag": "🇮🇹"
     },
     {
       "code": "ECO",
       "companyName": "Eco-Mind (now Sourcesense)",
-      "companyType": "🇮🇹 SMB",
+      "companyType": "SMB",
       "companySector": "IT Services",
       "companyLogo": "/images/employers/ecomind.webp",
       "companyLogoX": 250,
@@ -543,12 +568,13 @@
       "year": "2018-2021",
       "show": true,
       "icon": "fas fa-business-time",
-      "achievements": []
+      "achievements": [],
+      "countryFlag": "🇮🇹"
     },
     {
       "code": "RPP",
       "companyName": "Reply Power",
-      "companyType": "🇮🇹 Enterprise",
+      "companyType": "Enterprise",
       "companySector": "IT Services",
       "companyLogo": "/images/employers/Reply-power.webp",
       "companyLogoX": 200,
@@ -559,12 +585,13 @@
       "year": "2018",
       "show": true,
       "icon": "fas fa-leaf",
-      "achievements": []
+      "achievements": [],
+      "countryFlag": "🇮🇹"
     },
     {
       "code": "VOD",
       "companyName": "Vodafone",
-      "companyType": "🇮🇹 / 🇬🇧 Enterprise",
+      "companyType": "Enterprise",
       "companySector": "Internet Service Provider",
       "companyLogo": "/images/employers/vodafone.webp",
       "companyLogoX": 225,
@@ -575,12 +602,13 @@
       "year": "2017-2018",
       "show": true,
       "icon": "fas fa-phone",
-      "achievements": []
+      "achievements": [],
+      "countryFlag": "🇮🇹🇬🇧"
     },
     {
       "code": "TEN",
       "companyName": "Tenutabene (now Unipol)",
-      "companyType": "🇮🇹 Startup",
+      "companyType": "Startup",
       "companySector": "Automotive",
       "companyLogo": "/images/employers/tenutabene.webp",
       "companyLogoX": 289,
@@ -591,12 +619,13 @@
       "year": "2017",
       "show": true,
       "icon": "fas fa-car",
-      "achievements": []
+      "achievements": [],
+      "countryFlag": "🇮🇹"
     },
     {
       "code": "VAR",
       "companyName": "Various",
-      "companyType": "🇮🇹 SMB",
+      "companyType": "SMB",
       "companySector": "IT",
       "companyLogo": "/images/education/ITIS.webp",
       "companyLogoX": 200,
@@ -607,7 +636,8 @@
       "year": "2015-2017",
       "show": true,
       "icon": "fas fa-terminal",
-      "achievements": []
+      "achievements": [],
+      "countryFlag": "🇮🇹"
     }
   ]
 }

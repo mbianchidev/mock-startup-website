@@ -1391,6 +1391,23 @@ footer {
     flex-wrap: wrap;
 }
 
+.country-flag {
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 8px 12px;
+    background: linear-gradient(135deg, #fff8e1, #ffecb3);
+    border: 2px solid #ffc107;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(255, 193, 7, 0.3);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.country-flag:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
+}
+
 .company-type, .company-sector {
     display: inline-block;
     background: var(--light-gray);
