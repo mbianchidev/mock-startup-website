@@ -30,6 +30,7 @@
           {
             "code": "FREE",
             "companyName": "SyncTune",
+            "countryFlag": "🌐",
             "companyType": "SMB",
             "companySector": "Cloud Native",
             "companyLogo": "/images/logo.webp",
@@ -263,6 +264,14 @@
             // Company info
             const companyInfo = document.createElement('div');
             companyInfo.className = 'company-info';
+            
+            // Country flag (if available)
+            if (career.countryFlag) {
+                const countryFlag = document.createElement('span');
+                countryFlag.className = 'country-flag';
+                countryFlag.textContent = career.countryFlag;
+                companyInfo.appendChild(countryFlag);
+            }
             
             const companyType = document.createElement('span');
             companyType.className = 'company-type';
