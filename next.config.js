@@ -26,6 +26,18 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'raw.githubusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'googlecloudplatform.github.io',
+      },
+      {
+        protocol: 'https',
+        hostname: 'repository-images.githubusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'devstats.me',
       }
     ]
   }
