@@ -44,3 +44,16 @@ export interface TestimonialItem {
   position: string;
   company: string;
 }
+
+export interface ValueItem {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+export interface JobOpening {
+  title: string;
+  location: string;
+  description: string;
+  skills: string[];
+}
