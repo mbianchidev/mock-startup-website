@@ -36,14 +36,14 @@ const pricingPlans: PricingPlan[] = [
     period: '/hour',
     isPopular: true,
     features: [
+      'Everything in Development +',
       'Multi-Cluster Kubernetes Management',
       'Advanced CI/CD with GitOps',
       'Developer Portal (up to 100 users)',
       'Priority Support (Phone & Email)',
       '99.9% SLA Guarantee',
       'Advanced Monitoring & Alerting',
-      'Security Scanning & Compliance',
-      'Performance Optimization'
+      'Security Scanning & Compliance'
     ]
   },
   {
@@ -52,16 +52,15 @@ const pricingPlans: PricingPlan[] = [
     price: 'Contact Sales',
     period: '',
     features: [
+      'Everything in Production +',
       'Unlimited Kubernetes Clusters',
       'Enterprise GitOps Automation',
       'Developer Portal (Unlimited users)',
       'Dedicated Support Manager',
       '99.99% SLA Guarantee',
       'Custom Monitoring Solutions',
-      'Advanced Security & Compliance',
       'White-label Options',
-      'On-premise Deployment',
-      'Custom Integrations'
+      'On-premise Deployment'
     ]
   }
 ]
@@ -78,6 +77,18 @@ export default function Pricing() {
   const [selectedTier, setSelectedTier] = useState('production')
   const [hours, setHours] = useState(40)
   const [selectedPreset, setSelectedPreset] = useState(40)
+  const [expandedPlans, setExpandedPlans] = useState<Record<string, boolean>>({})
+
+  const togglePlan = (planName: string) => {
+    setExpandedPlans(prev => ({
+      ...prev,
+      [planName]: !prev[planName]
+    }))
+  }
+
+  const handleCtaClick = () => {
+    window.open('/book15', '_blank')
+  }
 
   const getHourlyRate = () => {
     const plan = pricingPlans.find(p => p.name.toLowerCase() === selectedTier)
@@ -121,21 +132,38 @@ export default function Pricing() {
               {plan.isPopular && <div className="popular-badge">Most Popular</div>}
               <h3 className="plan-name">{plan.name}</h3>
               <p className="plan-description">{plan.description}</p>
-              <div className="plan-price">
-                <span className="currency">€</span>
-                {plan.price}
-                <span className="period">{plan.period}</span>
+              <div className={`plan-price ${plan.name === 'Enterprise' ? 'contact-sales' : ''}`}>
+                {plan.name === 'Enterprise' ? (
+                  <span>{plan.price}</span>
+                ) : (
+                  <>
+                    <span className="currency">€</span>
+                    {plan.price}
+                    <span className="period">{plan.period}</span>
+                  </>
+                )}
               </div>
-              <ul className="plan-features">
+              
+              <button 
+                className="discover-features-btn"
+                onClick={() => togglePlan(plan.name)}
+                aria-expanded={expandedPlans[plan.name] || false}
+              >
+                {expandedPlans[plan.name] ? 'Hide Features' : 'Discover the Features'}
+                <i className={`fas fa-chevron-${expandedPlans[plan.name] ? 'up' : 'down'}`}></i>
+              </button>
+
+              <div className={`plan-features ${expandedPlans[plan.name] ? 'expanded' : 'collapsed'}`}>
                 <div className="plan-features-header">{plan.name} Tier Includes</div>
-                {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="feature-item">
-                    <i className="fas fa-check"></i>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <button className="plan-cta">
+                <ul className="features-list">
+                  {plan.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className={`feature-item ${feature.includes('Everything in') ? 'inheritance-feature' : ''}`}>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <button className="plan-cta" onClick={handleCtaClick}>
                 {plan.name === 'Enterprise' ? 'Contact Sales' : 'Get Started'}
               </button>
             </div>
@@ -166,7 +194,7 @@ export default function Pricing() {
               type="range"
               id="hours-slider"
               min="1"
-              max="744"
+              max="160"
               value={hours}
               onChange={(e) => handleHoursChange(parseInt(e.target.value))}
             />
@@ -174,7 +202,7 @@ export default function Pricing() {
               type="number"
               id="hours-input"
               min="1"
-              max="744"
+              max="160"
               value={hours}
               onChange={(e) => handleHoursChange(parseInt(e.target.value) || 1)}
             />

@@ -90,7 +90,7 @@ export default function About() {
           <h3>OSS Contributions</h3>
           <a href="https://github.com/tico88612/devstats-card">
             <Image 
-              src="https://devstats.me/?username=mbianchidev" 
+              src="https://devstats.me/?username=mbianchidev&w=828&q=75" 
               alt="DevStats Card" 
               width={400}
               height={200}
