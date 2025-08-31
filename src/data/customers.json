@@ -1,0 +1,643 @@
+{
+  "companies": [
+    {
+      "code": "GHB",
+      "companyName": "GitHub (Microsoft)",
+      "countryFlag": "🇺🇸",
+      "companyType": "Enterprise",
+      "companySector": "DevTools",
+      "companyLogo": "/images/employers/github.webp",
+      "companyLogoX": 200,
+      "companyLogoY": 500,
+      "companyUrl": "https://github.com/",
+      "role": "Solutions Engineer Corporate, EMEA",
+      "story": "Enabling GitHub's Corporate customers to adopt the developer platform, to build, scale, and deliver secure software. Enabling faster innovation through GitHub Copilot, GitHub Advanced Security, and GitHub Enterprise offerings.",
+      "year": "2024-now",
+      "show": true,
+      "icon": "fab fa-github",
+      "achievements": []
+    },
+    {
+      "code": "FREE",
+      "companyName": "SyncTune",
+      "countryFlag": "🌐",
+      "companyType": "SMB",
+      "companySector": "DevTools",
+      "companyLogo": "/images/logo.webp",
+      "companyLogoX": 187,
+      "companyLogoY": 62,
+      "companyUrl": "https://mb-consulting.dev",
+      "role": "Founder & Cloud Native Officer",
+      "story": "Leading companies towards Cloud Native, providing a range of specialized services, ranging from Engineering to DevOps coaching, Kubernetes training, fractional CTOing and so on. Offering advisory to startups (pre-seed, seed, series A) operating in the DevTools, AI, Healthcare and Fashion verticals. Making their infrastructure journey as easy as possible.",
+      "year": "2021-now",
+      "show": true,
+      "icon": "fas fa-briefcase",
+      "achievements": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "icon": "fa fa-dharmachakra",
+              "text": "Merged 40+ PRs in Kubernetes"
+            },
+            {
+              "icon": "fas fa-users",
+              "text": "20+ CNCF events and meetups"
+            },
+            {
+              "icon": "fas fa-video",
+              "text": "22 conference talks"
+            },
+            {
+              "icon": "fas fa-book",
+              "text": "Published 10+ blogs"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "MNTCRS",
+      "companyName": "MentorCruise",
+      "countryFlag": "🇺🇸",
+      "companyType": "Startup",
+      "companySector": "Education",
+      "companyLogo": "/images/employers/mentor-cruise.webp",
+      "companyLogoX": 200,
+      "companyLogoY": 1000,
+      "companyUrl": "https://mb-consulting.dev/mentor",
+      "role": "Software Engineering & Career Mentor",
+      "story": "I started mentoring on MentorCruise in 2023 and I can't wait to help more people to achieve their goals.",
+      "year": "2023-now",
+      "show": true,
+      "icon": "fas fa-graduation-cap",
+      "achievements": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "icon": "fas fa-star",
+              "text": "100% 5-star rating from mentees"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "OMN",
+      "companyName": "Omnistrate",
+      "countryFlag": "🇺🇸",
+      "companyType": "Startup",
+      "companySector": "DevTools",
+      "companyLogo": "/images/employers/omnistrate.webp",
+      "companyLogoX": 200,
+      "companyLogoY": 500,
+      "companyUrl": "https://omnistrate.com/",
+      "role": "Head of Developer Relations",
+      "story": "Building the function from ground up, advocating for cloud native SaaS, producing written and video content, documenting features, showcasing the platform capabilities through demos, contributing to GTM strategy, product growth, DevEx and more.",
+      "year": "2023-2024",
+      "show": true,
+      "icon": "fas fa-arrow-up-right-dots",
+      "achievements": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "icon": "fas fa-video",
+              "text": "Produced 20+ videos and 10+ articles"
+            },
+            {
+              "icon": "fas fa-rocket",
+              "text": "From 0 to 10s of user companies in 6 months"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "KLB",
+      "companyName": "KubeLab",
+      "countryFlag": "🇪🇺",
+      "companyType": "Startup",
+      "companySector": "DevTools",
+      "companyLogo": "/images/employers/kubelab.webp",
+      "companyLogoX": 200,
+      "companyLogoY": 500,
+      "companyUrl": "https://www.linkedin.com/company/kubelab/",
+      "role": "Co-Founder & CTO",
+      "story": "Co-founded and led a Platform Engineering startup focused on multi-cloud Kubernetes management. Successfully raised €200k in pre-seed funding and built the initial MVP.",
+      "year": "2023-2024",
+      "show": true,
+      "icon": "fas fa-cubes",
+      "achievements": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "startup",
+              "icon": "fas fa-chart-line",
+              "text": "€200k Pre-seed Funding Secured"
+            },
+            {
+              "icon": "fas fa-users",
+              "text": "Managed 7+ engineers across the globe"
+            },
+            {
+              "icon": "fas fa-cloud",
+              "text": "SaaS reached 600k $ ARR"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ZEF",
+      "companyName": "Zefi.ai",
+      "companyType": "Startup",
+      "companySector": "Artificial Intelligence",
+      "companyLogo": "/images/clients/zefi.webp",
+      "companyLogoX": 200,
+      "companyLogoY": 500,
+      "companyUrl": "https://zefi.ai",
+      "role": "Strategic Advisor | Technical Advisor",
+      "story": "Infrastructure advisory, product testing, support for their AI platform helping Product Managers to take data-driven decisions.",
+      "year": "2023-2024",
+      "show": true,
+      "icon": "fas fa-brain",
+      "achievements": [],
+      "countryFlag": "🇮🇹"
+    },
+    {
+      "code": "ABL",
+      "companyName": "Abila",
+      "companyType": "SMB",
+      "companySector": "IT Services",
+      "companyLogo": "/images/clients/abila.webp",
+      "companyLogoX": 200,
+      "companyLogoY": 500,
+      "companyUrl": "https://abila.it/",
+      "role": "Lead Cloud Native Consultant",
+      "story": "As a Lead Cloud Native Consultant for Abila, I helped them to build a new Cloud Native practice and to deliver Cloud Native to their customers.",
+      "year": "2023-2024",
+      "show": true,
+      "icon": "fas fa-bolt",
+      "achievements": [],
+      "countryFlag": "🇮🇹"
+    },
+    {
+      "code": "NKI",
+      "companyName": "NKI - Antoni van Leeuwenhoek",
+      "companyType": "NGO",
+      "companySector": "Healthcare",
+      "companyLogo": "/images/clients/NKI.webp",
+      "companyLogoX": 187,
+      "companyLogoY": 62,
+      "companyUrl": "https://www.nki.nl/",
+      "role": "Lead Cloud Native Consultant | Data Manager",
+      "story": "Supporting computational pathology and ML/AI workloads in hybrid cloud settings to train image pattern recognition models on biopsy data, plus annotate and label such data. I was responsible for the whole Azure infrastructure. Objective of the project was to increase the efficiency of diagnosis in breast cancer.",
+      "year": "2022-2023",
+      "show": true,
+      "icon": "fas fa-hospital",
+      "achievements": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "icon": "fas fa-robot",
+              "text": "Trained AI models on biopsy data"
+            }
+          ]
+        }
+      ],
+      "countryFlag": "🇳🇱"
+    },
+    {
+      "code": "ROAR",
+      "companyName": "Roar",
+      "companyType": "SMB",
+      "companySector": "SaaS",
+      "companyLogo": "/images/clients/roar.webp",
+      "companyLogoX": 187,
+      "companyLogoY": 48,
+      "companyUrl": "https://roarinc.com/",
+      "role": "Cloud Native Consultant",
+      "story": "Enabled DevOps culture in all aspects of the company, starting with CI/CD processes on Azure DevOps and evolving their infrastructure. Automated deployment processes on K8S clusters by creating a GitOps workflow - standardized and later adopted by the whole company.",
+      "year": "2022",
+      "show": true,
+      "icon": "fas fa-people-arrows",
+      "achievements": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "icon": "fas fa-rocket",
+              "text": "Increased deployment speed by 100%"
+            }
+          ]
+        }
+      ],
+      "countryFlag": "🇺🇸"
+    },
+    {
+      "code": "CPLS",
+      "companyName": "Coopolis",
+      "companyType": "Cooperative",
+      "companySector": "Public Sector",
+      "companyLogo": "/images/clients/coopolis.webp",
+      "companyLogoX": 187,
+      "companyLogoY": 75,
+      "companyUrl": "https://coopolis.it/",
+      "role": "Cloud Native Trainer",
+      "story": "Enabled the company Engineers and Managers to understand DevOps culture by teaching classes with in-depth focuses on Gitlab and CI/CD processes.",
+      "year": "2022",
+      "show": true,
+      "icon": "fas fa-graduation-cap",
+      "achievements": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "icon": "fas fa-rocket",
+              "text": "Increased deployment speed by 4x"
+            }
+          ]
+        }
+      ],
+      "countryFlag": "🇮🇹"
+    },
+    {
+      "code": "EXT_RDHT",
+      "companyName": "Extraordy (RedHat Partner)",
+      "countryFlag": "🇮🇹",
+      "companyType": "SMB",
+      "companySector": "Education",
+      "companyLogo": "/images/employers/RedHat.webp",
+      "companyLogoX": 187,
+      "companyLogoY": 48,
+      "companyUrl": "https://www.redhat.com/en",
+      "role": "RedHat Trainer",
+      "story": "Education to Extraordy's customers on RedHat technologies (Ansible and Linux SysAdmin).",
+      "year": "2022",
+      "show": true,
+      "icon": "fas fa-graduation-cap",
+      "achievements": []
+    },
+    {
+      "code": "GRNC",
+      "companyName": "GreenChic",
+      "companyType": "Startup",
+      "companySector": "Fashion",
+      "companyLogo": "/images/clients/greenchic.webp",
+      "companyLogoX": 80,
+      "companyLogoY": 80,
+      "companyUrl": "https://greenchic.it/",
+      "role": "Fractional CTO",
+      "story": "Handling multiple suppliers and steering the whole IT strategy of the company, including but not limited to infrastructure and operations. Built a new AWS cloud infrastructure from ground up for their sustainable fashion e-commerce. I migrated their solution to a performant cloud architecture while hardening policies.",
+      "year": "2021-2022",
+      "show": true,
+      "icon": "fas fa-shirt",
+      "achievements": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "icon": "fas fa-shield-alt",
+              "text": "Solved data leak on AWS Lambda"
+            }
+          ]
+        }
+      ],
+      "countryFlag": "🇮🇹"
+    },
+    {
+      "code": "GDF",
+      "companyName": "Italian Ministery of Economics and Finance",
+      "companyType": "Public Sector",
+      "companySector": "Government Agency",
+      "companyLogo": "/images/clients/gdf.webp",
+      "companyLogoX": 125,
+      "companyLogoY": 75,
+      "companyUrl": "https://www.gdf.gov.it/",
+      "role": "Cloud Native Trainer",
+      "story": "Helped their IT joint command in Rome to improve DevOps practices by delivering a tailored DevOps course and an in-depth technical workshop on Azure cloud and Azure DevOps.",
+      "year": "2021",
+      "show": true,
+      "icon": "fas fa-building-shield",
+      "achievements": [],
+      "countryFlag": "🇮🇹"
+    },
+    {
+      "code": "MVCTCH",
+      "companyName": "MVC Technologies",
+      "companyType": "Enterprise",
+      "companySector": "IT Services",
+      "companyLogo": "/images/clients/mvc.webp",
+      "companyLogoX": 190,
+      "companyLogoY": 49,
+      "companyUrl": "https://www.mvc-technology.eu/",
+      "role": "Cloud Native Trainer",
+      "story": "Delivered tailored DevOps courses to MVC customers, helping them to understand how to implement DevOps culture.",
+      "year": "2021",
+      "show": true,
+      "icon": "fas fa-chalkboard-teacher",
+      "achievements": [],
+      "countryFlag": "🇮🇹"
+    },
+    {
+      "code": "DSHR",
+      "companyName": "D-Share",
+      "companyType": "Enterprise",
+      "companySector": "News & Media",
+      "companyLogo": "/images/clients/dshare.webp",
+      "companyLogoX": 190,
+      "companyLogoY": 48,
+      "companyUrl": "https://www.dshare.com/",
+      "role": "Cloud Native Consultant",
+      "story": "Managed Azure and AWS infrastructures and deployments for D-Share's news and media SaaS solution. Managed institutional applications and the major news portals in Italy.",
+      "year": "2021-2022",
+      "show": true,
+      "icon": "fas fa-newspaper",
+      "achievements": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "icon": "fas fa-shield-alt",
+              "text": "Mitigated a DDoS attack with 100% downtime"
+            }
+          ]
+        }
+      ],
+      "countryFlag": "🇮🇹"
+    },
+    {
+      "code": "ICE",
+      "companyName": "Infocert",
+      "companyType": "Enterprise",
+      "companySector": "Certificate Authority & Digital Signature",
+      "companyLogo": "/images/employers/infocert.webp",
+      "companyLogoX": 169,
+      "companyLogoY": 75,
+      "companyUrl": "https://gosignweb.infocert.it",
+      "role": "Staff Platform Engineer",
+      "story": "I brought DevOps and Site Reliability practices in a digital signature product used by millions of people and thousands of companies all over Europe: GoSign. I improved the reliability and security of the product by developing document management and signature processes in Java 11. Created a fully automated process for infrastructure provisioning via Terraform, automated deployment via Jenkins, ArgoCD, Flux and Spinnaker. I've designed delivery and incident management processes while working closely with cross functional teams spanning from Sales to Legal. I held internal courses to educate engineering teams on DevOps culture and processes. I spent 2 years leading the GoSign on-call service with 24/7 availability. Deleted over 150k lines of code, refactored more than 400k, contributed to 50+ internal repositories, built a lot of 0 to 1 libraries.",
+      "year": "2019-2021",
+      "show": true,
+      "icon": "fas fa-shield-alt",
+      "achievements": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "icon": "fas fa-users",
+              "text": "10+ million API daily users"
+            },
+            {
+              "icon": "fas fa-fire-extinguisher",
+              "text": "Solved over 200 production incidents"
+            }
+          ]
+        }
+      ],
+      "countryFlag": "🇮🇹"
+    },
+    {
+      "code": "GEN",
+      "companyName": "Generali",
+      "companyType": "Enterprise",
+      "companySector": "Insurance",
+      "companyLogo": "/images/employers/generali.webp",
+      "companyLogoX": 100,
+      "companyLogoY": 100,
+      "companyUrl": "https://www.generali.it/",
+      "role": "Digital Signature & DevOps Consultant",
+      "story": "Consultancy offered via InfoCert on digital signature products to the Italian insurance branch of Generali. I was responsible for the migration of their digital signature system and coordinating with multiple teams.",
+      "year": "2019-2021",
+      "show": true,
+      "icon": "fas fa-signature",
+      "achievements": [],
+      "countryFlag": "🇮🇹"
+    },
+    {
+      "code": "GAS",
+      "companyName": "Enel",
+      "companyType": "Enterprise",
+      "companySector": "Oil & Gas",
+      "companyLogo": "/images/employers/Enel.webp",
+      "companyLogoX": 250,
+      "companyLogoY": 50,
+      "companyUrl": "https://www.enel.it/",
+      "role": "Digital Signature & DevOps Consultant",
+      "story": "Consultancy offered via InfoCert on digital signature products to Enel. I was responsible for remote test and production critical deployments on VMWare provided - Foreman provisioned puppet-configured Linux VMs, integration with multiple custom systems including even-driven dispatcher systems, notification queues (RabbitMQ, Kafka), massive bulk signature processes, new features development, and executive L3 support.",
+      "year": "2019-2021",
+      "show": true,
+      "icon": "fas fa-oil-well",
+      "achievements": [],
+      "countryFlag": "🇮🇹"
+    },
+    {
+      "code": "ALL",
+      "companyName": "Allianz",
+      "countryFlag": "🇮🇹🇫🇷",
+      "companyType": "Enterprise",
+      "companySector": "Insurance",
+      "companyLogo": "/images/employers/Allianz.webp",
+      "companyLogoX": 350,
+      "companyLogoY": 50,
+      "companyUrl": "https://www.allianz.it/",
+      "role": "Digital Signature & DevOps Consultant",
+      "story": "Consultancy offered via InfoCert on digital signature products to the Italian and French insurance branch of Allianz. I was responsible for the migration of their legacy digital signature system, coordinator of multiple 3rd party consultants (Accenture, Deloitte), remote test and production critical deployments on VMWare provided, Foreman provisioned and puppet-configured Linux VMs. I was in charge of new features development and L3 customer support.",
+      "year": "2019-2021",
+      "show": true,
+      "icon": "fas fa-signature",
+      "achievements": []
+    },
+    {
+      "code": "LEO",
+      "companyName": "Leonardo",
+      "companyType": "Enterprise (State Controlled)",
+      "companySector": "Areospace & Defense",
+      "companyLogo": "/images/employers/Leonardo.webp",
+      "companyLogoX": 350,
+      "companyLogoY": 50,
+      "companyUrl": "https://www.leonardocompany.com/it/it/",
+      "role": "Digital Signature & Solution Architect, Security",
+      "story": "Consultancy offered via InfoCert on digital signature products to the Finance deparment of Leonardo. I was responsible for remote test and production critical deployments on their on-premise Windows server environment, integration with their SAP multiple systems, IT security advisory and solution architecture.",
+      "year": "2019-2021",
+      "show": true,
+      "icon": "fas fa-fighter-jet",
+      "achievements": [],
+      "countryFlag": "🇮🇹"
+    },
+    {
+      "code": "FRX",
+      "companyName": "Frontex",
+      "companyType": "Public Sector",
+      "companySector": "Government Agency",
+      "companyLogo": "/images/employers/Frontex.webp",
+      "companyLogoX": 350,
+      "companyLogoY": 50,
+      "companyUrl": "https://frontex.europa.eu/",
+      "role": "Digital Signature & Solution Architect, Security",
+      "story": "Consultancy offered via InfoCert on digital signature products for the IT deparment of Frontex. I was responsible for testing and for production critical deployments on their on-premise Linux infra in compliance with EU regulations, integrated with their Salesforce systems - including custom plugins development, solution architecture and IT security advisory.",
+      "year": "2019-2021",
+      "show": true,
+      "icon": "fas fa-passport",
+      "achievements": [],
+      "countryFlag": "🇪🇺🇵🇱"
+    },
+    {
+      "code": "BAR",
+      "companyName": "Barilla",
+      "companyType": "Enterprise",
+      "companySector": "Food",
+      "companyLogo": "/images/employers/Barilla.webp",
+      "companyLogoX": 250,
+      "companyLogoY": 50,
+      "companyUrl": "https://www.barilla.com/it-it",
+      "role": "Digital Signature & DevOps Consultant",
+      "story": "Consultancy offered via InfoCert on digital signature products to the Sales deparment of Barilla. I was responsible for remote test and production critical deployments on VMWare provided - Foreman provisioned, puppet-configured Linux VMs, integrated with their Salesforce systems and L3 customer support.",
+      "year": "2019-2021",
+      "show": true,
+      "icon": "fas fa-utensils",
+      "achievements": [],
+      "countryFlag": "🇮🇹"
+    },
+    {
+      "code": "BMW",
+      "companyName": "BMW",
+      "companyType": "Enterprise",
+      "companySector": "Automotive",
+      "companyLogo": "/images/employers/BMW.webp",
+      "companyLogoX": 100,
+      "companyLogoY": 100,
+      "companyUrl": "https://www.bmw.it/it/index.html",
+      "role": "Digital Signature & DevOps Consultant",
+      "story": "Consultancy offered via InfoCert on digital signature products to the IT deparment of BMW. I was responsible for remote test and production critical deployments on their on-premise Linux infrastructure and L3 customer support.",
+      "year": "2019-2021",
+      "show": true,
+      "icon": "fas fa-car",
+      "achievements": [],
+      "countryFlag": "🇮🇹🇩🇪"
+    },
+    {
+      "code": "UNC",
+      "companyName": "Unicredit",
+      "companyType": "Enterprise",
+      "companySector": "Banking",
+      "companyLogo": "/images/employers/Unicredit.webp",
+      "companyLogoX": 300,
+      "companyLogoY": 75,
+      "companyUrl": "https://www.unicredit.it/it.html",
+      "role": "Digital Signature & DevOps Consultant",
+      "story": "Consultancy offered via InfoCert on digital signature products to the Serbian branch of Unicredit Group. I was responsible for remote test and production critical deployments on their on-premise Linux infrastructure.",
+      "year": "2019-2021",
+      "show": true,
+      "icon": "fas fa-building-columns",
+      "achievements": [],
+      "countryFlag": "🇮🇹🇷🇸"
+    },
+    {
+      "code": "RPL",
+      "companyName": "Reply",
+      "companyType": "Corporate",
+      "companySector": "IT Services",
+      "companyLogo": "/images/employers/reply.webp",
+      "companyLogoX": 510,
+      "companyLogoY": 94,
+      "companyUrl": "https://www.reply.com/it/it/",
+      "role": "Digital Signature & DevOps Consultant",
+      "story": "Consultancy offered via InfoCert on digital signature products to Reply. I was responsible for the critical on-site deployments on their on-premise Windows environment serving over 10k users and technical support.",
+      "year": "2019-2021",
+      "show": true,
+      "icon": "fas fa-user-tie",
+      "achievements": [],
+      "countryFlag": "🇮🇹"
+    },
+    {
+      "code": "ECO",
+      "companyName": "Eco-Mind (now Sourcesense)",
+      "companyType": "SMB",
+      "companySector": "IT Services",
+      "companyLogo": "/images/employers/ecomind.webp",
+      "companyLogoX": 250,
+      "companyLogoY": 81,
+      "companyUrl": "https://sourcesense.com/",
+      "role": "Senior Fullstack Engineer",
+      "story": "Maximized my Spring, Quarkus and Java skills by working side by side with valuable professionals both internally hired and contractors. Here I learnt the true meaning of the word \"teamwork\" and how to work in a highly distributed team in a hybrid setting.",
+      "year": "2018-2021",
+      "show": true,
+      "icon": "fas fa-business-time",
+      "achievements": [],
+      "countryFlag": "🇮🇹"
+    },
+    {
+      "code": "RPP",
+      "companyName": "Reply Power",
+      "companyType": "Enterprise",
+      "companySector": "IT Services",
+      "companyLogo": "/images/employers/Reply-power.webp",
+      "companyLogoX": 200,
+      "companyLogoY": 40,
+      "companyUrl": "https://www.reply.com/it/content/smart-seller",
+      "role": "Fullstack Software Developer",
+      "story": "Got in touch with Typescript (Angular) and Java (Spring). I was able to leverage frameworks and patterns to build reusable components for both APIs and frontend. This was also the very first time I heard about DevOps culture and CI/CD tools, like Jenkins. This role propelled my journey torwards Platform Engineering.",
+      "year": "2018",
+      "show": true,
+      "icon": "fas fa-leaf",
+      "achievements": [],
+      "countryFlag": "🇮🇹"
+    },
+    {
+      "code": "VOD",
+      "companyName": "Vodafone",
+      "companyType": "Enterprise",
+      "companySector": "Internet Service Provider",
+      "companyLogo": "/images/employers/vodafone.webp",
+      "companyLogoX": 225,
+      "companyLogoY": 150,
+      "companyUrl": "https://www.vodafone.com/",
+      "role": "Fullstack Software Developer",
+      "story": "I was responsible of a legacy Java product that was used by the financial group of Vodafone Italy. Here I learnt the importance of refactoring, optimization and keeping dependencies up to date. Migrated Oracle DBs to newer versions and Java from 5 to 8. I started working with cross-functional teams in a fast-paced environment and learnt how to orchestrate a complex VM infrastructure based on VMWare technology",
+      "year": "2017-2018",
+      "show": true,
+      "icon": "fas fa-phone",
+      "achievements": [],
+      "countryFlag": "🇮🇹🇬🇧"
+    },
+    {
+      "code": "TEN",
+      "companyName": "Tenutabene (now Unipol)",
+      "companyType": "Startup",
+      "companySector": "Automotive",
+      "companyLogo": "/images/employers/tenutabene.webp",
+      "companyLogoX": 289,
+      "companyLogoY": 36,
+      "companyUrl": "https://www.unipol.com/en",
+      "role": "Fullstack Software Developer",
+      "story": "I discovered how a startup works and scales up. This experience was the best part in my journey in the web development world. Contributed to an (authorized) scraping-powered price estimation engine for second hand cars and a backoffice ERP web app for the management of the company's car fleet, written in Laravel (PHP).",
+      "year": "2017",
+      "show": true,
+      "icon": "fas fa-car",
+      "achievements": [],
+      "countryFlag": "🇮🇹"
+    },
+    {
+      "code": "VAR",
+      "companyName": "Various",
+      "companyType": "SMB",
+      "companySector": "IT",
+      "companyLogo": "/images/education/ITIS.webp",
+      "companyLogoX": 200,
+      "companyLogoY": 200,
+      "companyUrl": "https://itisravenna.edu.it/",
+      "role": "Web Developer | Linux SysAdmin",
+      "story": "I immediately learnt how to work autonomously as web developer (Linux administration tasks included) in chaotic environments, with little or no guidance. I started with languages such as: C++, C#, .NET and lots of bash scripting. I used WordPress and built PHP-based websites for local businesses.",
+      "year": "2015-2017",
+      "show": true,
+      "icon": "fas fa-terminal",
+      "achievements": [],
+      "countryFlag": "🇮🇹"
+    }
+  ]
+}
