@@ -31,3 +31,8 @@ next-env.d.ts
 
 # Original static files (preserved for reference)
 original-src/
+
+# Testing
+test-results/
+playwright-report/
+/tests/screenshots/
