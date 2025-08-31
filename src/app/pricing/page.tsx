@@ -150,7 +150,7 @@ export default function Pricing() {
                 aria-expanded={expandedPlans[plan.name] || false}
               >
                 {expandedPlans[plan.name] ? 'Hide Features' : 'Discover the Features'}
-                <i className={`fas fa-chevron-${expandedPlans[plan.name] ? 'up' : 'down'}`}></i>
+                <i className={`fas fa-chevron-${expandedPlans[plan.name] ? 'up' : 'down'}`} aria-hidden="true"></i>
               </button>
 
               <div className={`plan-features ${expandedPlans[plan.name] ? 'expanded' : 'collapsed'}`}>

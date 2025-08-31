@@ -1,5 +1,8 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
+import { useState, useEffect } from 'react'
 
 interface TeamMember {
   name: string
@@ -41,6 +44,11 @@ const teamMembers: TeamMember[] = [
 ]
 
 export default function About() {
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
   return (
     <>
       <section id="hero">
@@ -80,13 +88,17 @@ export default function About() {
         <h2 className="section-title">Community</h2>
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%', margin: '0 auto' }}>
           <h3>Speaking</h3>
-          <div dangerouslySetInnerHTML={{
-            __html: '<script type="text/javascript" src="https://sessionize.com/api/speaker/events/fov84g24dw/0x0x3fb393x"></script>'
-          }} />
+          {mounted && (
+            <div dangerouslySetInnerHTML={{
+              __html: '<script type="text/javascript" src="https://sessionize.com/api/speaker/events/fov84g24dw/0x0x3fb393x"></script>'
+            }} />
+          )}
           <h3>Talks</h3>
-          <div dangerouslySetInnerHTML={{
-            __html: '<script type="text/javascript" src="https://sessionize.com/api/speaker/sessions/fov84g24dw/0x0x3fb393x"></script>'
-          }} />
+          {mounted && (
+            <div dangerouslySetInnerHTML={{
+              __html: '<script type="text/javascript" src="https://sessionize.com/api/speaker/sessions/fov84g24dw/0x0x3fb393x"></script>'
+            }} />
+          )}
           <h3>OSS Contributions</h3>
           <a href="https://github.com/tico88612/devstats-card">
             <Image 

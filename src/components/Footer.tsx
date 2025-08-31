@@ -53,13 +53,13 @@ export function Footer() {
         </p>
         <div className="social-icons">
           <a href="https://mbianchidev.bsky.social" target="_blank" rel="noopener noreferrer">
-            <i className="fa-brands fa-square-bluesky"></i>
+            <i className="fa-brands fa-square-bluesky" aria-hidden="true"></i>
           </a>
           <a href="https://www.linkedin.com/in/mbianchidev" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-linkedin"></i>
+            <i className="fab fa-linkedin" aria-hidden="true"></i>
           </a>
           <a href="https://github.com/mbianchidev" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-github"></i>
+            <i className="fab fa-github" aria-hidden="true"></i>
           </a>
         </div>
       </div>

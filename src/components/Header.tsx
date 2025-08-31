@@ -24,33 +24,37 @@ export function Header() {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
     const checkScreenSize = () => {
       setIsMobile(window.innerWidth <= 768)
     }
     
     checkScreenSize()
+    setMounted(true)
     window.addEventListener('resize', checkScreenSize)
     
     return () => window.removeEventListener('resize', checkScreenSize)
   }, [])
 
   useEffect(() => {
-    if (isMobileMenuOpen) {
+    if (mounted && isMobileMenuOpen) {
       document.body.classList.add('menu-open')
     } else {
       document.body.classList.remove('menu-open')
     }
     
     return () => document.body.classList.remove('menu-open')
-  }, [isMobileMenuOpen])
+  }, [isMobileMenuOpen, mounted])
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
+    if (mounted) {
+      setIsMobileMenuOpen(!isMobileMenuOpen)
+    }
   }
 
   const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false)
+    if (mounted) {
+      setIsMobileMenuOpen(false)
+    }
   }
 
   const handleCtaClick = () => {
@@ -66,7 +70,7 @@ export function Header() {
         
         {mounted && isMobile && (
           <button
-            className={`menu-toggle ${isMobileMenuOpen ? 'active' : ''}`}
+            className={`menu-toggle ${mounted && isMobileMenuOpen ? 'active' : ''}`}
             onClick={toggleMobileMenu}
             aria-label="Toggle menu"
           >
@@ -76,13 +80,13 @@ export function Header() {
           </button>
         )}
         
-        <ul className={`nav-links ${mounted && isMobileMenuOpen ? 'active' : ''}`}>
+        <ul className={`nav-links ${mounted && isMobile && isMobileMenuOpen ? 'active' : ''}`}>
           {navItems.map((item) => (
             <li key={item.href} className={item.dropdown ? 'dropdown' : ''}>
               {item.dropdown ? (
                 <>
                   <Link href={item.href} className="dropdown-toggle" onClick={closeMobileMenu}>
-                    {item.label} <i className="fas fa-chevron-down"></i>
+                    {item.label} <i className="fas fa-chevron-down" aria-hidden="true"></i>
                   </Link>
                   <ul className="dropdown-menu">
                     {item.dropdown.map((dropdownItem) => (
