@@ -58,7 +58,7 @@ export function Header() {
   }
 
   const handleCtaClick = () => {
-    window.open('https://mb-consulting.dev/book15', '_blank')
+    window.open('/mock-startup-website/book15', '_blank')
   }
 
   return (
