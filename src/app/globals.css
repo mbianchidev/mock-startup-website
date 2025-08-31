@@ -1149,6 +1149,16 @@ footer {
     /* Put Privacy and Terms on separate lines on mobile */
     .legal-links { display: flex; flex-direction: column; gap: 4px; align-items: center; }
     .legal-links span { display: none; }
+    
+    /* Footer responsive layout */
+    footer { padding: 40px 20px; }
+    .footer-content { flex-direction: column; gap: 24px; }
+    .footer-logo { order: 1; text-align: center; }
+    .footer-links { order: 2; flex-direction: column; gap: 16px; align-items: center; }
+    .link-column { min-width: unset; text-align: center; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    .legal-links { order: 3; }
+    .social-icons { order: 4; justify-content: center; }
     .terms-privacy-page section p {
         font-size: 0.95rem;
     }
@@ -1347,15 +1357,6 @@ footer {
     
     .cloud-slide .cloud-item {
         width: 100%;
-        /* Footer responsive layout */
-        footer { padding: 40px 20px; }
-        .footer-content { flex-direction: column; gap: 24px; }
-        .footer-logo { order: 1; text-align: center; }
-        .footer-links { order: 2; flex-direction: column; gap: 16px; align-items: center; }
-        .link-column { min-width: unset; text-align: center; }
-        .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-        .legal-links { order: 3; }
-        .social-icons { order: 4; justify-content: center; }
         min-width: unset;
         height: 220px;
     }
