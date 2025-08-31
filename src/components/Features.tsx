@@ -29,10 +29,10 @@ export function Features() {
       <h2 className="section-title">Features</h2>
       <p className="section-description">Powerful tools designed to transform your workflow</p>
       <div className="feature-grid">
-        {features.map((feature, index) => (
-          <div key={index} className="feature-item">
+        {features.map((feature) => (
+          <div key={feature.title} className="feature-item">
             <div className="feature-icon">
-              <i className={feature.icon}></i>
+              <i className={feature.icon} aria-hidden="true" />
             </div>
             <h3>{feature.title}</h3>
             <p>{feature.description}</p>

@@ -10,9 +10,9 @@ const navItems: NavItem[] = [
     href: '/#features',
     label: 'Features',
     dropdown: [
-      { href: '/#integrations', label: 'Tools' },
-      { href: '/#cloud', label: 'Cloud platforms' },
-      { href: '/#kubernetes', label: 'Kubernetes distros' }
+      { href: '/#integrations', label: 'Integrations' },
+      { href: '/#cloud', label: 'Multi Cloud' },
+      { href: '/#kubernetes', label: 'Multi Cluster' }
     ]
   },
   { href: '/pricing', label: 'Pricing' }

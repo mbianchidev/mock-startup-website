@@ -42,7 +42,7 @@ const kubernetesDistros: KubernetesDistro[] = [
 export function KubernetesDistros() {
   return (
     <section id="kubernetes">
-      <h2>All your favorite distros</h2>
+      <h2>Multi Cluster, all the distros</h2>
       <div className="kubernetes-grid">
         {kubernetesDistros.map((distro, index) => (
           <div key={index} className="kubernetes-item">
