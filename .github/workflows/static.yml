@@ -41,7 +41,7 @@ jobs:
       - name: Build and export
         env:
           # Set base path to repo name for GitHub Pages user/org subpath
-          NEXT_BASE_PATH: /${{ github.repository }}
+          NEXT_BASE_PATH: /${{ github.event.repository.name }}
         run: |
           npm run build
           # Next.js export output goes to out/
