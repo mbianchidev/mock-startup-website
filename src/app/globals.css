@@ -101,6 +101,25 @@ section {
     margin-right: auto;
 }
 
+/* Work In Progress */
+#wip { background: var(--light-gray); }
+#wip .wip-card {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 36px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+#wip .wip-emoji { font-size: 3rem; margin-bottom: 12px; }
+#wip .wip-progress { display: flex; justify-content: center; gap: 10px; margin-top: 8px; }
+#wip .wip-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--primary-color); display: inline-block; animation: wip-bounce 1.2s infinite ease-in-out; }
+#wip .wip-dot:nth-child(2) { animation-delay: 0.15s; }
+#wip .wip-dot:nth-child(3) { animation-delay: 0.3s; }
+@keyframes wip-bounce { 0%, 80%, 100% { transform: scale(0.8); opacity: 0.6; } 40% { transform: scale(1); opacity: 1; } }
+
 h2 {
     font-size: 2.5rem;
     text-align: center;
