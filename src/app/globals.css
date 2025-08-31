@@ -1335,9 +1335,11 @@ footer {
 
 /* Roadmap & Timeline Styles */
 #roadmap-hero {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    background: linear-gradient(135deg, #7c3aed 0%, #6366f1 100%);
     color: var(--white);
     padding: 80px 0;
+    position: relative;
+    overflow: hidden;
 }
 
 #roadmap-hero h2 {
@@ -1351,6 +1353,13 @@ footer {
 
 #roadmap-hero .section-description {
     color: rgba(255, 255, 255, 0.9);
+}
+
+#roadmap-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain2" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain2)"/></svg>');
+    opacity: 0.35;
 }
 
 .timeline {
