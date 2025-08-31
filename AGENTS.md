@@ -21,6 +21,28 @@
 - Always run `npm run build` and `npm run lint` after making significant changes
 - Test the static export locally with `npx serve out` after building
 
+## Troubleshooting Common Issues
+
+### Dependency Issues
+If you encounter weird dependency issues or package conflicts:
+- Delete `package-lock.json` file
+- Delete `node_modules` folder
+- Run `npm install` again
+- This often resolves version conflicts and ensures a clean dependency tree
+
+### Content Security Policy (CSP) Errors
+If you see CSP violations in the browser console:
+- Check if external scripts (like Font Awesome, analytics) are being blocked
+- Verify the CSP headers in `next.config.js` allow the required domains
+- For Font Awesome specifically, ensure `kit.fontawesome.com` is whitelisted
+
+### Hydration Errors
+If you encounter React hydration mismatches:
+- Ensure server-rendered content matches client-side content exactly
+- Check for browser-specific APIs being used during SSR
+- Use `useEffect` for browser-only code
+- Consider using `dynamic` imports with `{ ssr: false }` for client-only components
+
 ## Build & deployment process
 
 - The project is configured for static export to GitHub Pages
