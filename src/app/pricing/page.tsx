@@ -87,7 +87,7 @@ export default function Pricing() {
   }
 
   const handleCtaClick = () => {
-    window.open('/book15', '_blank')
+    window.open('/mock-startup-website/book15', '_blank')
   }
 
   const getHourlyRate = () => {
