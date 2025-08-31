@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { CustomersData, Company } from '@/types'
+import { CustomersData, Company, AchievementList } from '@/types'
 
 export default function Customers() {
   const [companies, setCompanies] = useState<Company[]>([])
@@ -10,11 +10,12 @@ export default function Customers() {
   const [displayedItems, setDisplayedItems] = useState(5)
 
   useEffect(() => {
-    const loadCustomers = async () => {
+  const loadCustomers = async () => {
       try {
-        // Import the JSON data directly
-        const data = await import('@/data/customers.json')
-        const visibleCompanies = data.companies.filter(company => company.show)
+    // Import JSON and narrow to our types
+    const mod = await import('@/data/customers.json')
+    const data = (mod as unknown as { default?: CustomersData }).default ?? (mod as unknown as CustomersData)
+    const visibleCompanies = (data.companies as Company[]).filter(company => company.show)
         setCompanies(visibleCompanies)
       } catch (err) {
         setError('Failed to load customer data')
@@ -56,7 +57,7 @@ export default function Customers() {
     return (
       <section id="customers-hero">
         <div className="hero-content">
-          <h1>Customer Timeline</h1>
+          <h1>Customers</h1>
           <p>Error: {error}</p>
         </div>
       </section>
@@ -67,13 +68,13 @@ export default function Customers() {
     <>
       <section id="customers-hero">
         <div className="hero-content">
-          <h1>Customer Timeline</h1>
+          <h1>Customers</h1>
           <p>See how companies have worked with Matteo over the years</p>
         </div>
       </section>
 
       <section id="careers-timeline">
-        <h2 className="section-title">Customer Journey</h2>
+        <h2 className="section-title">Explore their journey</h2>
         <div className="timeline-container">
           {companies.slice(0, displayedItems).map((company, index) => (
             <div key={company.code} className="timeline-item">
@@ -86,27 +87,28 @@ export default function Customers() {
                   <span className="timeline-year">{company.year}</span>
                 </div>
                 <div className="timeline-role">
-                  <strong>{company.role}</strong>
-                  <span className="company-type">({company.companyType} • {company.companySector})</span>
+                  <strong className="role-title">{company.role}</strong>
+                  <span
+                    className={`company-badge ${`sector-` + company.companySector.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}
+                    title={`${company.companyType} • ${company.companySector}`}
+                  >
+                    {company.companyType} • {company.companySector}
+                  </span>
                 </div>
                 <p className="timeline-story">{company.story}</p>
                 {company.achievements && company.achievements.length > 0 && (
                   <div className="achievements">
                     <h4>Achievements:</h4>
                     <ul>
-                      {company.achievements.map((achievement: any, achIndex: number) => (
+                      {company.achievements.map((achievement: AchievementList, achIndex: number) => (
                         <li key={achIndex}>
-                          {achievement.items ? (
-                            <ul>
-                              {achievement.items.map((item: any, itemIndex: number) => (
-                                <li key={itemIndex}>
-                                  <i className={item.icon}></i> {item.text}
-                                </li>
-                              ))}
-                            </ul>
-                          ) : (
-                            achievement
-                          )}
+                          <ul>
+                            {achievement.items.map((item, itemIndex: number) => (
+                              <li key={itemIndex}>
+                                <i className={item.icon}></i> {item.text}
+                              </li>
+                            ))}
+                          </ul>
                         </li>
                       ))}
                     </ul>
