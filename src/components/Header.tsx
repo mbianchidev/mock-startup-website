@@ -58,7 +58,7 @@ export function Header() {
   }
 
   const handleCtaClick = () => {
-    window.open('/mock-startup-website/book15', '_blank')
+    window.open('/mock-startup-website/redirect/book15', '_blank')
   }
 
   return (
