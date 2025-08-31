@@ -2329,6 +2329,7 @@ footer {
     padding-left: 20px;
 }
 
+/*
 .feature-item::before {
     content: '•';
     color: var(--primary-color);
@@ -2337,6 +2338,7 @@ footer {
     left: 0;
     top: 8px;
 }
+*/
 
 .feature-item.inheritance-feature {
     font-style: italic;
