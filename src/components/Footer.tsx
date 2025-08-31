@@ -48,8 +48,10 @@ export function Footer() {
       <div className="footer-bottom">
         <p>&copy; <span id="current-year">{currentYear}</span> Matteo. All rights reserved.</p>
         <p className="copilot-credit">Vibe coded with 💙 and GitHub Copilot</p>
-        <p className="footer-links link-column">
-          <Link href="/privacy">Privacy</Link> | <Link href="/terms">Terms of Service</Link>
+        <p className="legal-links">
+          <Link href="/privacy">Privacy</Link>
+          <span aria-hidden="true"> | </span>
+          <Link href="/terms">Terms of Service</Link>
         </p>
         <div className="social-icons">
           <a href="https://mbianchidev.bsky.social" target="_blank" rel="noopener noreferrer">

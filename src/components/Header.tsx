@@ -85,7 +85,18 @@ export function Header() {
             <li key={item.href} className={item.dropdown ? 'dropdown' : ''}>
               {item.dropdown ? (
                 <>
-                  <Link href={item.href} className="dropdown-toggle" onClick={closeMobileMenu}>
+                  <Link
+                    href={item.href}
+                    className="dropdown-toggle"
+                    onClick={(e) => {
+                      if (mounted && isMobile) {
+                        // On mobile, keep the nav open and just reveal submenu (already visible via CSS)
+                        e.preventDefault()
+                        return
+                      }
+                      closeMobileMenu()
+                    }}
+                  >
                     {item.label} <i className="fas fa-chevron-down" aria-hidden="true"></i>
                   </Link>
                   <ul className="dropdown-menu">

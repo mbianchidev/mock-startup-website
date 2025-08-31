@@ -20,9 +20,9 @@ export function Integrations() {
     <section id="integrations">
       <h2>Works with these tools</h2>
       <div className="icon-cloud">
-        {integrations.map((integration, index) => (
-          <div key={index} className="icon-item">
-            <i className={integration.icon}></i>
+        {integrations.map((integration) => (
+          <div key={integration.name} className="icon-item">
+            <i className={integration.icon} aria-hidden="true" suppressHydrationWarning />
             <span>{integration.name}</span>
           </div>
         ))}
