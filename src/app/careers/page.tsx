@@ -68,7 +68,7 @@ export default function CareersPage() {
             {values.map((value, index) => (
               <div key={index} className="value-card">
                 <div className="value-icon">
-                  <i className={value.icon}></i>
+                  <i className={value.icon} aria-hidden="true" />
                 </div>
                 <h3>{value.title}</h3>
                 <p>{value.description}</p>

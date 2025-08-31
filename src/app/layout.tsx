@@ -22,10 +22,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "window.FontAwesomeConfig={autoReplaceSvg:'nest',observeMutations:false};"
+          }}
+        />
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>" />
-        <script src="https://kit.fontawesome.com/77b2f5a2d5.js" crossOrigin="anonymous" async></script>
+        <script src="https://kit.fontawesome.com/77b2f5a2d5.js" crossOrigin="anonymous" data-auto-replace-svg="nest" defer></script>
       </head>
-      <body>
+  <body suppressHydrationWarning>
         <Header />
         <main>{children}</main>
         <Footer />
