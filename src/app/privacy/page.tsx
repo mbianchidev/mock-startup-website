@@ -28,7 +28,7 @@ export default function PrivacyPage() {
 
       <section>
         <h2>3. Data Security</h2>
-        <p>We take data security seriously and have implemented measures to protect your information (we don't have any database this is just HTML and CSS).</p>
+  <p>We take data security seriously and have implemented measures to protect your information (we don&#39;t have any database this is just HTML and CSS).</p>
       </section>
 
       <section>
@@ -67,7 +67,7 @@ export default function PrivacyPage() {
       </section>
 
       <section>
-        <h2>10. Children's Privacy</h2>
+  <h2>10. Children&#39;s Privacy</h2>
         <p>
           Our website is not intended for children under the age of 13. We do not knowingly collect personal information from children
           under 13. If we become aware that we have collected personal information from a child under 13, we will take steps to delete such information.
