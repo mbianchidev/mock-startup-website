@@ -806,9 +806,11 @@ nav {
 
 /* Numbers Section */
 #numbers {
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, #7c3aed 0%, #6366f1 100%);
     padding: var(--section-padding);
     color: var(--white);
+    position: relative;
+    overflow: hidden;
 }
 
 #numbers h2 {
@@ -817,6 +819,13 @@ nav {
 
 #numbers h2:after {
     background-color: var(--white);
+}
+
+#numbers::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain3" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain3)"/></svg>');
+    opacity: 0.35;
 }
 
 .stats-container {
