@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
+import SessionizeEmbed from '@/components/SessionizeEmbed'
+import Collapsible from '@/components/Collapsible'
 
 interface TeamMember {
   name: string
@@ -85,29 +87,29 @@ export default function About() {
       </section>
 
       <section id="community">
-        <h2 className="section-title">Community</h2>
-        <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%', margin: '0 auto' }}>
-          <h3>Speaking</h3>
-          {mounted && (
-            <div dangerouslySetInnerHTML={{
-              __html: '<script type="text/javascript" src="https://sessionize.com/api/speaker/events/fov84g24dw/0x0x3fb393x"></script>'
-            }} />
-          )}
-          <h3>Talks</h3>
-          {mounted && (
-            <div dangerouslySetInnerHTML={{
-              __html: '<script type="text/javascript" src="https://sessionize.com/api/speaker/sessions/fov84g24dw/0x0x3fb393x"></script>'
-            }} />
-          )}
-          <h3>OSS Contributions</h3>
-          <a href="https://github.com/tico88612/devstats-card">
-            <Image 
-              src="https://devstats.me/?username=mbianchidev&w=828&q=75" 
-              alt="DevStats Card" 
-              width={400}
-              height={200}
-            />
-          </a>
+  <h2 className="section-title">Community</h2>
+  <p className="collapsible-hint" style={{ textAlign: 'center', color: '#6b7280', marginTop: -20, marginBottom: 10 }}>Click a title to expand/collapse</p>
+  <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%', margin: '0 auto' }}>
+          <Collapsible title="Speaking">
+            {mounted && (
+              <SessionizeEmbed src="https://sessionize.com/api/speaker/events/fov84g24dw/0x0x3fb393x" />
+            )}
+          </Collapsible>
+          <Collapsible title="Talks">
+            {mounted && (
+              <SessionizeEmbed src="https://sessionize.com/api/speaker/sessions/fov84g24dw/0x0x3fb393x" />
+            )}
+          </Collapsible>
+          <Collapsible title="OSS Contributions">
+            <a href="https://github.com/tico88612/devstats-card">
+              <Image 
+                src="https://devstats.me/?username=mbianchidev&w=828&q=75" 
+                alt="DevStats Card" 
+                width={400}
+                height={200}
+              />
+            </a>
+          </Collapsible>
         </div>
       </section>
 
