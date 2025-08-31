@@ -21,8 +21,10 @@ const navItems: NavItem[] = [
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
     const checkScreenSize = () => {
       setIsMobile(window.innerWidth <= 768)
     }
@@ -62,7 +64,7 @@ export function Header() {
           <Link href="/">Matte⚙️</Link>
         </div>
         
-        {isMobile && (
+        {mounted && isMobile && (
           <button
             className={`menu-toggle ${isMobileMenuOpen ? 'active' : ''}`}
             onClick={toggleMobileMenu}
@@ -74,7 +76,7 @@ export function Header() {
           </button>
         )}
         
-        <ul className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
+        <ul className={`nav-links ${mounted && isMobileMenuOpen ? 'active' : ''}`}>
           {navItems.map((item) => (
             <li key={item.href} className={item.dropdown ? 'dropdown' : ''}>
               {item.dropdown ? (
@@ -99,7 +101,7 @@ export function Header() {
               )}
             </li>
           ))}
-          {isMobile && (
+          {mounted && isMobile && (
             <li className="mobile-cta-item">
               <button className="cta-button" onClick={handleCtaClick}>
                 Get Started
@@ -108,7 +110,7 @@ export function Header() {
           )}
         </ul>
         
-        {!isMobile && (
+        {mounted && !isMobile && (
           <button className="cta-button" onClick={handleCtaClick}>
             Get Started
           </button>
