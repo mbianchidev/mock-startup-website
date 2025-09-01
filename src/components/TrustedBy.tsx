@@ -6,7 +6,7 @@ const companies = [
   { name: 'Uber', logo: 'https://cdn.worldvectorlogo.com/logos/uber-2.svg' },
   { name: 'Amazon', logo: 'https://cdn.worldvectorlogo.com/logos/logo-amazon.svg' },
   { name: 'Meta', logo: 'https://cdn.worldvectorlogo.com/logos/meta-3.svg' },
-  { name: 'Apple', logo: 'https://cdn.worldvectorlogo.com/logos/apple-14.svg' },
+  { name: 'Apple', logo: 'https://cdn.worldvectorlogo.com/logos/apple-13.svg' },
   { name: 'Netflix', logo: 'https://cdn.worldvectorlogo.com/logos/netflix-logo-icon.svg' },
   { name: 'Tesla', logo: 'https://cdn.worldvectorlogo.com/logos/tesla-pure.svg' },
   { name: 'NVidia', logo: 'https://cdn.worldvectorlogo.com/logos/nvidia.svg' },
