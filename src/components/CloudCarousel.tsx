@@ -10,6 +10,11 @@ interface CloudSlide {
   }>
 }
 
+interface CloudItem {
+  logo: string
+  name: string
+}
+
 const cloudSlides: CloudSlide[] = [
   {
     items: [
@@ -48,21 +53,89 @@ const cloudSlides: CloudSlide[] = [
   }
 ]
 
+// Create individual slides for mobile from the grouped slides
+const mobileCloudSlides: CloudItem[] = cloudSlides.flatMap(slide => slide.items)
+
 export function CloudCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+    
+    checkScreenSize()
+    window.addEventListener('resize', checkScreenSize)
+    
+    return () => window.removeEventListener('resize', checkScreenSize)
+  }, [])
+
+  useEffect(() => {
+    const slides = isMobile ? mobileCloudSlides : cloudSlides
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % cloudSlides.length)
+      setCurrentSlide((prev) => (prev + 1) % slides.length)
     }, 3000)
 
     return () => clearInterval(interval)
-  }, [])
+  }, [isMobile])
 
   const handleIndicatorClick = (index: number) => {
     setCurrentSlide(index)
   }
 
+  // Reset currentSlide when switching between mobile and desktop
+  useEffect(() => {
+    setCurrentSlide(0)
+  }, [isMobile])
+
+  if (isMobile) {
+    // Mobile: show individual cloud providers
+    return (
+      <section id="cloud">
+        <h2>Any Cloud Platform</h2>
+        <div className="cloud-carousel mobile-carousel">
+          <div className="cloud-slides-container mobile">
+            {mobileCloudSlides.map((item, itemIndex) => (
+              <div 
+                key={itemIndex} 
+                className={`cloud-slide mobile-slide ${itemIndex === currentSlide ? 'active' : ''}`}
+                style={{ 
+                  transform: `translateX(${(itemIndex - currentSlide) * 100}%)`,
+                  transition: 'transform 0.3s ease'
+                }}
+              >
+                <div className="cloud-item mobile-item">
+                  <Image 
+                    src={item.logo} 
+                    alt={item.name}
+                    width={120}
+                    height={80}
+                    style={{ objectFit: 'contain' }}
+                  />
+                  <h3>{item.name}</h3>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="carousel-indicators">
+          {mobileCloudSlides.map((_, index) => (
+            <span
+              key={index}
+              className={`indicator ${index === currentSlide ? 'active' : ''}`}
+              onClick={() => handleIndicatorClick(index)}
+              role="button"
+              tabIndex={0}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  // Desktop: show grouped cloud providers
   return (
     <section id="cloud">
       <h2>Any Cloud Platform</h2>

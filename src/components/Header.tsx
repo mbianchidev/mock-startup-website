@@ -90,18 +90,19 @@ export function Header() {
                     className="dropdown-toggle"
                     onClick={(e) => {
                       if (mounted && isMobile) {
-                        // On mobile, keep the nav open and just reveal submenu (already visible via CSS)
-                        e.preventDefault()
+                        // On mobile, navigate to the features section
+                        closeMobileMenu()
                         return
                       }
                       closeMobileMenu()
                     }}
                   >
-                    {item.label} <i className="fas fa-chevron-down" aria-hidden="true"></i>
+                    {item.label}
+                    {mounted && !isMobile && <i className="fas fa-chevron-down" aria-hidden="true"></i>}
                   </Link>
-                  <ul className="dropdown-menu">
+                  <ul className={`dropdown-menu ${mounted && isMobile ? 'mobile-submenu' : ''}`}>
                     {item.dropdown.map((dropdownItem) => (
-                      <li key={dropdownItem.href}>
+                      <li key={dropdownItem.href} className={mounted && isMobile ? 'mobile-submenu-item' : ''}>
                         <Link href={dropdownItem.href} onClick={closeMobileMenu}>
                           {dropdownItem.label}
                         </Link>
