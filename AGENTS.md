@@ -34,7 +34,7 @@ If you encounter weird dependency issues or package conflicts:
 If you see CSP violations in the browser console:
 - Check if external scripts (like Font Awesome, analytics) are being blocked
 - Verify the CSP headers in `next.config.js` allow the required domains
-- For Font Awesome specifically, ensure `kit.fontawesome.com` is whitelisted
+- For Font Awesome specifically, ensure `kit.fontawesome.com` is allowlisted
 
 ### Hydration Errors
 If you encounter React hydration mismatches:
