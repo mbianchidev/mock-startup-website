@@ -100,7 +100,16 @@ src/
 │   ├── layout.tsx       # Root layout component
 │   ├── page.tsx         # Homepage
 │   ├── about/           # About page
+│   ├── careers/         # Careers page
+│   ├── customers/       # Customers page
+│   ├── documentation/   # Documentation page
+│   ├── press/           # Press page
 │   ├── pricing/         # Pricing page
+│   ├── privacy/         # Privacy page
+│   ├── redirect/        # Redirect pages
+│   ├── roadmap/         # Roadmap page
+│   ├── support/         # Support page
+│   ├── terms/           # Terms page
 │   └── globals.css      # Global styles
 ├── components/          # Reusable React components
 │   ├── Header.tsx       # Navigation header
@@ -111,7 +120,13 @@ src/
 │   ├── TrustedBy.tsx    # Logo carousel
 │   ├── Integrations.tsx # Integration icons
 │   ├── CloudCarousel.tsx # Interactive carousel
-│   └── Testimonials.tsx # Customer testimonials
+│   ├── Testimonials.tsx # Customer testimonials
+│   ├── Stats.tsx        # Statistics component
+│   ├── Collapsible.tsx  # Collapsible component
+│   ├── RedirectPage.tsx # Redirect page component
+│   ├── WorkInProgress.tsx # Work in progress component
+│   ├── SessionizeEmbed.tsx # Sessionize embed component
+│   └── KubernetesDistros.tsx # Kubernetes distributions component
 ├── types/               # TypeScript type definitions
 │   └── index.ts
 ├── data/               # JSON data files
