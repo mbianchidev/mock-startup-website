@@ -1183,6 +1183,7 @@ footer {
 
     .hero-buttons {
         justify-content: center;
+        margin-bottom: 40px; /* Add spacing between buttons and image */
     }
 
     .cloud-item {
@@ -1241,6 +1242,26 @@ footer {
         padding: 0;
     }
     
+    .dropdown-menu.mobile-submenu {
+        background: transparent;
+        margin-top: 8px;
+        margin-left: 0;
+        border-radius: 0;
+        border-left: 2px solid var(--primary-color);
+        padding-left: 0;
+    }
+    
+    .mobile-submenu-item {
+        padding-left: 20px;
+    }
+    
+    .mobile-submenu-item a {
+        font-size: 0.9rem;
+        color: var(--secondary-color);
+        font-weight: 500;
+        padding: 8px 15px;
+    }
+
     .dropdown-menu a {
         padding: 10px 20px;
         font-size: 0.9rem;
@@ -1294,6 +1315,60 @@ footer {
     
     .cloud-slides-container {
         width: 500%;
+    }
+
+    /* Mobile specific cloud carousel styles */
+    .mobile-carousel .cloud-slides-container.mobile {
+        width: 1500%; /* 15 items * 100% */
+        display: flex;
+        height: 350px;
+        overflow: hidden;
+    }
+    
+    .mobile-carousel .cloud-slide.mobile-slide {
+        width: calc(100% / 15); /* Each slide takes 1/15th of the container */
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+    
+    .cloud-item.mobile-item {
+        width: 280px;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: var(--white);
+        border-radius: 15px;
+        padding: 40px 20px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+        border: 2px solid var(--light-gray);
+    }
+    
+    .cloud-item.mobile-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        border-color: var(--primary-color);
+    }
+    
+    .cloud-item.mobile-item img {
+        max-width: 120px;
+        max-height: 80px;
+        margin-bottom: 20px;
+        object-fit: contain;
+    }
+    
+    .cloud-item.mobile-item h3 {
+        color: var(--text-color);
+        font-size: 1.1rem;
+        margin: 0;
+        line-height: 1.4;
+        font-weight: 600;
     }
     
     .carousel-indicators {
