@@ -15,7 +15,8 @@ const navItems: NavItem[] = [
       { href: '/#kubernetes', label: 'Multi Cluster' }
     ]
   },
-  { href: '/pricing', label: 'Pricing' }
+  { href: '/pricing', label: 'Pricing' },
+  { href: '/blog', label: 'Blog' }
 ]
 
 export function Header() {
