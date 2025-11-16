@@ -113,12 +113,6 @@ const nextConfig = {
       },
       // Blogs and articles
       {
-        source: '/blog',
-        destination: 'https://blog.mb-consulting.dev',
-        permanent: false,
-        basePath: false
-      },
-      {
         source: '/medium',
         destination: 'https://medium.com/@mbianchidev',
         permanent: false,

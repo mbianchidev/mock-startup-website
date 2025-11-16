@@ -5,6 +5,7 @@ const pages = [
   { name: 'pricing', path: '/pricing', title: 'Pricing - Matteo Platform' },
   { name: 'roadmap', path: '/roadmap', title: 'Roadmap - Matteo Platform' },
   { name: 'careers', path: '/careers', title: 'Careers - Matteo Platform' },
+  { name: 'blog', path: '/blog', title: 'Blog - Matteo Platform' },
 ];
 
 test.describe('Next.js 15.5 and React 19.1 Page Screenshots', () => {
