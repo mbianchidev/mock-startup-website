@@ -1,0 +1,58 @@
+{
+  "projects": [
+    {
+      "name": "Kubernetes",
+      "description": "Production-Grade Container Orchestration - Contributor to the world's leading container orchestration platform",
+      "url": "https://github.com/kubernetes/kubernetes",
+      "stars": "110k+",
+      "techStack": ["Go", "Cloud Native", "Containers"],
+      "icon": "fa fa-dharmachakra",
+      "contribution": "40+ merged PRs"
+    },
+    {
+      "name": "Kubernetes SIG Release",
+      "description": "Special Interest Group for Kubernetes Release Engineering - Active member helping shape the release process",
+      "url": "https://github.com/kubernetes/sig-release",
+      "stars": "500+",
+      "techStack": ["Go", "CI/CD", "Release Engineering"],
+      "icon": "fas fa-rocket",
+      "contribution": "Release team member"
+    },
+    {
+      "name": "Kubernetes Community",
+      "description": "Kubernetes Community governance and contributor documentation",
+      "url": "https://github.com/kubernetes/community",
+      "stars": "12k+",
+      "techStack": ["Documentation", "Governance"],
+      "icon": "fas fa-users",
+      "contribution": "Community contributor"
+    },
+    {
+      "name": "CNCF Projects",
+      "description": "Various contributions to Cloud Native Computing Foundation projects and ecosystem tools",
+      "url": "https://github.com/cncf",
+      "stars": "Multiple",
+      "techStack": ["Go", "Cloud Native", "Open Source"],
+      "icon": "fas fa-cloud",
+      "contribution": "Active CNCF community member"
+    },
+    {
+      "name": "DevOps Tools",
+      "description": "Open source tools and utilities for DevOps, Platform Engineering, and Cloud Native development",
+      "url": "https://github.com/mbianchidev",
+      "stars": "Growing",
+      "techStack": ["Various", "DevOps", "Automation"],
+      "icon": "fas fa-tools",
+      "contribution": "Creator and maintainer"
+    },
+    {
+      "name": "Cloud Native Training",
+      "description": "Educational content, workshops, and training materials for Cloud Native technologies",
+      "url": "https://github.com/mbianchidev",
+      "stars": "Community",
+      "techStack": ["Kubernetes", "Docker", "CI/CD"],
+      "icon": "fas fa-graduation-cap",
+      "contribution": "Training materials author"
+    }
+  ]
+}
