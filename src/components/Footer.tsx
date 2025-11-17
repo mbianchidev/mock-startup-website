@@ -31,9 +31,7 @@ export function Footer() {
             <h3>Company</h3>
             <Link href="/about">About</Link>
             <Link href="/careers">Careers</Link>
-            <a href="https://blog.mb-consulting.dev" target="_blank" rel="noopener noreferrer">
-              Blog
-            </a>
+            <Link href="/blog">Blog</Link>
             <Link href="/press">Press</Link>
           </div>
           <div className="link-column">
