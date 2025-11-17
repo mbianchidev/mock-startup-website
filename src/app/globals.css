@@ -2853,6 +2853,8 @@ footer {
 
     .stat-number {
         font-size: 2rem;
+    }
+}
 /* Blog page styles */
 .blog-grid {
     display: grid;
