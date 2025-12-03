@@ -1,58 +1,58 @@
 {
   "projects": [
     {
-      "name": "Kubernetes",
-      "description": "Production-Grade Container Orchestration - Contributor to the world's leading container orchestration platform",
-      "url": "https://github.com/kubernetes/kubernetes",
-      "stars": "110k+",
-      "techStack": ["Go", "Cloud Native", "Containers"],
-      "icon": "fa fa-dharmachakra",
-      "contribution": "40+ merged PRs"
-    },
-    {
-      "name": "Kubernetes SIG Release",
-      "description": "Special Interest Group for Kubernetes Release Engineering - Active member helping shape the release process",
-      "url": "https://github.com/kubernetes/sig-release",
-      "stars": "500+",
-      "techStack": ["Go", "CI/CD", "Release Engineering"],
-      "icon": "fas fa-rocket",
-      "contribution": "Release team member"
-    },
-    {
-      "name": "Kubernetes Community",
-      "description": "Kubernetes Community governance and contributor documentation",
-      "url": "https://github.com/kubernetes/community",
-      "stars": "12k+",
-      "techStack": ["Documentation", "Governance"],
-      "icon": "fas fa-users",
-      "contribution": "Community contributor"
-    },
-    {
-      "name": "CNCF Projects",
-      "description": "Various contributions to Cloud Native Computing Foundation projects and ecosystem tools",
-      "url": "https://github.com/cncf",
-      "stars": "Multiple",
-      "techStack": ["Go", "Cloud Native", "Open Source"],
-      "icon": "fas fa-cloud",
-      "contribution": "Active CNCF community member"
-    },
-    {
-      "name": "DevOps Tools",
-      "description": "Open source tools and utilities for DevOps, Platform Engineering, and Cloud Native development",
-      "url": "https://github.com/mbianchidev",
-      "stars": "Growing",
-      "techStack": ["Various", "DevOps", "Automation"],
-      "icon": "fas fa-tools",
+      "name": "Platform Engineering Roadmap",
+      "description": "An opinionated platform engineering roadmap - in the form of an interactive website to help engineers navigate the platform engineering landscape",
+      "url": "https://github.com/mbianchidev/platform-engineering-roadmap",
+      "stars": "111",
+      "techStack": ["JavaScript", "Platform Engineering", "Roadmap"],
+      "icon": "fas fa-road",
       "contribution": "Creator and maintainer"
     },
     {
-      "name": "Cloud Native Training",
-      "description": "Educational content, workshops, and training materials for Cloud Native technologies",
-      "url": "https://github.com/mbianchidev",
-      "stars": "Community",
-      "techStack": ["Kubernetes", "Docker", "CI/CD"],
-      "icon": "fas fa-graduation-cap",
-      "contribution": "Training materials author"
+      "name": "Engineering Interviews",
+      "description": "Questions to prepare for engineering interviews and coding challenges solutions to help developers ace their technical interviews",
+      "url": "https://github.com/mbianchidev/engineering-interviews",
+      "stars": "9",
+      "techStack": ["TypeScript", "Interview Prep", "Coding Challenges"],
+      "icon": "fas fa-briefcase",
+      "contribution": "Creator and maintainer"
+    },
+    {
+      "name": "K-Lab CLI",
+      "description": "A utility command line tool to help manage Kubernetes clusters in a consistent way across AWS, Azure, and GCP",
+      "url": "https://github.com/mbianchidev/klab-cli",
+      "stars": "5",
+      "techStack": ["Python", "Kubernetes", "Multi-Cloud"],
+      "icon": "fas fa-terminal",
+      "contribution": "Creator and maintainer"
+    },
+    {
+      "name": "CLI Cheatsheet",
+      "description": "A comprehensive cheatsheet for various CLIs including AWS, Kubernetes, Docker, Maven, Terraform and more",
+      "url": "https://github.com/mbianchidev/cli-cheatsheet",
+      "stars": "1",
+      "techStack": ["Shell", "Bash", "DevOps"],
+      "icon": "fas fa-book",
+      "contribution": "Creator and maintainer"
+    },
+    {
+      "name": "mb-consulting.dev",
+      "description": "Personal consulting website built with Next.js, React, and deployed on Vercel",
+      "url": "https://github.com/mbianchidev/mb-consulting.dev",
+      "stars": "2",
+      "techStack": ["JavaScript", "Next.js", "React"],
+      "icon": "fas fa-globe",
+      "contribution": "Creator and maintainer"
+    },
+    {
+      "name": "Find Concerts IO",
+      "description": "A TypeScript application to help music lovers find concerts and events easily",
+      "url": "https://github.com/mbianchidev/find-concerts-io",
+      "stars": "0",
+      "techStack": ["TypeScript", "Music", "Events"],
+      "icon": "fas fa-music",
+      "contribution": "Creator and maintainer"
     }
   ]
 }
