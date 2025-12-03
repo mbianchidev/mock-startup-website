@@ -28,31 +28,31 @@
       "contribution": "Creator and maintainer"
     },
     {
-      "name": "CLI Cheatsheet",
-      "description": "A comprehensive cheatsheet for various CLIs including AWS, Kubernetes, Docker, Maven, Terraform and more",
-      "url": "https://github.com/mbianchidev/cli-cheatsheet",
-      "stars": "1",
-      "techStack": ["Shell", "Bash", "DevOps"],
-      "icon": "fas fa-book",
-      "contribution": "Creator and maintainer"
+      "name": "Kubernetes",
+      "description": "Production-Grade Container Scheduling and Management - the world's most popular container orchestration platform",
+      "url": "https://github.com/kubernetes/kubernetes",
+      "stars": "113k+",
+      "techStack": ["Go", "Cloud Native", "Containers"],
+      "icon": "fas fa-dharmachakra",
+      "contribution": "Contributor"
     },
     {
-      "name": "mb-consulting.dev",
-      "description": "Personal consulting website built with Next.js, React, and deployed on Vercel",
-      "url": "https://github.com/mbianchidev/mb-consulting.dev",
-      "stars": "2",
-      "techStack": ["JavaScript", "Next.js", "React"],
-      "icon": "fas fa-globe",
-      "contribution": "Creator and maintainer"
+      "name": "Helm",
+      "description": "The Kubernetes Package Manager - the standard way to package and deploy applications on Kubernetes",
+      "url": "https://github.com/helm/helm",
+      "stars": "27k+",
+      "techStack": ["Go", "Kubernetes", "Package Management"],
+      "icon": "fas fa-ship",
+      "contribution": "Contributor"
     },
     {
-      "name": "Find Concerts IO",
-      "description": "A TypeScript application to help music lovers find concerts and events easily",
-      "url": "https://github.com/mbianchidev/find-concerts-io",
-      "stars": "0",
-      "techStack": ["TypeScript", "Music", "Events"],
-      "icon": "fas fa-music",
-      "contribution": "Creator and maintainer"
+      "name": "OpenTofu",
+      "description": "OpenTofu lets you declaratively manage your cloud infrastructure - the open source Terraform alternative",
+      "url": "https://github.com/opentofu/opentofu",
+      "stars": "24k+",
+      "techStack": ["Go", "IaC", "Cloud"],
+      "icon": "fas fa-cubes",
+      "contribution": "Contributor"
     }
   ]
 }
