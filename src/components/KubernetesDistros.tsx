@@ -20,7 +20,7 @@ const kubernetesDistros: KubernetesDistro[] = [
   {
     name: 'AKS',
     description: 'Azure Kubernetes Service',
-    logo: 'https://github.com/Azure/AKS/blob/master/blog/assets/images/400x400.png?raw=true'
+    logo: 'https://www.svgrepo.com/show/448269/azure-aks.svg'
   },
   {
     name: 'k3s',
