@@ -53,6 +53,12 @@ const jobOpenings: JobOpening[] = [
     location: 'Remote / London',
     description: 'Lead the design and implementation of our core platform infrastructure. Drive technical vision, architect scalable systems, and provide technical leadership across multiple teams in a fast-paced environment.',
     skills: ['Platform Engineering', 'Infrastructure as Code', 'Technical Leadership', 'Distributed Systems']
+  },
+  {
+    title: 'Solutions Engineer',
+    location: 'Remote / New York',
+    description: 'Bridge the gap between our technical platform and customer success. You\'ll work directly with enterprise clients to understand their needs, design tailored solutions, and ensure successful implementations of our cloud-native technologies.',
+    skills: ['Customer Success', 'Technical Consulting', 'Cloud Architecture', 'Problem Solving']
   }
 ]
 
