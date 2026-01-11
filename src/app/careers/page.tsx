@@ -39,7 +39,7 @@ const jobOpenings: JobOpening[] = [
   {
     title: 'Product Manager (Kubernetes)',
     location: 'Remote / Amsterdam',
-    description: 'Drive the product strategy for our Kubernetes platform offerings. Work closely with engineering teams to define features, gather customer requirements, and ensure successful product launches in the cloud-native ecosystem.',
+    description: 'Drive the product strategy for our Kubernetes platform offerings. Work closely with engineering teams to define features, gather customer requirements, and ensure successful product launches in the cloud native ecosystem.',
     skills: ['Kubernetes', 'Product Strategy', 'Stakeholder Management', 'Cloud Native']
   },
   {
