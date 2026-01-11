@@ -629,9 +629,9 @@ nav {
 
 .feature-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -704,9 +704,9 @@ nav {
 
 .use-cases-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -2174,6 +2174,15 @@ footer {
     
     .use-case-item h3 {
         font-size: 1.3rem;
+    }
+    
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .feature-item {
+        padding: 30px 20px;
     }
 }
 
