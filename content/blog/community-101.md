@@ -3,272 +3,118 @@ title: "Community 101"
 date: "2024-08-09"
 author: "Matteo Bianchi"
 category: "Community"
-excerpt: "Reflections on tech communities - what makes them work, how to participate meaningfully, and why community involvement has shaped my career in unexpected ways."
+excerpt: "My story with communities and my view about how healthy tech communities should work.Let’s start with the definition of community:“A community is a social unit with a shared socially significant characteristic, such as place, set of norms, culture,..."
 ---
 
-# Community 101
+#### My story with communities and my view about how healthy tech communities should work.
 
-Tech communities have been transformative in my career. From finding jobs to learning new skills to making lifelong friends, community involvement has shaped my path in ways I never expected. Here's what I've learned about how healthy tech communities function.
+Let’s start with the definition of community:
 
-## What is a Tech Community?
+> “A community is a social unit with a shared socially significant characteristic, such as place, set of norms, culture, religion, values, customs, or identity. Communities may share a sense of place situated in a given geographical area or in virtual space through communication platforms.”
 
-A tech community is a group of people connected by shared interests in technology. This can take many forms:
+I started joining communities since around 2006, starting with videogame forums on the (in)famous forumcommunity, then TeamSpeak and most recently on Discord, I even moderated some of these in time, especially around eSports.
 
-- **Open source projects** - Contributors working on shared codebases
-- **User groups** - People using the same technologies
-- **Local meetups** - Geographic gatherings of tech professionals
-- **Online forums** - Discord servers, Slack workspaces, subreddits
-- **Conference communities** - People who regularly attend the same events
+Aside from gaming communities I have always been involved in discussion groups and social media revolving around music, yep I’m staring at you MySpace!
 
-The best communities share common characteristics regardless of their format.
+After leaving my eSports and music dreams behind (oh well, not completely), I started working in IT more than 8 years ago and before moving abroad — I’m originally from Italy and currently live in the Netherlands — I’ve never been much involved in tech communities.
 
-## What Makes Communities Work
+*Why?*
+Ok, let’s make a list.
 
-### Shared Purpose
+- I have always been an introvert and I did not like to mix my private life — everything that happened after 5 PM — and my professional life — everything that went on from 9 AM until I clocked out;
+- I was just using Open Source software but never joined a community with the intent of interacting or contributing;
+- Italian dev communities I knew were mostly online and I was not really fond of the whole “let’s meet some strangers working in your same field” idea;
+- I had a stable job, no network needed so I just forgot about it;
+Everything started to change when I decided to leave my corporate job in Italy and started planning out my switch to a freelancing career.
 
-Healthy communities have a clear reason for existing:
+I needed to build a network and so I began publishing more content on LinkedIn (well, I actually had to update my profile before that) and created some form of personal branding — mostly around memes and publicly blasting toxic entrepreneurs and companies — the results were quite good and so I went on.
 
-- Learning and education
-- Building something together
-- Supporting each other's careers
-- Advancing a technology or cause
+In the meantime I was also getting passionated about my job, in particular around everything DevOps and Kubernetes.
+In 2019, I attended my first tech conference ever: Codemotion Milan in 2019.
+I enjoyed the talks, the vibe and the format of it all. 
+Remember this, it will come in handy later.
 
-This purpose attracts the right people and guides decisions.
+It is now 2020, the pandemic hit and my introversion started shying away. 
+I started craving staying in touch with people and talking about tech stuff.
+To fulfill my desires, I joined some apps to get to know more freelance professionals and expand my network.
 
-### Welcoming Culture
+I created a community for freelancers, started streaming on Twitch.tv — in a way it was a little podcast, very nice and cozy — and that community grew in a spontaneous and organic way, driven by comradery, mutual help and a healthy desire of sharing.
 
-Newcomers should feel invited, not intimidated:
+*So what?* 
+Well, after the various lock-downs expired, I started digital nomading across Europe for a while, had amazing experiences in co-workings and co-livings, explored different cultures, different countries and met a lot of cool people.
 
-- Clear onboarding processes
-- Patience with questions
-- Active mentorship
-- Celebration of growth
+I then [moved to the Netherlands](https://blog.mb-consulting.dev/new-year-resolutions-of-a-fresh-cto-1224812d3cb5) — *read this blog, it is nice*. 
+Since moving here I started going down the community rabbit hole, more and more, starting with attending [my first ever KCD](https://blog.mb-consulting.dev/kubernetes-community-days-experience-67de887ec1d8), various meetups in the Cloud Native space and then ending up being in the organizing team for [KCD in the Netherlands](https://blog.mb-consulting.dev/my-experience-as-kcd-organizer-9b1b3056329a), [Dutch Kubernetes Meetups](https://www.meetup.com/nl-NL/dutch-kubernetes-meetup/) and for [KubeTrain](https://kubetrain.io/).
+All of this on top of attending (sometimes as a speaker) most of the local meetups in my city and various conferences, including [Cloud Native Rejekts](https://www.youtube.com/watch?v=8c6xYXY12ro&t=545s), KubeCon and [DevOpsDays Amsterdam](https://www.youtube.com/watch?v=dWn48x4v34Q), of course.
 
-Communities that eat their young don't survive.
+My experience in the community is also going hand in hand with my open source journey. 
+Just to mention the latest one, I’m currently part of the Kubernetes Release Team for v1.31, I have written [a blog for the CNCF](https://www.cncf.io/blog/2024/02/01/from-attendees-to-organizers-a-community-story/), updated Kong Ingress Controller docs, contributed to PrivateGPT and the list goes on.
 
-### Open Knowledge Sharing
+So you got the drill by now, I am deep in the tech community world and I fell in love with open source and its communities.
+The initial idea behind this blog was more like a bullet point list about how tech communities should work in my opinion and, after a long introduction (sorry, I love giving context), this is it!
 
-Knowledge flows freely in healthy communities:
+> Warning: this list is opinionated, a result of my own community experience and how I personally see communities.
 
-- People share what they learn
-- Questions are welcomed
-- Expertise is accessible
-- No gatekeeping
+### **Be open at all costs**
 
-### Psychological Safety
+Rule number one, that I will borrow from punk rock: no room for rockstars.
 
-Members should feel safe to:
+![](https://cdn-images-1.medium.com/max/440/0*zIiidJENqhyDJnPn)
 
-- Ask "dumb" questions
-- Admit mistakes
-- Share failures
-- Disagree respectfully
+A community exists only because a lot of people have traits in common, there is no need for pack leaders (moderators are welcome though) and gatekeeping is not allowed, exactly like in a punk concert.
 
-Without safety, participation drops and learning suffers.
+p.s. This also applies to open-source-ness. A tech community around closed-source software (unless it’s a videogame) sucks hard and it’s nothing but an artificial cage built to inject marketing and sales pitches in it. 
+Sorry, but this is the harsh truth behind your closed-source community.
 
-### Inclusive Environment
+### Be nice to everyone or stay out.
 
-Great communities actively work on inclusion:
+Code of conduct, house rules, frieNDA, call if however you like but it summarizes with: be nice or stay out.
+Community means helping each other, lifting each other up and having each others’ back.
 
-- Welcoming diverse perspectives
-- Removing barriers to participation
-- Addressing problematic behavior
-- Celebrating differences
+There is no space for bullies or ass*oles alike.
 
-## How to Participate Meaningfully
+### Don’t treat your community like an on-off switch
 
-### Start by Lurking
+This is me thinking about certain events, certain companies and certain groups.
+A community exists with or without a company or a foundation behind it, so, if structured entities want to benefit from a community in exchange for sponsorships, endorsement or anything else, they are more than welcome to be part of it.
+They just have to keep in mind that the community is not theirs, at all.
+A community has no owner and it is very quick to turn away from non-ideal partners.
 
-When you join a new community:
+### Let organizers have agency
 
-1. **Observe** - Understand the culture and norms
-2. **Read** - Catch up on common topics
-3. **Learn** - Identify who's who and what matters
-4. **Absorb** - Get a feel for the community
+I will never stress this enough.
+It is more than fine to set some guardrails and give guidance but communities are spontaneous, they self organize, they find ways, they know what works locally.
+Decentralization is the way, centralizing kills the purpose.
 
-This isn't passive—it's preparation.
+This also means that community organizers and moderators should put their big ass ego to the side and just work for the community they want to contribute building.
 
-### Contribute What You Can
+### People and diversity > process
 
-You don't need to be an expert to contribute:
+This is very simple, yet crucial.
+It is all about the people that make your community thrive and prosper, there is no age limit or any other kind of limit. 
+Every tech community should be able to embrace and welcome diversity, for real.
 
-- **Answer questions** you know the answers to
-- **Share resources** you've found helpful
-- **Report issues** you encounter
-- **Welcome newcomers** as you become more comfortable
+Give people a space, pizza, drinks, a microphone and optionally a screen… They will make it happen.
+Don’t make it too difficult, don’t add complexity to it.
 
-### Ask Good Questions
+### Sponsorships are a double edged sword.
 
-When seeking help:
+Sponsors.
+They are rightfully part of the community and they can benefit from it, may that be direct or indirect profit, brand awareness, visibility, hiring... Not arguing about that, it all makes sense.
+Just don’t be SO sales-y, be less obvious about it and have that human touch. It makes a world of difference between you and your competitors.
 
-```markdown
-**Good Question Format:**
+Don’t spam your webinar too much, just make it a recurring appointment with interesting guests so people will join fondly and it will create a space of pure interaction, for example.
+There are plenty of ways to create healthy tech communities, backed by sponsors.
 
-1. What you're trying to do
-2. What you've tried
-3. What happened vs. what you expected
-4. Relevant context (versions, environment)
-5. Specific question
-```
+Oh and please, also have socks at your booths and have them ready to distribute at events.
 
-Good questions respect others' time and get better answers.
+*Late disclaimer: opinions are my own, duh.*
 
-### Give Before You Take
+That’s all for now, from your favorite Cloud Native Avocado🥑
+Find all my links 👉 [**here**](https://mb-consulting.dev/all-links).
 
-Build social capital by helping others first:
+See you around, ciao!
 
-- Answer questions before asking yours
-- Share knowledge freely
-- Support others' efforts
-- Contribute to projects
+---
 
-This creates a positive cycle.
-
-## Building Relationships
-
-### Consistency Matters
-
-Showing up regularly:
-
-- Builds familiarity
-- Establishes trust
-- Creates opportunities
-- Deepens connections
-
-You can't build relationships in a drive-by.
-
-### Be Authentic
-
-People connect with real humans:
-
-- Share your experiences honestly
-- Admit what you don't know
-- Be yourself, not a persona
-- Have opinions and share them
-
-### Support Others' Success
-
-Celebrate others' wins:
-
-- Congratulate achievements
-- Amplify good work
-- Recommend people for opportunities
-- Mentor where you can
-
-This generosity comes back around.
-
-## The Benefits
-
-### Career Opportunities
-
-Community involvement has led to:
-
-- Job offers from connections I made
-- Speaking opportunities at conferences
-- Collaborations on projects
-- Recommendations and referrals
-
-Many of my best career moves came through community connections.
-
-### Learning Acceleration
-
-Learning in community is faster than learning alone:
-
-- Access to experts
-- Real-world examples
-- Diverse perspectives
-- Faster feedback loops
-
-### Personal Fulfillment
-
-Beyond career benefits:
-
-- Meaningful friendships
-- Sense of belonging
-- Purpose and contribution
-- Fun and enjoyment
-
-## Common Mistakes
-
-### Transactional Mindset
-
-Don't treat community as a lead funnel:
-
-- "What can I get?" vs. "What can I give?"
-- Networking for immediate gain
-- Only showing up when you need something
-
-This approach fails and is obvious to everyone.
-
-### Gatekeeping
-
-Don't hoard knowledge or access:
-
-- "You should know this already"
-- Exclusive in-groups
-- Making newcomers prove themselves
-
-Healthy communities grow by welcoming, not excluding.
-
-### Burnout
-
-Sustainable participation matters:
-
-- Set boundaries
-- It's okay to step back
-- Don't let community become a burden
-- Take care of yourself first
-
-## Building Community
-
-If you're creating or leading a community:
-
-### Define Purpose
-
-Be clear about why you exist:
-
-- What brings people together?
-- What value do members get?
-- What are you building toward?
-
-### Establish Culture
-
-Intentionally create the environment you want:
-
-- Code of conduct
-- Moderation practices
-- Recognition systems
-- Onboarding processes
-
-### Invest in Leaders
-
-Community leaders make or break communities:
-
-- Identify and develop future leaders
-- Support current leaders
-- Create leadership pathways
-- Distribute responsibility
-
-### Measure Health
-
-Track what matters:
-
-- Member retention
-- Participation quality
-- Newcomer onboarding success
-- Member satisfaction
-
-## Conclusion
-
-Tech communities are some of the most valuable resources in our industry. They accelerate learning, create opportunities, and provide belonging in a sometimes isolating profession.
-
-Whether you're joining your first community or building your tenth, remember:
-
-- **Give more than you take**
-- **Be authentic and welcoming**
-- **Show up consistently**
-- **Support others' success**
-
-The investment you make in community will pay dividends throughout your career—and hopefully, bring some joy along the way.
-
-*Originally published on [blog.mb-consulting.dev](https://blog.mb-consulting.dev/)*
+*Originally published on [blog.mb-consulting.dev](https://medium.com/@mbianchidev/community-101-35b0145f0268?source=rss-4271f7910db4------2)*

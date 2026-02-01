@@ -3,165 +3,114 @@ title: "Cloud Native Rejekts + KubeCon NA 2024"
 date: "2024-11-18"
 author: "Matteo Bianchi"
 category: "Cloud Native"
-excerpt: "Reflections on Cloud Native Rejekts and KubeCon North America 2024 in Salt Lake City, covering notable talks, emerging trends, and personal observations from both events."
+excerpt: "A commentary on Rejekts and KubeCon NA in SLC, written while jet lagged coming back to Europe.Tech talks, new and old tech, laughs and Utah shitty anti-trans laws.RejektsThis round, like in Paris, I had the pleasure to attend and speak at Cloud..."
 ---
 
-# Cloud Native Rejekts + KubeCon NA 2024
+A commentary on Rejekts and KubeCon NA in SLC, written while jet lagged coming back to Europe.
+Tech talks, new and old tech, laughs and Utah shitty anti-trans laws.
 
-*Writing this while still recovering from jet lag after returning to Europe from Salt Lake City...*
+**Rejekts
+**This round, like in Paris, I had the pleasure to attend and speak at Cloud Native Rejekts, a lovely 2-days conf that serves as aperitif to KubeCon.
+Connecting the Cloud Native community in a cozier and far more relaxed space (compared to the main thing), the frame was this time a huge coworking space in downtown SLC: Kiln.
+I attended some talks, I connected with a ton of people — roughly 80% of the ones I really wanted see anyway, then gave my talk on day 1, at 2 PM.
 
-Another KubeCon is in the books, and once again, Cloud Native Rejekts proved to be an essential part of the experience. Let me share my observations from both events.
+![Rejekts kickoff!](https://cdn-images-1.medium.com/max/1024/0*iw04WVXakrfGM4gr)
 
-## Cloud Native Rejekts
+**My talk**
 
-For those unfamiliar, Cloud Native Rejekts is an unconference that happens the day before KubeCon. It features talks that didn't make it into KubeCon's main program—not because they weren't good enough, but because KubeCon has limited slots and many deserving proposals.
+[***“I explained eBPF to my grandma***!”](https://github.com/mbianchidev/mbianchidev/blob/master/public-speaking/Talks/2024-Cloud-Native-Rejekts-NA.md) is a lightweight talk that aims to simplify the eBPF kernel technology for the masses, grandparents included.
+I had a lot of fun putting it together, but, I have to stop procrastinating ’cause once again I finished my slides just the day before at 1 AM — and I edited them quite heavily the morning of the event.
+On the bright side it was well received from both experts and eBPF newbies!
 
-### Why Rejekts Matters
+**KubeCon
+**My KubeCon started early with half-day of the Kubernetes Contributor Summit.
+I had a blast connecting with the k8s team and the networking went on during the days after KCS especially during the meet&greet lunch, a fantastically executed meeting between all the different SIGs.
+This mini-event sparked conversations across different topics from the current release, to the release team and release engineering.
+Joining as Comms lead for v1.32 also gave me the opportunity of pushing for some deadline in real life, which felt weird since I’m only used to remote work since 2019.
+We also had the very last KCS after-party but that won’t be commented on, what happens in the contributor party, stays at the contributor party. 
+Sorry.
+*To start contributing and joining the good parties: *[***slack.k8s.io***](http://slack.k8s.io)
 
-Rejekts has become essential for several reasons:
+![Platform Engineering Day kickoff!](https://cdn-images-1.medium.com/max/1024/0*nrsUfpDGMV-Mn5P5)
 
-1. **Diversity of topics** - Talks that might be too niche for KubeCon find a home here
-2. **Raw and real** - Less polished, more authentic presentations
-3. **Community feel** - Smaller venue, easier networking
-4. **Early access** - Often previews of emerging trends
+Day-0 of KubeCon meant mainly Platform Engineering Day for me.
+I attended eagerly every talk and followed closely from the first row — even if we actually had many round table as a set-up, pretty cool!
+There’s a lot of buzz for the Platform Engineering topic within the CNCF and the cloud native community. 
+I won’t venture into the content of the talks: no spoiler!
+They are all recorded and you can take a look anytime on the CNCF channel: [**here**](https://www.youtube.com/@cncf/videos).
 
-### Notable Sessions
+![Me and Daniel Oh!](https://cdn-images-1.medium.com/max/1024/0*6vnijrcr_M_STIUN)
 
-This year's Rejekts featured some fantastic content:
+Big news: there’s a new Platform Engineer Associate certification coming soon that will serve the purpose of educating engineers in a formal way about Platform Engineering, there should probably be a new TAG (Technical Advisory Group) dedicated to this topic to facilitate its operations as it currently is a WG (Working Group) under the TAG App Delivery, despite having our very own sub-WGs.
 
-- Deep dives into cutting-edge observability patterns
-- Honest discussions about platform engineering challenges
-- Emerging security practices and tools
-- Real-world failure stories and lessons learned
+![Certification announcement?!](https://cdn-images-1.medium.com/max/1024/0*RgcPXnLLEJdsleQE)
 
-The best part about Rejekts is the willingness of speakers to be vulnerable—sharing failures, challenges, and works-in-progress that you won't hear about on the main stage.
+Another mini-event organized by the Platform Engineering Working Group has been the Platform Breakfast at the Coupla Coffee, an amazing gathering of early birds that I witnessed only once since I’m lazy.
+Kidding, I just had other breakfasts to attend.
 
-## KubeCon NA 2024
+*To join the group: *[**slack.cncf.io**](http://slack.cncf.io)** **> join the channel** wg_platforms**
 
-Salt Lake City hosted this year's North American KubeCon, and the conference continues to evolve.
+Since I was nominated CNCF Ambassador for H2 2024, I attended my first ever gathering with the rest of the team and it felt pretty great, especially since I knew most of them anyway, due to my committments in event organizing, open source and cloud native advocacy.
 
-### Observations and Trends
+![All of the CNCF Ambassadors present at KubeCon NA, out of the 231 in total!](https://cdn-images-1.medium.com/max/1024/0*MJ9Y6PqQ6y1iUt2r)
 
-#### AI Everywhere
+I had the opportunity to discuss with the fellow KCD (Kubernetes Community Days) and CNCG (meetups) organizers during another breakfast event, where we ended up talking about sinergies between Cloud Native Days and other tech events too.
 
-It was impossible to escape AI at this year's KubeCon. Topics included:
+**My KubeCon experience
+**My KubeCon day 1 has been split between the marvellous project pavillion, where all the open source project and community events have the opportunity of interacting with attendees, and the sponsor area where I grabbed a ton of swag, so much that my bag coming back was on the verge of exploding in a million tiny pieces.
+Day 2 has been mostly doing ambassador stuff and meeting many (old and new) people that really wanted to catch up with, like Ramiro from Okteto, Steve from Nethopper, Nick from Otterize, Orlin from SUSE and many more!
+Day 3 has been mainly recovering from the previous day (and night of parties) while attending more interesting talks.
 
-- **AI/ML workloads on Kubernetes** - GPU scheduling, resource management
-- **AI for operations** - Using LLMs for troubleshooting and automation
-- **AI-generated YAML** - Yes, really
-- **Vector databases and RAG** - Supporting AI application infrastructure
+Overall I would say it was a pretty good experience for me. I’ve learnt a lot and networking wise I connected with many new people.
 
-The cloud native ecosystem is clearly investing heavily in supporting AI workloads.
+The only (but big) downside is that Utah has shitty anti-trans law so many many people decided not to support KubeCon in SLC, rightfully so.
+A city picked for KubeCon should be safe for everyone at all times!
 
-#### Platform Engineering Maturity
+*Why did I go?* 
+I bought the ticket way in advance as I need(ed?) to find a job, sorry folks! :(
 
-Platform engineering has moved from buzzword to reality:
+**Pictures and extra**
 
-- Internal developer platforms (IDPs) are mainstream
-- Backstage adoption continues to grow
-- Golden paths and developer experience are primary concerns
-- Platform teams are becoming established organizational units
+I was in more selfies at this KubeCon than in my whole life, lol.
 
-#### Security Shift
+![Some of the CNCF Ambassadors, Mark, me and Kunal](https://cdn-images-1.medium.com/max/1024/0*44SFeuh-nEUgo4Zv)
 
-Security discussions have evolved:
+![Me and Steve!](https://cdn-images-1.medium.com/max/1024/0*yQz5vmrkVOTru4qs)
 
-- Supply chain security is no longer optional
-- SBOM requirements are driving tooling adoption
-- Zero-trust architectures are the expected default
-- Admission controllers and policy engines are mature
+Had amazing food and a night hike too. Proof:
 
-#### eBPF Revolution
+![Tacos, since we don’t get many good ones in Europe](https://cdn-images-1.medium.com/max/1024/1*8AAHmRVdjw6tBXD9NXvizA.jpeg)
 
-eBPF continues to transform:
+![The best Mexican place in SLC, or so I say.](https://cdn-images-1.medium.com/max/1024/1*csAgNhc2-ih_MjzXQ1lm_Q.jpeg)
 
-- Networking (Cilium is everywhere)
-- Observability (lower overhead, deeper insights)
-- Security (runtime detection and prevention)
-- Debugging and profiling
+![Lobster Mac & Cheese, hell yeah.](https://cdn-images-1.medium.com/max/1024/1*lawjEzjBPcVPZKKRiZT27g.jpeg)
 
-### The Expo Floor
+![Pat’s the best barbecue in town or so they say.](https://cdn-images-1.medium.com/max/1024/1*cXEaiB7hQxsISfrS2B7B4w.png)
 
-The expo was massive as always. Some observations:
+![A night view on SLC!](https://cdn-images-1.medium.com/max/1024/1*pjpFPzKgoPJE_2MFuBBi3g.png)
 
-- **Consolidation** - Several acquisitions announced or rumored
-- **AI booths** - Many vendors pivoting to AI messaging
-- **Observability** - Still a crowded and competitive space
-- **Security** - No shortage of security vendors
+Now a little gift for my readers, a code for 40% discount on all LF trainings (usable up to 5 times): **KCNA24WC1EQ-KX5J5**
 
-### Community Highlights
+Instructions on how to use it:
 
-The best part of KubeCon is always the people:
+- Navigate to [**training.linuxfoundation.org**](http://training.linuxfoundation.org)
+- Select your preferred training by clicking “Enroll Today”
+- You will be redirected to the cart
+- Enter the code and click “Apply”
+- Complete your purchase and voilà!
+Happy study and let me know how the exam went if you want :)
 
-- **Contributor gatherings** - SIG meetings, contributor summit
-- **Hallway track** - Conversations between sessions
-- **Evening events** - From vendor parties to informal dinners
-- **Reunions** - Seeing internet friends in person
+My next stop is KCD Denmark and then KubeCon EU 2025 in London.
+I can hopefully make it to Atlanta too(?) 
+Let’s see what happens with my new future employer.
 
-## Key Takeaways
+Anyway, if you live relatively close to London and you don’t mind taking a train stay tuned for [**KubeTrain EU 2025**](https://kubetrain.io/), road to London.
+There will be a BIG party at the arrival too, on the 31st of March.
 
-### 1. The Ecosystem is Mature
+You can find all my links 👉 [**here**](https://mb-consulting.dev/all-links).
 
-Kubernetes is 10 years old now, and it shows:
+See you around, ciao!
 
-- Core technology is stable and reliable
-- Focus is shifting to developer experience
-- Edge cases and advanced scenarios getting attention
-- Graduation of CNCF projects accelerating
+---
 
-### 2. Platform Engineering is Real
-
-This isn't a fad:
-
-- Organizations are investing seriously in internal platforms
-- Tooling is improving rapidly
-- Best practices are emerging
-- Success stories are being shared
-
-### 3. Security Can't Be an Afterthought
-
-The shift left has happened:
-
-- Security is embedded in platforms
-- Policy as code is normal
-- Supply chain attacks have everyone's attention
-- Compliance requirements are driving adoption
-
-### 4. AI Changes Everything (Again)
-
-Cloud native infrastructure is adapting:
-
-- GPU scheduling and management
-- AI workload orchestration
-- Data pipeline integration
-- MLOps platforms on Kubernetes
-
-## What's Next?
-
-Looking ahead:
-
-- **WebAssembly** - Still emerging, but potential is clear
-- **Multi-cluster** - Management and federation improving
-- **Edge** - Kubernetes at the edge maturing
-- **Sustainability** - Green computing getting attention
-
-## Reflections
-
-Every KubeCon I attend, I'm reminded of how special this community is. The combination of technical excellence and genuine collaboration is rare.
-
-Whether you're a first-time attendee or a veteran, there's always something to learn and people to meet. The cloud native community continues to grow and evolve, and I'm grateful to be part of it.
-
-### Thanks To
-
-- The Rejekts organizers for creating such a valuable space
-- The CNCF for putting on another great KubeCon
-- Everyone who took time to chat, share, and connect
-- The speakers who shared their knowledge and experiences
-
-## Until Next Time
-
-KubeCon EU 2025 is already on the calendar. See you there!
-
-*Now if you'll excuse me, I need to recover from this jet lag...*
-
-*Originally published on [blog.mb-consulting.dev](https://blog.mb-consulting.dev/)*
+*Originally published on [blog.mb-consulting.dev](https://medium.com/@mbianchidev/cloud-native-rejekts-kubecon-na-2024-86c0c158c149?source=rss-4271f7910db4------2)*
