@@ -2451,7 +2451,7 @@ footer {
     filter: blur(80px);
 }
 
-.hero-content {
+#pricing-hero .hero-content {
     position: relative;
     z-index: 2;
     max-width: 800px;
@@ -2459,7 +2459,7 @@ footer {
     padding: 0 20px;
 }
 
-.hero-content h1 {
+#pricing-hero .hero-content h1 {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 20px;
@@ -2467,7 +2467,7 @@ footer {
     color: var(--white);
 }
 
-.hero-content p {
+#pricing-hero .hero-content p {
     font-size: 1.3rem;
     opacity: 0.9;
     line-height: 1.6;
