@@ -1381,6 +1381,10 @@ footer {
         margin-bottom: 50px;
     }
 
+    .hero-image {
+        max-width: 100%;
+    }
+
     .hero-buttons {
         justify-content: center;
         margin-bottom: 40px; /* Add spacing between buttons and image */
