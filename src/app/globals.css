@@ -430,6 +430,7 @@ nav {
 
 .hero-content {
     flex: 1;
+    min-width: 0;
     padding-right: 50px;
     position: relative;
     z-index: 2;
@@ -495,7 +496,8 @@ nav {
 }
 
 .hero-image {
-    flex: 1;
+    flex: 0 1 auto;
+    max-width: 45%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -538,7 +540,7 @@ nav {
 }
 
 .logo-slide img {
-    margin: 0 30px;
+    margin: 0 40px;
     opacity: 0.85;
     transition: var(--transition);
     filter: grayscale(100%) brightness(1.3);
@@ -548,6 +550,7 @@ nav {
     background-color: rgba(255, 255, 255, 0.08);
     padding: 10px;
     border-radius: 8px;
+    flex-shrink: 0;
 }
 
 .logo-slide img:hover {
@@ -555,6 +558,22 @@ nav {
     filter: grayscale(0%);
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 0 40px rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 2000px) {
+    .logo-slide img {
+        margin: 0 60px;
+        width: 150px;
+        height: 75px;
+    }
+}
+
+@media (min-width: 3000px) {
+    .logo-slide img {
+        margin: 0 80px;
+        width: 180px;
+        height: 90px;
+    }
 }
 
 @keyframes slide {
