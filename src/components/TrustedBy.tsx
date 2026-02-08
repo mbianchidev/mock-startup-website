@@ -10,6 +10,7 @@ const companies = [
   { name: 'Netflix', logo: 'https://cdn.worldvectorlogo.com/logos/netflix-logo-icon.svg' },
   { name: 'Tesla', logo: 'https://cdn.worldvectorlogo.com/logos/tesla-pure.svg' },
   { name: 'NVidia', logo: 'https://cdn.worldvectorlogo.com/logos/nvidia.svg' },
+  { name: 'Adobe', logo: 'https://cdn.worldvectorlogo.com/logos/adobe-2.svg' },
   { name: 'Edera', logo: 'https://cdn.prod.website-files.com/6650e4fc72bc521db9b194c4/666704f17d1ff15728685ac2_mascot.svg' }
 ]
 
