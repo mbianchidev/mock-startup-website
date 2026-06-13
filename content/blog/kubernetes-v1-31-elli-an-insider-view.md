@@ -103,12 +103,12 @@ Many more people are running ML/AI and datastores on Kubernetes and it makes me 
 
 ![Me flexing the Falco Graduation shirt!](https://cdn-images-1.medium.com/max/800/0*cVjJespxH9iwy5S-)
 
-- I was interviewed due to my participation in the release team by the lovely people at the Dutch Kubernetes Podcast — you can listen to the episode [**here**](https://www.k8spodcast.nl/afleveringen/aflevering-63-kubernetes-v1-31-elli)**. **Thanks again to Ronald and Jan for having me.
+- I was interviewed due to my participation in the release team by the lovely people at the Dutch Kubernetes Podcast — you can listen to the episode [**here**](https://www.k8spodcast.nl/afleveringen/aflevering-63-kubernetes-v1-31-elli). Thanks again to Ronald and Jan for having me.
 - I was asked to take on the Comms Lead role for v1.32 and I will do my best to fulfill my duties, especially focusing on mentoring my future shadows and find the next Comms Lead.
-Want to apply? This is the form for applying to be a Release Shadow in v1.32 — you can find it at** **[**this link**](https://docs.google.com/forms/d/e/1FAIpQLSdb60FW9aYIepSdXIWexQIKNJ8m3JSqHZ6kkH3Q_I7XP9OVYA/viewform)**.**
+Want to apply? This is the form for applying to be a Release Shadow in v1.32 — you can find it at [**this link**](https://docs.google.com/forms/d/e/1FAIpQLSdb60FW9aYIepSdXIWexQIKNJ8m3JSqHZ6kkH3Q_I7XP9OVYA/viewform).
 - You will find me speaking at [**SREDay in London**](https://sreday.com/2024-london/) later in September and mingling around at Cloud Native Rejekts and KubeCon NA in Salt Lake City in November. Come and say hi if you see me!
-- **I’m open to work.
-**If your company needs a (remote) Cloud Engineer, Platform Engineer, DevRel or Software Engineer — 60% infra and Kubernetes based, 40% software, with a pinch of leadership and 100% teamwork, it’s time you hit me up [**on LinkedIn** ](https://www.linkedin.com/in/mbianchidev/)— open to both B2B contracts and full time roles.
+- **I’m open to work.**  
+If your company needs a (remote) Cloud Engineer, Platform Engineer, DevRel or Software Engineer — 60% infra and Kubernetes based, 40% software, with a pinch of leadership and 100% teamwork, it’s time you hit me up [**on LinkedIn**](https://www.linkedin.com/in/mbianchidev/) — open to both B2B contracts and full time roles.
 ### In conclusion
 
 A few words before wrapping up.
