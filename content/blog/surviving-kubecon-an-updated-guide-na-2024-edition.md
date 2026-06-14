@@ -27,7 +27,7 @@ Self-ad time, lol.
 Do not go with the wind, the wind blows faster than you think and you’ll end up overwhelmed by all the talks and events.
 - **Include after hour events in your schedule**, do it now!
 - **Leave some room for breaks**, eating, drinking water, going to the bathroom (yep, forgetting is a thing), breathe some fresh air, smoke a cigarette (or not, it’s not that healthy)
-- **Use **[**Too Good To Goo**](https://www.toogoodtogo.com) instead of eating in a restaurant every single night, it could save some money and you could discover some hidden gems / small grocery shops and typical food as well.
+- **Use** [**Too Good To Goo**](https://www.toogoodtogo.com) instead of eating in a restaurant every single night, it could save some money and you could discover some hidden gems / small grocery shops and typical food as well.
 - **Still fit some exercise** and no, walking during the conference doesn’t count.
 - **Networking is king**, but if your social battery is empty just let other people know, give them your LinkedIn name and ask them to follow up the day after or something, no shame in kindly refusing a conversation if you are not >80% committed to it.
 - **Take pictures, take small notes** and at the end of each day, try to upload them in a safe place, you’ll get to reorder and organize everything later, no worries.

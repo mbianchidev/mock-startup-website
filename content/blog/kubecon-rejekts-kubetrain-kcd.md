@@ -85,7 +85,7 @@ You can check more info about it [**here**](https://events.linuxfoundation.org/k
 
 Attending a tech conference means meeting people, exchanging ideas, attending interesting talks, contributing to panels, asking questions, speaking with sponsors, grab swag (socks! plushies!!), joining a jam sesh organized by KubeShop, meeting old friends and colleagues, fostering partnerships and synergies in a selfless way and sharing so many different stories.
 
-**Community **at its very peak.
+**Community** at its very peak.
 oming together for the stuff we love: cloud native tech or just tech in general, aside from (gen) AI.
 We don’t wanna see another wrapper around OpenAI’s APIs or another boring “chat with your data” feature, please.
 

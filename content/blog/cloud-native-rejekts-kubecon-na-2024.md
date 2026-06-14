@@ -9,8 +9,9 @@ excerpt: "A commentary on Rejekts and KubeCon NA in SLC, written while jet lagge
 A commentary on Rejekts and KubeCon NA in SLC, written while jet lagged coming back to Europe.
 Tech talks, new and old tech, laughs and Utah shitty anti-trans laws.
 
-**Rejekts
-**This round, like in Paris, I had the pleasure to attend and speak at Cloud Native Rejekts, a lovely 2-days conf that serves as aperitif to KubeCon.
+**Rejekts**
+
+This round, like in Paris, I had the pleasure to attend and speak at Cloud Native Rejekts, a lovely 2-days conf that serves as aperitif to KubeCon.
 Connecting the Cloud Native community in a cozier and far more relaxed space (compared to the main thing), the frame was this time a huge coworking space in downtown SLC: Kiln.
 I attended some talks, I connected with a ton of people — roughly 80% of the ones I really wanted see anyway, then gave my talk on day 1, at 2 PM.
 
@@ -22,14 +23,15 @@ I attended some talks, I connected with a ton of people — roughly 80% of t
 I had a lot of fun putting it together, but, I have to stop procrastinating ’cause once again I finished my slides just the day before at 1 AM — and I edited them quite heavily the morning of the event.
 On the bright side it was well received from both experts and eBPF newbies!
 
-**KubeCon
-**My KubeCon started early with half-day of the Kubernetes Contributor Summit.
+**KubeCon**
+
+My KubeCon started early with half-day of the Kubernetes Contributor Summit.
 I had a blast connecting with the k8s team and the networking went on during the days after KCS especially during the meet&greet lunch, a fantastically executed meeting between all the different SIGs.
 This mini-event sparked conversations across different topics from the current release, to the release team and release engineering.
 Joining as Comms lead for v1.32 also gave me the opportunity of pushing for some deadline in real life, which felt weird since I’m only used to remote work since 2019.
 We also had the very last KCS after-party but that won’t be commented on, what happens in the contributor party, stays at the contributor party. 
 Sorry.
-*To start contributing and joining the good parties: *[***slack.k8s.io***](http://slack.k8s.io)
+*To start contributing and joining the good parties:* [***slack.k8s.io***](http://slack.k8s.io)
 
 ![Platform Engineering Day kickoff!](https://cdn-images-1.medium.com/max/1024/0*nrsUfpDGMV-Mn5P5)
 
@@ -48,7 +50,7 @@ Big news: there’s a new Platform Engineer Associate certification coming soon 
 Another mini-event organized by the Platform Engineering Working Group has been the Platform Breakfast at the Coupla Coffee, an amazing gathering of early birds that I witnessed only once since I’m lazy.
 Kidding, I just had other breakfasts to attend.
 
-*To join the group: *[**slack.cncf.io**](http://slack.cncf.io)** **> join the channel** wg_platforms**
+*To join the group:* [**slack.cncf.io**](http://slack.cncf.io) > join the channel **wg_platforms**
 
 Since I was nominated CNCF Ambassador for H2 2024, I attended my first ever gathering with the rest of the team and it felt pretty great, especially since I knew most of them anyway, due to my committments in event organizing, open source and cloud native advocacy.
 
@@ -56,8 +58,9 @@ Since I was nominated CNCF Ambassador for H2 2024, I attended my first ever gath
 
 I had the opportunity to discuss with the fellow KCD (Kubernetes Community Days) and CNCG (meetups) organizers during another breakfast event, where we ended up talking about sinergies between Cloud Native Days and other tech events too.
 
-**My KubeCon experience
-**My KubeCon day 1 has been split between the marvellous project pavillion, where all the open source project and community events have the opportunity of interacting with attendees, and the sponsor area where I grabbed a ton of swag, so much that my bag coming back was on the verge of exploding in a million tiny pieces.
+**My KubeCon experience**
+
+My KubeCon day 1 has been split between the marvellous project pavillion, where all the open source project and community events have the opportunity of interacting with attendees, and the sponsor area where I grabbed a ton of swag, so much that my bag coming back was on the verge of exploding in a million tiny pieces.
 Day 2 has been mostly doing ambassador stuff and meeting many (old and new) people that really wanted to catch up with, like Ramiro from Okteto, Steve from Nethopper, Nick from Otterize, Orlin from SUSE and many more!
 Day 3 has been mainly recovering from the previous day (and night of parties) while attending more interesting talks.
 

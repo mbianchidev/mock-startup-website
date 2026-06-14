@@ -59,8 +59,8 @@ The first part of the year was all about adjusting to my job and navigating big 
 The second half of the year, I spent grieving my old self after another failed relationship. I could have achieved so much more without that distraction. But more on life lessons later. I also decided to pull back from the OSS world after summer. Zero open source presence. *Niet.*
 
 I (basically) got myself a promotion — or rather a diagonal move — after 11 months at the new gig. 
-Despite all the *“Oh no, you cannot move that fast in big tech!”
-*Take this is my* “Shut the fuck up, cunt. Yes you can.”*
+Despite all the *“Oh no, you cannot move that fast in big tech!”*  
+Take this is my *“Shut the fuck up, cunt. Yes you can.”*
 
 I know I should be happy about it, but I’m definitely not. Not yet, at least.
 
@@ -97,32 +97,34 @@ Yes, I now wear a mouthguard at concerts, but I still throw elbows and take hits
 
 Enough with the self-reflection. Let’s see how I did against my resolutions from last year.
 
-- **Work in a company with good culture ✅ 
-**Ups and downs, especially when Mothership (Microsoft) is involved. But overall, better than many places I’ve been. People are cool; some company policies, a bit less so.
-- **Take some days off ✅ 
-**Took 3 weeks off and traveled to Japan! But I had to work on a conference demo and presentation. Ugh.
+- **Work in a company with good culture ✅**  
+Ups and downs, especially when Mothership (Microsoft) is involved. But overall, better than many places I’ve been. People are cool; some company policies, a bit less so.
+- **Take some days off ✅**  
+Took 3 weeks off and traveled to Japan! But I had to work on a conference demo and presentation. Ugh.
 ![One of the many temples I visited during my time in Japan, foliage was just starting.](https://cdn-images-1.medium.com/max/1024/1*z5t-vQpbjPXegPc8rMlRiw.jpeg)
 
-- **Be at peace with not finding a place to call home ✅ 
-**I have a better idea of what I want in 2028, when I’ll leave the Netherlands. Traveling a lot helped.
-- **Publish new music and/or vocal covers ✅ 
-**Done, done, and done. Proud of myself on this one.
-[https://medium.com/media/a0f7d60f29ab30d608b930d3ce1eb2a8/href](https://medium.com/media/a0f7d60f29ab30d608b930d3ce1eb2a8/href)- **Get fit 🟡 
-**The second half of the year got much better (*thanks, breakup*). I cook at least 2 meals a day now, do some meal prep, and junk food is drastically reduced — ordering only ~3 times per month.
-- **Don’t stop learning ✅ 
-**No Rust, but more Kubernetes (especially Release Engineering). Learned a ton about AI internals. Yes, I sell AI (for) now. *Sigh*.
-- **Give back to the community ✅ 
-**Mentored 5 people on their careers. Already started 2 new mentorships for 2026. Super happy to see my mentees getting what they deserve. [**Want me to mentor you? Check out my MentorCruise page**!](https://mentorcruise.com/mentor/matteobianchi/)
-- **Learn more about diversity and inclusion ✅ 
-**A perk of big companies: communities of belonging and being surrounded by diversity every single day.
-- **Enjoy money a bit more ✅ 
-**Saving rate was high (~50%), but I also spent about 20% more than last year. More trips, more fun, and a huge vacation in Japan. Good job.
+- **Be at peace with not finding a place to call home ✅**  
+I have a better idea of what I want in 2028, when I’ll leave the Netherlands. Traveling a lot helped.
+- **Publish new music and/or vocal covers ✅**  
+Done, done, and done. Proud of myself on this one.
+[https://medium.com/media/a0f7d60f29ab30d608b930d3ce1eb2a8/href](https://medium.com/media/a0f7d60f29ab30d608b930d3ce1eb2a8/href)
+
+- **Get fit 🟡**  
+The second half of the year got much better (*thanks, breakup*). I cook at least 2 meals a day now, do some meal prep, and junk food is drastically reduced — ordering only ~3 times per month.
+- **Don’t stop learning ✅**  
+No Rust, but more Kubernetes (especially Release Engineering). Learned a ton about AI internals. Yes, I sell AI (for) now. *Sigh*.
+- **Give back to the community ✅**  
+Mentored 5 people on their careers. Already started 2 new mentorships for 2026. Super happy to see my mentees getting what they deserve. [**Want me to mentor you? Check out my MentorCruise page**!](https://mentorcruise.com/mentor/matteobianchi/)
+- **Learn more about diversity and inclusion ✅**  
+A perk of big companies: communities of belonging and being surrounded by diversity every single day.
+- **Enjoy money a bit more ✅**  
+Saving rate was high (~50%), but I also spent about 20% more than last year. More trips, more fun, and a huge vacation in Japan. Good job.
 Looking at this list, I realize 2025 wasn’t as bad as it felt, but I still feel bad about it.
 
 I powered through. I did the work. I’ve been a good cog in the capitalistic machine. (*Remember kids: no kings*)
 
 I honestly always struggled to find joy in any of my personal achievement, but even more in this environment and geopolitical climate.
-War wages in Ukraine and Palestine is still experiencing a genocide in plain sight, even after the *“ceasefire”, *makes it very difficult to enjoy anything at all.
+War wages in Ukraine and Palestine is still experiencing a genocide in plain sight, even after the *“ceasefire”,* makes it very difficult to enjoy anything at all.
 I also hate on the Italian (fascist) government. Which is being absolutely terrible but people are too attracted to slogans and can’t look at the data.
 Left wing is non existent and only thinks about splitting the parties even more over their “superior” morale dwellings, I hate them even more.
 On the bright side I think we have some hope with Mr. Mamdani in NYC and Rob Jetten in the Netherlands. Some countries (or cities) are realizing that voting right wing is mainly good for industries and hardly for people. Good.
@@ -146,23 +148,23 @@ Two things I’m truly proud of: I showed up for my loved ones, and I made music
 
 Time to look forward. Here’s what’s on my list for the next ride on this roller coaster:
 
-- **Get (actually) promoted or promote yourself by finding a better-paid job 
-**My professional pride really wants at the very least that *Senior* title after 10+ years in tech and delivering a ton of value wherever I end up working. I could even think to go back to engineering — I’ve refused quite some solid opportunities there.
-- **Keep taking (more) days off 
-**Longer vacations are a habit I want to keep. Maybe a trip to discover Africa or South America next?
-- **Go to (fewer) conferences and travel (less)
-**I’ll be at KubeCon EU, MWC Barcelona, and any strictly mandated work events. If you see me at a conference, no you didn’t. 
+- **Get (actually) promoted or promote yourself by finding a better-paid job**  
+My professional pride really wants at the very least that *Senior* title after 10+ years in tech and delivering a ton of value wherever I end up working. I could even think to go back to engineering — I’ve refused quite some solid opportunities there.
+- **Keep taking (more) days off**  
+Longer vacations are a habit I want to keep. Maybe a trip to discover Africa or South America next?
+- **Go to (fewer) conferences and travel (less)**  
+I’ll be at KubeCon EU, MWC Barcelona, and any strictly mandated work events. If you see me at a conference, no you didn’t. 
 Don’t bother me unless you want to ask about my company’s products.
 If we are friends, you have my number, we hang out aside from the conf(s).
-- **Start planning to move out of the Netherlands in 2028 
-**Visit my future country/city, start exploring the housing market, maybe learn the language in advance, and research taxes and bureaucracy.
-- **Get fit(ter) 
-**More gym, more biking, keep eating healthy. No need to bulk up as I don’t want to be a main target in the mosh pits, lol. Plus who the fuck cares about big muscles when you have functional ones?
-- **Start drumming lessons 
-**I want to learn a new instrument. Bonus: it keeps me fit(ter) and I won’t be needing to get mad if our new drummer leaves. I can already write drums, I can probably play some and sing.
-- **Do a small Northern European tour with Devoid of Beauty **
+- **Start planning to move out of the Netherlands in 2028**  
+Visit my future country/city, start exploring the housing market, maybe learn the language in advance, and research taxes and bureaucracy.
+- **Get fit(ter)**  
+More gym, more biking, keep eating healthy. No need to bulk up as I don’t want to be a main target in the mosh pits, lol. Plus who the fuck cares about big muscles when you have functional ones?
+- **Start drumming lessons**  
+I want to learn a new instrument. Bonus: it keeps me fit(ter) and I won’t be needing to get mad if our new drummer leaves. I can already write drums, I can probably play some and sing.
+- **Do a small Northern European tour with Devoid of Beauty**  
 Wishful thinking, but Amsterdam, Antwerp, Berlin, London, Milan, and maybe Helsinki or Oslo seem doable. Just need to find a bigger band to tag along with. Time to get back to music networking.
-- **Keep enjoying money at the same pace **
+- **Keep enjoying money at the same pace**  
 I’ve been to 15+ concerts this year, across Europe and the US. I’ve seen 50+ cool ass metal bands playing live. Can’t wait to see more next year.
 I also had a big ass vacation in Japan and even a couple of days here and there where I enjoyed my friends’ company and the beauty of Japan, its temples, food and culture.
 - **Keep investing smart(er)**
