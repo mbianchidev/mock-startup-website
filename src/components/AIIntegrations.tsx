@@ -14,7 +14,7 @@ const aiIntegrations = [
 export function AIIntegrations() {
   return (
     <section id="ai-integrations">
-      <h2>AI integrations</h2>
+      <h2>AI Integrations</h2>
       <p className="section-description">Build with the AI tools and protocols you already love</p>
       <div className="icon-cloud">
         {aiIntegrations.map((integration) => (
