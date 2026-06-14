@@ -47,8 +47,8 @@ const cloudSlides: CloudSlide[] = [
   {
     items: [
       { logo: 'https://cdn.worldvectorlogo.com/logos/logo-ovh.svg', name: 'OVHCloud' },
-      { logo: 'https://upload.wikimedia.org/wikipedia/fr/thumb/a/a3/ScalewayLogo.svg/2560px-ScalewayLogo.svg.png', name: 'Scaleway' },
-      { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Tencent_Cloud_Logo.svg/2560px-Tencent_Cloud_Logo.svg.png', name: 'Tencent Cloud' }
+      { logo: 'https://raw.githubusercontent.com/cncf/landscape/a43b6c0aa36cb2c6e55f545cbef0a0d8cf23f9eb/hosted_logos/scaleway.svg', name: 'Scaleway' },
+      { logo: 'https://raw.githubusercontent.com/cncf/landscape/d04745721a2ac257a3c156b26a9ac034fb20cc00/hosted_logos/tencent-cloud.svg', name: 'Tencent Cloud' }
     ]
   }
 ]
