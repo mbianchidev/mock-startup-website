@@ -641,6 +641,12 @@ nav {
     color: var(--accent-color);
 }
 
+/* AI Integrations Section */
+#ai-integrations {
+    background-color: var(--bg-secondary);
+    padding: var(--section-padding);
+}
+
 /* Features Section */
 #features {
     background-color: var(--bg-secondary);

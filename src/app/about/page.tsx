@@ -107,6 +107,7 @@ export default function About() {
                 alt="DevStats Card" 
                 width={400}
                 height={200}
+                priority
               />
             </a>
           </Collapsible>

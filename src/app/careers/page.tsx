@@ -55,7 +55,7 @@ const jobOpenings: JobOpening[] = [
     skills: ['Platform Engineering', 'Infrastructure as Code', 'Technical Leadership', 'Distributed Systems']
   },
   {
-    title: 'Solutions Engineer',
+    title: 'Senior Solutions Engineer',
     location: 'Remote / New York',
     description: 'Bridge the gap between our technical platform and customer success. You\'ll work directly with enterprise clients to understand their needs, design tailored solutions, and ensure successful implementations of our cloud-native technologies.',
     skills: ['Customer Success', 'Technical Consulting', 'Cloud Architecture', 'Problem Solving']
