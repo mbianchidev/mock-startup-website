@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 const pages = [
-  { name: 'homepage', path: '/', title: 'Matteo - The Future of Innovation' },
+  { name: 'homepage', path: '/', title: 'Matteo — The Human Platform' },
   { name: 'pricing', path: '/pricing', title: 'Pricing - Matteo Platform' },
   { name: 'roadmap', path: '/roadmap', title: 'Roadmap - Matteo Platform' },
   { name: 'careers', path: '/careers', title: 'Careers - Matteo Platform' },
@@ -49,5 +49,38 @@ test.describe('Next.js 15.5 and React 19.1 Page Screenshots', () => {
     
     expect(reactVersion).toBeDefined();
     console.log('React and Next.js versions verified for updated dependencies');
+  });
+
+  test('should update the hiring compatibility result', async ({ page }) => {
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+
+    const developerExperience = page.getByRole('button', { name: /Developer friction/ });
+    await developerExperience.click();
+
+    await expect(developerExperience).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.locator('#compatibility-result')).toContainText(
+      'Treats developer experience as product work'
+    );
+  });
+
+  test('should expose the mobile navigation with accurate state', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+
+    const menuButton = page.getByRole('button', { name: 'Open navigation menu' });
+    await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
+    await menuButton.click();
+
+    await expect(page.getByRole('button', { name: 'Close navigation menu' })).toHaveAttribute(
+      'aria-expanded',
+      'true'
+    );
+    await expect(
+      page
+        .getByRole('navigation', { name: 'Primary navigation' })
+        .getByRole('link', { name: 'Capabilities' })
+    ).toBeVisible();
   });
 });

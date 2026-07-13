@@ -1,137 +1,91 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
-import { NavItem } from '@/types'
+import { useEffect, useId, useState } from 'react'
+import styles from './SiteShell.module.css'
 
-const navItems: NavItem[] = [
-  { href: '/about', label: 'About' },
-  {
-    href: '/#features',
-    label: 'Features',
-    dropdown: [
-      { href: '/#integrations', label: 'Integrations' },
-      { href: '/#cloud', label: 'Multi Cloud' },
-      { href: '/#kubernetes', label: 'Multi Cluster' }
-    ]
-  },
-  { href: '/pricing', label: 'Pricing' },
+const navItems = [
+  { href: '/#capabilities', label: 'Capabilities' },
+  { href: '/#compatibility', label: 'Compatibility' },
+  { href: '/#proof', label: 'Proof' },
+  { href: '/portfolio', label: 'Portfolio' },
   { href: '/blog', label: 'Blog' }
 ]
 
 export function Header() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
-  const [mounted, setMounted] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+  const navigationId = useId()
 
   useEffect(() => {
-    const checkScreenSize = () => {
-      setIsMobile(window.innerWidth <= 768)
+    document.body.classList.toggle('menu-open', isOpen)
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false)
+      }
     }
-    
-    checkScreenSize()
-    setMounted(true)
-    window.addEventListener('resize', checkScreenSize)
-    
-    return () => window.removeEventListener('resize', checkScreenSize)
-  }, [])
 
-  useEffect(() => {
-    if (mounted && isMobileMenuOpen) {
-      document.body.classList.add('menu-open')
-    } else {
+    window.addEventListener('keydown', closeOnEscape)
+
+    return () => {
       document.body.classList.remove('menu-open')
+      window.removeEventListener('keydown', closeOnEscape)
     }
-    
-    return () => document.body.classList.remove('menu-open')
-  }, [isMobileMenuOpen, mounted])
-
-  const toggleMobileMenu = () => {
-    if (mounted) {
-      setIsMobileMenuOpen(!isMobileMenuOpen)
-    }
-  }
-
-  const closeMobileMenu = () => {
-    if (mounted) {
-      setIsMobileMenuOpen(false)
-    }
-  }
-
-  const handleCtaClick = () => {
-    window.open('/mock-startup-website/redirect/book15', '_blank')
-  }
+  }, [isOpen])
 
   return (
-    <header>
-      <nav>
-        <div className="logo">
-          <Link href="/">Matte⚙️</Link>
-        </div>
-        
-        {mounted && isMobile && (
-          <button
-            className={`menu-toggle ${mounted && isMobileMenuOpen ? 'active' : ''}`}
-            onClick={toggleMobileMenu}
-            aria-label="Toggle menu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        )}
-        
-        <ul className={`nav-links ${mounted && isMobile && isMobileMenuOpen ? 'active' : ''}`}>
+    <header className={styles.header}>
+      <nav className={styles.nav} aria-label="Primary navigation">
+        <Link href="/" className={styles.logo} onClick={() => setIsOpen(false)}>
+          <span>Matteo</span>
+          <small>human platform</small>
+        </Link>
+
+        <button
+          type="button"
+          className={styles.menuToggle}
+          aria-expanded={isOpen}
+          aria-controls={navigationId}
+          aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          onClick={() => setIsOpen((current) => !current)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+
+        <ul
+          id={navigationId}
+          className={`${styles.navList} ${isOpen ? styles.navOpen : ''}`}
+        >
           {navItems.map((item) => (
-            <li key={item.href} className={item.dropdown ? 'dropdown' : ''}>
-              {item.dropdown ? (
-                <>
-                  <Link
-                    href={item.href}
-                    className="dropdown-toggle"
-                    onClick={(e) => {
-                      if (mounted && isMobile) {
-                        // On mobile, navigate to the features section
-                        closeMobileMenu()
-                        return
-                      }
-                      closeMobileMenu()
-                    }}
-                  >
-                    {item.label}
-                    {mounted && !isMobile && <i className="fas fa-chevron-down" aria-hidden="true"></i>}
-                  </Link>
-                  <ul className={`dropdown-menu ${mounted && isMobile ? 'mobile-submenu' : ''}`}>
-                    {item.dropdown.map((dropdownItem) => (
-                      <li key={dropdownItem.href} className={mounted && isMobile ? 'mobile-submenu-item' : ''}>
-                        <Link href={dropdownItem.href} onClick={closeMobileMenu}>
-                          {dropdownItem.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              ) : (
-                <Link href={item.href} onClick={closeMobileMenu}>
-                  {item.label}
-                </Link>
-              )}
+            <li key={item.href}>
+              <Link href={item.href} onClick={() => setIsOpen(false)}>
+                {item.label}
+              </Link>
             </li>
           ))}
-          {mounted && isMobile && (
-            <li className="mobile-cta-item">
-              <button className="cta-button" onClick={handleCtaClick}>
-                Get Started
-              </button>
-            </li>
-          )}
+          <li className={styles.mobileCtaItem}>
+            <a
+              href="https://cal.com/mbianchidev/intro"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.mobileCta}
+            >
+              Book a demo
+            </a>
+          </li>
         </ul>
-        
-        {mounted && !isMobile && (
-          <button className="cta-button" onClick={handleCtaClick}>
-            Get Started
-          </button>
-        )}
+
+        <a
+          href="https://cal.com/mbianchidev/intro"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.desktopCta}
+        >
+          Book a demo
+          <span aria-hidden="true">↗</span>
+        </a>
       </nav>
     </header>
   )

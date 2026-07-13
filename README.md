@@ -4,49 +4,49 @@
 
 ## 🚀 About
 
-This project is a satirical website that parodies the typical Y Combinator startup. The aim is to showcase the common design patterns, marketing language, and feature presentations used by tech startups today, with a humorous twist.
+This project is a satirical product launch for Matteo Bianchi: a personal portfolio disguised as the kind of overconfident startup landing page the tech industry keeps producing. The joke leads; real cloud-native work, open-source projects, talks, and product-minded engineering provide the reveal.
 
-"Matteo" serves as our fictional SaaS product/platform, complete with all the startup tropes:
+"Matteo" serves as the fictional product/platform, but the capabilities and evidence point to a real engineer:
 
-- Minimalist design with vibrant call-to-action buttons
-- Vague yet promising value propositions
-- Integration ecosystem charts
-- Pricing tiers (including the obligatory "Enterprise/Contact Us" option)
-- Testimonials from "satisfied customers"
-- A roadmap promising revolutionary features
+- A product-spec hero built around a real speaking photo
+- An asymmetric capability manifest instead of a resume timeline
+- An interactive hiring compatibility lab with accessible default content
+- An open-source proof ledger sourced from `src/data/projects.json`
+- Verifiable contribution, speaking, and project benchmarks
+- Satirical release notes and direct hiring calls to action
 
 ## 🎯 Purpose
 
 This project was created to:
 
-1. Demonstrate common web design patterns used in startup marketing sites
-2. Provide a template for developers creating landing pages
-3. Highlight (with humor) the formulaic nature of many startup websites
-4. Serve as a design study of effective and ineffective marketing tactics
+1. Turn a professional portfolio into a memorable product narrative
+2. Demonstrate production-grade Next.js component and interaction design
+3. Highlight the formulaic nature of startup marketing without becoming another generic SaaS page
+4. Connect bold claims to inspectable open-source and community evidence
 5. Show conversion from static HTML/CSS/JS to modern React + Next.js
 
 ## 🔍 Key Features
 
 - **Responsive design** that works on mobile and desktop
 - **Modern React components** with TypeScript
-- **Interactive elements** with React hooks and state management
+- **Interactive hiring diagnostics** with semantic buttons and live results
 - **Server-side rendering** with Next.js 15
-- **Component-based architecture** for maintainability
-- **Accessibility features** retained from original design
+- **CSS Modules** for the redesigned homepage and global shell
+- **WCAG-oriented behavior** with keyboard navigation, focus states, and reduced-motion fallbacks
 
 ## 🛠️ Tech Stack
 
 - **Next.js 15** - React framework with App Router
 - **TypeScript** - Type safety and better developer experience
 - **React 19** - Latest React features and hooks
-- **CSS3** - Original styles adapted for React
+- **CSS3 + CSS Modules** - Shared legacy styles plus isolated homepage and shell systems
 - **Font Awesome** - Icon library
 - **ESLint** - Code linting and quality
 
 ## 🚦 Getting Started
 
 ### Prerequisites
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 
 ### Installation
@@ -89,7 +89,7 @@ npx serve out
 
 ```bash
 npm run build
-npm start
+npx serve out
 ```
 
 ## 📂 Project Structure
@@ -99,6 +99,7 @@ src/
 ├── app/                 # Next.js App Router pages
 │   ├── layout.tsx       # Root layout component
 │   ├── page.tsx         # Homepage
+│   ├── home.module.css  # Homepage visual system
 │   ├── about/           # About page
 │   ├── careers/         # Careers page
 │   ├── customers/       # Customers page
@@ -112,21 +113,20 @@ src/
 │   ├── terms/           # Terms page
 │   └── globals.css      # Global styles
 ├── components/          # Reusable React components
-│   ├── Header.tsx       # Navigation header
-│   ├── Footer.tsx       # Site footer
-│   ├── Hero.tsx         # Hero section
-│   ├── Features.tsx     # Features grid
-│   ├── UseCases.tsx     # Use cases section
-│   ├── TrustedBy.tsx    # Logo carousel
-│   ├── Integrations.tsx # Integration icons
-│   ├── CloudCarousel.tsx # Interactive carousel
-│   ├── Testimonials.tsx # Customer testimonials
-│   ├── Stats.tsx        # Statistics component
+│   ├── Header.tsx       # Accessible global navigation
+│   ├── Footer.tsx       # Global evidence and contact footer
+│   ├── Hero.tsx         # Human-product launch hero
+│   ├── Capabilities.tsx # Capability manifest
+│   ├── CompatibilityLab.tsx # Interactive hiring diagnostic
+│   ├── ProofLedger.tsx  # Open-source evidence
+│   ├── Toolchain.tsx    # Technology compatibility surface
+│   ├── Benchmarks.tsx   # Verifiable field metrics
+│   ├── KnownIssues.tsx  # Closing release notes and CTA
+│   ├── SiteShell.module.css # Header and footer styles
 │   ├── Collapsible.tsx  # Collapsible component
 │   ├── RedirectPage.tsx # Redirect page component
 │   ├── WorkInProgress.tsx # Work in progress component
-│   ├── SessionizeEmbed.tsx # Sessionize embed component
-│   └── KubernetesDistros.tsx # Kubernetes distributions component
+│   └── SessionizeEmbed.tsx # Sessionize embed component
 ├── types/               # TypeScript type definitions
 │   └── index.ts
 ├── data/               # JSON data files
@@ -140,6 +140,7 @@ src/
 - `npm run build` - Build for production
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
+- `npm run test:playwright` - Run browser interaction and screenshot coverage
 
 ## 🔄 Migration from Static HTML
 
