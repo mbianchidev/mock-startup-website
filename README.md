@@ -12,6 +12,7 @@ This project is a satirical product launch for Matteo Bianchi: a personal portfo
 - An asymmetric capability manifest instead of a resume timeline
 - An interactive hiring compatibility lab with accessible default content
 - An open-source proof ledger sourced from `src/data/projects.json`
+- A complete route system for field notes, changelog, portfolio, deployment history, pricing, legal, and support pages
 - Verifiable contribution, speaking, and project benchmarks
 - Satirical release notes and direct hiring calls to action
 
@@ -31,7 +32,8 @@ This project was created to:
 - **Modern React components** with TypeScript
 - **Interactive hiring diagnostics** with semantic buttons and live results
 - **Server-side rendering** with Next.js 15
-- **CSS Modules** for the redesigned homepage and global shell
+- **Static-exported route system** with route-specific metadata and useful no-JavaScript defaults
+- **CSS Modules** for the homepage, global shell, and shared inner-page system
 - **WCAG-oriented behavior** with keyboard navigation, focus states, and reduced-motion fallbacks
 
 ## 🛠️ Tech Stack
@@ -39,8 +41,8 @@ This project was created to:
 - **Next.js 15** - React framework with App Router
 - **TypeScript** - Type safety and better developer experience
 - **React 19** - Latest React features and hooks
-- **CSS3 + CSS Modules** - Shared legacy styles plus isolated homepage and shell systems
-- **Font Awesome** - Icon library
+- **CSS3 + CSS Modules** - Shared tokens plus isolated homepage, shell, and inner-route systems
+- **Playwright** - Route, interaction, responsive, and screenshot coverage
 - **ESLint** - Code linting and quality
 
 ## 🚦 Getting Started
@@ -100,6 +102,7 @@ src/
 │   ├── layout.tsx       # Root layout component
 │   ├── page.tsx         # Homepage
 │   ├── home.module.css  # Homepage visual system
+│   ├── inner.module.css # Shared inner-page visual system
 │   ├── about/           # About page
 │   ├── careers/         # Careers page
 │   ├── customers/       # Customers page
@@ -122,11 +125,12 @@ src/
 │   ├── Toolchain.tsx    # Technology compatibility surface
 │   ├── Benchmarks.tsx   # Verifiable field metrics
 │   ├── KnownIssues.tsx  # Closing release notes and CTA
+│   ├── PageHero.tsx     # Shared route hero with tonal variants
+│   ├── CustomersTimeline.tsx # Accessible deployment-history pagination
+│   ├── LegalDocument.tsx # Shared privacy and terms structure
 │   ├── SiteShell.module.css # Header and footer styles
-│   ├── Collapsible.tsx  # Collapsible component
 │   ├── RedirectPage.tsx # Redirect page component
-│   ├── WorkInProgress.tsx # Work in progress component
-│   └── SessionizeEmbed.tsx # Sessionize embed component
+│   └── WorkInProgress.tsx # Useful route-specific fallback resources
 ├── types/               # TypeScript type definitions
 │   └── index.ts
 ├── data/               # JSON data files

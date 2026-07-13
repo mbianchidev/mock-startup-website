@@ -83,6 +83,14 @@ components:
     textColor: "{colors.launch-black}"
     rounded: "{rounded.xl}"
     padding: "clamp(32px, 5vw, 64px)"
+  page-hero-dark:
+    backgroundColor: "{colors.launch-black}"
+    textColor: "{colors.signal-white}"
+    padding: "clamp(82px, 10vw, 150px)"
+  page-hero-light:
+    backgroundColor: "{colors.signal-white}"
+    textColor: "{colors.launch-black}"
+    padding: "clamp(82px, 10vw, 150px)"
 ---
 
 # Design System: Matteo
@@ -93,13 +101,15 @@ components:
 
 Matteo looks like a high-performance product launch for a human: a black anodized chassis, fluorescent QA labels, an engineering test report, and a release note written by someone who knows the whole premise is ridiculous. Satire earns attention first; progressively stronger open-source, speaking, and delivery evidence converts that attention into credibility.
 
-The system uses one dominant idea per section rather than repeating a landing-page template. Dark launch surfaces establish technical confidence, Electric Cyan marks action and active system state, Proof Green identifies verifiable evidence, and Signal White creates a blunt final release-note close. It explicitly rejects the generic AI-generated SaaS landing page, conventional corporate resume site, chaotic meme site, and serious enterprise consultancy.
+The system uses one dominant idea per section rather than repeating a landing-page template. Dark launch surfaces establish technical confidence, Electric Cyan marks action and active system state, Proof Green identifies verifiable evidence, and Signal White creates blunt document and release-note surfaces. Inner routes share a disciplined hero shell, then diverge into field-note archives, release histories, repository ledgers, quote sheets, deployment records, and legal documents. It explicitly rejects the generic AI-generated SaaS landing page, conventional corporate resume site, chaotic meme site, and serious enterprise consultancy.
 
 **Key Characteristics:**
 
 - Oversized compressed display type paired with highly readable public-service body type.
 - Hard section changes: dark launch grid, diagnostic console, proof-green repository surface, cyan tool matrix, white release notes.
 - Asymmetric manifests and ledgers instead of identical icon-card grids.
+- Route-specific body structures held together by one tonal hero system.
+- Long-form and legal pages use high-contrast Signal White reading surfaces.
 - Real default content before hydration; interaction enriches rather than unlocks evidence.
 - Short, purposeful motion: scan pass, status pulse, state shift, and tactile controls.
 
@@ -199,6 +209,22 @@ Native buttons form the challenge selector. Each button owns an `aria-pressed` s
 
 The featured creator-owned project receives the Proof Green surface. Supporting projects use flat dark records. Star counts are explicitly labeled as project signal and never imply personal ownership of a third-party project's popularity.
 
+### Page Heroes
+
+Inner routes use one shared two-column shell with four tonal variants: Launch Black, Electric Cyan, Proof Green, or Signal White. The route path is a compact location marker, not a repeated section eyebrow. Hero body layouts must diverge after this shared entry point.
+
+### Route Records
+
+Blog posts, release history, upstream contributions, roles, and deployment history use full-width bordered rows rather than equal cards. Chronological pages may use years because order carries real information; non-sequential pages never borrow the numbered-timeline treatment.
+
+### Long-form and Legal Documents
+
+Articles and policies switch to Signal White with Launch Black text, a 760–820px reading measure, 1.75–1.8 line-height, and explicit heading spacing. Code, tables, and blockquotes remain within the reading column and scroll horizontally where required.
+
+### Quote Sheet
+
+Pricing uses three engagement surfaces plus one calculator console. Display names are never used as calculation keys; stable IDs drive state. Preset controls expose `aria-pressed`, every input has a label, and the live quote uses an `output` element.
+
 ## 6. Do's and Don'ts
 
 ### Do:
@@ -207,6 +233,9 @@ The featured creator-owned project receives the Proof Green surface. Supporting 
 - **Do** keep body text on dark surfaces at Signal White or Muted Signal.
 - **Do** use Electric Cyan for action and Proof Green for evidence.
 - **Do** keep every essential claim, link, and default diagnostic result in static exported HTML.
+- **Do** let each inner route earn a distinct body composition after the shared hero.
+- **Do** distinguish employment, advisory, founding, mentoring, and client work instead of flattening all organisations into “customers.”
+- **Do** use stable IDs for interactive business logic and display copy only for presentation.
 - **Do** respect reduced motion globally and locally; scanning, pulsing, and state-shift effects must disappear without losing meaning.
 - **Do** use direct external booking URLs and Next links for internal static-export routes.
 

@@ -1,50 +1,61 @@
 import type { Metadata } from 'next'
+import { LegalDocument } from '@/components/LegalDocument'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service - Matteo Platform',
-  description: 'Terms and conditions governing the use of the Matteo website and services.'
+  title: 'Terms — Matteo',
+  description: 'Plain-language terms for using the Matteo portfolio website.',
 }
+
+const sections = [
+  {
+    title: 'Using the site',
+    paragraphs: [
+      <>You may browse, share links, inspect the source, and enjoy or ignore the startup parody.</>,
+      <>Do not attempt to disrupt the site, misuse its content, or impersonate Matteo using material found here.</>,
+    ],
+  },
+  {
+    title: 'Accuracy and satire',
+    paragraphs: [
+      <>The site mixes real professional evidence with clearly satirical product language. Linked repositories and external records are provided so important claims can be inspected.</>,
+      <>Content may change as projects, roles, and public work evolve.</>,
+    ],
+  },
+  {
+    title: 'External services',
+    paragraphs: [
+      <>External links and embeds are governed by the terms of their respective providers. This site is not responsible for their availability or content.</>,
+    ],
+  },
+  {
+    title: 'No warranty',
+    paragraphs: [
+      <>The website is provided as-is. Reasonable care is taken, but uninterrupted availability and complete accuracy are not guaranteed.</>,
+    ],
+  },
+  {
+    title: 'Liability',
+    paragraphs: [
+      <>To the extent permitted by law, Matteo is not liable for indirect loss resulting solely from using or being unable to use this website.</>,
+    ],
+  },
+  {
+    title: 'Contact',
+    paragraphs: [
+      <>Questions about these terms can be sent to <a href="mailto:privacy@mb-consulting.dev">privacy@mb-consulting.dev</a>.</>,
+    ],
+  },
+]
 
 export default function TermsPage() {
   return (
-    <div className="terms-privacy-page">
-      <section>
-        <h2>Terms of Service</h2>
-        <p>These terms and conditions govern your use of our website and services.</p>
-      </section>
-
-      <section>
-        <h2>1. Acceptance of Terms</h2>
-        <p>By using our website, you agree to these terms and conditions.</p>
-      </section>
-
-      <section>
-        <h2>2. Changes to Terms</h2>
-        <p>We may update these terms from time to time. Your continued use of the website after changes indicates your acceptance of the new terms.</p>
-      </section>
-      
-      <section>
-        <h2>3. User Responsibilities</h2>
-        <p>You are responsible for your use of the website and must comply with all applicable laws.</p>
-      </section>
-
-      <section>
-        <h2>4. Limitation of Liability</h2>
-        <p>We are not liable for any damages arising from your use of the website.</p>
-      </section>
-
-      <section>
-        <h2>5. Governing Law</h2>
-        <p>These terms are governed by the laws of the jurisdiction in which we operate.</p>
-      </section>
-
-      <section>
-        <h2>6. Contact Information</h2>
-        <p>
-          If you have any questions about these terms, please contact us at{' '}
-          <a href="mailto:privacy@mb-consulting.dev">privacy@mb-consulting.dev</a>.
-        </p>
-      </section>
-    </div>
+    <LegalDocument
+      path="/terms"
+      title="Terms that fit on one reasonable page."
+      description="The rules for using this website, separating the product joke from the inspectable work beneath it."
+      summary="Short version: browse responsibly, treat real evidence as real and satire as satire, and do not make the website your lawyer’s problem."
+      effectiveDate="July 13, 2026"
+      sections={sections}
+    />
   )
 }

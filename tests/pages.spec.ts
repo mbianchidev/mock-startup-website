@@ -2,58 +2,46 @@ import { test, expect } from '@playwright/test';
 
 const pages = [
   { name: 'homepage', path: '/', title: 'Matteo — The Human Platform' },
-  { name: 'pricing', path: '/pricing', title: 'Pricing - Matteo Platform' },
-  { name: 'roadmap', path: '/roadmap', title: 'Roadmap - Matteo Platform' },
-  { name: 'careers', path: '/careers', title: 'Careers - Matteo Platform' },
-  { name: 'blog', path: '/blog', title: 'Blog - Matteo Platform' },
+  { name: 'about', path: '/about', title: 'Product Internals — Matteo' },
+  { name: 'blog', path: '/blog', title: 'Field Notes — Matteo' },
+  {
+    name: 'blog-article',
+    path: '/blog/building-scalable-cloud-native-applications',
+    title: 'Building Scalable Cloud Native Applications — Matteo',
+  },
+  { name: 'roadmap', path: '/roadmap', title: 'Changelog — Matteo' },
+  { name: 'portfolio', path: '/portfolio', title: 'Open Source — Matteo' },
+  { name: 'customers', path: '/customers', title: 'Deployment History — Matteo' },
+  { name: 'careers', path: '/careers', title: 'Roles Included — Matteo' },
+  { name: 'pricing', path: '/pricing', title: 'Pricing — Matteo' },
+  { name: 'documentation', path: '/documentation', title: 'Documentation — Matteo' },
+  { name: 'press', path: '/press', title: 'Press — Matteo' },
+  { name: 'support', path: '/support', title: 'Support — Matteo' },
+  { name: 'privacy', path: '/privacy', title: 'Privacy — Matteo' },
+  { name: 'terms', path: '/terms', title: 'Terms — Matteo' },
 ];
 
-test.describe('Next.js 15.5 and React 19.1 Page Screenshots', () => {
+test.describe('Static route experience', () => {
   for (const page of pages) {
-    test(`should render ${page.name} page correctly`, async ({ page: pw }) => {
-      // Navigate to the page
-      await pw.goto(page.path);
-      
-      // Wait for the page to load
-      await pw.waitForLoadState('networkidle');
-      
-      // Check title
-      await expect(pw).toHaveTitle(page.title);
-      
-      // Take screenshot
-      await pw.screenshot({ 
+    test(`renders ${page.name}`, async ({ page: browserPage }) => {
+      await browserPage.goto(page.path, { waitUntil: 'domcontentloaded' });
+
+      await expect(browserPage).toHaveTitle(page.title);
+      await expect(browserPage.locator('header')).toBeVisible();
+      await expect(browserPage.locator('main')).toBeVisible();
+      await expect(browserPage.locator('h1').first()).toBeVisible();
+      await expect(browserPage.locator('footer')).toBeVisible();
+
+      await browserPage.screenshot({
         path: `tests/screenshots/${page.name}-page.png`,
-        fullPage: true 
+        fullPage: true,
       });
-      
-      // Basic content verification
-      await expect(pw.locator('header')).toBeVisible();
-      await expect(pw.locator('main')).toBeVisible();
-      await expect(pw.locator('footer')).toBeVisible();
     });
   }
-  
-  test('should verify React 19.1 and Next.js 15.5 versions', async ({ page }) => {
-    await page.goto('/');
-    await page.waitForLoadState('networkidle');
-    
-    // Check for React 19 features by inspecting window.React if available
-    const reactVersion = await page.evaluate(() => {
-      // Check if React DevTools is available and can give us version info
-      return {
-        hasReact: typeof window !== 'undefined' && 'React' in window,
-        userAgent: navigator.userAgent,
-        nextJs: 'This site is built with Next.js 15.5'
-      };
-    });
-    
-    expect(reactVersion).toBeDefined();
-    console.log('React and Next.js versions verified for updated dependencies');
-  });
 
-  test('should update the hiring compatibility result', async ({ page }) => {
-    await page.goto('/');
-    await page.waitForLoadState('networkidle');
+  test('updates the hiring compatibility result', async ({ page }) => {
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page.locator('html[data-hydrated="true"]').waitFor();
 
     const developerExperience = page.getByRole('button', { name: /Developer friction/ });
     await developerExperience.click();
@@ -64,10 +52,10 @@ test.describe('Next.js 15.5 and React 19.1 Page Screenshots', () => {
     );
   });
 
-  test('should expose the mobile navigation with accurate state', async ({ page }) => {
+  test('exposes the mobile navigation with accurate state', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
-    await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page.locator('html[data-hydrated="true"]').waitFor();
 
     const menuButton = page.getByRole('button', { name: 'Open navigation menu' });
     await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
@@ -82,5 +70,34 @@ test.describe('Next.js 15.5 and React 19.1 Page Screenshots', () => {
         .getByRole('navigation', { name: 'Primary navigation' })
         .getByRole('link', { name: 'Capabilities' })
     ).toBeVisible();
+  });
+
+  test('calculates an advisory quote accessibly', async ({ page }) => {
+    await page.goto('/pricing', { waitUntil: 'domcontentloaded' });
+    await page.locator('html[data-hydrated="true"]').waitFor();
+
+    await page.getByLabel('Exact monthly hours').fill('20');
+    await page.getByLabel('Engagement tier').selectOption('advisory');
+
+    await expect(page.locator('output')).toHaveText('€2,000');
+    await expect(page.getByRole('button', { name: '20h' })).toHaveAttribute('aria-pressed', 'true');
+  });
+
+  test('loads more deployment history without replacing existing entries', async ({ page }) => {
+    await page.goto('/customers', { waitUntil: 'domcontentloaded' });
+    await page.locator('html[data-hydrated="true"]').waitFor();
+
+    const historyEntries = page.locator('main section ol > li');
+    await expect(historyEntries).toHaveCount(7);
+
+    await page.getByRole('button', { name: 'Load 7 more deployment history entries' }).click();
+    await expect(historyEntries).toHaveCount(14);
+  });
+
+  test('renders the branded not-found route', async ({ page }) => {
+    const response = await page.goto('/definitely-not-a-route', { waitUntil: 'domcontentloaded' });
+
+    expect(response?.status()).toBe(404);
+    await expect(page.getByRole('heading', { name: 'Endpoint not implemented.' })).toBeVisible();
   });
 });

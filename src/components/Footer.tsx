@@ -21,17 +21,22 @@ export function Footer() {
             <h3>Product</h3>
             <Link href="/#capabilities">Capabilities</Link>
             <Link href="/#compatibility">Compatibility</Link>
-            <Link href="/#proof">Proof</Link>
-            <Link href="/portfolio">Portfolio</Link>
+            <Link href="/pricing">Pricing</Link>
+            <Link href="/careers">Roles included</Link>
           </div>
           <div className={styles.footerColumn}>
             <h3>Evidence</h3>
+            <Link href="/portfolio">Open source</Link>
             <Link href="/about">About</Link>
-            <Link href="/blog">Blog</Link>
             <Link href="/roadmap">Roadmap</Link>
-            <a href="https://sessionize.com/mbianchidev/" target="_blank" rel="noopener noreferrer">
-              Talks
-            </a>
+            <Link href="/customers">Deployment history</Link>
+          </div>
+          <div className={styles.footerColumn}>
+            <h3>Resources</h3>
+            <Link href="/blog">Field notes</Link>
+            <Link href="/documentation">Documentation</Link>
+            <Link href="/press">Press</Link>
+            <Link href="/support">Support</Link>
           </div>
           <div className={styles.footerColumn}>
             <h3>Open a ticket</h3>

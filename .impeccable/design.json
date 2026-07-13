@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-13T18:35:03.588Z",
+  "generatedAt": "2026-07-13T19:30:29.564Z",
   "title": "Design System: Matteo",
   "extensions": {
     "colorMeta": {
@@ -192,15 +192,38 @@
       "description": "Sticky black product bar with static HTML CTA and accessible mobile state.",
       "html": "<nav class=\"ds-nav\"><a class=\"ds-mark\" href=\"#\">Matteo<small>human platform</small></a><div class=\"ds-links\"><a href=\"#\">Capabilities</a><a href=\"#\">Compatibility</a><a href=\"#\">Proof</a></div><a class=\"ds-nav-cta\" href=\"#\">BOOK A DEMO ↗</a></nav>",
       "css": ".ds-nav { display: flex; align-items: center; gap: 28px; padding: 14px 28px; color: var(--text-primary, #FFFFFF); background: color-mix(in srgb, var(--bg-primary, #0A0A0B) 90%, transparent); border-bottom: 1px solid var(--border-color, rgba(255,255,255,0.1)); font-family: 'Public Sans', sans-serif; } .ds-mark { display: flex; flex-direction: column; color: inherit; font: 400 1.25rem/1 'Archivo Black', sans-serif; text-decoration: none; } .ds-mark small { margin-top: 4px; color: var(--primary-color, #00D9FF); font: 800 0.68rem/1.1 'Public Sans', sans-serif; } .ds-links { display: flex; gap: 24px; margin-left: auto; } .ds-links a { color: var(--text-secondary, #B4B4B8); font-size: 0.9rem; font-weight: 600; text-decoration: none; } .ds-links a:hover { color: var(--text-primary, #FFFFFF); } .ds-nav-cta { padding: 10px 18px; color: var(--bg-primary, #0A0A0B); background: var(--primary-color, #00D9FF); border-radius: 8px; font-size: 0.9rem; font-weight: 800; text-decoration: none; } .ds-nav a:focus-visible { outline: 3px solid var(--accent-color, #00FF94); outline-offset: 4px; }"
+    },
+    {
+      "name": "Inner Page Hero",
+      "kind": "custom",
+      "description": "A two-column route entry with dark, cyan, green, or light tonal variants.",
+      "html": "<section class=\"ds-page-hero\"><div><p>/roadmap</p><h1>Changelog, not a vision board.</h1><span>A release history with linked receipts.</span></div><dl><div><dt>Current channel</dt><dd>Stable</dd></div></dl></section>",
+      "css": ".ds-page-hero { display: grid; grid-template-columns: minmax(0,1.3fr) minmax(280px,0.7fr); gap: 72px; align-items: end; padding: 96px 64px; color: var(--text-primary, #FFFFFF); background: var(--bg-primary, #0A0A0B); border-bottom: 1px solid var(--border-subtle, rgba(255,255,255,0.06)); font-family: 'Public Sans', sans-serif; } .ds-page-hero p { width: fit-content; padding: 8px 11px; border: 1px solid var(--border-color, rgba(255,255,255,0.1)); border-radius: 999px; font-size: 0.8rem; font-weight: 800; } .ds-page-hero h1 { max-width: 13ch; margin: 28px 0; font: 400 clamp(3.5rem,7vw,6rem)/0.94 'Archivo Black', sans-serif; letter-spacing: -0.035em; } .ds-page-hero > div > span { color: var(--text-secondary, #B4B4B8); line-height: 1.65; } .ds-page-hero dl { border-top: 1px solid var(--border-color, rgba(255,255,255,0.1)); } .ds-page-hero dl div { display: grid; grid-template-columns: 110px 1fr; gap: 18px; padding: 15px 0; border-bottom: 1px solid var(--border-color, rgba(255,255,255,0.1)); } .ds-page-hero dt { color: var(--text-secondary, #B4B4B8); font-size: 0.76rem; } .ds-page-hero dd { font-weight: 800; }"
+    },
+    {
+      "name": "Route Record",
+      "kind": "custom",
+      "description": "A full-width evidence row for posts, releases, contributions, roles, or deployment history.",
+      "html": "<article class=\"ds-route-record\"><time>2025</time><div><small>RELEASE WORK</small><h3>Release leadership and bigger stages</h3><p>Evidence and context live in one readable row.</p></div><a href=\"#\">RECEIPT ↗</a></article>",
+      "css": ".ds-route-record { display: grid; grid-template-columns: minmax(130px,0.3fr) minmax(0,1.4fr) minmax(120px,0.3fr); gap: 48px; padding: 36px 0; color: var(--text-primary, #FFFFFF); background: var(--bg-secondary, #111113); border-top: 1px solid var(--border-color, rgba(255,255,255,0.1)); font-family: 'Public Sans', sans-serif; } .ds-route-record time { color: var(--primary-color, #00D9FF); font: 400 2.5rem/1 'Archivo Black', sans-serif; } .ds-route-record small { color: var(--accent-color, #00FF94); font-weight: 800; } .ds-route-record h3 { margin: 10px 0 14px; font-size: 1.9rem; line-height: 1.1; } .ds-route-record p { color: var(--text-secondary, #B4B4B8); line-height: 1.65; } .ds-route-record a { color: var(--primary-color, #00D9FF); font-weight: 800; text-decoration: none; }"
+    },
+    {
+      "name": "Readable Document",
+      "kind": "custom",
+      "description": "A high-contrast article or legal reading surface with controlled measure.",
+      "html": "<article class=\"ds-document\"><p class=\"ds-summary\">Short version: plain language first.</p><section><h2>1. What this means</h2><p>Long-form copy stays readable, direct, and narrow enough to scan.</p></section></article>",
+      "css": ".ds-document { max-width: 820px; margin: 0 auto; padding: 72px 24px; color: var(--bg-primary, #0A0A0B); background: var(--text-primary, #FFFFFF); font: 400 1.05rem/1.78 'Public Sans', sans-serif; } .ds-summary { padding: 24px; background: color-mix(in srgb, var(--primary-color, #00D9FF) 12%, var(--text-primary, #FFFFFF)); border: 1px solid color-mix(in srgb, var(--primary-color, #00D9FF) 38%, var(--text-primary, #FFFFFF)); border-radius: 12px; font-weight: 700; } .ds-document section { padding: 36px 0; border-top: 1px solid color-mix(in srgb, var(--bg-primary, #0A0A0B) 18%, transparent); } .ds-document h2 { margin: 0 0 18px; font-size: 1.8rem; line-height: 1.2; } .ds-document p { color: color-mix(in srgb, var(--bg-primary, #0A0A0B) 78%, transparent); }"
     }
   ],
   "narrative": {
     "northStar": "The Human Release Candidate",
-    "overview": "Matteo looks like a high-performance product launch for a human: a black anodized chassis, fluorescent QA labels, an engineering test report, and a release note written by someone who knows the whole premise is ridiculous. Satire earns attention first; progressively stronger open-source, speaking, and delivery evidence converts that attention into credibility.\n\nThe system uses one dominant idea per section rather than repeating a landing-page template. Dark launch surfaces establish technical confidence, Electric Cyan marks action and active system state, Proof Green identifies verifiable evidence, and Signal White creates a blunt final release-note close.",
+    "overview": "Matteo looks like a high-performance product launch for a human: a black anodized chassis, fluorescent QA labels, an engineering test report, and a release note written by someone who knows the whole premise is ridiculous. Satire earns attention first; progressively stronger open-source, speaking, and delivery evidence converts that attention into credibility.\n\nThe system uses one dominant idea per section rather than repeating a landing-page template. Inner routes share a disciplined tonal hero shell, then diverge into field-note archives, release histories, repository ledgers, quote sheets, deployment records, and readable legal documents.",
     "keyCharacteristics": [
       "Oversized compressed display type paired with highly readable public-service body type.",
       "Hard section changes: dark launch grid, diagnostic console, proof-green repository surface, cyan tool matrix, white release notes.",
       "Asymmetric manifests and ledgers instead of identical icon-card grids.",
+      "Route-specific body structures held together by one tonal hero system.",
+      "Long-form and legal pages use high-contrast white reading surfaces.",
       "Real default content before hydration; interaction enriches rather than unlocks evidence.",
       "Short, purposeful motion: scan pass, status pulse, state shift, and tactile controls."
     ],
@@ -236,6 +259,9 @@
       "Do keep body text on dark surfaces at Signal White or Muted Signal.",
       "Do use Electric Cyan for action and Proof Green for evidence.",
       "Do keep every essential claim, link, and default diagnostic result in static exported HTML.",
+      "Do let each inner route earn a distinct body composition after the shared hero.",
+      "Do distinguish employment, advisory, founding, mentoring, and client work instead of flattening every organisation into customers.",
+      "Do use stable IDs for interactive business logic and display copy only for presentation.",
       "Do respect reduced motion globally and locally; scanning, pulsing, and state-shift effects must disappear without losing meaning.",
       "Do use direct external booking URLs and Next links for internal static-export routes."
     ],

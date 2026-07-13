@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Pricing - Matteo Platform',
-  description: 'Transparent pricing for the Matteo platform and engineering services.'
+  title: 'Pricing — Matteo',
+  description: 'Transparent advisory, delivery, and full-time engagement options.'
 }
 
 export default function PricingLayout({

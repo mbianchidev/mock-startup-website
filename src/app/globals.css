@@ -8,42 +8,6 @@
     font-family: var(--font-body);
 }
 
-/* Collapsible styles */
-.collapsible {
-    width: 100%;
-    max-width: 980px;
-    margin: 8px auto 16px auto;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
-    background: var(--bg-card);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-}
-.collapsible summary {
-    list-style: none;
-    cursor: pointer;
-    padding: 16px 20px;
-    user-select: none;
-}
-.collapsible summary::-webkit-details-marker { display: none; }
-.collapsible summary h3 { margin: 0; color: var(--primary-color); font-size: 1.25rem; }
-.collapsible[open] summary { border-bottom: 1px solid var(--border-color); }
-.collapsible .collapsible-content { padding: 16px 20px; color: var(--text-secondary); }
-
-/* Add a chevron indicator on summary */
-.collapsible summary { position: relative; }
-.collapsible summary::after {
-    content: '\25BC'; /* down triangle */
-    position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
-    color: var(--text-tertiary); font-size: 0.9rem;
-    transition: transform 0.2s ease;
-}
-.collapsible[open] summary::after {
-    transform: translateY(-50%) rotate(-180deg);
-}
-
-/* Hint text under the section title */
-.collapsible-hint { font-size: 0.95rem; }
-
 :root {
     /* YC Dark Theme Colors */
     --bg-primary: #0A0A0B;

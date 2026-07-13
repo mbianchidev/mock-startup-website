@@ -5,8 +5,11 @@
       "description": "An opinionated platform engineering roadmap - in the form of an interactive website to help engineers navigate the platform engineering landscape",
       "url": "https://github.com/mbianchidev/platform-engineering-roadmap",
       "stars": "111",
-      "techStack": ["JavaScript", "Platform Engineering", "Roadmap"],
-      "icon": "fas fa-road",
+      "techStack": [
+        "JavaScript",
+        "Platform Engineering",
+        "Roadmap"
+      ],
       "contribution": "Creator and maintainer"
     },
     {
@@ -14,8 +17,11 @@
       "description": "Questions to prepare for engineering interviews and coding challenges solutions to help developers ace their technical interviews",
       "url": "https://github.com/mbianchidev/engineering-interviews",
       "stars": "9",
-      "techStack": ["TypeScript", "Interview Prep", "Coding Challenges"],
-      "icon": "fas fa-briefcase",
+      "techStack": [
+        "TypeScript",
+        "Interview Prep",
+        "Coding Challenges"
+      ],
       "contribution": "Creator and maintainer"
     },
     {
@@ -23,8 +29,11 @@
       "description": "A utility command line tool to help manage Kubernetes clusters in a consistent way across AWS, Azure, and GCP",
       "url": "https://github.com/mbianchidev/klab-cli",
       "stars": "5",
-      "techStack": ["Python", "Kubernetes", "Multi-Cloud"],
-      "icon": "fas fa-terminal",
+      "techStack": [
+        "Python",
+        "Kubernetes",
+        "Multi-Cloud"
+      ],
       "contribution": "Creator and maintainer"
     },
     {
@@ -32,8 +41,11 @@
       "description": "Production-Grade Container Scheduling and Management - the world's most popular container orchestration platform",
       "url": "https://github.com/kubernetes/kubernetes",
       "stars": "113k+",
-      "techStack": ["Go", "Cloud Native", "Containers"],
-      "icon": "fas fa-dharmachakra",
+      "techStack": [
+        "Go",
+        "Cloud Native",
+        "Containers"
+      ],
       "contribution": "Contributor"
     },
     {
@@ -41,8 +53,11 @@
       "description": "The Kubernetes Package Manager - the standard way to package and deploy applications on Kubernetes",
       "url": "https://github.com/helm/helm",
       "stars": "27k+",
-      "techStack": ["Go", "Kubernetes", "Package Management"],
-      "icon": "fas fa-ship",
+      "techStack": [
+        "Go",
+        "Kubernetes",
+        "Package Management"
+      ],
       "contribution": "Contributor"
     },
     {
@@ -50,8 +65,11 @@
       "description": "OpenTofu lets you declaratively manage your cloud infrastructure - the open source Terraform alternative",
       "url": "https://github.com/opentofu/opentofu",
       "stars": "24k+",
-      "techStack": ["Go", "IaC", "Cloud"],
-      "icon": "fas fa-cubes",
+      "techStack": [
+        "Go",
+        "IaC",
+        "Cloud"
+      ],
       "contribution": "Contributor"
     }
   ]

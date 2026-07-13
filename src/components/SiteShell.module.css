@@ -305,6 +305,13 @@ footer.footer {
     }
 }
 
+@media (max-width: 400px) {
+    .footerLinks {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .navList,
     .navList a,

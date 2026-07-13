@@ -17,6 +17,14 @@ export function Header() {
   const navigationId = useId()
 
   useEffect(() => {
+    document.documentElement.dataset.hydrated = 'true'
+
+    return () => {
+      delete document.documentElement.dataset.hydrated
+    }
+  }, [])
+
+  useEffect(() => {
     document.body.classList.toggle('menu-open', isOpen)
 
     const closeOnEscape = (event: KeyboardEvent) => {

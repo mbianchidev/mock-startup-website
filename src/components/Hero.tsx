@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import matteoPortrait from '@/assets/matteo-kcd-denmark.jpg'
 import styles from '@/app/home.module.css'
 
 export function Hero() {
@@ -48,7 +49,7 @@ export function Hero() {
           </div>
           <div className={styles.portraitFrame}>
             <Image
-              src="https://github.com/mbianchidev/mbianchidev/blob/master/images/2024/KCD%20Denmark%202024/54170961528_19266e2856_o.jpg?raw=true"
+              src={matteoPortrait}
               alt="Matteo Bianchi speaking on stage at KCD Denmark"
               width={900}
               height={700}

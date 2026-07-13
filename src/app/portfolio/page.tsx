@@ -1,100 +1,177 @@
-'use client'
-
+import type { Metadata } from 'next'
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { PageHero } from '@/components/PageHero'
 import projectsData from '@/data/projects.json'
+import { getSortedPostsData } from '@/lib/markdown'
+import styles from '@/app/inner.module.css'
 
-interface Project {
-  name: string
-  description: string
-  url: string
-  stars: string
-  techStack: string[]
-  icon: string
-  contribution: string
+export const metadata: Metadata = {
+  title: 'Open Source — Matteo',
+  description: 'Creator-owned projects and contributions across the cloud-native ecosystem.',
 }
 
-export default function Portfolio() {
-  const [mounted, setMounted] = useState(false)
-  const projects: Project[] = projectsData.projects
+const ownedProjects = projectsData.projects.filter((project) => {
+  const url = new URL(project.url)
+  return url.hostname === 'github.com' && url.pathname.startsWith('/mbianchidev/')
+})
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+const ecosystemProjects = projectsData.projects.filter(
+  (project) => !ownedProjects.some((ownedProject) => ownedProject.url === project.url)
+)
+
+export default function Portfolio() {
+  const postCount = getSortedPostsData().length
+  const [featuredProject, ...otherOwnedProjects] = ownedProjects
 
   return (
-    <>
-      <section id="hero">
-        <div className="hero-content">
-          <h1>OSS Portfolio</h1>
-          <p>Open Source contributions and projects that make a difference in the Cloud Native ecosystem</p>
-          <div className="hero-buttons">
-            <a href="https://github.com/mbianchidev" target="_blank" rel="noopener noreferrer" className="primary-button">
-              <i className="fab fa-github" aria-hidden="true"></i> View on GitHub
+    <div className={styles.page}>
+      <PageHero
+        path="/portfolio"
+        title="Source available. Claims inspectable."
+        description="Projects created, maintained, and contributed to across platform engineering, Kubernetes, infrastructure as code, and developer tooling."
+        tone="green"
+        actions={
+          <>
+            <a
+              href="https://github.com/mbianchidev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.darkButton}
+            >
+              Open GitHub
+              <span aria-hidden="true">↗</span>
             </a>
-            <Link href="/about#community" className="secondary-button">Learn More</Link>
-          </div>
-        </div>
-      </section>
+            <Link href="/roadmap" className={styles.lightButton}>
+              Read the changelog
+            </Link>
+          </>
+        }
+        aside={
+          <dl className={styles.heroSpecs}>
+            <div>
+              <dt>Owned projects</dt>
+              <dd>{ownedProjects.length}</dd>
+            </div>
+            <div>
+              <dt>Ecosystems</dt>
+              <dd>{ecosystemProjects.length} contributed to</dd>
+            </div>
+            <div>
+              <dt>Field notes</dt>
+              <dd>{postCount} published</dd>
+            </div>
+          </dl>
+        }
+      />
 
-      <section id="portfolio-projects">
-        <h2 className="section-title">Featured Projects</h2>
-        <p className="section-description">
-          Contributions to major open source projects, with a focus on Kubernetes and Cloud Native technologies
-        </p>
-        <div className="projects-grid">
-          {projects.map((project, index) => (
-            <div key={index} className="project-card">
-              <div className="project-icon">
-                {mounted && <i className={project.icon} aria-hidden="true"></i>}
-              </div>
-              <h3>{project.name}</h3>
-              <p className="project-description">{project.description}</p>
-              <div className="project-stats">
-                <span className="project-stars">
-                  {mounted && <i className="fas fa-star" aria-hidden="true"></i>} {project.stars}
-                </span>
-                <span className="project-contribution">{project.contribution}</span>
-              </div>
-              <div className="project-tech">
-                {project.techStack.map((tech, techIndex) => (
-                  <span key={techIndex} className="tech-badge">{tech}</span>
+      {featuredProject && (
+        <section className={styles.sectionDark} aria-labelledby="owned-projects">
+          <div className={styles.sectionInner}>
+            <div className={styles.sectionIntro}>
+              <h2 id="owned-projects">Built and maintained here.</h2>
+              <p>Personal repositories. The star counts belong to these projects, not borrowed ecosystems.</p>
+            </div>
+            <div className={styles.ownedProjects}>
+              <article className={styles.featuredRepository}>
+                <p>Creator-owned repository</p>
+                <h3>{featuredProject.name}</h3>
+                <p>{featuredProject.description}</p>
+                <dl>
+                  <div>
+                    <dt>Role</dt>
+                    <dd>{featuredProject.contribution}</dd>
+                  </div>
+                  <div>
+                    <dt>Project signal</dt>
+                    <dd>{featuredProject.stars} GitHub stars</dd>
+                  </div>
+                </dl>
+                <ul className={styles.tagList}>
+                  {featuredProject.techStack.map((technology) => (
+                    <li key={technology}>{technology}</li>
+                  ))}
+                </ul>
+                <a href={featuredProject.url} target="_blank" rel="noopener noreferrer">
+                  Inspect repository
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </article>
+              <div className={styles.repositoryRail}>
+                {otherOwnedProjects.map((project) => (
+                  <article key={project.url} className={styles.repositoryRecord}>
+                    <div>
+                      <p>{project.contribution}</p>
+                      <h3>{project.name}</h3>
+                    </div>
+                    <p>{project.description}</p>
+                    <div>
+                      <span>{project.stars} stars on this project</span>
+                      <a href={project.url} target="_blank" rel="noopener noreferrer">
+                        Source
+                        <span aria-hidden="true">↗</span>
+                      </a>
+                    </div>
+                  </article>
                 ))}
               </div>
-              <a 
-                href={project.url} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="project-link"
-              >
-                View Project <i className="fas fa-arrow-right" aria-hidden="true"></i>
-              </a>
             </div>
-          ))}
+          </div>
+        </section>
+      )}
+
+      <section className={styles.sectionSoft} aria-labelledby="ecosystem-work">
+        <div className={styles.sectionInner}>
+          <div className={styles.sectionIntro}>
+            <h2 id="ecosystem-work">Contributed upstream.</h2>
+            <p>Project reach is context. The contribution label is the personal claim.</p>
+          </div>
+          <div className={styles.contributionList}>
+            {ecosystemProjects.map((project) => (
+              <article key={project.url} className={styles.contributionRow}>
+                <div>
+                  <p>{project.contribution}</p>
+                  <h3>{project.name}</h3>
+                </div>
+                <p>{project.description}</p>
+                <div className={styles.contributionMeta}>
+                  <span>{project.stars} project stars</span>
+                  <a href={project.url} target="_blank" rel="noopener noreferrer">
+                    Upstream repository
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section id="portfolio-stats">
-        <h2 className="section-title">Contribution Highlights</h2>
-        <div className="stats-container">
-          <div className="stat-item">
-            <div className="stat-number">40+</div>
-            <div className="stat-label">Kubernetes PRs Merged</div>
+      <section className={styles.sectionCyan} aria-labelledby="portfolio-output">
+        <div className={styles.sectionInner}>
+          <div className={styles.sectionIntro}>
+            <h2 id="portfolio-output">Output, not ARR.</h2>
+            <p>Actual work products from the human-platform release history.</p>
           </div>
-          <div className="stat-item">
-            <div className="stat-number">20+</div>
-            <div className="stat-label">CNCF Events</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-number">22</div>
-            <div className="stat-label">Conference Talks</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-number">10+</div>
-            <div className="stat-label">Blog Posts</div>
-          </div>
+          <dl className={styles.outputGrid}>
+            <div>
+              <dt>40+</dt>
+              <dd>Merged Kubernetes pull requests</dd>
+            </div>
+            <div>
+              <dt>22+</dt>
+              <dd>Talks and workshops delivered</dd>
+            </div>
+            <div>
+              <dt>{postCount}</dt>
+              <dd>Published field notes</dd>
+            </div>
+            <div>
+              <dt>10+</dt>
+              <dd>Years shipping production systems</dd>
+            </div>
+          </dl>
         </div>
       </section>
-    </>
+    </div>
   )
 }
