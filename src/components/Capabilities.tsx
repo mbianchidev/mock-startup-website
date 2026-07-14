@@ -42,7 +42,7 @@ const capabilities = [
 
 export function Capabilities() {
   return (
-    <section id="capabilities" className={styles.capabilities} aria-labelledby="capabilities-title">
+    <section id="features" className={styles.capabilities} aria-labelledby="capabilities-title">
       <div className={styles.sectionHeader}>
         <p className={styles.sectionCode}>matteo.features()</p>
         <h2 id="capabilities-title">One hire. Suspiciously broad surface area.</h2>

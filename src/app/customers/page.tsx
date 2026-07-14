@@ -6,7 +6,7 @@ import type { CustomersData } from '@/types'
 import styles from '@/app/inner.module.css'
 
 export const metadata: Metadata = {
-  title: 'Deployment History — Matteo',
+  title: 'Customers — Matteo',
   description: 'Where Matteo has shipped across employment, founding, advisory, mentoring, consulting, and training.',
 }
 
@@ -19,7 +19,7 @@ export default function Customers() {
     <div className={styles.page}>
       <PageHero
         path="/customers"
-        title="Deployment history, not customer logos."
+        title="Customers, collaborators, and teams shipped with."
         description="Where this human has shipped across employment, founding, advisory, mentoring, consulting, and training. A career path, not a client claim."
         tone="light"
         aside={

@@ -3,8 +3,8 @@ import { PageHero } from '@/components/PageHero'
 import styles from '@/app/inner.module.css'
 
 export const metadata: Metadata = {
-  title: 'Roles Included — Matteo',
-  description: 'The engineering, product, platform, DevRel, and solutions roles bundled into one human.',
+  title: 'Careers — Matteo',
+  description: 'The engineering, product, platform, DevRel, and solutions careers bundled into one human.',
 }
 
 const roles = [
@@ -82,7 +82,7 @@ export default function CareersPage() {
       <section className={styles.sectionDark} aria-labelledby="roles-title">
         <div className={styles.sectionInner}>
           <div className={styles.sectionIntro}>
-            <h2 id="roles-title">Roles included in the base image.</h2>
+            <h2 id="roles-title">Careers included in the base image.</h2>
             <p>Not simultaneous job titles. A range of contexts the same product-minded engineer can handle.</p>
           </div>
           <div className={styles.roleList}>

@@ -122,7 +122,7 @@ src/
 │   ├── Header.tsx       # Accessible global navigation
 │   ├── Footer.tsx       # Global evidence and contact footer
 │   ├── Hero.tsx         # Human-product launch hero
-│   ├── Capabilities.tsx # Capability manifest
+│   ├── Capabilities.tsx # Features manifest
 │   ├── CompatibilityLab.tsx # Interactive hiring diagnostic
 │   ├── ProofLedger.tsx  # Open-source evidence
 │   ├── Toolchain.tsx    # Technology compatibility surface

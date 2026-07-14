@@ -5,8 +5,8 @@ import { useEffect, useId, useState } from 'react'
 import styles from './SiteShell.module.css'
 
 const navItems = [
-  { href: '/#capabilities', label: 'Capabilities' },
-  { href: '/#compatibility', label: 'Compatibility' },
+  { href: '/#features', label: 'Features' },
+  { href: '/#integrations', label: 'Integrations' },
   { href: '/#proof', label: 'Proof' },
   { href: '/portfolio', label: 'Portfolio' },
   { href: '/blog', label: 'Blog' }

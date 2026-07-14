@@ -11,8 +11,8 @@ const pages = [
   },
   { name: 'roadmap', path: '/roadmap', title: 'Changelog — Matteo' },
   { name: 'portfolio', path: '/portfolio', title: 'Open Source — Matteo' },
-  { name: 'customers', path: '/customers', title: 'Deployment History — Matteo' },
-  { name: 'careers', path: '/careers', title: 'Roles Included — Matteo' },
+  { name: 'customers', path: '/customers', title: 'Customers — Matteo' },
+  { name: 'careers', path: '/careers', title: 'Careers — Matteo' },
   { name: 'pricing', path: '/pricing', title: 'Pricing — Matteo' },
   { name: 'documentation', path: '/documentation', title: 'Documentation — Matteo' },
   { name: 'press', path: '/press', title: 'Press — Matteo' },
@@ -79,8 +79,51 @@ test.describe('Static route experience', () => {
     await expect(
       page
         .getByRole('navigation', { name: 'Primary navigation' })
-        .getByRole('link', { name: 'Capabilities' })
+        .getByRole('link', { name: 'Features' })
     ).toBeVisible();
+  });
+
+  test('navigates to Privacy and Terms from the footer', async ({ page }) => {
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+
+    const footer = page.getByRole('contentinfo');
+    await footer.getByRole('link', { name: 'Privacy' }).click();
+    await expect(page).toHaveURL(/\/privacy\/?$/);
+    await expect(page).toHaveTitle('Privacy — Matteo');
+    await expect(
+      page.getByRole('heading', { name: 'Privacy without the surveillance novella.' })
+    ).toBeVisible();
+
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page
+      .getByRole('contentinfo')
+      .getByRole('link', { name: 'Terms of Service' })
+      .click();
+    await expect(page).toHaveURL(/\/terms\/?$/);
+    await expect(page).toHaveTitle('Terms — Matteo');
+    await expect(
+      page.getByRole('heading', { name: 'Terms that fit on one reasonable page.' })
+    ).toBeVisible();
+  });
+
+  test('uses the requested Product and Company footer taxonomy', async ({ page }) => {
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+
+    const product = page.getByRole('navigation', { name: 'Product' });
+    await expect(product.getByRole('link')).toHaveText([
+      'Features',
+      'Integrations',
+      'Pricing',
+      'Roadmap',
+    ]);
+
+    const company = page.getByRole('navigation', { name: 'Company' });
+    await expect(company.getByRole('link')).toHaveText([
+      'Open source',
+      'About',
+      'Careers',
+      'Customers',
+    ]);
   });
 
   test('calculates an advisory quote accessibly', async ({ page }) => {

@@ -17,7 +17,7 @@ const tools = [
 
 export function Toolchain() {
   return (
-    <section className={styles.toolchain} aria-labelledby="toolchain-title">
+    <section id="integrations" className={styles.toolchain} aria-labelledby="toolchain-title">
       <div className={styles.toolchainLead}>
         <h2 id="toolchain-title">Native integrations. Emotionally stable dependencies.</h2>
         <p>

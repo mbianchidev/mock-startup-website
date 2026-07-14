@@ -205,6 +205,8 @@ Depth is structural, not decorative. The product chassis and diagnostic console 
 
 Native buttons form the challenge selector. Each button owns an `aria-pressed` state and controls a default server-rendered result region. The selected result uses an atomic polite live region, but evidence is present before interaction.
 
+Global navigation calls the operating-environment section **Integrations** and the capability manifest **Features**. The interactive compatibility lab remains a separate homepage experience and is not mislabeled as the integrations inventory.
+
 ### Proof Ledger
 
 The featured creator-owned project receives the Proof Green surface. Supporting projects use flat dark records. Star counts are explicitly labeled as project signal and never imply personal ownership of a third-party project's popularity.
