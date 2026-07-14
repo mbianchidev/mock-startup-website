@@ -217,8 +217,8 @@
     {
       "name": "Loved-by Logo Runway",
       "kind": "custom",
-      "description": "The exact main-branch company logo set in an accessible, reduced-motion-safe marquee.",
-      "html": "<section class=\"ds-logo-runway\"><h2>Loved and trusted by people at</h2><div><span>Google</span><span>Microsoft</span><span>Uber</span><span>Amazon</span></div></section>",
+      "description": "The main-branch company logo set plus GitHub, Replit, OpenAI, and Anthropic in an accessible, reduced-motion-safe marquee.",
+      "html": "<section class=\"ds-logo-runway\"><h2>Loved and trusted by people at</h2><div><span>GitHub</span><span>Google</span><span>Microsoft</span><span>OpenAI</span><span>Anthropic</span></div></section>",
       "css": ".ds-logo-runway { padding: 96px 0; color: var(--bg-primary, #0A0A0B); background: var(--text-primary, #FFFFFF); overflow: hidden; font-family: 'Public Sans', sans-serif; } .ds-logo-runway h2 { max-width: 12ch; margin: 0 auto 48px; padding: 0 24px; font: 400 clamp(3rem,6vw,5.6rem)/0.95 'Archivo Black', sans-serif; letter-spacing: -0.035em; } .ds-logo-runway > div { display: flex; border-top: 1px solid color-mix(in srgb, var(--bg-primary, #0A0A0B) 18%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--bg-primary, #0A0A0B) 18%, transparent); } .ds-logo-runway span { display: grid; place-items: center; min-width: 220px; min-height: 120px; border-right: 1px solid color-mix(in srgb, var(--bg-primary, #0A0A0B) 18%, transparent); font-weight: 900; }"
     }
   ],

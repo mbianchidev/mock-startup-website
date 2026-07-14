@@ -11,7 +11,7 @@ This project is a satirical product launch for Matteo Bianchi: a personal portfo
 - A product-spec hero built around a real speaking photo
 - An asymmetric capability manifest instead of a resume timeline
 - An interactive hiring compatibility lab with accessible default content
-- The original `main` branch “loved by” logo set, upgraded into an accessible animated runway
+- The original `main` branch “loved by” logo set plus GitHub, Replit, OpenAI, and Anthropic, upgraded into an accessible animated runway
 - An open-source proof ledger sourced from `src/data/projects.json`
 - A complete route system for field notes, changelog, portfolio, deployment history, pricing, legal, and support pages
 - Verifiable contribution, speaking, and project benchmarks
@@ -39,12 +39,14 @@ This project was created to:
 
 ## 🛠️ Tech Stack
 
-- **Next.js 15** - React framework with App Router
+- **Next.js 15.5.20** - Patched React framework release with App Router
 - **TypeScript** - Type safety and better developer experience
 - **React 19** - Latest React features and hooks
 - **CSS3 + CSS Modules** - Shared tokens plus isolated homepage, shell, and inner-route systems
 - **Playwright** - Route, interaction, responsive, and screenshot coverage
 - **ESLint** - Code linting and quality
+
+`package.json` overrides Next.js's pinned PostCSS version with patched PostCSS 8.5.19. Keep the override until the selected Next.js line depends on PostCSS 8.5.10 or newer.
 
 ## 🚦 Getting Started
 

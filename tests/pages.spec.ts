@@ -45,7 +45,7 @@ test.describe('Static route experience', () => {
     const lovedBy = page.getByRole('region', { name: 'Loved and trusted by people at' });
     await expect(lovedBy).toBeVisible();
 
-    for (const company of ['Google', 'Microsoft', 'Uber', 'Amazon', 'Meta', 'Apple', 'Netflix', 'Tesla', 'NVIDIA', 'Adobe', 'Edera']) {
+    for (const company of ['GitHub', 'Google', 'Microsoft', 'Uber', 'Amazon', 'Meta', 'Apple', 'Netflix', 'Tesla', 'NVIDIA', 'Adobe', 'Edera', 'Replit', 'OpenAI', 'Anthropic']) {
       await expect(lovedBy.getByRole('img', { name: company })).toHaveCount(1);
     }
   });

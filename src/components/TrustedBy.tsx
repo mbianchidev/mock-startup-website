@@ -1,7 +1,12 @@
 import Image from 'next/image'
+import anthropicLogo from '@/assets/logos/anthropic.svg'
+import githubLogo from '@/assets/logos/github.svg'
+import openAiLogo from '@/assets/logos/openai.svg'
+import replitLogo from '@/assets/logos/replit.svg'
 import styles from '@/app/home.module.css'
 
 const companies = [
+  { name: 'GitHub', logo: githubLogo },
   { name: 'Google', logo: 'https://cdn.worldvectorlogo.com/logos/google-g-2015.svg' },
   { name: 'Microsoft', logo: 'https://cdn.worldvectorlogo.com/logos/microsoft-5.svg' },
   { name: 'Uber', logo: 'https://cdn.worldvectorlogo.com/logos/uber-2.svg' },
@@ -13,6 +18,9 @@ const companies = [
   { name: 'NVIDIA', logo: 'https://cdn.worldvectorlogo.com/logos/nvidia.svg' },
   { name: 'Adobe', logo: 'https://cdn.worldvectorlogo.com/logos/adobe-2.svg' },
   { name: 'Edera', logo: 'https://cdn.prod.website-files.com/6650e4fc72bc521db9b194c4/666704f17d1ff15728685ac2_mascot.svg' },
+  { name: 'Replit', logo: replitLogo },
+  { name: 'OpenAI', logo: openAiLogo },
+  { name: 'Anthropic', logo: anthropicLogo },
 ]
 
 function LogoGroup({ decorative = false }: { decorative?: boolean }) {

@@ -211,7 +211,7 @@ The featured creator-owned project receives the Proof Green surface. Supporting 
 
 ### Loved-by Runway
 
-The homepage restores the exact company marks from `main` in a Signal White runway. Marks are grayscale at rest, reveal their brand color on hover, pause as a group on pointer inspection, and become a manually scrollable single set under reduced motion. The visible copy explicitly avoids implying corporate endorsement.
+The homepage restores the exact company marks from `main`, then extends the runway with GitHub, Replit, OpenAI, and Anthropic. Marks are grayscale at rest, reveal their brand color on hover, pause as a group on pointer inspection, and become a manually scrollable single set under reduced motion. The visible copy explicitly avoids implying corporate endorsement.
 
 ### Page Heroes
 
