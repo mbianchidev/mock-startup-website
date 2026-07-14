@@ -25,18 +25,6 @@
       "contribution": "Creator and maintainer"
     },
     {
-      "name": "K-Lab CLI",
-      "description": "A utility command line tool to help manage Kubernetes clusters in a consistent way across AWS, Azure, and GCP",
-      "url": "https://github.com/mbianchidev/klab-cli",
-      "stars": "5",
-      "techStack": [
-        "Python",
-        "Kubernetes",
-        "Multi-Cloud"
-      ],
-      "contribution": "Creator and maintainer"
-    },
-    {
       "name": "Kubernetes",
       "description": "Production-Grade Container Scheduling and Management - the world's most popular container orchestration platform",
       "url": "https://github.com/kubernetes/kubernetes",

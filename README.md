@@ -114,7 +114,7 @@ src/
 │   ├── pricing/         # Pricing page
 │   ├── privacy/         # Privacy page
 │   ├── redirect/        # Redirect pages
-│   ├── roadmap/         # Roadmap page
+│   ├── roadmap/         # Changelog page
 │   ├── support/         # Support page
 │   ├── status/          # Status and incident history
 │   ├── terms/           # Terms page

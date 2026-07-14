@@ -103,6 +103,14 @@ test.describe('Static route experience', () => {
     await expect(page.getByText('All systems operational. Human included.')).toBeVisible();
   });
 
+  test('does not expose the removed K-Lab CLI project', async ({ page }) => {
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await expect(page.getByText('K-Lab CLI', { exact: true })).toHaveCount(0);
+
+    await page.goto('/portfolio', { waitUntil: 'domcontentloaded' });
+    await expect(page.getByText('K-Lab CLI', { exact: true })).toHaveCount(0);
+  });
+
   test('navigates to Privacy and Terms from the footer', async ({ page }) => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
 
@@ -135,7 +143,7 @@ test.describe('Static route experience', () => {
       'Features',
       'Integrations',
       'Pricing',
-      'Roadmap',
+      'Changelog',
     ]);
 
     const company = page.getByRole('navigation', { name: 'Company' });

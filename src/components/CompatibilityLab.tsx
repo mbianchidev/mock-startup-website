@@ -43,12 +43,12 @@ const scenarios = [
     summary:
       'The useful abstraction wins: typed interfaces, focused tooling, fast feedback, and documentation that answers the question before Slack does.',
     proof: [
-      'Built K-Lab CLI for repeatable Kubernetes workflows',
+      'Built Engineering Interviews as a typed developer-learning product',
       'Ships React, TypeScript, Python, and automation tooling',
       'Designs for adoption, not just technical completion'
     ],
-    href: 'https://github.com/mbianchidev/klab-cli',
-    action: 'Inspect the developer tooling'
+    href: 'https://github.com/mbianchidev/engineering-interviews',
+    action: 'Inspect the developer product'
   },
   {
     id: 'storytelling',

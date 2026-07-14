@@ -22,7 +22,7 @@ export function Footer() {
             <Link href="/#features">Features</Link>
             <Link href="/#integrations">Integrations</Link>
             <Link href="/pricing">Pricing</Link>
-            <Link href="/roadmap">Roadmap</Link>
+            <Link href="/roadmap">Changelog</Link>
           </div>
           <div className={styles.footerColumn} role="navigation" aria-label="Company">
             <h3>Company</h3>
