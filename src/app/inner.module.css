@@ -1561,6 +1561,101 @@
     text-underline-offset: 3px;
 }
 
+.statusBoard {
+    border-top: 1px solid var(--border-color);
+}
+
+.statusRow {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+    align-items: center;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.statusRow h3 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+    letter-spacing: -0.02em;
+}
+
+.statusRow p {
+    margin: 8px 0 0;
+    color: var(--text-secondary);
+}
+
+.statusRow > span {
+    display: inline-flex;
+    gap: 9px;
+    align-items: center;
+    color: var(--accent-color);
+    font-size: 0.82rem;
+    font-weight: 900;
+}
+
+.statusRow > span > span {
+    width: 9px;
+    height: 9px;
+    background: currentColor;
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent-color) 12%, transparent);
+}
+
+.incident {
+    padding: clamp(28px, 5vw, 52px);
+    color: var(--bg-primary);
+    background: color-mix(in srgb, var(--primary-color) 12%, var(--text-primary));
+    border: 1px solid color-mix(in srgb, var(--primary-color) 38%, var(--text-primary));
+    border-radius: 16px;
+}
+
+.incidentHeader {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    align-items: center;
+}
+
+.incidentHeader span {
+    padding: 7px 10px;
+    color: var(--bg-primary);
+    background: var(--accent-color);
+    border-radius: 999px;
+    font-size: 0.74rem;
+    font-weight: 900;
+}
+
+.incidentHeader time {
+    color: color-mix(in srgb, var(--bg-primary) 70%, transparent);
+    font-size: 0.84rem;
+    font-weight: 800;
+}
+
+.incident h3 {
+    margin: 42px 0 16px;
+    color: var(--bg-primary);
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 5vw, 4.5rem);
+    font-weight: 400;
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+}
+
+.incident > p {
+    max-width: 64ch;
+    margin: 0;
+    color: color-mix(in srgb, var(--bg-primary) 78%, transparent);
+    line-height: 1.7;
+}
+
+.incident small {
+    display: block;
+    margin-top: 28px;
+    color: color-mix(in srgb, var(--bg-primary) 66%, transparent);
+}
+
 @media (max-width: 980px) {
     .heroInner {
         grid-template-columns: 1fr;
@@ -1763,6 +1858,12 @@
 
     .quoteOutput dl {
         grid-template-columns: 1fr;
+    }
+
+    .statusRow,
+    .incidentHeader {
+        align-items: flex-start;
+        flex-direction: column;
     }
 }
 

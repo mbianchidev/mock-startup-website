@@ -33,10 +33,11 @@ export function Footer() {
           </div>
           <div className={styles.footerColumn} role="navigation" aria-label="Resources">
             <h3>Resources</h3>
-            <Link href="/blog">Field notes</Link>
+            <Link href="/blog">Blog</Link>
             <Link href="/documentation">Documentation</Link>
             <Link href="/press">Press</Link>
             <Link href="/support">Support</Link>
+            <Link href="/status">Status</Link>
           </div>
           <div className={styles.footerColumn} role="navigation" aria-label="Contact">
             <h3>Open a ticket</h3>

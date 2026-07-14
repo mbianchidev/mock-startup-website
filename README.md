@@ -116,6 +116,7 @@ src/
 │   ├── redirect/        # Redirect pages
 │   ├── roadmap/         # Roadmap page
 │   ├── support/         # Support page
+│   ├── status/          # Status and incident history
 │   ├── terms/           # Terms page
 │   └── globals.css      # Global styles
 ├── components/          # Reusable React components

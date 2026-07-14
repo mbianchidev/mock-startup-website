@@ -17,6 +17,7 @@ const pages = [
   { name: 'documentation', path: '/documentation', title: 'Documentation — Matteo' },
   { name: 'press', path: '/press', title: 'Press — Matteo' },
   { name: 'support', path: '/support', title: 'Support — Matteo' },
+  { name: 'status', path: '/status', title: 'Status — Matteo' },
   { name: 'privacy', path: '/privacy', title: 'Privacy — Matteo' },
   { name: 'terms', path: '/terms', title: 'Terms — Matteo' },
 ];
@@ -79,8 +80,27 @@ test.describe('Static route experience', () => {
     await expect(
       page
         .getByRole('navigation', { name: 'Primary navigation' })
-        .getByRole('link', { name: 'Features' })
+        .getByRole('link', { name: 'Product' })
     ).toBeVisible();
+  });
+
+  test('uses the requested top navbar', async ({ page }) => {
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+
+    const navigation = page.getByRole('navigation', { name: 'Primary navigation' });
+    for (const label of ['Product', 'Customers', 'Blog']) {
+      await expect(navigation.getByRole('link', { name: label, exact: true })).toBeVisible();
+    }
+    await expect(navigation.getByRole('link', { name: 'Features', exact: true })).toHaveCount(0);
+    await expect(navigation.getByRole('link', { name: 'Integrations', exact: true })).toHaveCount(0);
+  });
+
+  test('reports status uptime and PTO incident', async ({ page }) => {
+    await page.goto('/status', { waitUntil: 'domcontentloaded' });
+
+    await expect(page.getByText('99.99%', { exact: true })).toBeVisible();
+    await expect(page.getByText('3 minutes - PTO', { exact: true })).toBeVisible();
+    await expect(page.getByText('All systems operational. Human included.')).toBeVisible();
   });
 
   test('navigates to Privacy and Terms from the footer', async ({ page }) => {

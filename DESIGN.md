@@ -231,6 +231,10 @@ Articles and policies switch to Signal White with Launch Black text, a 760–820
 
 Pricing uses three engagement surfaces plus one calculator console. Display names are never used as calculation keys; stable IDs drive state. Preset controls expose `aria-pressed`, every input has a label, and the live quote uses an `output` element.
 
+### Status Board
+
+The status page uses Proof Green for the operational hero, bordered dark system rows, and a Signal White incident record. Uptime is presented as 99.99%; short human maintenance windows use literal incident language such as `3 minutes - PTO`.
+
 ## 6. Do's and Don'ts
 
 ### Do:
