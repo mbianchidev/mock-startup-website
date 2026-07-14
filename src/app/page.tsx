@@ -5,6 +5,7 @@ import { Hero } from '@/components/Hero'
 import { KnownIssues } from '@/components/KnownIssues'
 import { ProofLedger } from '@/components/ProofLedger'
 import { Toolchain } from '@/components/Toolchain'
+import { TrustedBy } from '@/components/TrustedBy'
 import styles from './home.module.css'
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
     <div className={styles.home}>
       <Hero />
       <Capabilities />
+      <TrustedBy />
       <CompatibilityLab />
       <ProofLedger />
       <Toolchain />

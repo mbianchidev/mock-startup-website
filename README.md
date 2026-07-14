@@ -11,6 +11,7 @@ This project is a satirical product launch for Matteo Bianchi: a personal portfo
 - A product-spec hero built around a real speaking photo
 - An asymmetric capability manifest instead of a resume timeline
 - An interactive hiring compatibility lab with accessible default content
+- The original `main` branch “loved by” logo set, upgraded into an accessible animated runway
 - An open-source proof ledger sourced from `src/data/projects.json`
 - A complete route system for field notes, changelog, portfolio, deployment history, pricing, legal, and support pages
 - Verifiable contribution, speaking, and project benchmarks

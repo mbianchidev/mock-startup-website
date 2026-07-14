@@ -209,6 +209,10 @@ Native buttons form the challenge selector. Each button owns an `aria-pressed` s
 
 The featured creator-owned project receives the Proof Green surface. Supporting projects use flat dark records. Star counts are explicitly labeled as project signal and never imply personal ownership of a third-party project's popularity.
 
+### Loved-by Runway
+
+The homepage restores the exact company marks from `main` in a Signal White runway. Marks are grayscale at rest, reveal their brand color on hover, pause as a group on pointer inspection, and become a manually scrollable single set under reduced motion. The visible copy explicitly avoids implying corporate endorsement.
+
 ### Page Heroes
 
 Inner routes use one shared two-column shell with four tonal variants: Launch Black, Electric Cyan, Proof Green, or Signal White. The route path is a compact location marker, not a repeated section eyebrow. Hero body layouts must diverge after this shared entry point.

@@ -39,6 +39,17 @@ test.describe('Static route experience', () => {
     });
   }
 
+  test('renders the main-branch loved-by logo set', async ({ page }) => {
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+
+    const lovedBy = page.getByRole('region', { name: 'Loved and trusted by people at' });
+    await expect(lovedBy).toBeVisible();
+
+    for (const company of ['Google', 'Microsoft', 'Uber', 'Amazon', 'Meta', 'Apple', 'Netflix', 'Tesla', 'NVIDIA', 'Adobe', 'Edera']) {
+      await expect(lovedBy.getByRole('img', { name: company })).toHaveCount(1);
+    }
+  });
+
   test('updates the hiring compatibility result', async ({ page }) => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
     await page.locator('html[data-hydrated="true"]').waitFor();
