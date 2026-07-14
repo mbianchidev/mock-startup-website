@@ -107,6 +107,7 @@ test.describe('Static route experience', () => {
   });
 
   test('uses the requested Product and Company footer taxonomy', async ({ page }) => {
+    await page.setViewportSize({ width: 1600, height: 900 });
     await page.goto('/', { waitUntil: 'domcontentloaded' });
 
     const product = page.getByRole('navigation', { name: 'Product' });
@@ -124,6 +125,15 @@ test.describe('Static route experience', () => {
       'Careers',
       'Customers',
     ]);
+
+    for (const navigation of [product, company]) {
+      const positions = await navigation.getByRole('link').evaluateAll((links) =>
+        links.map((link) => link.getBoundingClientRect().top)
+      );
+
+      expect(positions).toEqual([...positions].sort((a, b) => a - b));
+      expect(new Set(positions).size).toBe(positions.length);
+    }
   });
 
   test('calculates an advisory quote accessibly', async ({ page }) => {

@@ -17,28 +17,28 @@ export function Footer() {
           </p>
         </div>
         <div className={styles.footerLinks}>
-          <nav className={styles.footerColumn} aria-label="Product">
+          <div className={styles.footerColumn} role="navigation" aria-label="Product">
             <h3>Product</h3>
             <Link href="/#features">Features</Link>
             <Link href="/#integrations">Integrations</Link>
             <Link href="/pricing">Pricing</Link>
             <Link href="/roadmap">Roadmap</Link>
-          </nav>
-          <nav className={styles.footerColumn} aria-label="Company">
+          </div>
+          <div className={styles.footerColumn} role="navigation" aria-label="Company">
             <h3>Company</h3>
             <Link href="/portfolio">Open source</Link>
             <Link href="/about">About</Link>
             <Link href="/careers">Careers</Link>
             <Link href="/customers">Customers</Link>
-          </nav>
-          <nav className={styles.footerColumn} aria-label="Resources">
+          </div>
+          <div className={styles.footerColumn} role="navigation" aria-label="Resources">
             <h3>Resources</h3>
             <Link href="/blog">Field notes</Link>
             <Link href="/documentation">Documentation</Link>
             <Link href="/press">Press</Link>
             <Link href="/support">Support</Link>
-          </nav>
-          <nav className={styles.footerColumn} aria-label="Contact">
+          </div>
+          <div className={styles.footerColumn} role="navigation" aria-label="Contact">
             <h3>Open a ticket</h3>
             <a href="https://github.com/mbianchidev" target="_blank" rel="noopener noreferrer">
               GitHub
@@ -50,7 +50,7 @@ export function Footer() {
               Book a demo
             </a>
             <a href="mailto:info@mb-consulting.dev">Contact</a>
-          </nav>
+          </div>
         </div>
       </div>
       <div className={styles.footerBottom}>
