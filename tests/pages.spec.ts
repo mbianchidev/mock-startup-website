@@ -239,12 +239,12 @@ test.describe('Static route experience', () => {
     const historyImages = historyLogos.locator('img');
     await expect(historyEntries).toHaveCount(7);
     await expect(historyLogos).toHaveCount(7);
-    await expect(historyImages).toHaveCount(7);
+    await expect(historyImages).toHaveCount(6);
 
     await page.getByRole('button', { name: 'Load 7 more deployment history entries' }).click();
     await expect(historyEntries).toHaveCount(14);
     await expect(historyLogos).toHaveCount(14);
-    await expect(historyImages).toHaveCount(12);
+    await expect(historyImages).toHaveCount(13);
 
     const loadedWidths = await historyImages.evaluateAll((images) =>
       images.map((image) => (image as HTMLImageElement).naturalWidth)

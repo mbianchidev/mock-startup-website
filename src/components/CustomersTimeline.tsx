@@ -12,8 +12,12 @@ interface CustomersTimelineProps {
 
 const PAGE_SIZE = 7
 
-function getInitials(companyName: string) {
-  return companyName
+function getFallbackLabel(company: Company) {
+  if (company.code === 'KLB') {
+    return 'KubeLab'
+  }
+
+  return company.companyName
     .replace(/\([^)]*\)/g, '')
     .split(/[\s-]+/)
     .filter(Boolean)
@@ -43,7 +47,7 @@ export function CustomersTimeline({ companies }: CustomersTimelineProps) {
                 data-customer-logo={company.code}
                 aria-hidden="true"
               >
-                <span>{getInitials(company.companyName)}</span>
+                <span>{getFallbackLabel(company)}</span>
                 {logo && (
                   <Image
                     src={logo}

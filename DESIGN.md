@@ -223,7 +223,7 @@ Inner routes use one shared two-column shell with four tonal variants: Launch Bl
 
 Blog posts, release history, upstream contributions, roles, and deployment history use full-width bordered rows rather than equal cards. Chronological pages may use years because order carries real information; non-sequential pages never borrow the numbered-timeline treatment.
 
-Customer deployment records add a compact split-tone logo tile between year and narrative. Organisation marks are bundled locally; initials remain underneath as a resilient fallback for the two brands without recoverable artwork.
+Customer deployment records add a wide, flat Signal White logo plate between year and narrative. Original high-resolution WebP marks are bundled locally; KubeLab alone uses a restrained text monogram because its source artwork is no longer available.
 
 ### Long-form and Legal Documents
 
