@@ -1,67 +1,67 @@
-'use client'
-
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import styles from './SiteShell.module.css'
 
 export function Footer() {
-  const [currentYear, setCurrentYear] = useState('2025')
-
-  useEffect(() => {
-    setCurrentYear(new Date().getFullYear().toString())
-  }, [])
+  const currentYear = new Date().getFullYear()
 
   return (
-    <footer>
-      <div className="footer-content">
-        <div className="footer-logo">
-          <div className="logo">
-            <Link href="/">Matte⚙️</Link>
-          </div>
-          <p>Transforming businesses since 2015</p>
+    <footer className={styles.footer}>
+      <div className={styles.footerTop}>
+        <div className={styles.footerBrand}>
+          <Link href="/" className={styles.footerLogo}>
+            Matteo
+          </Link>
+          <p>
+            Human infrastructure for teams that want the (agenic or not) systems
+            and the story to be equally good.
+          </p>
         </div>
-        <div className="footer-links">
-          <div className="link-column">
+        <div className={styles.footerLinks}>
+          <div className={styles.footerColumn} role="navigation" aria-label="Product">
             <h3>Product</h3>
             <Link href="/#features">Features</Link>
-            <Link href="/pricing">Pricing</Link>
             <Link href="/#integrations">Integrations</Link>
-            <Link href="/roadmap">Roadmap</Link>
+            <Link href="/pricing">Pricing</Link>
+            <Link href="/roadmap">Changelog</Link>
           </div>
-          <div className="link-column">
+          <div className={styles.footerColumn} role="navigation" aria-label="Company">
             <h3>Company</h3>
+            <Link href="/portfolio">Open source</Link>
             <Link href="/about">About</Link>
             <Link href="/careers">Careers</Link>
-            <Link href="/blog">Blog</Link>
-            <Link href="/press">Press</Link>
+            <Link href="/customers">Customers</Link>
           </div>
-          <div className="link-column">
+          <div className={styles.footerColumn} role="navigation" aria-label="Resources">
             <h3>Resources</h3>
+            <Link href="/blog">Blog</Link>
             <Link href="/documentation">Documentation</Link>
+            <Link href="/press">Press</Link>
             <Link href="/support">Support</Link>
-            <Link href="/about#community">Community</Link>
+            <Link href="/status">Status</Link>
+          </div>
+          <div className={styles.footerColumn} role="navigation" aria-label="Contact">
+            <h3>Open a ticket</h3>
+            <a href="https://github.com/mbianchidev" target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/mbianchidev" target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+            <a href="https://cal.com/mbianchidev/intro" target="_blank" rel="noopener noreferrer">
+              Book a demo
+            </a>
             <a href="mailto:info@mb-consulting.dev">Contact</a>
           </div>
         </div>
       </div>
-      <div className="footer-bottom">
-        <p>&copy; <span id="current-year">{currentYear}</span> Matteo. All rights reserved.</p>
-        <p className="copilot-credit">Vibe coded with 💙 and GitHub Copilot</p>
-        <p className="legal-links">
+      <div className={styles.footerBottom}>
+        <p>&copy; {currentYear} Matteo. No vendor lock-in.</p>
+        <p>Designed as a product. Operated as a human.</p>
+        <p className={styles.legalLinks}>
           <Link href="/privacy">Privacy</Link>
-          <span aria-hidden="true"> | </span>
+          <span aria-hidden="true">·</span>
           <Link href="/terms">Terms of Service</Link>
         </p>
-        <div className="social-icons">
-          <a href="https://mbianchidev.bsky.social" target="_blank" rel="noopener noreferrer">
-            <i className="fa-brands fa-square-bluesky" aria-hidden="true"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/mbianchidev" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-linkedin" aria-hidden="true"></i>
-          </a>
-          <a href="https://github.com/mbianchidev" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-github" aria-hidden="true"></i>
-          </a>
-        </div>
       </div>
     </footer>
   )

@@ -1,35 +1,72 @@
+import adobeLogo from '@/assets/logos/adobe.svg'
+import amazonLogo from '@/assets/logos/amazon.svg'
 import Image from 'next/image'
+import anthropicLogo from '@/assets/logos/anthropic.svg'
+import appleLogo from '@/assets/logos/apple.svg'
+import ederaLogo from '@/assets/logos/edera.svg'
+import githubLogo from '@/assets/logos/github.svg'
+import googleLogo from '@/assets/logos/google.svg'
+import metaLogo from '@/assets/logos/meta.svg'
+import microsoftLogo from '@/assets/logos/microsoft.svg'
+import netflixLogo from '@/assets/logos/netflix.svg'
+import nvidiaLogo from '@/assets/logos/nvidia.svg'
+import openAiLogo from '@/assets/logos/openai.svg'
+import replitLogo from '@/assets/logos/replit.svg'
+import teslaLogo from '@/assets/logos/tesla.svg'
+import uberLogo from '@/assets/logos/uber.svg'
+import styles from '@/app/home.module.css'
 
 const companies = [
-  { name: 'Google', logo: 'https://cdn.worldvectorlogo.com/logos/google-g-2015.svg' },
-  { name: 'Microsoft', logo: 'https://cdn.worldvectorlogo.com/logos/microsoft-5.svg' },
-  { name: 'Uber', logo: 'https://cdn.worldvectorlogo.com/logos/uber-2.svg' },
-  { name: 'Amazon', logo: 'https://cdn.worldvectorlogo.com/logos/logo-amazon.svg' },
-  { name: 'Meta', logo: 'https://cdn.worldvectorlogo.com/logos/meta-3.svg' },
-  { name: 'Apple', logo: 'https://cdn.worldvectorlogo.com/logos/apple-13.svg' },
-  { name: 'Netflix', logo: 'https://cdn.worldvectorlogo.com/logos/netflix-logo-icon.svg' },
-  { name: 'Tesla', logo: 'https://cdn.worldvectorlogo.com/logos/tesla-pure.svg' },
-  { name: 'NVidia', logo: 'https://cdn.worldvectorlogo.com/logos/nvidia.svg' },
-  { name: 'Adobe', logo: 'https://cdn.worldvectorlogo.com/logos/adobe-2.svg' },
-  { name: 'Edera', logo: 'https://cdn.prod.website-files.com/6650e4fc72bc521db9b194c4/666704f17d1ff15728685ac2_mascot.svg' }
+  { name: 'GitHub', logo: githubLogo },
+  { name: 'Google', logo: googleLogo },
+  { name: 'Microsoft', logo: microsoftLogo },
+  { name: 'Uber', logo: uberLogo },
+  { name: 'Amazon', logo: amazonLogo },
+  { name: 'Meta', logo: metaLogo },
+  { name: 'Apple', logo: appleLogo },
+  { name: 'Netflix', logo: netflixLogo },
+  { name: 'Tesla', logo: teslaLogo },
+  { name: 'NVIDIA', logo: nvidiaLogo },
+  { name: 'Adobe', logo: adobeLogo },
+  { name: 'Edera', logo: ederaLogo },
+  { name: 'Replit', logo: replitLogo },
+  { name: 'OpenAI', logo: openAiLogo },
+  { name: 'Anthropic', logo: anthropicLogo },
 ]
+
+function LogoGroup({ decorative = false }: { decorative?: boolean }) {
+  return (
+    <ul className={styles.logoGroup} aria-hidden={decorative || undefined}>
+      {companies.map((company) => (
+        <li key={company.name} className={styles.logoCell}>
+          <Image
+            src={company.logo}
+            alt={decorative ? '' : company.name}
+            width={150}
+            height={72}
+            className={styles.companyLogo}
+            loading="eager"
+          />
+        </li>
+      ))}
+    </ul>
+  )
+}
 
 export function TrustedBy() {
   return (
-    <section id="trusted-by">
-      <h2>Loved and trusted by people at</h2>
-      <div className="logo-carousel">
-        <div className="logo-slide">
-          {companies.concat(companies).map((company, index) => (
-            <Image
-              key={index}
-              src={company.logo}
-              alt={company.name}
-              width={120}
-              height={60}
-              style={{ objectFit: 'contain' }}
-            />
-          ))}
+    <section className={styles.lovedBy} aria-labelledby="loved-by-title">
+      <div className={styles.lovedByHeader}>
+        <h2 id="loved-by-title">Loved and trusted by people at</h2>
+        <p>
+          The legally safe version: excellent humans from these places have crossed
+          paths with Matteo. Corporate endorsement sold separately.
+        </p>
+      </div>
+      <div className={styles.logoRunway}>
+        <div className={styles.logoTrack}>
+          <LogoGroup />
+          <LogoGroup decorative />
         </div>
       </div>
     </section>

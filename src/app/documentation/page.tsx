@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import { WorkInProgress } from '@/components/WorkInProgress'
 
 export const metadata: Metadata = {
-  title: 'Documentation - Matteo Platform',
-  description: 'Guides, tutorials, and API references.'
+  title: 'Documentation — Matteo',
+  description: 'Guides, source, field notes, and the distributed Matteo documentation system.'
 }
 
 export default function DocumentationPage() {

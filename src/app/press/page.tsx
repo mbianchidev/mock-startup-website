@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import { WorkInProgress } from '@/components/WorkInProgress'
 
 export const metadata: Metadata = {
-  title: 'Press - Matteo Platform',
-  description: 'Media resources, press kit, and coverage.'
+  title: 'Press — Matteo',
+  description: 'Speaker material, public sessions, media contact, and presentation resources.'
 }
 
 export default function PressPage() {

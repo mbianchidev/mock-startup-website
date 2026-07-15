@@ -1,154 +1,162 @@
-export const metadata = {
-  title: 'Roadmap - Matteo Platform',
-  description: 'From vision to reality — discover the milestones that shaped Matteo into the platform (engineer) it is today.'
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { PageHero } from '@/components/PageHero'
+import styles from '@/app/inner.module.css'
+
+export const metadata: Metadata = {
+  title: 'Changelog — Matteo',
+  description: 'A release history of platform work, open source, products, speaking, and community impact.',
 }
+
+const releases = [
+  {
+    year: '2025',
+    title: 'Release leadership and bigger stages',
+    summary:
+      'Served in Kubernetes release communications leadership and delivered three sessions at KubeCon EU London, including the first keynote-sized milestone at KCD Denmark.',
+    signal: 'Release work · public speaking',
+    links: [],
+  },
+  {
+    year: '2024–2025',
+    title: 'Cloud-native recognition',
+    summary:
+      'Recognised as a CNCF Ambassador and led communications work for the Kubernetes v1.32 release while serving conference programmes across regions.',
+    signal: 'Verifiable ecosystem work',
+    links: [
+      {
+        label: 'CNCF Ambassador badge',
+        href: 'https://www.credly.com/badges/bc458baf-3bd8-4c38-a73e-21c68b259798/public_url',
+      },
+      {
+        label: 'Kubernetes v1.32 communications',
+        href: 'https://github.com/kubernetes/sig-release/issues/2586#issuecomment-2290160721',
+      },
+    ],
+  },
+  {
+    year: '2024',
+    title: 'Deeper into open source',
+    summary:
+      'Contributed as a Kubernetes v1.31 communications shadow and taught Cloud Native Technologies 101 at the University of Turin.',
+    signal: 'Open source · education',
+    links: [
+      {
+        label: 'Kubernetes organisation record',
+        href: 'https://github.com/kubernetes/org/issues/4975',
+      },
+    ],
+  },
+  {
+    year: '2023–2024',
+    title: 'Built the startup version for real',
+    summary:
+      'Co-founded KubeLab, led the technical direction, built the first platform-engineering MVP, and managed a distributed engineering team.',
+    signal: 'Founder mode · product delivery',
+    links: [
+      {
+        label: 'KubeLab company history',
+        href: 'https://www.linkedin.com/company/kubelab/',
+      },
+    ],
+  },
+  {
+    year: '2021–2023',
+    title: 'Infrastructure with human consequences',
+    summary:
+      'Built Azure infrastructure for computational pathology and machine-learning workflows supporting breast-cancer diagnosis research.',
+    signal: 'Healthcare · cloud · machine learning',
+    links: [
+      {
+        label: 'Project background',
+        href: 'https://www.linkedin.com/pulse/kubelab-netherlands-cancer-institute-partner-around-ai-peter-comstock/?utm_source=rss&utm_campaign=articles_sitemaps&utm_medium=google_news',
+      },
+    ],
+  },
+  {
+    year: '2019–now',
+    title: 'Started writing the field manual in public',
+    summary:
+      'Turned production lessons into technical writing, talks, workshops, mentoring, and community material that other engineers could reuse.',
+    signal: 'Writing · teaching · community',
+    links: [
+      {
+        label: 'Current field notes',
+        href: '/blog',
+      },
+    ],
+  },
+]
 
 export default function RoadmapPage() {
   return (
-    <>
-      <section id="roadmap-hero">
-        <div className="container">
-          <h2>Our Journey</h2>
-          <p className="section-description">
-            From vision to reality - discover the milestones that shaped Matteo into the platform (engineer) it is today
-          </p>
-        </div>
-      </section>
-
-      <section id="roadmap">
-        <div className="container">
-          <div className="timeline">
-            {/* 2025 */}
-            <div className="timeline-item">
-              <div className="timeline-marker">
-                <i className="fas fa-rocket" aria-hidden="true" />
-              </div>
-              <div className="timeline-content">
-                <div className="timeline-date">2025</div>
-                <h3>Platform Evolution</h3>
-                <p>
-                  Released Kubernetes v1.33 as branch manager, expanding our enterprise capabilities. Spoke at KubeCon EU London 2025 with 3 different sessions, sharing our vision for the future of cloud-native platforms.
-                </p>
-                <div className="achievement-badge">
-                  <i className="fas fa-crown" aria-hidden="true" />
-                  <span>Delivered first Keynote at KCD Denmark</span>
-                </div>
-              </div>
+    <div className={styles.page}>
+      <PageHero
+        path="/roadmap"
+        title="Changelog, not a vision board."
+        description="A release history of shipped systems, public work, and career pivots. Receipts are linked; the jokes remain unsupported by design."
+        tone="cyan"
+        actions={
+          <Link href="/portfolio" className={styles.darkButton}>
+            Inspect the source
+            <span aria-hidden="true">↗</span>
+          </Link>
+        }
+        aside={
+          <dl className={styles.heroSpecs}>
+            <div>
+              <dt>First release</dt>
+              <dd>2015</dd>
             </div>
-
-            {/* 2024-2025 */}
-            <div className="timeline-item">
-              <div className="timeline-marker">
-                <i className="fas fa-award" aria-hidden="true" />
-              </div>
-              <div className="timeline-content">
-                <div className="timeline-date">2024-2025</div>
-                <h3>Industry Recognition</h3>
-                <p>
-                  Nominated as{' '}
-                  <a href="https://www.credly.com/badges/bc458baf-3bd8-4c38-a73e-21c68b259798/public_url" target="_blank" rel="noopener noreferrer">
-                    CNCF Ambassador
-                  </a>
-                  , recognizing our contributions to the cloud-native ecosystem. Led communications for{' '}
-                  <a href="https://github.com/kubernetes/sig-release/issues/2586#issuecomment-2290160721" target="_blank" rel="noopener noreferrer">
-                    Kubernetes v1.32
-                  </a>{' '}
-                  release.
-                </p>
-                <div className="achievement-list">
-                  <div className="achievement-item">
-                    <i className="fas fa-microphone" aria-hidden="true" />
-                    <span>Global conference speaker at Cloud Native Rejekts, DevOpsDays</span>
-                  </div>
-                  <div className="achievement-item">
-                    <i className="fas fa-users" aria-hidden="true" />
-                    <span>Program Committee Member for KubeCon NA, EU, Japan, Hong Kong</span>
-                  </div>
-                </div>
-              </div>
+            <div>
+              <dt>Current channel</dt>
+              <dd>Stable, still shipping</dd>
             </div>
-
-            {/* Open Source Contributions */}
-            <div className="timeline-item">
-              <div className="timeline-marker">
-                <i className="fab fa-github" aria-hidden="true" />
-              </div>
-              <div className="timeline-content">
-                <div className="timeline-date">2024</div>
-                <h3>Open Source Impact</h3>
-                <p>
-                  Contributed as{' '}
-                  <a href="https://github.com/kubernetes/org/issues/4975" target="_blank" rel="noopener noreferrer">
-                    Kubernetes v1.31 Comms Shadow
-                  </a>
-                  .
-                </p>
-                <div className="achievement-item">
-                  <i className="fas fa-graduation-cap" aria-hidden="true" />
-                  <span>Guest Lecturer at University of Turin - Cloud Native Technologies 101</span>
-                </div>
-              </div>
+            <div>
+              <dt>Breaking changes</dt>
+              <dd>Usually intentional</dd>
             </div>
+          </dl>
+        }
+      />
 
-            {/* Startup Foundation */}
-            <div className="timeline-item">
-              <div className="timeline-marker">
-                <i className="fas fa-building" aria-hidden="true" />
-              </div>
-              <div className="timeline-content">
-                <div className="timeline-date">2023-2024</div>
-                <h3>Startup Launch</h3>
-                <p>
-                  <a href="https://www.linkedin.com/company/kubelab/" target="_blank" rel="noopener noreferrer">Founded KubeLab</a> - Building a Platform Engineering tool to streamline multi-cloud Kubernetes management. Successfully raised 200k in pre-seed funding to accelerate development.
-                </p>
-                <div className="achievement-badge startup">
-                  <i className="fas fa-chart-line" aria-hidden="true" />
-                  <span>€200k Pre-seed Funding Secured</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Social Impact */}
-            <div className="timeline-item">
-              <div className="timeline-marker">
-                <i className="fas fa-heart" aria-hidden="true" />
-              </div>
-              <div className="timeline-content">
-                <div className="timeline-date">2021-2022</div>
-                <h3>Social Impact</h3>
-                <p>
-                  <a href="https://www.linkedin.com/pulse/kubelab-netherlands-cancer-institute-partner-around-ai-peter-comstock/?utm_source=rss&utm_campaign=articles_sitemaps&utm_medium=google_news" target="_blank" rel="noopener noreferrer">
-                    Helped a cancer research center save more lives
-                  </a>{' '}
-                  through Machine Learning on Azure Cloud infrastructure, connected to a mobile gaming app - a true game changer!
-                </p>
-              </div>
-            </div>
-
-            {/* Content Creation */}
-            <div className="timeline-item">
-              <div className="timeline-marker">
-                <i className="fas fa-edit" aria-hidden="true" />
-              </div>
-              <div className="timeline-content">
-                <div className="timeline-date">2019</div>
-                <h3>Knowledge Sharing</h3>
-                <p>
-                  Built{' '}
-                  <a href="https://mb-consulting.dev/blog" target="_blank" rel="noopener noreferrer">
-                    industry-leading tech blog
-                  </a>{' '}
-                  reaching 50k+ monthly views with 1400+ subscribers. Sharing insights, tutorials, and thought leadership in cloud native technologies.
-                </p>
-                <div className="achievement-badge content">
-                  <i className="fas fa-chart-bar" aria-hidden="true" />
-                  <span>50k+ Monthly Blog Readers</span>
-                </div>
-              </div>
-            </div>
+      <section className={styles.sectionDark} aria-labelledby="release-history">
+        <div className={styles.sectionInner}>
+          <div className={styles.sectionIntro}>
+            <h2 id="release-history">Release history.</h2>
+            <p>Chronological, because this one actually is a sequence.</p>
           </div>
+          <ol className={styles.releaseList}>
+            {releases.map((release) => (
+              <li key={`${release.year}-${release.title}`} className={styles.release}>
+                <div className={styles.releaseYear}>{release.year}</div>
+                <div className={styles.releaseBody}>
+                  <p>{release.signal}</p>
+                  <h3>{release.title}</h3>
+                  <p>{release.summary}</p>
+                  {release.links.length > 0 && (
+                    <div className={styles.releaseLinks}>
+                      {release.links.map((link) =>
+                        link.href.startsWith('http') ? (
+                          <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer">
+                            {link.label}
+                            <span aria-hidden="true">↗</span>
+                          </a>
+                        ) : (
+                          <Link key={link.label} href={link.href}>
+                            {link.label}
+                            <span aria-hidden="true">↗</span>
+                          </Link>
+                        )
+                      )}
+                    </div>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
-    </>
+    </div>
   )
 }

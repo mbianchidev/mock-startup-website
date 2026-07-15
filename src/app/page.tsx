@@ -1,27 +1,24 @@
+import { Benchmarks } from '@/components/Benchmarks'
+import { Capabilities } from '@/components/Capabilities'
+import { CompatibilityLab } from '@/components/CompatibilityLab'
 import { Hero } from '@/components/Hero'
-import { Features } from '@/components/Features'
-import { UseCases } from '@/components/UseCases'
+import { KnownIssues } from '@/components/KnownIssues'
+import { ProofLedger } from '@/components/ProofLedger'
+import { Toolchain } from '@/components/Toolchain'
 import { TrustedBy } from '@/components/TrustedBy'
-import { Integrations } from '@/components/Integrations'
-import { AIIntegrations } from '@/components/AIIntegrations'
-import { CloudCarousel } from '@/components/CloudCarousel'
-import { KubernetesDistros } from '@/components/KubernetesDistros'
-import { Stats } from '@/components/Stats'
-import { Testimonials } from '@/components/Testimonials'
+import styles from './home.module.css'
 
 export default function Home() {
   return (
-    <>
+    <div className={styles.home}>
       <Hero />
-      <Features />
-      <UseCases />
+      <Capabilities />
       <TrustedBy />
-      <Integrations />
-      <AIIntegrations />
-      <CloudCarousel />
-      <KubernetesDistros />
-      <Stats />
-      <Testimonials />
-    </>
+      <CompatibilityLab />
+      <ProofLedger />
+      <Toolchain />
+      <Benchmarks />
+      <KnownIssues />
+    </div>
   )
 }
