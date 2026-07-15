@@ -48,6 +48,10 @@ This project was created to:
 
 `package.json` overrides Next.js's pinned PostCSS version with patched PostCSS 8.5.19. Keep the override until the selected Next.js line depends on PostCSS 8.5.10 or newer.
 
+`next.config.js` contains only options supported by static export. Short links
+that ship with the site use explicit `/redirect/*` pages rather than unsupported
+Next.js `redirects()` configuration.
+
 ## 🚦 Getting Started
 
 ### Prerequisites
@@ -66,6 +70,10 @@ This project was created to:
    ```bash
    npm install
    ```
+
+   Reviewed native install scripts are pinned by exact package version in
+   `package.json`. If one of those dependencies changes, npm will require a new
+   explicit review instead of silently running the new script.
 
 3. Run the development server
    ```bash
@@ -144,7 +152,7 @@ src/
 
 ## 🔧 Available Scripts
 
-- `npm run dev` - Start development server
+- `npm run dev` - Clear stale `.next` artifacts and start the development server
 - `npm run build` - Build for production
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
