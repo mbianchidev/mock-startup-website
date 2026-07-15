@@ -12,8 +12,10 @@ This project is a satirical product launch for Matteo Bianchi: a personal portfo
 - An asymmetric capability manifest instead of a resume timeline
 - An interactive hiring compatibility lab with accessible default content
 - The original `main` branch “loved by” logo set plus GitHub, Replit, OpenAI, and Anthropic, upgraded into an accessible animated runway
+- Homepage runway logos are bundled locally and loaded eagerly so marquee motion never reveals unloaded placeholders
 - An open-source proof ledger sourced from `src/data/projects.json`
 - A complete route system for field notes, changelog, portfolio, deployment history, pricing, legal, and support pages
+- Locally bundled organisation logos with resilient initials fallbacks throughout the Customers deployment history
 - Verifiable contribution, speaking, and project benchmarks
 - Satirical release notes and direct hiring calls to action
 

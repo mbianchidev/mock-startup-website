@@ -1147,8 +1147,8 @@
 
 .historyRecord {
     display: grid;
-    grid-template-columns: minmax(130px, 0.3fr) minmax(0, 1.7fr);
-    gap: clamp(30px, 7vw, 100px);
+    grid-template-columns: minmax(130px, 0.3fr) 82px minmax(0, 1.7fr);
+    gap: clamp(24px, 5vw, 72px);
     padding: 42px 0;
     border-bottom: 1px solid var(--border-color);
 }
@@ -1163,6 +1163,47 @@
 
 .historyBody {
     max-width: 880px;
+}
+
+.historyLogo {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 82px;
+    height: 82px;
+    overflow: hidden;
+    color: var(--bg-primary);
+    background: linear-gradient(
+        135deg,
+        var(--text-primary) 0 50%,
+        var(--bg-elevated) 50% 100%
+    );
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    letter-spacing: -0.03em;
+}
+
+.historyLogo span {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    font-size: 0.88rem;
+}
+
+.historyLogo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 14px;
+    object-fit: contain;
+    background: transparent;
+    filter: drop-shadow(0 1px 1px color-mix(in srgb, var(--bg-primary) 35%, transparent));
 }
 
 .historyHeader {
@@ -1820,10 +1861,33 @@
 
     .manifestoRow,
     .roleRow,
-    .principleList > div,
-    .historyRecord {
+    .principleList > div {
         grid-template-columns: 1fr;
         gap: 16px;
+    }
+
+    .historyRecord {
+        grid-template-columns: 64px minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    .historyYear {
+        grid-column: 1 / -1;
+    }
+
+    .historyLogo {
+        grid-column: 1;
+        width: 64px;
+        height: 64px;
+        border-radius: 12px;
+    }
+
+    .historyLogo img {
+        padding: 10px;
+    }
+
+    .historyBody {
+        grid-column: 2;
     }
 
     .departmentGrid {

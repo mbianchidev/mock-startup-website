@@ -47,7 +47,11 @@ test.describe('Static route experience', () => {
     await expect(lovedBy).toBeVisible();
 
     for (const company of ['GitHub', 'Google', 'Microsoft', 'Uber', 'Amazon', 'Meta', 'Apple', 'Netflix', 'Tesla', 'NVIDIA', 'Adobe', 'Edera', 'Replit', 'OpenAI', 'Anthropic']) {
-      await expect(lovedBy.getByRole('img', { name: company })).toHaveCount(1);
+      const logo = lovedBy.getByRole('img', { name: company });
+      await expect(logo).toHaveCount(1);
+      await expect
+        .poll(() => logo.evaluate((image: HTMLImageElement) => image.naturalWidth))
+        .toBeGreaterThan(0);
     }
   });
 
@@ -231,10 +235,21 @@ test.describe('Static route experience', () => {
     await page.locator('html[data-hydrated="true"]').waitFor();
 
     const historyEntries = page.locator('main section ol > li');
+    const historyLogos = page.locator('[data-customer-logo]');
+    const historyImages = historyLogos.locator('img');
     await expect(historyEntries).toHaveCount(7);
+    await expect(historyLogos).toHaveCount(7);
+    await expect(historyImages).toHaveCount(7);
 
     await page.getByRole('button', { name: 'Load 7 more deployment history entries' }).click();
     await expect(historyEntries).toHaveCount(14);
+    await expect(historyLogos).toHaveCount(14);
+    await expect(historyImages).toHaveCount(12);
+
+    const loadedWidths = await historyImages.evaluateAll((images) =>
+      images.map((image) => (image as HTMLImageElement).naturalWidth)
+    );
+    expect(loadedWidths.every((width) => width > 0)).toBe(true);
   });
 
   test('renders the branded not-found route', async ({ page }) => {

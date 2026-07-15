@@ -1,6 +1,8 @@
 'use client'
 
+import Image from 'next/image'
 import { useState } from 'react'
+import { customerLogos } from '@/data/customerLogos'
 import type { Company } from '@/types'
 import styles from '@/app/inner.module.css'
 
@@ -9,6 +11,17 @@ interface CustomersTimelineProps {
 }
 
 const PAGE_SIZE = 7
+
+function getInitials(companyName: string) {
+  return companyName
+    .replace(/\([^)]*\)/g, '')
+    .split(/[\s-]+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((word) => word[0])
+    .join('')
+    .toUpperCase()
+}
 
 export function CustomersTimeline({ companies }: CustomersTimelineProps) {
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
@@ -20,10 +33,27 @@ export function CustomersTimeline({ companies }: CustomersTimelineProps) {
       <ol className={styles.historyList}>
         {visibleCompanies.map((company) => {
           const achievements = company.achievements.flatMap((achievement) => achievement.items)
+          const logo = customerLogos[company.code]
 
           return (
             <li key={company.code} className={styles.historyRecord}>
               <div className={styles.historyYear}>{company.year}</div>
+              <div
+                className={styles.historyLogo}
+                data-customer-logo={company.code}
+                aria-hidden="true"
+              >
+                <span>{getInitials(company.companyName)}</span>
+                {logo && (
+                  <Image
+                    src={logo}
+                    alt=""
+                    width={72}
+                    height={72}
+                    loading="eager"
+                  />
+                )}
+              </div>
               <article className={styles.historyBody}>
                 <div className={styles.historyHeader}>
                   <div>

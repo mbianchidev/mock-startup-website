@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-13T19:30:29.564Z",
+  "generatedAt": "2026-07-15T04:02:36.184Z",
   "title": "Design System: Matteo",
   "extensions": {
     "colorMeta": {
@@ -205,7 +205,7 @@
       "kind": "custom",
       "description": "A full-width evidence row for posts, releases, contributions, roles, or deployment history.",
       "html": "<article class=\"ds-route-record\"><time>2025</time><div><small>RELEASE WORK</small><h3>Release leadership and bigger stages</h3><p>Evidence and context live in one readable row.</p></div><a href=\"#\">RECEIPT ↗</a></article>",
-      "css": ".ds-route-record { display: grid; grid-template-columns: minmax(130px,0.3fr) minmax(0,1.4fr) minmax(120px,0.3fr); gap: 48px; padding: 36px 0; color: var(--text-primary, #FFFFFF); background: var(--bg-secondary, #111113); border-top: 1px solid var(--border-color, rgba(255,255,255,0.1)); font-family: 'Public Sans', sans-serif; } .ds-route-record time { color: var(--primary-color, #00D9FF); font: 400 2.5rem/1 'Archivo Black', sans-serif; } .ds-route-record small { color: var(--accent-color, #00FF94); font-weight: 800; } .ds-route-record h3 { margin: 10px 0 14px; font-size: 1.9rem; line-height: 1.1; } .ds-route-record p { color: var(--text-secondary, #B4B4B8); line-height: 1.65; } .ds-route-record a { color: var(--primary-color, #00D9FF); font-weight: 800; text-decoration: none; }"
+      "css": ".ds-route-record { display: grid; grid-template-columns: minmax(130px,0.3fr) 82px minmax(0,1.4fr); gap: 48px; padding: 36px 0; color: var(--text-primary, #FFFFFF); background: var(--bg-secondary, #111113); border-top: 1px solid var(--border-color, rgba(255,255,255,0.1)); font-family: 'Public Sans', sans-serif; } .ds-route-record time { color: var(--primary-color, #00D9FF); font: 400 2.5rem/1 'Archivo Black', sans-serif; } .ds-route-record .ds-logo { display: grid; place-items: center; width: 82px; height: 82px; background: linear-gradient(135deg,#FFFFFF 0 50%,#252528 50%); border-radius: 16px; } .ds-route-record small { color: var(--accent-color, #00FF94); font-weight: 800; } .ds-route-record h3 { margin: 10px 0 14px; font-size: 1.9rem; line-height: 1.1; } .ds-route-record p { color: var(--text-secondary, #B4B4B8); line-height: 1.65; } .ds-route-record a { color: var(--primary-color, #00D9FF); font-weight: 800; text-decoration: none; }"
     },
     {
       "name": "Readable Document",
@@ -217,7 +217,7 @@
     {
       "name": "Loved-by Logo Runway",
       "kind": "custom",
-      "description": "The main-branch company logo set plus GitHub, Replit, OpenAI, and Anthropic in an accessible, reduced-motion-safe marquee.",
+      "description": "The main-branch company logo set plus GitHub, Replit, OpenAI, and Anthropic, bundled locally and eager-loaded in an accessible reduced-motion-safe marquee.",
       "html": "<section class=\"ds-logo-runway\"><h2>Loved and trusted by people at</h2><div><span>GitHub</span><span>Google</span><span>Microsoft</span><span>OpenAI</span><span>Anthropic</span></div></section>",
       "css": ".ds-logo-runway { padding: 96px 0; color: var(--bg-primary, #0A0A0B); background: var(--text-primary, #FFFFFF); overflow: hidden; font-family: 'Public Sans', sans-serif; } .ds-logo-runway h2 { max-width: 12ch; margin: 0 auto 48px; padding: 0 24px; font: 400 clamp(3rem,6vw,5.6rem)/0.95 'Archivo Black', sans-serif; letter-spacing: -0.035em; } .ds-logo-runway > div { display: flex; border-top: 1px solid color-mix(in srgb, var(--bg-primary, #0A0A0B) 18%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--bg-primary, #0A0A0B) 18%, transparent); } .ds-logo-runway span { display: grid; place-items: center; min-width: 220px; min-height: 120px; border-right: 1px solid color-mix(in srgb, var(--bg-primary, #0A0A0B) 18%, transparent); font-weight: 900; }"
     },
@@ -238,6 +238,7 @@
       "Asymmetric manifests and ledgers instead of identical icon-card grids.",
       "Route-specific body structures held together by one tonal hero system.",
       "Long-form and legal pages use high-contrast white reading surfaces.",
+      "Customer history records use locally bundled logo tiles with monogram fallbacks.",
       "Real default content before hydration; interaction enriches rather than unlocks evidence.",
       "Short, purposeful motion: scan pass, status pulse, state shift, and tactile controls."
     ],

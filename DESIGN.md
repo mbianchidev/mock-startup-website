@@ -213,7 +213,7 @@ The featured creator-owned project receives the Proof Green surface. Supporting 
 
 ### Loved-by Runway
 
-The homepage restores the exact company marks from `main`, then extends the runway with GitHub, Replit, OpenAI, and Anthropic. Marks are grayscale at rest, reveal their brand color on hover, pause as a group on pointer inspection, and become a manually scrollable single set under reduced motion. The visible copy explicitly avoids implying corporate endorsement.
+The homepage restores the exact company marks from `main`, then extends the runway with GitHub, Replit, OpenAI, and Anthropic. Every mark is bundled locally and eagerly loaded so marquee motion never outruns image loading. Marks are grayscale at rest, reveal their brand color on hover, pause as a group on pointer inspection, and become a manually scrollable single set under reduced motion. The visible copy explicitly avoids implying corporate endorsement.
 
 ### Page Heroes
 
@@ -222,6 +222,8 @@ Inner routes use one shared two-column shell with four tonal variants: Launch Bl
 ### Route Records
 
 Blog posts, release history, upstream contributions, roles, and deployment history use full-width bordered rows rather than equal cards. Chronological pages may use years because order carries real information; non-sequential pages never borrow the numbered-timeline treatment.
+
+Customer deployment records add a compact split-tone logo tile between year and narrative. Organisation marks are bundled locally; initials remain underneath as a resilient fallback for the two brands without recoverable artwork.
 
 ### Long-form and Legal Documents
 

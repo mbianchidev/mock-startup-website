@@ -4,9 +4,6 @@ export interface Company {
   countryFlag: string;
   companyType: string;
   companySector: string;
-  companyLogo: string;
-  companyLogoX: number;
-  companyLogoY: number;
   companyUrl: string;
   role: string;
   story: string;
