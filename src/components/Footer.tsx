@@ -12,8 +12,8 @@ export function Footer() {
             Matteo
           </Link>
           <p>
-            Human infrastructure for teams that want the systems and the story
-            to be equally good.
+            Human infrastructure for teams that want the (agenic or not) systems
+            and the story to be equally good.
           </p>
         </div>
         <div className={styles.footerLinks}>

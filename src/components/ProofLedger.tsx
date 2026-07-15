@@ -50,7 +50,11 @@ export function ProofLedger() {
           </article>
         )}
 
-        <div className={styles.proofRail}>
+        <div
+          className={`${styles.proofRail} ${
+            supportingProjects.length === 1 ? styles.proofRailSingle : ''
+          }`}
+        >
           {supportingProjects.map((project) => (
             <article key={project.name} className={styles.proofItem}>
               <div>

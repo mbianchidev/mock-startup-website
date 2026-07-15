@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styles from '@/app/home.module.css'
 
 const issues = [
@@ -14,7 +15,7 @@ const issues = [
   {
     title: 'Excessive legibility',
     description:
-      'Will explain the architecture, the trade-off, and why the team should care. Slides may become unexpectedly useful.'
+      'Will explain architecture, trade-offs, and why the team should care. Will also get the work done. People might get upset for this amount of proactivity.'
   }
 ]
 
@@ -40,17 +41,12 @@ export function KnownIssues() {
           rel="noopener noreferrer"
           className={styles.darkAction}
         >
-          Open a hiring ticket
+          buy Matteo
           <span aria-hidden="true">↗</span>
         </a>
-        <a
-          href="https://www.linkedin.com/in/mbianchidev"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.inkAction}
-        >
-          Inspect human changelog
-        </a>
+        <Link href="/roadmap" className={styles.inkAction}>
+          See changelog
+        </Link>
       </div>
       <p className={styles.responseSla}>Response SLA: usually faster than procurement.</p>
     </section>

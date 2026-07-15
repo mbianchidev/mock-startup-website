@@ -111,6 +111,57 @@ test.describe('Static route experience', () => {
     await expect(page.getByText('K-Lab CLI', { exact: true })).toHaveCount(0);
   });
 
+  test('uses the requested homepage copy and balanced proof layout', async ({ page }) => {
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+
+    await expect(page.getByRole('link', { name: 'buy Matteo' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'See changelog' })).toHaveAttribute(
+      'href',
+      '/roadmap/'
+    );
+    await expect(
+      page.getByText(
+        'Human infrastructure for teams that want the (agenic or not) systems and the story to be equally good.'
+      )
+    ).toBeVisible();
+    await expect(
+      page.getByText(
+        'Will explain architecture, trade-offs, and why the team should care. Will also get the work done. People might get upset for this amount of proactivity.'
+      )
+    ).toBeVisible();
+
+    const featured = page
+      .getByRole('heading', { name: 'Platform Engineering Roadmap' })
+      .locator('xpath=ancestor::article');
+    const engineeringInterviews = page
+      .getByRole('heading', { name: 'Engineering Interviews' })
+      .locator('xpath=ancestor::article');
+    const [featuredBox, interviewsBox] = await Promise.all([
+      featured.boundingBox(),
+      engineeringInterviews.boundingBox(),
+    ]);
+
+    expect(featuredBox).not.toBeNull();
+    expect(interviewsBox).not.toBeNull();
+    expect(Math.abs(featuredBox!.height - interviewsBox!.height)).toBeLessThan(2);
+
+    const integrations = page
+      .getByRole('heading', { name: 'Native integrations. Emotionally stable dependencies.' })
+      .locator('xpath=ancestor::section');
+    const integrationsColors = await integrations.evaluate((section) => {
+      const computed = getComputedStyle(section);
+      return {
+        background: computed.backgroundColor,
+        color: computed.color,
+      };
+    });
+
+    expect(integrationsColors).toEqual({
+      background: 'rgb(0, 217, 255)',
+      color: 'rgb(10, 10, 11)',
+    });
+  });
+
   test('navigates to Privacy and Terms from the footer', async ({ page }) => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
 

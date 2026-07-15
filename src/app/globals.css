@@ -563,12 +563,6 @@ nav {
     }
 }
 
-/* Integrations Section */
-#integrations {
-    background-color: var(--bg-primary);
-    padding: var(--section-padding);
-}
-
 .icon-cloud {
     display: flex;
     flex-wrap: wrap;

@@ -778,6 +778,14 @@
     gap: 24px;
 }
 
+.proofRailSingle {
+    grid-template-rows: 1fr;
+}
+
+.proofRailSingle .proofItem {
+    min-height: 0;
+}
+
 .proofItem {
     display: flex;
     flex-direction: column;
