@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="280"
+  viewBox="0 0 340 280" role="img" aria-labelledby="title">
+  <title id="title">Matteo rubber duck mark</title>
+  
+    <path d="M73 153L30 119l13 66c-6 51 31 78 82 78h104c50 0 89-24 89-63 0-29-23-49-60-52-23-2-41-10-58-25-21-19-46-29-78-29 -23 0-43 5-59 16 3 13 6 27 10 43z" fill="#FFFFFF"/>
+    <circle cx="241" cy="85" r="62" fill="#FFFFFF"/>
+    <path d="M291 70l49 25-49 27z" fill="#00D9FF"/>
+    <circle cx="254" cy="69" r="9" fill="#00FF94"/>
+    <path d="M91 165c19-27 62-33 95-12 27 17 29 43 8 60-28 23-86 18-112-12-10-12-7-25 9-36z" fill="#0A0A0B"/>
+    <path d="M104 187h24l10-19 16 39 17-31 12 11h18" fill="none" stroke="#00D9FF" stroke-width="7"
+      stroke-linecap="square" stroke-linejoin="miter"/>
+    
+</svg>

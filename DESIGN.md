@@ -44,6 +44,29 @@ typography:
     fontSize: "0.9rem"
     fontWeight: 800
     lineHeight: 1.2
+  brand-nav:
+    fontFamily: "Archivo Black, Arial Black, sans-serif"
+    fontSize: "1.25rem"
+    fontWeight: 400
+    lineHeight: 1
+    letterSpacing: "-0.03em"
+  brand-footer:
+    fontFamily: "Archivo Black, Arial Black, sans-serif"
+    fontSize: "clamp(2rem, 4vw, 3.25rem)"
+    fontWeight: 400
+    lineHeight: 1
+    letterSpacing: "-0.035em"
+  brand-tag:
+    fontFamily: "Public Sans, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontSize: "clamp(0.68rem, 1.2vw, 0.82rem)"
+    fontWeight: 700
+    lineHeight: 1
+    letterSpacing: "0.11em"
+  metadata:
+    fontFamily: "Public Sans, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontSize: "0.8rem"
+    fontWeight: 400
+    lineHeight: 1.2
 rounded:
   sm: "8px"
   md: "10px"
@@ -198,8 +221,21 @@ Depth is structural, not decorative. The product chassis and diagnostic console 
 
 ### Navigation
 
-- **Style:** Sticky Launch Black header, two-line product mark, muted links, solid cyan booking CTA.
+- **Style:** Sticky Launch Black header, Duck Runtime mark and wordmark, muted links, solid cyan booking CTA.
 - **Mobile:** The toggle and CTA render in static HTML. The menu uses `aria-expanded`, `aria-controls`, Escape dismissal, and a full-width stacked surface.
+
+### Brand Identity: Duck Runtime
+
+The identity uses an unmistakable rubber-duck silhouette as the primary personal signal. The green eye represents the human node, the cyan beak reads as a terminal prompt and forward motion, and the detailed mark carries a restrained telemetry/metal-breakdown waveform in the wing.
+
+- **Primary lockup:** Full-color duck mark with the `MATTEO` wordmark and `HUMAN PLATFORM` descriptor on Launch Black or another dark surface.
+- **Compact mark:** Icon-only duck. Use the simplified version without the wing waveform at sizes below `32px`.
+- **Monochrome:** Use the solid black variant on light surfaces and the solid white variant on dark surfaces. Do not recolor individual parts.
+- **Clear space:** Keep empty space around the mark equal to at least the eye diameter. No border, text, or other symbol may enter this area.
+- **Minimum size:** Keep the full lockup at least `132px` wide and the compact mark at least `24px` wide. Use the dedicated favicon artwork at browser-tab sizes.
+- **Colors:** Launch Black `#0A0A0B`, Electric Cyan `#00D9FF`, Proof Green `#00FF94`, and Signal White `#FFFFFF`. These values are embedded directly in exported SVGs so external images render consistently.
+- **Approved assets:** Editable SVG sources live in `src/assets/brand/`; PNG exports live in `public/brand/`; favicon, Apple touch icon, and PWA icons use the dedicated files in `src/app/` and `public/icons/`.
+- **Do not:** Outline the duck, introduce gradients, add a yellow “rubber duck” costume, rotate the mark, separate the eye from the head, or restore the wing waveform at favicon scale.
 
 ### Compatibility Lab
 
