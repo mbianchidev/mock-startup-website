@@ -100,7 +100,7 @@ test.describe('Static route experience', () => {
   });
 
   test('renders the Duck Runtime identity and app metadata', async ({ page }) => {
-    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page.goto('/', { waitUntil: 'load' });
 
     const headerLogo = page
       .getByRole('banner')
