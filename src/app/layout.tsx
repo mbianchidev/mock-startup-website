@@ -6,7 +6,7 @@ import { Footer } from '@/components/Footer'
 export const metadata: Metadata = {
   applicationName: 'Matteo',
   title: 'Matteo — The Human Platform',
-  description: 'A product-shaped portfolio for Matteo Bianchi: platform engineering, cloud-native systems, open source, and technical storytelling.',
+  description: 'Matteo Bianchi is a Senior Engineer across platforms, solutions, software, and AI, combining deep engineering with customer insight, open source, and technical communication.',
   appleWebApp: {
     capable: true,
     title: 'Matteo',

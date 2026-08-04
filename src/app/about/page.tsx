@@ -6,53 +6,53 @@ import styles from '@/app/inner.module.css'
 
 const mission = [
   {
-    title: 'Build work that matters',
-    description: 'Choose meaningful systems over decorative complexity and optimise for durable human outcomes.',
+    title: 'Start with real friction',
+    description: 'Understand the developer or customer workflow before choosing the platform, product surface, or automation.',
   },
   {
-    title: 'Make engineers stronger',
-    description: 'Share the knowledge, context, and tooling that helps other people ship with more confidence.',
+    title: 'Automate for leverage',
+    description: 'Use AI and software to remove repeated work while keeping judgment, ownership, and observability with people.',
   },
   {
-    title: 'Keep open source open',
-    description: 'Contribute upstream, teach in public, and return value to the communities that made the work possible.',
+    title: 'Engineer for adoption',
+    description: 'Treat interfaces, documentation, enablement, and feedback loops as part of the system—not post-launch chores.',
   },
   {
-    title: 'Remove avoidable friction',
-    description: 'Turn repetitive platform work into understandable products, paved roads, and useful automation.',
+    title: 'Compound in public',
+    description: 'Contribute upstream, teach what works, and turn hard-won lessons into reusable open-source and community value.',
   },
 ]
 
 const departments = [
   {
-    name: 'CEO mode',
-    role: 'Direction',
-    description: 'Finds the useful problem and keeps the ambition attached to reality.',
+    name: 'Platform mode',
+    role: 'Systems',
+    description: 'Builds cloud infrastructure, Kubernetes platforms, paved roads, and reliability into a usable developer product.',
   },
   {
-    name: 'CTO mode',
-    role: 'Architecture',
-    description: 'Connects product intent to systems, trade-offs, and technical execution.',
+    name: 'Solutions mode',
+    role: 'Customers',
+    description: 'Connects discovery, architecture, demos, delivery, and field feedback without losing technical credibility.',
   },
   {
-    name: 'Engineer mode',
+    name: 'AI mode',
+    role: 'Automation',
+    description: 'Turns repeated workflows into assistants, agents, and tools with measurable outcomes and human ownership.',
+  },
+  {
+    name: 'Software mode',
     role: 'Delivery',
-    description: 'Builds the thing, debugs the thing, and documents why the thing exists.',
+    description: 'Ships APIs, CLIs, services, and product interfaces across Go, Python, TypeScript, Rust, and React.',
   },
   {
-    name: 'DevRel mode',
-    role: 'Adoption',
-    description: 'Turns difficult technology into material people can understand and reuse.',
-  },
-  {
-    name: 'Advisor mode',
+    name: 'Open-source mode',
     role: 'Leverage',
-    description: 'Helps teams see the second-order consequences before they become incidents.',
+    description: 'Contributes upstream, maintains release infrastructure, and helps companies build credible open-source strategy.',
   },
   {
-    name: 'Community mode',
-    role: 'Multiplication',
-    description: 'Creates rooms, talks, and open work where other engineers can grow.',
+    name: 'Education mode',
+    role: 'Adoption',
+    description: 'Uses talks, workshops, mentorship, and documentation to make complex technology understandable and reusable.',
   },
 ]
 
@@ -79,13 +79,13 @@ export default function About() {
     <div className={styles.page}>
       <PageHero
         path="/about"
-        title="Product internals. One human, several subsystems."
-        description="The startup is fictional. The mission, operating principles, community work, and unreasonable number of hats are all real."
+        title="Product internals. Deep engineering with customer-facing interfaces."
+        description="The startup is fictional. The operating model is real: build the system, translate the need, automate repeated work, and make the knowledge travel."
         tone="dark"
         actions={
           <>
             <Link href="#mission" className={styles.primaryButton}>
-              Read the mission
+              Read the operating principles
               <span aria-hidden="true">↓</span>
             </Link>
             <Link href="#community" className={styles.secondaryButton}>
@@ -112,7 +112,7 @@ export default function About() {
         <div className={styles.sectionInner}>
           <div className={styles.sectionIntro}>
             <h2 id="mission-title">Mission parameters.</h2>
-            <p>What the product metaphor is trying to say when it stops being funny for a minute.</p>
+            <p>What the product metaphor means when it stops being funny for a minute.</p>
           </div>
           <div className={styles.manifesto}>
             {mission.map((item) => (
@@ -129,11 +129,11 @@ export default function About() {
         <div className={styles.sectionInner}>
           <p>Long-range operating intent</p>
           <h2 id="vision-title">
-            Make complex systems easier to build, easier to explain, and easier for other people to improve.
+            Build systems that solve the technical problem, earn adoption, and leave the team stronger.
           </h2>
           <p>
-            Open collaboration, trust, and creative engineering should compound. The goal is not to look innovative;
-            it is to help useful ideas travel farther.
+            The best work connects engineering depth, customer signal, automation, and communication.
+            The goal is not to look cross-functional; it is to make those capabilities compound.
           </p>
         </div>
       </section>
@@ -172,8 +172,8 @@ export default function About() {
       <section className={styles.sectionSoft} aria-labelledby="departments-title">
         <div className={styles.sectionInner}>
           <div className={styles.sectionIntro}>
-            <h2 id="departments-title">One human, six departments.</h2>
-            <p>The old page duplicated the portrait. This version duplicates the responsibilities instead.</p>
+            <h2 id="departments-title">One human, six operating modes.</h2>
+            <p>Different contexts, shared architecture, no interdepartmental ticket required.</p>
           </div>
           <div className={styles.departmentGrid}>
             {departments.map((department) => (

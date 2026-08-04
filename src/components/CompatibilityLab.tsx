@@ -7,63 +7,63 @@ import styles from '@/app/home.module.css'
 const scenarios = [
   {
     id: 'platform',
-    label: 'Platform chaos',
+    label: 'Platform adoption',
     signal: 'MATCH CONFIRMED / HIGH CONFIDENCE',
-    title: 'Compatible with teams that need a paved road, not another portal.',
+    title: 'Build a paved road developers trust enough to take.',
     summary:
-      'Matteo treats the platform as a product: clear users, opinionated defaults, useful feedback loops, and fewer tickets disguised as strategy.',
+      'Matteo treats the platform as a product: clear users, opinionated defaults, useful feedback loops, and infrastructure choices tied to real developer work.',
     proof: [
-      'Created the 111-star Platform Engineering Roadmap',
-      '40+ merged Kubernetes pull requests',
-      'Hands-on multi-cloud and infrastructure-as-code delivery'
+      'Built platform APIs and zero-touch onboarding for 70+ engineers',
+      'Led infrastructure serving products with 8M+ daily users',
+      'Kubernetes release engineering maintainer and production operator'
     ],
     href: 'https://github.com/mbianchidev/platform-engineering-roadmap',
     action: 'Open the platform evidence'
   },
   {
-    id: 'cloud',
-    label: 'Cloud complexity',
-    signal: 'MATCH CONFIRMED / MULTI-CLOUD',
-    title: 'Comfortable where cloud abstractions stop being abstract.',
+    id: 'ai-automation',
+    label: 'Automation backlog',
+    signal: 'MATCH CONFIRMED / HUMAN JUDGMENT RETAINED',
+    title: 'Automate repeated work without automating responsibility.',
     summary:
-      'Architecture, delivery, operations, and cost trade-offs stay connected. The goal is resilient systems, not a diagram with every vendor logo.',
+      'AI is useful when it removes measurable friction. Matteo builds agents, internal assistants, and developer tooling around a defined workflow—not a demo looking for a problem.',
     proof: [
-      'Kubernetes contributor and production operator',
-      'Delivery experience across AWS, Azure, and Google Cloud',
-      'OpenTofu, automation, containers, and CI/CD fluency'
+      'Built an internal assistant that automated 20–25% of Solutions Engineering work',
+      'Ships automation across Python, TypeScript, Rust, and MCP',
+      'Keeps review, observability, and human ownership in the loop'
     ],
     href: '/portfolio',
-    action: 'Review cloud-native work'
+    action: 'Review software and AI work'
   },
   {
-    id: 'developer-experience',
-    label: 'Developer friction',
-    signal: 'MATCH CONFIRMED / PRODUCT MODE',
-    title: 'Treats developer experience as product work with an engineering budget.',
+    id: 'solutions',
+    label: 'Customer-product gap',
+    signal: 'MATCH CONFIRMED / FIELD SIGNAL CONNECTED',
+    title: 'Translate field reality into a product path people can buy and build.',
     summary:
-      'The useful abstraction wins: typed interfaces, focused tooling, fast feedback, and documentation that answers the question before Slack does.',
+      'Technical discovery, architecture, demos, implementation, and product feedback stay connected. The customer gets an honest path forward; the product team gets signal it can use.',
     proof: [
-      'Built Engineering Interviews as a typed developer-learning product',
-      'Ships React, TypeScript, Python, and automation tooling',
-      'Designs for adoption, not just technical completion'
+      'Reached 121% quota in the first eight months at GitHub',
+      'Worked across Sales, Product, Field Marketing, and OSPO',
+      'Combines customer communication with hands-on engineering depth'
     ],
-    href: 'https://github.com/mbianchidev/engineering-interviews',
-    action: 'Inspect the developer product'
+    href: '/customers',
+    action: 'Review customer-facing work'
   },
   {
-    id: 'storytelling',
-    label: 'Invisible expertise',
+    id: 'open-source',
+    label: 'Expertise trapped in heads',
     signal: 'MATCH CONFIRMED / BROADCAST ENABLED',
-    title: 'Turns deep systems work into ideas teams can repeat.',
+    title: 'Make hard-won expertise travel farther than one team.',
     summary:
-      'Technical communication is part of the architecture. Matteo makes complex trade-offs legible to engineers, leaders, and communities without sanding off the nuance.',
+      'Technical communication is part of the architecture. Matteo turns implementation lessons into upstream contributions, strategy, training, talks, and documentation people can reuse.',
     proof: [
-      '22+ talks and workshops delivered',
-      'Long-form cloud-native writing and field guides',
-      'Community leadership across the CNCF ecosystem'
+      '40+ merged Kubernetes pull requests',
+      'Kubernetes release engineering maintainer',
+      '22+ talks and 300+ learners trained with 95% surveyed CSAT'
     ],
     href: '/about#community',
-    action: 'See talks and community work'
+    action: 'See open-source and community work'
   }
 ]
 
@@ -83,8 +83,8 @@ export function CompatibilityLab() {
       <div className={styles.compatibilityIntro}>
         <h2 id="compatibility-title">Run a compatibility check.</h2>
         <p>
-          Select the problem currently haunting your roadmap. The exported page
-          ships with a useful default; JavaScript only changes the diagnosis.
+          Select the problem currently haunting your roadmap. The diagnosis
+          changes; the senior engineer remains suspiciously reusable.
         </p>
       </div>
 

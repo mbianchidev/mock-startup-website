@@ -3,19 +3,19 @@ import styles from '@/app/home.module.css'
 
 const issues = [
   {
-    title: 'Opinionated defaults',
+    title: 'Cross-functional leakage',
     description:
-      'May challenge “that is how we have always done it” without opening a seven-month transformation program.'
+      'May move from customer discovery to architecture to implementation without scheduling a handoff ceremony.'
   },
   {
-    title: 'Open-source reflex',
+    title: 'Automation reflex',
     description:
-      'Frequently turns internal lessons into reusable tools, talks, or documentation. Legal review may experience feelings.'
+      'Repeated work tends to become a script, agent, or internal product. Humans keep the judgment and the reclaimed time.'
   },
   {
-    title: 'Excessive legibility',
+    title: 'Open-source instinct',
     description:
-      'Will explain architecture, trade-offs, and why the team should care. Will also get the work done. People might get upset for this amount of proactivity.'
+      'Will document the system, teach the team, and look for lessons worth contributing upstream.'
   }
 ]
 
@@ -23,7 +23,7 @@ export function KnownIssues() {
   return (
     <section id="contact" className={styles.knownIssues} aria-labelledby="known-issues-title">
       <div className={styles.knownIssuesLead}>
-        <p>Release notes / before procurement asks</p>
+        <p>Release notes / before the interview panel asks</p>
         <h2 id="known-issues-title">Known issues. None are blockers.</h2>
       </div>
       <ul className={styles.issueList}>
@@ -41,14 +41,14 @@ export function KnownIssues() {
           rel="noopener noreferrer"
           className={styles.darkAction}
         >
-          buy Matteo
+          Start the interview loop
           <span aria-hidden="true">↗</span>
         </a>
         <Link href="/roadmap" className={styles.inkAction}>
           See changelog
         </Link>
       </div>
-      <p className={styles.responseSla}>Response SLA: usually faster than procurement.</p>
+      <p className={styles.responseSla}>Primary deployment: full-time. Consulting capacity: selective.</p>
     </section>
   )
 }

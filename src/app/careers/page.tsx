@@ -4,42 +4,42 @@ import styles from '@/app/inner.module.css'
 
 export const metadata: Metadata = {
   title: 'Careers — Matteo',
-  description: 'The engineering, product, platform, DevRel, and solutions careers bundled into one human.',
+  description: 'Matteo is actively seeking senior platform, solutions, software, and AI engineering roles with strong open-source and community impact.',
 }
 
 const roles = [
   {
-    title: 'Developer Advocate',
-    description: 'Technical content, conference talks, community feedback, demos, and developer experience work.',
-    skills: ['Technical writing', 'Public speaking', 'Community', 'DevEx'],
+    title: 'Senior Platform Engineer',
+    description: 'Developer platforms, Kubernetes, infrastructure as code, reliability, and self-service workflows designed around adoption.',
+    skills: ['Platform engineering', 'Kubernetes', 'IaC', 'SRE'],
   },
   {
-    title: 'Product Manager, Kubernetes edition',
-    description: 'Product strategy, user discovery, platform positioning, and translating cloud-native complexity into choices.',
-    skills: ['Kubernetes', 'Product strategy', 'Research', 'Launches'],
+    title: 'Solutions Engineer, Technical Products',
+    description: 'Customer discovery, architecture, demos, proof of value, implementation guidance, and field insight that improves the product.',
+    skills: ['Discovery', 'Architecture', 'Demos', 'GTM'],
   },
   {
     title: 'Senior Software Engineer',
-    description: 'Typed interfaces, automation, APIs, system design, and enough implementation detail to keep strategy honest.',
-    skills: ['Go', 'Python', 'TypeScript', 'System design'],
+    description: 'APIs, services, CLIs, product interfaces, automation, and system design across Go, Python, TypeScript, Rust, and React.',
+    skills: ['Go', 'Python', 'TypeScript', 'Rust'],
   },
   {
-    title: 'Staff Platform Engineer',
-    description: 'Golden paths, infrastructure as code, distributed systems, and technical leadership across teams.',
-    skills: ['Platform engineering', 'IaC', 'Kubernetes', 'Leadership'],
+    title: 'AI Engineer, Developer Automation',
+    description: 'Agents, assistants, MCP integrations, and workflow automation built around measurable work rather than novelty.',
+    skills: ['AI agents', 'MCP', 'Automation', 'Evaluation'],
   },
   {
-    title: 'Solutions Engineer',
-    description: 'Customer context, technical discovery, architecture, and turning product capability into a credible path forward.',
-    skills: ['Discovery', 'Cloud architecture', 'Demos', 'Problem solving'],
+    title: 'Open Source & Community Lead',
+    description: 'Upstream contribution, open-source strategy, technical education, speaking, mentorship, and community feedback loops.',
+    skills: ['Open source', 'Speaking', 'Training', 'Community'],
   },
 ]
 
 const principles = [
-  ['Transparency', 'Show the trade-off, the source, and the work still left to do.'],
-  ['Integrity', 'Make the honest technical recommendation even when the flashy answer sells better.'],
-  ['Reliability', 'Treat follow-through as part of the architecture.'],
-  ['Creativity', 'Use constraints as material, not an excuse for generic output.'],
+  ['Customer signal', 'Understand the workflow and the stakes before prescribing the system.'],
+  ['Technical depth', 'Stay close enough to implementation that strategy survives contact with reality.'],
+  ['Leverage', 'Automate repeated work and build tools that make the whole team stronger.'],
+  ['Communication', 'Make trade-offs clear enough for engineers, leaders, customers, and communities to act on.'],
 ]
 
 export default function CareersPage() {
@@ -47,8 +47,8 @@ export default function CareersPage() {
     <div className={styles.page}>
       <PageHero
         path="/careers"
-        title="One opening. Five jobs worth of surface area."
-        description="This is not a recruiting page. It is the role manifest for what a company gets when it deploys Matteo."
+        title="Now accepting one full-time deployment."
+        description="Best fit: a senior role at the intersection of platform engineering, technical products, software, and practical AI—with open source and communication built in."
         tone="cyan"
         actions={
           <a
@@ -57,23 +57,23 @@ export default function CareersPage() {
             rel="noopener noreferrer"
             className={styles.darkButton}
           >
-            Start the interview loop
+            Start a hiring conversation
             <span aria-hidden="true">↗</span>
           </a>
         }
         aside={
           <dl className={styles.heroSpecs}>
             <div>
-              <dt>Headcount</dt>
-              <dd>1 human</dd>
+              <dt>Availability</dt>
+              <dd>Actively interviewing</dd>
             </div>
             <div>
-              <dt>Role coverage</dt>
-              <dd>{roles.length} operating modes</dd>
+              <dt>Primary model</dt>
+              <dd>Full-time</dd>
             </div>
             <div>
-              <dt>Management overhead</dt>
-              <dd>Suspiciously low</dd>
+              <dt>Consulting</dt>
+              <dd>Selective</dd>
             </div>
           </dl>
         }
@@ -82,8 +82,8 @@ export default function CareersPage() {
       <section className={styles.sectionDark} aria-labelledby="roles-title">
         <div className={styles.sectionInner}>
           <div className={styles.sectionIntro}>
-            <h2 id="roles-title">Careers included in the base image.</h2>
-            <p>Not simultaneous job titles. A range of contexts the same product-minded engineer can handle.</p>
+            <h2 id="roles-title">Supported deployment targets.</h2>
+            <p>Not five simultaneous titles. Five contexts where the same engineering system creates leverage.</p>
           </div>
           <div className={styles.roleList}>
             {roles.map((role) => (
@@ -121,7 +121,7 @@ export default function CareersPage() {
       <section className={styles.careersClose}>
         <div>
           <p>Compatibility looks promising.</p>
-          <h2>Now test the human interface.</h2>
+          <h2>If these capabilities need to reinforce each other, test the human interface.</h2>
         </div>
         <a
           href="https://cal.com/mbianchidev/intro"
@@ -129,7 +129,7 @@ export default function CareersPage() {
           rel="noopener noreferrer"
           className={styles.darkButton}
         >
-          Book a live demo
+          Start the interview loop
           <span aria-hidden="true">↗</span>
         </a>
       </section>

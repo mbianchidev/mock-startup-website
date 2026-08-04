@@ -59,12 +59,12 @@ test.describe('Static route experience', () => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
     await page.locator('html[data-hydrated="true"]').waitFor();
 
-    const developerExperience = page.getByRole('button', { name: /Developer friction/ });
-    await developerExperience.click();
+    const automationBacklog = page.getByRole('button', { name: /Automation backlog/ });
+    await automationBacklog.click();
 
-    await expect(developerExperience).toHaveAttribute('aria-pressed', 'true');
+    await expect(automationBacklog).toHaveAttribute('aria-pressed', 'true');
     await expect(page.locator('#compatibility-result')).toContainText(
-      'Treats developer experience as product work'
+      'Automate repeated work without automating responsibility.'
     );
   });
 
@@ -144,39 +144,39 @@ test.describe('Static route experience', () => {
   test('uses the requested homepage copy and balanced proof layout', async ({ page }) => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
 
-    await expect(page.getByRole('link', { name: 'buy Matteo' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Start the interview loop' })).toBeVisible();
     await expect(page.getByRole('link', { name: 'See changelog' })).toHaveAttribute(
       'href',
       '/roadmap/'
     );
     await expect(
       page.getByText(
-        'Human infrastructure for teams that want the (agenic or not) systems and the story to be equally good.'
+        'Human infrastructure for teams that need platforms, AI automation, customer outcomes, and clear technical communication to reinforce each other.'
       )
     ).toBeVisible();
     await expect(
       page.getByText(
-        'Will explain architecture, trade-offs, and why the team should care. Will also get the work done. People might get upset for this amount of proactivity.'
+        'Repeated work tends to become a script, agent, or internal product. Humans keep the judgment and the reclaimed time.'
       )
     ).toBeVisible();
 
     const featured = page
       .getByRole('heading', { name: 'Platform Engineering Roadmap' })
       .locator('xpath=ancestor::article');
-    const engineeringInterviews = page
-      .getByRole('heading', { name: 'Engineering Interviews' })
+    const sendbox = page
+      .getByRole('heading', { name: 'Sendbox' })
       .locator('xpath=ancestor::article');
-    const [featuredBox, interviewsBox] = await Promise.all([
+    const [featuredBox, sendboxBox] = await Promise.all([
       featured.boundingBox(),
-      engineeringInterviews.boundingBox(),
+      sendbox.boundingBox(),
     ]);
 
     expect(featuredBox).not.toBeNull();
-    expect(interviewsBox).not.toBeNull();
-    expect(Math.abs(featuredBox!.height - interviewsBox!.height)).toBeLessThan(2);
+    expect(sendboxBox).not.toBeNull();
+    expect(Math.abs(featuredBox!.height - sendboxBox!.height)).toBeLessThan(2);
 
     const integrations = page
-      .getByRole('heading', { name: 'Native integrations. Emotionally stable dependencies.' })
+      .getByRole('heading', { name: 'Native integrations. Human judgment included.' })
       .locator('xpath=ancestor::section');
     const integrationsColors = await integrations.evaluate((section) => {
       const computed = getComputedStyle(section);

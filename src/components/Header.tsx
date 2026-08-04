@@ -83,7 +83,7 @@ export function Header() {
               rel="noopener noreferrer"
               className={styles.mobileCta}
             >
-              Book a demo
+              Start interview
             </a>
           </li>
         </ul>
@@ -94,7 +94,7 @@ export function Header() {
           rel="noopener noreferrer"
           className={styles.desktopCta}
         >
-          Book a demo
+          Start interview
           <span aria-hidden="true">↗</span>
         </a>
       </nav>

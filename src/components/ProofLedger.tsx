@@ -4,7 +4,7 @@ import styles from '@/app/home.module.css'
 
 const ownedProjects = projectsData.projects
   .filter((project) => project.contribution.startsWith('Creator'))
-  .slice(0, 3)
+  .slice(0, 2)
 
 const [featuredProject, ...supportingProjects] = ownedProjects
 
@@ -14,7 +14,7 @@ export function ProofLedger() {
       <div className={styles.proofHeader}>
         <div>
           <h2 id="proof-title">Do not trust the landing page.</h2>
-          <p>Open the source. The receipts are significantly less fictional.</p>
+          <p>Open the source. The claims become significantly less fictional.</p>
         </div>
         <Link href="/portfolio" className={styles.textLink}>
           Full OSS portfolio

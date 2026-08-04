@@ -4,12 +4,12 @@
 
 ## 🚀 About
 
-This project is a satirical product launch for Matteo Bianchi: a personal portfolio disguised as the kind of overconfident startup landing page the tech industry keeps producing. The joke leads; real cloud-native work, open-source projects, talks, and product-minded engineering provide the reveal.
+This project is a satirical product launch for Matteo Bianchi: a personal portfolio disguised as the kind of overconfident startup landing page the tech industry keeps producing. The joke leads; senior engineering across platforms, solutions, software, and AI provides the reveal.
 
-"Matteo" serves as the fictional product/platform, but the capabilities and evidence point to a real engineer:
+"Matteo" serves as the fictional product/platform, but the capabilities and evidence point to a real engineer who connects deep implementation, customer needs, automation, open source, and communication:
 
 - A product-spec hero built around a real speaking photo
-- An asymmetric capability manifest instead of a resume timeline
+- An asymmetric capability manifest covering platform engineering, Solutions Engineering, AI automation, and open-source education
 - An interactive hiring compatibility lab with accessible default content
 - The original `main` branch “loved by” logo set plus GitHub, Replit, OpenAI, and Anthropic, upgraded into an accessible animated runway
 - Homepage runway logos are bundled locally and loaded eagerly so marquee motion never reveals unloaded placeholders
@@ -23,10 +23,10 @@ This project is a satirical product launch for Matteo Bianchi: a personal portfo
 
 This project was created to:
 
-1. Turn a professional portfolio into a memorable product narrative
+1. Turn a broad senior-engineering profile into a memorable, coherent product narrative
 2. Demonstrate production-grade Next.js component and interaction design
 3. Highlight the formulaic nature of startup marketing without becoming another generic SaaS page
-4. Connect bold claims to inspectable open-source and community evidence
+4. Connect bold claims to measurable career outcomes plus inspectable open-source and community evidence
 5. Show conversion from static HTML/CSS/JS to modern React + Next.js
 
 ## 🔍 Key Features

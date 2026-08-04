@@ -19,47 +19,48 @@ const pricingPlans: PricingPlan[] = [
   {
     id: 'advisory',
     name: 'Advisory',
-    description: 'Focused architecture, product, platform, or cloud-native decisions without pretending a slide deck is delivery.',
+    description: 'Focused Kubernetes and open-source decisions for teams that need an experienced second brain before they need another implementation team.',
     price: '€100',
     hourlyRate: 100,
     period: '/hour',
     features: [
-      'Architecture and platform review',
-      'Cloud-native strategy',
-      'Developer experience feedback',
-      'Technical product positioning',
+      'Kubernetes architecture and readiness review',
+      'Performance, reliability, and cost assessment',
+      'Open-source strategy and governance',
+      'Platform and developer experience feedback',
       'Written recommendations',
       'No mandatory transformation programme',
     ],
   },
   {
     id: 'delivery',
-    name: 'Delivery',
-    description: 'Hands-on engineering and product work for teams that need the recommendation implemented, tested, and adopted.',
+    name: 'Delivery & enablement',
+    description: 'Hands-on Kubernetes work, technical education, and adoption support for teams that need the recommendation implemented and understood.',
     price: '€150',
     hourlyRate: 150,
     period: '/hour',
-    recommended: true,
     features: [
       'Everything in Advisory',
-      'Platform and cloud implementation',
-      'Typed product interfaces and CLIs',
-      'Automation, CI/CD, and infrastructure as code',
-      'Documentation and enablement',
-      'Direct feedback loops with users',
+      'Kubernetes and platform implementation',
+      'Mentorship for engineers and technical leaders',
+      'Custom training and workshops',
+      'Conference and internal speaking',
+      'Documentation and adoption support',
     ],
   },
   {
     id: 'full-time',
     name: 'Full-time',
-    description: 'The complete human-platform deployment for companies hiring a product-minded senior engineer.',
+    description: 'The primary human-platform deployment for companies hiring a senior engineer across platforms, solutions, software, and AI.',
     price: 'Let’s talk',
     period: '',
+    recommended: true,
     features: [
       'All operating modes included',
-      'Long-term product and system ownership',
-      'Platform, cloud, DevEx, and technical storytelling',
-      'Open-source and community leverage',
+      'Long-term product, customer, and system ownership',
+      'Platform, cloud, software, and AI delivery',
+      'Solutions Engineering and field feedback',
+      'Open-source, education, and community leverage',
       'No seat-based pricing',
       'Coffee dependency remains customer-managed',
     ],
@@ -94,8 +95,8 @@ export default function Pricing() {
     <div className={styles.page}>
       <PageHero
         path="/pricing"
-        title="Transparent pricing. Extremely negotiable acquisition model."
-        description="Hourly advisory and delivery rates for the consulting version. Companies hiring the full product should skip directly to the human conversation."
+        title="Full-time first. Consulting endpoints still available."
+        description="The primary deployment is a senior full-time role. Limited consulting remains available for Kubernetes, open-source strategy, mentorship, training, and speaking."
         tone="dark"
         actions={
           <a
@@ -104,23 +105,23 @@ export default function Pricing() {
             rel="noopener noreferrer"
             className={styles.primaryButton}
           >
-            Request a quote
+            Discuss a deployment
             <span aria-hidden="true">↗</span>
           </a>
         }
         aside={
           <dl className={styles.heroSpecs}>
             <div>
-              <dt>Hidden fees</dt>
-              <dd>None</dd>
+              <dt>Primary plan</dt>
+              <dd>Full-time</dd>
+            </div>
+            <div>
+              <dt>Consulting</dt>
+              <dd>Selective</dd>
             </div>
             <div>
               <dt>Seat pricing</dt>
               <dd>Physically impossible</dd>
-            </div>
-            <div>
-              <dt>Enterprise plan</dt>
-              <dd>Hire the human</dd>
             </div>
           </dl>
         }
@@ -129,8 +130,8 @@ export default function Pricing() {
       <section className={styles.sectionLight} aria-labelledby="plans-title">
         <div className={styles.sectionInner}>
           <div className={styles.sectionIntro}>
-            <h2 id="plans-title">Choose an engagement shape.</h2>
-            <p>The tiers are a useful framing device, not a substitute for scoping the actual work.</p>
+            <h2 id="plans-title">Choose a deployment model.</h2>
+            <p>Full-time is the default. The consulting tiers are deliberately narrower.</p>
           </div>
           <div className={styles.pricingGrid}>
             {pricingPlans.map((plan) => {
@@ -265,7 +266,7 @@ export default function Pricing() {
                   <dd>€{dailyCost}</dd>
                 </div>
               </dl>
-              <p>Final quote depends on scope, context, risk, and whether the problem is actually Kubernetes.</p>
+              <p>Final quote depends on scope, context, risk, and whether Kubernetes is actually the right answer.</p>
             </div>
           </div>
         </div>
