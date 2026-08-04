@@ -99,6 +99,32 @@ test.describe('Static route experience', () => {
     await expect(navigation.getByRole('link', { name: 'Integrations', exact: true })).toHaveCount(0);
   });
 
+  test('renders the Duck Runtime identity and app metadata', async ({ page }) => {
+    await page.goto('/', { waitUntil: 'load' });
+
+    const headerLogo = page
+      .getByRole('banner')
+      .getByRole('link', { name: 'Matteo — Human Platform home' });
+    const footerLogo = page
+      .getByRole('contentinfo')
+      .getByRole('link', { name: 'Matteo — Human Platform home' });
+
+    await expect(headerLogo).toBeVisible();
+    await expect(footerLogo).toBeVisible();
+    await expect(page.locator('[data-brand-mark]')).toHaveCount(2);
+
+    const loadedMarks = await page.locator('[data-brand-mark]').evaluateAll((images) =>
+      images.map((image) => (image as HTMLImageElement).naturalWidth)
+    );
+    expect(loadedMarks.every((width) => width > 0)).toBe(true);
+
+    await expect(page.locator('link[rel="manifest"]')).toHaveAttribute(
+      'href',
+      /\/manifest\.webmanifest$/
+    );
+    await expect(page.locator('link[rel~="icon"]').first()).toHaveAttribute('href', /icon|favicon/);
+  });
+
   test('reports status uptime and PTO incident', async ({ page }) => {
     await page.goto('/status', { waitUntil: 'domcontentloaded' });
 

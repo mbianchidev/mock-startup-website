@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useEffect, useId, useState } from 'react'
+import { BrandLogo } from './BrandLogo'
 import styles from './SiteShell.module.css'
 
 const navItems = [
@@ -42,9 +43,13 @@ export function Header() {
   return (
     <header className={styles.header}>
       <nav className={styles.nav} aria-label="Primary navigation">
-        <Link href="/" className={styles.logo} onClick={() => setIsOpen(false)}>
-          <span>Matteo</span>
-          <small>human platform</small>
+        <Link
+          href="/"
+          className={styles.logo}
+          aria-label="Matteo — Human Platform home"
+          onClick={() => setIsOpen(false)}
+        >
+          <BrandLogo priority />
         </Link>
 
         <button
