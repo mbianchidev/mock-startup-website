@@ -34,7 +34,7 @@ const pricingPlans: PricingPlan[] = [
   },
   {
     id: 'delivery',
-    name: 'Delivery & enablement',
+    name: 'Delivery',
     description: 'Hands-on Kubernetes work, technical education, and adoption support for teams that need the recommendation implemented and understood.',
     price: '€150',
     hourlyRate: 150,

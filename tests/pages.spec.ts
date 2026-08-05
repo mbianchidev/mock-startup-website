@@ -198,7 +198,7 @@ test.describe('Static route experience', () => {
     });
   });
 
-  test('keeps benchmark metrics and pricing headers from overlapping', async ({ page }) => {
+  test('keeps benchmark metrics separated and pricing cards aligned', async ({ page }) => {
     await page.setViewportSize({ width: 1600, height: 1000 });
     await page.goto('/', { waitUntil: 'domcontentloaded' });
 
@@ -231,20 +231,62 @@ test.describe('Static route experience', () => {
 
     await page.goto('/pricing', { waitUntil: 'domcontentloaded' });
 
-    for (const planName of ['Advisory', 'Delivery & enablement', 'Full-time']) {
+    const pricingRows: Array<{
+      articleTop: number;
+      articleBottom: number;
+      headingTop: number;
+      priceTop: number;
+      descriptionTop: number;
+      toggleTop: number;
+      actionTop: number;
+    }> = [];
+
+    for (const planName of ['Advisory', 'Delivery', 'Full-time']) {
       const plan = page
         .getByRole('heading', { name: planName, exact: true })
         .locator('xpath=ancestor::article');
-      const [headingBox, priceBox, hasOverflow] = await Promise.all([
-        plan.getByRole('heading', { name: planName, exact: true }).boundingBox(),
-        plan.locator('strong').first().boundingBox(),
-        plan.evaluate((article) => article.scrollWidth > article.clientWidth + 1),
-      ]);
+      const [articleBox, headingBox, priceBox, descriptionBox, toggleBox, actionBox, hasOverflow] =
+        await Promise.all([
+          plan.boundingBox(),
+          plan.getByRole('heading', { name: planName, exact: true }).boundingBox(),
+          plan.locator('strong').first().boundingBox(),
+          plan.locator(':scope > p').boundingBox(),
+          plan.getByRole('button').boundingBox(),
+          plan.locator(':scope > a').boundingBox(),
+          plan.evaluate((article) => article.scrollWidth > article.clientWidth + 1),
+        ]);
 
+      expect(articleBox).not.toBeNull();
       expect(headingBox).not.toBeNull();
       expect(priceBox).not.toBeNull();
+      expect(descriptionBox).not.toBeNull();
+      expect(toggleBox).not.toBeNull();
+      expect(actionBox).not.toBeNull();
       expect(headingBox!.y + headingBox!.height).toBeLessThan(priceBox!.y);
       expect(hasOverflow).toBe(false);
+
+      pricingRows.push({
+        articleTop: articleBox!.y,
+        articleBottom: articleBox!.y + articleBox!.height,
+        headingTop: headingBox!.y,
+        priceTop: priceBox!.y,
+        descriptionTop: descriptionBox!.y,
+        toggleTop: toggleBox!.y,
+        actionTop: actionBox!.y,
+      });
+    }
+
+    for (const row of [
+      'articleTop',
+      'articleBottom',
+      'headingTop',
+      'priceTop',
+      'descriptionTop',
+      'toggleTop',
+      'actionTop',
+    ] as const) {
+      const positions = pricingRows.map((plan) => plan[row]);
+      expect(Math.max(...positions) - Math.min(...positions)).toBeLessThanOrEqual(1);
     }
   });
 
