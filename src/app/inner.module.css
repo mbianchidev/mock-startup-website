@@ -1304,12 +1304,13 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 18px;
-    align-items: start;
+    align-items: stretch;
 }
 
 .pricingPlan {
     display: flex;
     flex-direction: column;
+    height: 100%;
     min-width: 0;
     min-height: 560px;
     padding: 28px;
@@ -1325,6 +1326,7 @@
 }
 
 .planHeader {
+    position: relative;
     display: grid;
     gap: 18px;
     align-content: start;
@@ -1334,8 +1336,15 @@
     min-width: 0;
 }
 
+.recommendedPlan .planHeader > div:first-child {
+    padding-right: 88px;
+}
+
 .planHeader p {
-    margin: 0 0 8px;
+    position: absolute;
+    top: 0.35rem;
+    right: 0;
+    margin: 0;
     font-size: 0.74rem;
     font-weight: 900;
 }
@@ -1373,7 +1382,7 @@
 }
 
 .pricingPlan > p {
-    min-height: 104px;
+    min-height: calc(1.65em * 4);
     margin: 26px 0 22px;
     color: color-mix(in srgb, var(--bg-primary) 76%, transparent);
     line-height: 1.65;
