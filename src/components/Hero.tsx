@@ -9,15 +9,15 @@ export function Hero() {
         <div className={styles.heroCopy}>
           <p className={styles.releaseBadge}>
             <span aria-hidden="true" />
-            Human infrastructure v2026.7 is ready
+            Matteo v2026.8 is accepting deployments
           </p>
           <h1 id="hero-title" className={styles.heroTitle}>
-            Your next platform hire has an API.
+            Platform as a Human
           </h1>
           <p className={styles.heroText}>
-            Matteo ships cloud-native systems, open-source contributions, and
-            technical stories people actually remember. No seat-based pricing.
-            Mildly opinionated defaults.
+            Matteo turns customer pain into cloud systems, developer platforms,
+            and AI automation people actually adopt - then tells the story to
+            engineers, leaders and the open source community.
           </p>
           <div className={styles.heroActions}>
             <a
@@ -26,7 +26,7 @@ export function Hero() {
               rel="noopener noreferrer"
               className={styles.primaryAction}
             >
-              Schedule a live demo
+              Start trial
               <span aria-hidden="true">↗</span>
             </a>
             <a href="#compatibility" className={styles.secondaryAction}>
@@ -35,7 +35,7 @@ export function Hero() {
             </a>
           </div>
           <p className={styles.heroFinePrint}>
-            Human-in-the-loop by design. Field-tested since 2015.
+            Full-time is the primary deployment. Select consulting endpoints remain available.
           </p>
         </div>
 
@@ -61,15 +61,15 @@ export function Hero() {
           <dl className={styles.productSpecs}>
             <div className={styles.specRow}>
               <dt>Runtime</dt>
-              <dd>Platform engineering + cloud native</dd>
+              <dd>Senior engineering + customer empathy</dd>
             </div>
             <div className={styles.specRow}>
               <dt>Interfaces</dt>
-              <dd>Code · products · talks · community</dd>
+              <dd>Platforms · solutions · AI · open source</dd>
             </div>
             <div className={styles.specRow}>
               <dt>Known quirk</dt>
-              <dd>May refactor the roadmap before lunch</dd>
+              <dd>May automate the recurring task before lunch</dd>
             </div>
           </dl>
         </aside>

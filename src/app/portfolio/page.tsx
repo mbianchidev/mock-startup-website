@@ -7,7 +7,7 @@ import styles from '@/app/inner.module.css'
 
 export const metadata: Metadata = {
   title: 'Open Source — Matteo',
-  description: 'Creator-owned projects and contributions across the cloud-native ecosystem.',
+  description: 'Creator-owned projects and upstream contributions across developer platforms, AI tooling, Kubernetes, infrastructure, and education.',
 }
 
 const ownedProjects = projectsData.projects.filter((project) => {
@@ -28,7 +28,7 @@ export default function Portfolio() {
       <PageHero
         path="/portfolio"
         title="Source available. Claims inspectable."
-        description="Projects created, maintained, and contributed to across platform engineering, Kubernetes, infrastructure as code, and developer tooling."
+        description="Projects created, maintained, and contributed to across developer platforms, AI tooling, Kubernetes, infrastructure, and technical education."
         tone="green"
         actions={
           <>
@@ -158,16 +158,16 @@ export default function Portfolio() {
               <dd>Merged Kubernetes pull requests</dd>
             </div>
             <div>
-              <dt>22+</dt>
+              <dt>20+</dt>
               <dd>Talks and workshops delivered</dd>
             </div>
             <div>
-              <dt>{postCount}</dt>
-              <dd>Published field notes</dd>
+              <dt>500+</dt>
+              <dd>Learners trained</dd>
             </div>
             <div>
-              <dt>10+</dt>
-              <dd>Years shipping production systems</dd>
+              <dt>15+</dt>
+              <dd>Mentees coached · 5/5 stars</dd>
             </div>
           </dl>
         </div>

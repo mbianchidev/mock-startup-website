@@ -3,7 +3,8 @@ import styles from '@/app/home.module.css'
 const tools = [
   { name: 'Kubernetes', note: 'orchestration' },
   { name: 'Go', note: 'systems' },
-  { name: 'Python', note: 'automation' },
+  { name: 'Python', note: 'AI + automation' },
+  { name: 'Rust', note: 'systems tooling' },
   { name: 'TypeScript', note: 'products' },
   { name: 'React', note: 'interfaces' },
   { name: 'AWS', note: 'cloud' },
@@ -12,17 +13,18 @@ const tools = [
   { name: 'GitHub', note: 'delivery' },
   { name: 'Docker', note: 'containers' },
   { name: 'OpenTofu', note: 'infrastructure' },
-  { name: 'MCP', note: 'AI systems' }
+  { name: 'AI agents', note: 'workflow leverage' },
+  { name: 'MCP', note: 'tool integration' }
 ]
 
 export function Toolchain() {
   return (
     <section id="integrations" className={styles.toolchain} aria-labelledby="toolchain-title">
       <div className={styles.toolchainLead}>
-        <h2 id="toolchain-title">Native integrations. Emotionally stable dependencies.</h2>
+        <h2 id="toolchain-title">Native integrations. Human judgment included.</h2>
         <p>
-          Fits into the stack you already run. Will still ask why there are three
-          CI systems.
+          Comfortable across cloud, code, and AI tooling—and opinionated enough
+          not to force every problem through the same stack.
         </p>
       </div>
       <ul className={styles.toolList}>

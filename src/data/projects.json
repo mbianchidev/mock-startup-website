@@ -2,7 +2,7 @@
   "projects": [
     {
       "name": "Platform Engineering Roadmap",
-      "description": "An opinionated platform engineering roadmap - in the form of an interactive website to help engineers navigate the platform engineering landscape",
+      "description": "An opinionated, interactive roadmap that helps engineers navigate the platform engineering landscape",
       "url": "https://github.com/mbianchidev/platform-engineering-roadmap",
       "stars": "111",
       "techStack": [
@@ -13,8 +13,20 @@
       "contribution": "Creator and maintainer"
     },
     {
+      "name": "Sendbox",
+      "description": "An all-in-one sandbox for agentic CLI development, built to isolate AI agents with container-based environments",
+      "url": "https://github.com/mbianchidev/sendbox",
+      "stars": "1",
+      "techStack": [
+        "Rust",
+        "AI Agents",
+        "Containers"
+      ],
+      "contribution": "Creator and maintainer"
+    },
+    {
       "name": "Engineering Interviews",
-      "description": "Questions to prepare for engineering interviews and coding challenges solutions to help developers ace their technical interviews",
+      "description": "A learning product with interview questions and coding challenge solutions for engineers preparing for technical interviews",
       "url": "https://github.com/mbianchidev/engineering-interviews",
       "stars": "9",
       "techStack": [

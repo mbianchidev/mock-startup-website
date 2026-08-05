@@ -59,8 +59,9 @@ export function TrustedBy() {
       <div className={styles.lovedByHeader}>
         <h2 id="loved-by-title">Loved and trusted by people at</h2>
         <p>
-          The legally safe version: excellent humans from these places have crossed
-          paths with Matteo. Corporate endorsement sold separately.
+          The legally safe version: Matteo has shipped, collaborated, taught, or
+          built community with excellent humans from these places. Corporate
+          endorsement remains an add-on.
         </p>
       </div>
       <div className={styles.logoRunway}>

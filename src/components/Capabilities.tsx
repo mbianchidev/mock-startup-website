@@ -4,39 +4,39 @@ import styles from '@/app/home.module.css'
 const capabilities = [
   {
     key: 'platform.core',
-    title: 'Platform systems people choose to use',
+    title: 'Developer platforms people choose to use',
     description:
-      'Paved roads, self-service workflows, and product thinking for the infrastructure layer.',
-    signal: 'Platform engineering · golden paths · internal products',
+      'Built platform APIs and zero-touch onboarding used by 70+ engineers, with cloud infrastructure experience supporting products serving 8M+ daily users.',
+    signal: 'Platform engineering · Kubernetes · multi-cloud · SRE',
     evidence: 'Inspect the roadmap',
     href: 'https://github.com/mbianchidev/platform-engineering-roadmap'
   },
   {
-    key: 'cloud.runtime',
-    title: 'Cloud-native delivery without the theater',
+    key: 'solutions.interface',
+    title: 'Customer problems translated into shipped systems',
     description:
-      'Production Kubernetes, multi-cloud systems, infrastructure as code, and the judgment to know when not to add another layer.',
-    signal: 'Kubernetes · AWS · Azure · GCP · OpenTofu',
-    evidence: 'Browse open-source work',
+      'Connects technical discovery, architecture, demos, field feedback, and hands-on delivery. Won Club FY26 after reaching 180% quota at GitHub.',
+    signal: 'Solutions engineering · discovery · GTM · product feedback',
+    evidence: 'Review deployment history',
+    href: '/customers'
+  },
+  {
+    key: 'ai.automation',
+    title: 'AI automation with a measurable job',
+    description:
+      'Builds agents and internal tools that remove recurring work without outsourcing judgment—including an assistant that automated 20–25% of Solutions Engineering workload.',
+    signal: 'Python · TypeScript · MCP · agents · developer tooling',
+    evidence: 'Inspect software work',
     href: '/portfolio'
   },
   {
-    key: 'product.interface',
-    title: 'Engineering that behaves like product work',
+    key: 'open.protocol',
+    title: 'Open source and communication that compound',
     description:
-      'Fast prototypes, typed frontends, useful CLIs, and feedback loops that connect technical choices to user outcomes.',
-    signal: 'TypeScript · React · Python · CLI design',
-    evidence: 'See the product surface',
-    href: '/portfolio'
-  },
-  {
-    key: 'story.protocol',
-    title: 'Technical ideas that survive the meeting',
-    description:
-      'Talks, long-form writing, workshops, and community work that make difficult systems easier to understand and adopt.',
-    signal: '22+ talks · writing · DevRel · community',
-    evidence: 'Read the field notes',
-    href: '/blog'
+      'Kubernetes release engineering maintainer, 40+ merged upstream pull requests, 20+ talks, 500+ learners, and 15+ mentees coached to success (5/5 stars as a mentor).',
+    signal: 'Kubernetes · OSS strategy · speaking · education',
+    evidence: 'Open community interfaces',
+    href: '/about#community'
   }
 ]
 
@@ -45,9 +45,9 @@ export function Capabilities() {
     <section id="features" className={styles.capabilities} aria-labelledby="capabilities-title">
       <div className={styles.sectionHeader}>
         <p className={styles.sectionCode}>matteo.features()</p>
-        <h2 id="capabilities-title">One hire. Suspiciously broad surface area.</h2>
+        <h2 id="capabilities-title">One deployment. Four systems that reinforce each other.</h2>
         <p>
-          The startup framing is a joke. The capabilities are not.
+          The startup framing is a joke. The cross-functional leverage is not.
         </p>
       </div>
 

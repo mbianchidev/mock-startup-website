@@ -17,8 +17,8 @@ export function Footer() {
             <BrandLogo />
           </Link>
           <p>
-            Human infrastructure for teams that want the (agenic or not) systems
-            and the story to be equally good.
+            Human infrastructure for teams that need platforms, AI automation,
+            customer outcomes, and clear technical communication to reinforce each other.
           </p>
         </div>
         <div className={styles.footerLinks}>
@@ -53,9 +53,9 @@ export function Footer() {
               LinkedIn
             </a>
             <a href="https://cal.com/mbianchidev/intro" target="_blank" rel="noopener noreferrer">
-              Book a demo
+              Start trial
             </a>
-            <a href="mailto:info@mb-consulting.dev">Contact</a>
+            <a href="mailto:info@mb-consulting.dev">Consulting inquiries</a>
           </div>
         </div>
       </div>
