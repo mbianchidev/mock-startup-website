@@ -15,7 +15,7 @@ const capabilities = [
     key: 'solutions.interface',
     title: 'Customer problems translated into shipped systems',
     description:
-      'Connects technical discovery, architecture, demos, field feedback, and hands-on delivery. Reached 121% quota in the first eight months at GitHub.',
+      'Connects technical discovery, architecture, demos, field feedback, and hands-on delivery. Won Club FY26 after reaching 180% quota at GitHub.',
     signal: 'Solutions engineering · discovery · GTM · product feedback',
     evidence: 'Review deployment history',
     href: '/customers'
@@ -33,7 +33,7 @@ const capabilities = [
     key: 'open.protocol',
     title: 'Open source and communication that compound',
     description:
-      'Kubernetes release engineering maintainer, 40+ merged upstream pull requests, 22+ talks, and 300+ learners trained with 95% surveyed CSAT.',
+      'Kubernetes release engineering maintainer, 40+ merged upstream pull requests, 20+ talks, 500+ learners, and 15+ mentees coached to success (5/5 stars as a mentor).',
     signal: 'Kubernetes · OSS strategy · speaking · education',
     evidence: 'Open community interfaces',
     href: '/about#community'
@@ -45,7 +45,7 @@ export function Capabilities() {
     <section id="features" className={styles.capabilities} aria-labelledby="capabilities-title">
       <div className={styles.sectionHeader}>
         <p className={styles.sectionCode}>matteo.features()</p>
-        <h2 id="capabilities-title">One hire. Four systems that reinforce each other.</h2>
+        <h2 id="capabilities-title">One deployment. Four systems that reinforce each other.</h2>
         <p>
           The startup framing is a joke. The cross-functional leverage is not.
         </p>

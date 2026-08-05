@@ -29,7 +29,7 @@ const scenarios = [
       'AI is useful when it removes measurable friction. Matteo builds agents, internal assistants, and developer tooling around a defined workflow—not a demo looking for a problem.',
     proof: [
       'Built an internal assistant that automated 20–25% of Solutions Engineering work',
-      'Ships automation across Python, TypeScript, Rust, and MCP',
+      'Built the assistant around real Solutions Engineering workflows and internal tools',
       'Keeps review, observability, and human ownership in the loop'
     ],
     href: '/portfolio',
@@ -43,7 +43,7 @@ const scenarios = [
     summary:
       'Technical discovery, architecture, demos, implementation, and product feedback stay connected. The customer gets an honest path forward; the product team gets signal it can use.',
     proof: [
-      'Reached 121% quota in the first eight months at GitHub',
+      'Won Club FY26 after reaching 180% quota at GitHub',
       'Worked across Sales, Product, Field Marketing, and OSPO',
       'Combines customer communication with hands-on engineering depth'
     ],
@@ -60,7 +60,7 @@ const scenarios = [
     proof: [
       '40+ merged Kubernetes pull requests',
       'Kubernetes release engineering maintainer',
-      '22+ talks and 300+ learners trained with 95% surveyed CSAT'
+      '20+ talks, 500+ learners, and 15+ mentees coached to success (5/5 stars as a mentor)'
     ],
     href: '/about#community',
     action: 'See open-source and community work'
@@ -73,7 +73,7 @@ export function CompatibilityLab() {
 
   useEffect(() => {
     console.info(
-      '%cMatteo diagnostics: source available, ego load within operating limits. Hiring endpoint: https://cal.com/mbianchidev/intro',
+      '%cMatteo diagnostics: source available, ego load within operating limits. Trial endpoint: https://cal.com/mbianchidev/intro',
       'color:#00D9FF;font-weight:700'
     )
   }, [])
@@ -89,7 +89,7 @@ export function CompatibilityLab() {
       </div>
 
       <div className={styles.lab}>
-        <div className={styles.scenarioList} role="group" aria-label="Hiring challenges">
+        <div className={styles.scenarioList} role="group" aria-label="Compatibility scenarios">
           {scenarios.map((scenario) => {
             const isSelected = scenario.id === selected.id
 

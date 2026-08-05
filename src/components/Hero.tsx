@@ -12,13 +12,12 @@ export function Hero() {
             Matteo v2026.8 is accepting deployments
           </p>
           <h1 id="hero-title" className={styles.heroTitle}>
-            The engineer between product, platform, and people.
+            Platform as a Human
           </h1>
           <p className={styles.heroText}>
-            Senior Engineer — Platforms, Solutions &amp; AI. Matteo turns customer
-            pain into cloud systems, developer platforms, and AI automation people
-            actually adopt—then makes the trade-offs clear to engineers, leaders,
-            and communities.
+            Matteo turns customer pain into cloud systems, developer platforms,
+            and AI automation people actually adopt - then tells the story to
+            engineers, leaders and the open source community.
           </p>
           <div className={styles.heroActions}>
             <a
@@ -27,7 +26,7 @@ export function Hero() {
               rel="noopener noreferrer"
               className={styles.primaryAction}
             >
-              Start a hiring conversation
+              Start trial
               <span aria-hidden="true">↗</span>
             </a>
             <a href="#compatibility" className={styles.secondaryAction}>

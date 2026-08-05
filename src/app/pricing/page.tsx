@@ -51,7 +51,7 @@ const pricingPlans: PricingPlan[] = [
   {
     id: 'full-time',
     name: 'Full-time',
-    description: 'The primary human-platform deployment for companies hiring a senior engineer across platforms, solutions, software, and AI.',
+    description: 'The primary human-platform deployment for companies adding a senior engineer across platforms, solutions, software, and AI.',
     price: 'Let’s talk',
     period: '',
     recommended: true,
@@ -182,7 +182,7 @@ export default function Pricing() {
                     rel="noopener noreferrer"
                     className={plan.recommended ? styles.darkButton : styles.lightButton}
                   >
-                    {plan.id === 'full-time' ? 'Start a hiring conversation' : 'Scope this engagement'}
+                    {plan.id === 'full-time' ? 'Start trial' : 'Scope this engagement'}
                     <span aria-hidden="true">↗</span>
                   </a>
                 </article>

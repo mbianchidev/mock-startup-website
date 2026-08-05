@@ -10,14 +10,14 @@ This project is a satirical product launch for Matteo Bianchi: a personal portfo
 
 - A product-spec hero built around a real speaking photo
 - An asymmetric capability manifest covering platform engineering, Solutions Engineering, AI automation, and open-source education
-- An interactive hiring compatibility lab with accessible default content
+- An interactive compatibility lab with accessible default content
 - The original `main` branch “loved by” logo set plus GitHub, Replit, OpenAI, and Anthropic, upgraded into an accessible animated runway
 - Homepage runway logos are bundled locally and loaded eagerly so marquee motion never reveals unloaded placeholders
 - An open-source proof ledger sourced from `src/data/projects.json`
 - A complete route system for field notes, changelog, portfolio, deployment history, pricing, legal, and support pages
 - Original high-resolution organisation logos with a clean KubeLab monogram fallback throughout Customers
 - Verifiable contribution, speaking, and project benchmarks
-- Satirical release notes and direct hiring calls to action
+- Satirical release notes and direct trial calls to action
 
 ## 🎯 Purpose
 
@@ -33,7 +33,7 @@ This project was created to:
 
 - **Responsive design** that works on mobile and desktop
 - **Modern React components** with TypeScript
-- **Interactive hiring diagnostics** with semantic buttons and live results
+- **Interactive compatibility diagnostics** with semantic buttons and live results
 - **Server-side rendering** with Next.js 15
 - **Static-exported route system** with route-specific metadata and useful no-JavaScript defaults
 - **CSS Modules** for the homepage, global shell, and shared inner-page system

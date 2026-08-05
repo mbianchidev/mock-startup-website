@@ -57,7 +57,7 @@ export default function CareersPage() {
             rel="noopener noreferrer"
             className={styles.darkButton}
           >
-            Start a hiring conversation
+            Start trial
             <span aria-hidden="true">↗</span>
           </a>
         }
@@ -129,7 +129,7 @@ export default function CareersPage() {
           rel="noopener noreferrer"
           className={styles.darkButton}
         >
-          Start the interview loop
+          Start trial
           <span aria-hidden="true">↗</span>
         </a>
       </section>

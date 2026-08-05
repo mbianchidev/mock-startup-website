@@ -41,7 +41,7 @@ export function KnownIssues() {
           rel="noopener noreferrer"
           className={styles.darkAction}
         >
-          Start the interview loop
+          Start trial
           <span aria-hidden="true">↗</span>
         </a>
         <Link href="/roadmap" className={styles.inkAction}>

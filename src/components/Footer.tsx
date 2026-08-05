@@ -53,7 +53,7 @@ export function Footer() {
               LinkedIn
             </a>
             <a href="https://cal.com/mbianchidev/intro" target="_blank" rel="noopener noreferrer">
-              Start interview
+              Start trial
             </a>
             <a href="mailto:info@mb-consulting.dev">Consulting inquiries</a>
           </div>

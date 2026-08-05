@@ -2,9 +2,9 @@ import styles from '@/app/home.module.css'
 
 const benchmarks = [
   {
-    value: '121%',
-    label: 'quota reached in the first eight months at GitHub',
-    source: 'Corporate Solutions Engineering, EMEA'
+    value: '180%',
+    label: 'quota reached at GitHub',
+    source: 'Club FY26 winner · Corporate Solutions Engineering, EMEA'
   },
   {
     value: '70+',
@@ -12,9 +12,9 @@ const benchmarks = [
     source: 'Six product teams'
   },
   {
-    value: '300+',
-    label: 'people trained in Platform Engineering and Kubernetes',
-    source: '95% surveyed CSAT'
+    value: '500+',
+    label: 'learners trained in Platform Engineering and Kubernetes',
+    source: '20+ talks · 15+ mentees · 5/5 stars as a mentor'
   }
 ]
 

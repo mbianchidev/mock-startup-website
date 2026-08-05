@@ -158,16 +158,16 @@ export default function Portfolio() {
               <dd>Merged Kubernetes pull requests</dd>
             </div>
             <div>
-              <dt>22+</dt>
+              <dt>20+</dt>
               <dd>Talks and workshops delivered</dd>
             </div>
             <div>
-              <dt>{postCount}</dt>
-              <dd>Published field notes</dd>
+              <dt>500+</dt>
+              <dd>Learners trained</dd>
             </div>
             <div>
-              <dt>10+</dt>
-              <dd>Years shipping production systems</dd>
+              <dt>15+</dt>
+              <dd>Mentees coached · 5/5 stars</dd>
             </div>
           </dl>
         </div>
