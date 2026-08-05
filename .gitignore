@@ -36,3 +36,5 @@ original-src/
 test-results/
 playwright-report/
 /tests/screenshots/
+.vercel/
+.env.local

@@ -1,11 +1,12 @@
-import type { Metadata } from 'next'
 import { PageHero } from '@/components/PageHero'
+import { createPageMetadata } from '@/lib/siteMetadata'
 import styles from '@/app/inner.module.css'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'Careers — Matteo',
   description: 'Matteo is actively seeking senior platform, solutions, software, and AI engineering roles with strong open-source and community impact.',
-}
+  path: '/careers/',
+})
 
 const roles = [
   {

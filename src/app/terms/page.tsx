@@ -1,10 +1,11 @@
-import type { Metadata } from 'next'
 import { LegalDocument } from '@/components/LegalDocument'
+import { createPageMetadata } from '@/lib/siteMetadata'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'Terms — Matteo',
   description: 'Plain-language terms for using the Matteo portfolio website.',
-}
+  path: '/terms/',
+})
 
 const sections = [
   {

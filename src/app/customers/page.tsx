@@ -1,14 +1,15 @@
-import type { Metadata } from 'next'
 import { PageHero } from '@/components/PageHero'
 import { CustomersTimeline } from '@/components/CustomersTimeline'
 import customersData from '@/data/customers.json'
 import type { CustomersData } from '@/types'
+import { createPageMetadata } from '@/lib/siteMetadata'
 import styles from '@/app/inner.module.css'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'Customers — Matteo',
   description: 'Where Matteo has shipped across employment, founding, advisory, mentoring, consulting, and training.',
-}
+  path: '/customers/',
+})
 
 const visibleCompanies = (customersData as CustomersData).companies.filter((company) => company.show)
 
