@@ -43,24 +43,3 @@ jobs:
 
       - name: Build static export
         run: npm run build
-
-      - name: Package Vercel build output
-        run: |
-          mkdir -p .vercel/output/static
-          cp -R out/. .vercel/output/static/
-          printf '%s\n' \
-            '{"version":3,"routes":[' \
-            '{"handle":"filesystem"},' \
-            '{"src":"/","dest":"/index.html"},' \
-            '{"src":"/(.+)/$","dest":"/$1/index.html","check":true},' \
-            '{"src":"/(.+[^/])$","dest":"/$1/index.html","check":true},' \
-            '{"src":"/(.*)","status":404,"dest":"/404.html"}' \
-            ']}' > .vercel/output/config.json
-
-      - name: Upload Vercel build output
-        uses: actions/upload-artifact@v4
-        with:
-          name: vercel-output
-          path: .vercel/output
-          if-no-files-found: error
-          retention-days: 1
