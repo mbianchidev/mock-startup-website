@@ -130,7 +130,7 @@ export default function CareersPage() {
           rel="noopener noreferrer"
           className={styles.darkButton}
         >
-          Start trial
+          Deploy
           <span aria-hidden="true">↗</span>
         </a>
       </section>

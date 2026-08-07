@@ -14,7 +14,7 @@ const scenarios = [
       'Matteo treats the platform as a product: clear users, opinionated defaults, useful feedback loops, and infrastructure choices tied to real developer work.',
     proof: [
       'Built platform APIs and zero-touch onboarding for 70+ engineers',
-      'Led infrastructure serving products with 8M+ daily users',
+      'Led infrastructure and built APIs serving 10M+ daily users to this day',
       'Kubernetes release engineering maintainer and production operator'
     ],
     href: 'https://github.com/mbianchidev/platform-engineering-roadmap',
@@ -60,7 +60,7 @@ const scenarios = [
     proof: [
       '40+ merged Kubernetes pull requests',
       'Kubernetes release engineering maintainer',
-      '20+ talks, 500+ learners, and 15+ mentees coached to success (5/5 stars as a mentor)'
+      '20+ talks, 500+ learners, and 20+ mentees coached to success (5/5 stars as a mentor)'
     ],
     href: '/about#community',
     action: 'See open-source and community work'

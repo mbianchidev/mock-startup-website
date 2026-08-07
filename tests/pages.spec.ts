@@ -6,8 +6,8 @@ const pages = [
   { name: 'blog', path: '/blog', title: 'Field Notes — Matteo' },
   {
     name: 'blog-article',
-    path: '/blog/building-scalable-cloud-native-applications',
-    title: 'Building Scalable Cloud Native Applications — Matteo',
+    path: '/blog/yet-another-monumentally-long-year-in-review-2025',
+    title: 'Yet Another Monumentally Long Year in Review: 2025 — Matteo',
   },
   { name: 'roadmap', path: '/roadmap', title: 'Changelog — Matteo' },
   { name: 'portfolio', path: '/portfolio', title: 'Open Source — Matteo' },
@@ -49,12 +49,12 @@ test.describe('Static route experience', () => {
     await page.goto('/about', { waitUntil: 'domcontentloaded' });
     await expect(canonical).toHaveAttribute('href', 'https://mbianchi.dev/about/');
 
-    await page.goto('/blog/building-scalable-cloud-native-applications', {
+    await page.goto('/blog/yet-another-monumentally-long-year-in-review-2025', {
       waitUntil: 'domcontentloaded',
     });
     await expect(canonical).toHaveAttribute(
       'href',
-      'https://mbianchi.dev/blog/building-scalable-cloud-native-applications/'
+      'https://mbianchi.dev/blog/yet-another-monumentally-long-year-in-review-2025/'
     );
   });
 
@@ -146,9 +146,12 @@ test.describe('Static route experience', () => {
   test('reports status uptime and PTO incident', async ({ page }) => {
     await page.goto('/status', { waitUntil: 'domcontentloaded' });
 
+    await expect(page.getByRole('heading', { name: 'Service status' })).toBeVisible();
     await expect(page.getByText('99.99%', { exact: true })).toBeVisible();
     await expect(page.getByText('3 minutes - PTO', { exact: true })).toBeVisible();
     await expect(page.getByText('All systems operational. Human included.')).toBeVisible();
+    await expect(page.getByText('No active incidents reported.')).toBeVisible();
+    await expect(page.locator('[data-uptime-day]')).toHaveCount(360);
   });
 
   test('does not expose the removed K-Lab CLI project', async ({ page }) => {
@@ -214,6 +217,74 @@ test.describe('Static route experience', () => {
       background: 'rgb(0, 217, 255)',
       color: 'rgb(10, 10, 11)',
     });
+  });
+
+  test('publishes the refreshed portfolio and changelog facts', async ({ page }) => {
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+
+    await expect(page.getByText('LIVE SYSTEM', { exact: true })).toBeVisible();
+    await expect(page.getByText('Stuff Engineering + customer empathy', { exact: true })).toBeVisible();
+    await expect(page.getByText('Platform - Solutions - Open Source - AI', { exact: true })).toBeVisible();
+    await expect(page.locator('#compatibility-result')).toContainText(
+      'Led infrastructure and built APIs serving 10M+ daily users to this day'
+    );
+
+    await page.goto('/portfolio', { waitUntil: 'domcontentloaded' });
+    await expect(page.getByText('30+', { exact: true })).toHaveCount(2);
+    await expect(
+      page.getByText('Kubernetes, CNCF, Actions (ARC)... and more', { exact: true })
+    ).toBeVisible();
+    await expect(page.getByText('12 articles, 17 podcasts, 22 talks', { exact: true })).toBeVisible();
+    await expect(page.getByText('140+ GitHub stars', { exact: true })).toBeVisible();
+    await expect(
+      page.getByRole('heading', { name: 'Kubernetes' }).locator('xpath=preceding-sibling::p')
+    ).toHaveText('Maintainer');
+    await expect(
+      page.getByText('Mentees coached · 5/5 stars').locator('xpath=preceding-sibling::dt')
+    ).toHaveText('20+');
+
+    await page.goto('/roadmap', { waitUntil: 'domcontentloaded' });
+    for (const release of [
+      'KubeCon EU Amsterdam 2026',
+      'Kubernetes SIG Release contributor award',
+      'Kubernetes v1.34',
+      'Kubernetes v1.33',
+    ]) {
+      await expect(page.getByRole('heading', { name: release, exact: true })).toBeVisible();
+    }
+  });
+
+  test('uses the requested customer, blog, and careers copy', async ({ page }) => {
+    await page.goto('/customers', { waitUntil: 'domcontentloaded' });
+    await expect(page.getByText('30 recorded deployments', { exact: true })).toBeVisible();
+    await expect(page.getByText('19 domains', { exact: true })).toBeVisible();
+    await expect(page.getByText('GitHub (Microsoft)', { exact: true })).toBeVisible();
+
+    await page.goto('/blog', { waitUntil: 'domcontentloaded' });
+    for (const removedPost of [
+      'Security in the Cloud Native Era',
+      'Kubernetes Best Practices for Production',
+      'Building Scalable Cloud Native Applications',
+    ]) {
+      await expect(page.getByRole('heading', { name: removedPost, exact: true })).toHaveCount(0);
+    }
+
+    await page.goto('/careers', { waitUntil: 'domcontentloaded' });
+    const close = page
+      .getByRole('heading', {
+        name: 'If these capabilities need to reinforce each other, test the human interface.',
+      })
+      .locator('xpath=ancestor::section');
+    const deploy = close.getByRole('link', { name: 'Deploy' });
+    const [headingBox, deployBox] = await Promise.all([
+      close.getByRole('heading').boundingBox(),
+      deploy.boundingBox(),
+    ]);
+
+    expect(headingBox).not.toBeNull();
+    expect(deployBox).not.toBeNull();
+    expect(deployBox!.y).toBeGreaterThan(headingBox!.y + headingBox!.height);
+    expect(Math.abs(deployBox!.x - headingBox!.x)).toBeLessThanOrEqual(1);
   });
 
   test('keeps benchmark metrics separated and pricing cards aligned', async ({ page }) => {

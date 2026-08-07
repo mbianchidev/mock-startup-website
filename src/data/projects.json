@@ -4,7 +4,7 @@
       "name": "Platform Engineering Roadmap",
       "description": "An opinionated, interactive roadmap that helps engineers navigate the platform engineering landscape",
       "url": "https://github.com/mbianchidev/platform-engineering-roadmap",
-      "stars": "111",
+      "stars": "140+",
       "techStack": [
         "JavaScript",
         "Platform Engineering",
@@ -46,7 +46,7 @@
         "Cloud Native",
         "Containers"
       ],
-      "contribution": "Contributor"
+      "contribution": "Maintainer"
     },
     {
       "name": "Helm",

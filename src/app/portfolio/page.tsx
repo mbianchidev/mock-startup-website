@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { PageHero } from '@/components/PageHero'
 import projectsData from '@/data/projects.json'
-import { getSortedPostsData } from '@/lib/markdown'
 import { createPageMetadata } from '@/lib/siteMetadata'
 import styles from '@/app/inner.module.css'
 
@@ -21,7 +20,6 @@ const ecosystemProjects = projectsData.projects.filter(
 )
 
 export default function Portfolio() {
-  const postCount = getSortedPostsData().length
   const [featuredProject, ...otherOwnedProjects] = ownedProjects
 
   return (
@@ -51,15 +49,19 @@ export default function Portfolio() {
           <dl className={styles.heroSpecs}>
             <div>
               <dt>Owned projects</dt>
-              <dd>{ownedProjects.length}</dd>
+              <dd>30+</dd>
             </div>
             <div>
-              <dt>Ecosystems</dt>
-              <dd>{ecosystemProjects.length} contributed to</dd>
+              <dt>Ecosystems contributed to</dt>
+              <dd>Kubernetes, CNCF, Actions (ARC)... and more</dd>
             </div>
             <div>
               <dt>Field notes</dt>
-              <dd>{postCount} published</dd>
+              <dd>30+</dd>
+            </div>
+            <div>
+              <dt>Mentioned in</dt>
+              <dd>12 articles, 17 podcasts, 22 talks</dd>
             </div>
           </dl>
         }
@@ -167,7 +169,7 @@ export default function Portfolio() {
               <dd>Learners trained</dd>
             </div>
             <div>
-              <dt>15+</dt>
+              <dt>20+</dt>
               <dd>Mentees coached · 5/5 stars</dd>
             </div>
           </dl>

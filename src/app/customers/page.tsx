@@ -26,16 +26,16 @@ export default function Customers() {
         aside={
           <dl className={styles.heroSpecs}>
             <div>
-              <dt>Environments</dt>
-              <dd>{visibleCompanies.length} recorded missions</dd>
+              <dt>Environment</dt>
+              <dd>{visibleCompanies.length} recorded deployments</dd>
             </div>
             <div>
               <dt>Sectors</dt>
               <dd>{sectors} domains</dd>
             </div>
             <div>
-              <dt>Current deployment</dt>
-              <dd>GitHub / Microsoft</dd>
+              <dt>Current active deployment</dt>
+              <dd>GitHub (Microsoft)</dd>
             </div>
           </dl>
         }

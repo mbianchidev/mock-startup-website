@@ -11,6 +11,46 @@ export const metadata = createPageMetadata({
 
 const releases = [
   {
+    year: '2026',
+    title: 'KubeCon EU Amsterdam 2026',
+    summary:
+      'Speaking with one session on Pull Request Wars: The Flux Awakens - Ephemeral Kubernetes Environments Strike Back.',
+    signal: 'KubeCon EU · public speaking',
+    links: [
+      {
+        label: 'View the session',
+        href: 'https://kccnceu2026.sched.com/event/2CW37/pull-request-wars-the-flux-awakens-ephemeral-kubernetes-environments-strike-back-matteo-bianchi-github-stefan-prodan-controlplane?iframe=no&w=100%&sidebar=yes&bg=no',
+      },
+    ],
+  },
+  {
+    year: '2025',
+    title: 'Kubernetes SIG Release contributor award',
+    summary:
+      'Received the 2025 contributor award for sustained work with Kubernetes SIG Release.',
+    signal: 'Kubernetes · contributor recognition',
+    links: [
+      {
+        label: 'Kubernetes contributor awards 2025',
+        href: 'https://www.kubernetes.dev/community/awards/2025/#release',
+      },
+    ],
+  },
+  {
+    year: '2025',
+    title: 'Kubernetes v1.34',
+    summary: 'Released Kubernetes v1.34 as Branch Manager Lead.',
+    signal: 'Release engineering · branch management',
+    links: [],
+  },
+  {
+    year: '2025',
+    title: 'Kubernetes v1.33',
+    summary: 'Released Kubernetes v1.33 as Branch Manager.',
+    signal: 'Release engineering · branch management',
+    links: [],
+  },
+  {
     year: '2025',
     title: 'Release leadership and bigger stages',
     summary:

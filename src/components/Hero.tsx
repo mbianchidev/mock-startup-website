@@ -56,16 +56,16 @@ export function Hero() {
               className={styles.portrait}
               priority
             />
-            <span className={styles.portraitLabel}>LIVE SYSTEM / KCD DENMARK</span>
+            <span className={styles.portraitLabel}>LIVE SYSTEM</span>
           </div>
           <dl className={styles.productSpecs}>
             <div className={styles.specRow}>
               <dt>Runtime</dt>
-              <dd>Senior engineering + customer empathy</dd>
+              <dd>Stuff Engineering + customer empathy</dd>
             </div>
             <div className={styles.specRow}>
               <dt>Interfaces</dt>
-              <dd>Platforms · solutions · AI · open source</dd>
+              <dd>Platform - Solutions - Open Source - AI</dd>
             </div>
             <div className={styles.specRow}>
               <dt>Known quirk</dt>
