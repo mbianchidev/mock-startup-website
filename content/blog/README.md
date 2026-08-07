@@ -131,3 +131,7 @@ The system will automatically:
 - Calculate read times
 - Sort posts by date
 - Create individual post pages
+
+The in-site archive currently contains the 27 English-language posts published
+from **I don’t like ChatGPT.** on December 23, 2022 through the latest post.
+Italian-language posts are intentionally excluded.
