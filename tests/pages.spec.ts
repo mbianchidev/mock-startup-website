@@ -40,6 +40,24 @@ test.describe('Static route experience', () => {
     });
   }
 
+  test('publishes canonical URLs on static and dynamic routes', async ({ page }) => {
+    const canonical = page.locator('link[rel="canonical"]');
+
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await expect(canonical).toHaveAttribute('href', 'https://mbianchi.dev/');
+
+    await page.goto('/about', { waitUntil: 'domcontentloaded' });
+    await expect(canonical).toHaveAttribute('href', 'https://mbianchi.dev/about/');
+
+    await page.goto('/blog/building-scalable-cloud-native-applications', {
+      waitUntil: 'domcontentloaded',
+    });
+    await expect(canonical).toHaveAttribute(
+      'href',
+      'https://mbianchi.dev/blog/building-scalable-cloud-native-applications/'
+    );
+  });
+
   test('renders the main-branch loved-by logo set', async ({ page }) => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
 

@@ -1,13 +1,14 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { PageHero } from '@/components/PageHero'
 import { getSortedPostsData } from '@/lib/markdown'
+import { createPageMetadata } from '@/lib/siteMetadata'
 import styles from '@/app/inner.module.css'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'Field Notes — Matteo',
   description: 'Cloud-native field notes, technical essays, and lessons from production.',
-}
+  path: '/blog/',
+})
 
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString('en-US', {

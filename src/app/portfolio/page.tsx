@@ -1,14 +1,15 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { PageHero } from '@/components/PageHero'
 import projectsData from '@/data/projects.json'
 import { getSortedPostsData } from '@/lib/markdown'
+import { createPageMetadata } from '@/lib/siteMetadata'
 import styles from '@/app/inner.module.css'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'Open Source — Matteo',
   description: 'Creator-owned projects and upstream contributions across developer platforms, AI tooling, Kubernetes, infrastructure, and education.',
-}
+  path: '/portfolio/',
+})
 
 const ownedProjects = projectsData.projects.filter((project) => {
   const url = new URL(project.url)

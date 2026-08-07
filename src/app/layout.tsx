@@ -2,8 +2,10 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import { siteUrl } from '@/lib/siteMetadata'
 
 export const metadata: Metadata = {
+  metadataBase: siteUrl,
   applicationName: 'Matteo',
   title: 'Matteo — The Human Platform',
   description: 'Matteo Bianchi is a Senior Engineer across platforms, solutions, software, and AI, combining deep engineering with customer insight, open source, and technical communication.',

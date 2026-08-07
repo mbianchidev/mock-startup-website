@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { PageHero } from '@/components/PageHero'
 import { getPostData, getAllPostSlugs } from '@/lib/markdown'
+import { createPageMetadata } from '@/lib/siteMetadata'
 import styles from '@/app/inner.module.css'
 
 interface BlogPostPageProps {
@@ -20,15 +21,18 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   const post = await getPostData(slug)
 
   if (!post) {
-    return {
+    return createPageMetadata({
       title: 'Field Note Not Found — Matteo',
-    }
+      description: 'The requested field note could not be found.',
+      path: '/blog/',
+    })
   }
 
-  return {
+  return createPageMetadata({
     title: `${post.title} — Matteo`,
     description: post.excerpt,
-  }
+    path: `/blog/${post.slug}/`,
+  })
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {

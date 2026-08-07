@@ -1,11 +1,12 @@
-import type { Metadata } from 'next'
 import { PageHero } from '@/components/PageHero'
+import { createPageMetadata } from '@/lib/siteMetadata'
 import styles from '@/app/inner.module.css'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'Status — Matteo',
   description: 'Operational status, uptime, and incident history for the Matteo human platform.',
-}
+  path: '/status/',
+})
 
 const systems = [
   {

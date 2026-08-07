@@ -1,12 +1,13 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { PageHero } from '@/components/PageHero'
+import { createPageMetadata } from '@/lib/siteMetadata'
 import styles from '@/app/inner.module.css'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'Changelog — Matteo',
   description: 'A release history of platform work, open source, products, speaking, and community impact.',
-}
+  path: '/roadmap/',
+})
 
 const releases = [
   {
