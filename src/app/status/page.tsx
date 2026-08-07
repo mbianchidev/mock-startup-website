@@ -1,4 +1,3 @@
-import { PageHero } from '@/components/PageHero'
 import { createPageMetadata } from '@/lib/siteMetadata'
 import styles from '@/app/inner.module.css'
 
@@ -12,90 +11,203 @@ const systems = [
   {
     name: 'Human runtime',
     detail: 'Core engineering and product judgment',
+    uptime: '99.99%',
+    incidentDays: [71],
   },
   {
     name: 'Platform interface',
     detail: 'Cloud-native and developer-experience delivery',
+    uptime: '100.00%',
+    incidentDays: [],
   },
   {
     name: 'Open-source uplink',
     detail: 'Repositories, contributions, and community work',
+    uptime: '100.00%',
+    incidentDays: [],
   },
   {
     name: 'Broadcast subsystem',
     detail: 'Talks, writing, workshops, and explanations',
+    uptime: '100.00%',
+    incidentDays: [],
   },
 ]
 
+const uptimeWindow = Array.from({ length: 90 }, (_, index) => index)
+
 export default function StatusPage() {
   return (
-    <div className={styles.page}>
-      <PageHero
-        path="/status"
-        title="All systems operational. Human included."
-        description="Live status for the Matteo platform, measured with enterprise-grade confidence and a suspiciously human incident taxonomy."
-        tone="green"
-        aside={
-          <dl className={styles.heroSpecs}>
+    <div className={`${styles.page} ${styles.statusPage}`}>
+      <section className={styles.statusHero} aria-labelledby="page-title">
+        <div className={styles.statusContainer}>
+          <div className={styles.statusTopline}>
+            <p className={styles.statusRoute}>/status / production</p>
+            <a
+              href="https://github.com/mbianchidev/mbianchi.dev/issues"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.statusIssueLink}
+            >
+              Report an issue
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div className={styles.statusHeroCopy}>
+            <p>Matteo / Human Platform</p>
+            <h1 id="page-title">Service status</h1>
+            <p>
+              Current availability and 90-day operating history for engineering,
+              delivery, open-source, and communication systems.
+            </p>
+          </div>
+
+          <div className={styles.overallStatus} role="status">
+            <span className={styles.overallStatusIcon} aria-hidden="true">✓</span>
+            <div>
+              <h2>All systems operational. Human included.</h2>
+              <p>No active incidents or scheduled maintenance.</p>
+            </div>
+            <strong>
+              <span aria-hidden="true" />
+              Operational
+            </strong>
+          </div>
+
+          <dl className={styles.statusSummary}>
             <div>
               <dt>90-day uptime</dt>
               <dd>99.99%</dd>
             </div>
             <div>
-              <dt>Current status</dt>
-              <dd>Operational</dd>
+              <dt>Active incidents</dt>
+              <dd>0</dd>
             </div>
             <div>
-              <dt>On-call rotation</dt>
-              <dd>One person, well caffeinated</dd>
+              <dt>Planned maintenance</dt>
+              <dd>None</dd>
             </div>
           </dl>
-        }
-      />
+        </div>
+      </section>
 
-      <section className={styles.sectionDark} aria-labelledby="systems-title">
-        <div className={styles.sectionInner}>
-          <div className={styles.sectionIntro}>
-            <h2 id="systems-title">Current systems.</h2>
-            <p>Every public interface is available. No degraded cleverness detected.</p>
+      <div className={styles.statusContent}>
+        <section className={styles.statusSection} aria-labelledby="systems-title">
+          <div className={styles.statusSectionHeader}>
+            <div>
+              <h2 id="systems-title">Components</h2>
+              <p>Availability across the last 90 days.</p>
+            </div>
+            <span>Current status</span>
           </div>
           <div className={styles.statusBoard}>
             {systems.map((system) => (
               <article key={system.name} className={styles.statusRow}>
-                <div>
-                  <h3>{system.name}</h3>
-                  <p>{system.detail}</p>
+                <div className={styles.statusComponentHeader}>
+                  <div>
+                    <h3>{system.name}</h3>
+                    <p>{system.detail}</p>
+                  </div>
+                  <span className={styles.statusComponentState}>
+                    <span aria-hidden="true" />
+                    Operational
+                  </span>
                 </div>
-                <span>
-                  <span aria-hidden="true" />
-                  Operational
-                </span>
+                <div
+                  className={styles.uptimeTrack}
+                  role="img"
+                  aria-label={`${system.name}: ${system.uptime} uptime over the last 90 days`}
+                >
+                  {uptimeWindow.map((day) => (
+                    <span
+                      key={day}
+                      data-uptime-day
+                      className={`${styles.uptimeBar} ${
+                        system.incidentDays.includes(day) ? styles.uptimeBarIncident : ''
+                      }`}
+                      aria-hidden="true"
+                    />
+                  ))}
+                </div>
+                <div className={styles.statusTimelineMeta}>
+                  <span>90 days ago</span>
+                  <strong>{system.uptime} uptime</strong>
+                  <span>Today</span>
+                </div>
               </article>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className={styles.sectionLight} aria-labelledby="incidents-title">
-        <div className={styles.sectionInner}>
-          <div className={styles.sectionIntro}>
-            <h2 id="incidents-title">Incident history.</h2>
-            <p>Transparent postmortems for even the smallest human maintenance window.</p>
+          <div className={styles.statusLegend} aria-label="Uptime history legend">
+            <span>
+              <span className={styles.uptimeBar} aria-hidden="true" />
+              Operational
+            </span>
+            <span>
+              <span className={styles.uptimeBarIncident} aria-hidden="true" />
+              Maintenance
+            </span>
           </div>
-          <article className={styles.incident}>
-            <div className={styles.incidentHeader}>
-              <span>Resolved</span>
-              <time dateTime="PT3M">3 minutes - PTO</time>
+        </section>
+
+        <section className={styles.statusSection} aria-labelledby="incidents-title">
+          <div className={styles.statusSectionHeader}>
+            <div>
+              <h2 id="incidents-title">Incident history</h2>
+              <p>Timestamped updates for interruptions and maintenance.</p>
             </div>
-            <h3>Brief availability interruption.</h3>
-            <p>
-              The human platform temporarily stopped accepting work to perform
-              scheduled personal maintenance.
-            </p>
-            <small>No data loss. One coffee obtained. Service fully restored.</small>
-          </article>
-        </div>
-      </section>
+            <span>Past 30 days</span>
+          </div>
+
+          <div className={styles.statusNoIncidents}>
+            <span aria-hidden="true">✓</span>
+            <div>
+              <strong>No active incidents reported.</strong>
+              <p>All monitored components are operating normally.</p>
+            </div>
+          </div>
+
+          <div className={styles.incidentDay}>
+            <time dateTime="2026-07-18">July 18, 2026</time>
+            <article className={styles.incident}>
+              <div className={styles.incidentHeader}>
+                <div>
+                  <p>Resolved incident</p>
+                  <h3>Scheduled personal maintenance</h3>
+                </div>
+                <span>Resolved</span>
+              </div>
+              <div className={styles.incidentMeta}>
+                <time dateTime="PT3M">3 minutes - PTO</time>
+                <span>Human runtime</span>
+              </div>
+              <ol className={styles.incidentUpdates}>
+                <li>
+                  <time dateTime="2026-07-18T14:03:00+02:00">14:03 CEST</time>
+                  <div>
+                    <strong>Resolved</strong>
+                    <p>Maintenance completed. Full availability has been restored.</p>
+                  </div>
+                </li>
+                <li>
+                  <time dateTime="2026-07-18T14:02:00+02:00">14:02 CEST</time>
+                  <div>
+                    <strong>Monitoring</strong>
+                    <p>Service resumed while coffee acquisition and health checks completed.</p>
+                  </div>
+                </li>
+                <li>
+                  <time dateTime="2026-07-18T14:00:00+02:00">14:00 CEST</time>
+                  <div>
+                    <strong>Identified</strong>
+                    <p>Work intake paused for a scheduled personal maintenance window.</p>
+                  </div>
+                </li>
+              </ol>
+            </article>
+          </div>
+        </section>
+      </div>
     </div>
   )
 }

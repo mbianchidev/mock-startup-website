@@ -6,7 +6,7 @@ const capabilities = [
     key: 'platform.core',
     title: 'Developer platforms people choose to use',
     description:
-      'Built platform APIs and zero-touch onboarding used by 70+ engineers, with cloud infrastructure experience supporting products serving 8M+ daily users.',
+      'Built platform APIs and zero-touch onboarding used by 70+ engineers; led infrastructure and built APIs serving 10M+ daily users to this day.',
     signal: 'Platform engineering · Kubernetes · multi-cloud · SRE',
     evidence: 'Inspect the roadmap',
     href: 'https://github.com/mbianchidev/platform-engineering-roadmap'
@@ -33,7 +33,7 @@ const capabilities = [
     key: 'open.protocol',
     title: 'Open source and communication that compound',
     description:
-      'Kubernetes release engineering maintainer, 40+ merged upstream pull requests, 20+ talks, 500+ learners, and 15+ mentees coached to success (5/5 stars as a mentor).',
+      'Kubernetes release engineering maintainer, 40+ merged upstream pull requests, 20+ talks, 500+ learners, and 20+ mentees coached to success (5/5 stars as a mentor).',
     signal: 'Kubernetes · OSS strategy · speaking · education',
     evidence: 'Open community interfaces',
     href: '/about#community'

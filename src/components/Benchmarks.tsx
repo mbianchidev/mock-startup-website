@@ -14,7 +14,7 @@ const benchmarks = [
   {
     value: '500+',
     label: 'learners trained in Platform Engineering and Kubernetes',
-    source: '20+ talks · 15+ mentees · 5/5 stars as a mentor'
+    source: '20+ talks · 20+ mentees · 5/5 stars as a mentor'
   }
 ]
 

@@ -18,7 +18,7 @@ Each blog post must include frontmatter at the top with the following fields:
 ---
 title: "Your Post Title"
 date: "YYYY-MM-DD"
-author: "Author Name"
+author: "Matteo Bianchi"
 category: "Category Name"
 excerpt: "A brief description of your post (used in listing page)"
 ---
@@ -30,7 +30,7 @@ Your markdown content goes here...
 
 - **title**: The title of your blog post
 - **date**: Publication date in YYYY-MM-DD format
-- **author**: Name of the author
+- **author**: Use `Matteo Bianchi` for every post
 - **category**: Post category (e.g., "Cloud Native", "Kubernetes", "Security")
 - **excerpt**: A short summary (1-2 sentences) displayed on the blog listing page
 
