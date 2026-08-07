@@ -58,6 +58,68 @@ test.describe('Static route experience', () => {
     );
   });
 
+  test('publishes the complete English blog archive', async ({ page }) => {
+    const expectedBlogRoutes = [
+      '/blog/2023-devops-is-terrible/',
+      '/blog/apple-pays-4-15-apy-on-saving-accounts/',
+      '/blog/cloud-native-rejekts-kubecon-na-2024/',
+      '/blog/community-101/',
+      '/blog/doubling-your-engineering-team-wont-double-the-output/',
+      '/blog/fear-and-loathing-in-free-and-open-source/',
+      '/blog/how-netflix-is-k-lling-itself/',
+      '/blog/i-dont-like-chatgpt/',
+      '/blog/idx-a-revolution-or-just-a-new-vscode-re-skin/',
+      '/blog/is-this-the-end-of-open-source-software/',
+      '/blog/italy-vs-openai-a-fact-b-i-ased-clarification/',
+      '/blog/kubecon-rejekts-kubetrain-kcd/',
+      '/blog/kubernetes-community-days-experience/',
+      '/blog/kubernetes-v1-31-elli-an-insider-view/',
+      '/blog/my-2023-wrapped/',
+      '/blog/my-2024-wrapped/',
+      '/blog/my-experience-as-kcd-organizer/',
+      '/blog/new-year-resolutions-of-a-fresh-cto/',
+      '/blog/rip-devrel-2010-2024-why-it-died-and-how-to-stop-killing-it/',
+      '/blog/scrum-sucks/',
+      '/blog/surviving-kubecon-an-updated-guide-na-2024-edition/',
+      '/blog/surviving-kubecon-eu-2024-attendee-edition/',
+      '/blog/terraform-wtf/',
+      '/blog/the-end-of-my-first-journey-in-the-startup-world/',
+      '/blog/when-everything-is-urgent-then-nothing-is-urgent/',
+      '/blog/wtf-is-devrel/',
+      '/blog/yet-another-monumentally-long-year-in-review-2025/',
+    ];
+
+    await page.goto('/blog', { waitUntil: 'domcontentloaded' });
+
+    await expect(page.getByText('27 field notes', { exact: true })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'My 2023 wrapped' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'I don’t like ChatGPT.' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Read I don’t like ChatGPT.' })).toHaveAttribute(
+      'href',
+      '/blog/i-dont-like-chatgpt/'
+    );
+    const publishedRoutes = await page.locator('a[href^="/blog/"]').evaluateAll((links) =>
+      [
+        ...new Set(
+          links
+            .map((link) => link.getAttribute('href'))
+            .filter((href) => href !== null && href !== '/blog/')
+        ),
+      ].sort()
+    );
+    expect(publishedRoutes).toEqual(expectedBlogRoutes.sort());
+
+    await page.goto('/blog/i-dont-like-chatgpt', { waitUntil: 'domcontentloaded' });
+    await expect(page).toHaveTitle('I don’t like ChatGPT. — Matteo');
+    await expect(page.getByRole('heading', { name: 'Here is why I don’t like ChatGPT' })).toBeVisible();
+    await expect(page.locator('article img')).toHaveCount(6);
+
+    await page.goto('/blog/my-2023-wrapped', { waitUntil: 'domcontentloaded' });
+    await expect(page.getByRole('heading', { name: 'Todo list for 2024' })).toBeVisible();
+    await expect(page.getByText('That’s all for now, ciao :)', { exact: true })).toBeVisible();
+    await expect(page.locator('article img')).toHaveCount(3);
+  });
+
   test('renders the main-branch loved-by logo set', async ({ page }) => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
 
