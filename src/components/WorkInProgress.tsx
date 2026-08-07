@@ -41,7 +41,7 @@ const pageContent = {
     tone: 'light' as const,
     status: 'Support SLA: usually faster than the enterprise procurement cycle',
     links: [
-      { label: 'Open a GitHub issue', href: 'https://github.com/mbianchidev/mock-startup-website/issues', detail: 'Bugs and concrete repository feedback.' },
+      { label: 'Open a GitHub issue', href: 'https://github.com/mbianchidev/mbianchi.dev/issues', detail: 'Bugs and concrete repository feedback.' },
       { label: 'Send an email', href: 'mailto:info@mb-consulting.dev', detail: 'Questions that should not become public issues.' },
       { label: 'Book a conversation', href: 'https://cal.com/mbianchidev/intro', detail: 'Architecture, hiring, advisory, or collaboration.' },
     ],

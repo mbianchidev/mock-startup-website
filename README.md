@@ -1,6 +1,6 @@
 # Matteo - Mock Startup Website
 
-![License](https://img.shields.io/github/license/mbianchidev/mock-startup-website)
+![License](https://img.shields.io/github/license/mbianchidev/mbianchi.dev)
 
 ## 🚀 About
 
@@ -64,8 +64,8 @@ Next.js `redirects()` configuration.
 
 1. Clone this repository
    ```bash
-   git clone https://github.com/mbianchidev/mock-startup-website.git
-   cd mock-startup-website
+   git clone https://github.com/mbianchidev/mbianchi.dev.git
+   cd mbianchi.dev
    ```
 
 2. Install dependencies
