@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import pathRedirects from '../src/data/redirects.json';
 
 const pages = [
   { name: 'homepage', path: '/', title: 'Matteo — The Human Platform' },
@@ -22,6 +23,28 @@ const pages = [
   { name: 'privacy', path: '/privacy', title: 'Privacy — Matteo' },
   { name: 'terms', path: '/terms', title: 'Terms — Matteo' },
 ];
+
+test.describe('Short links', () => {
+  test('redirects every configured path', async ({ request }) => {
+    for (const redirect of pathRedirects) {
+      const response = await request.get(`${redirect.source}/`, { maxRedirects: 0 });
+      const expectedLocation = redirect.destination.startsWith('http')
+        ? new URL(redirect.destination).toString()
+        : redirect.destination;
+
+      expect(response.status(), redirect.source).toBe(307);
+      expect(response.headers().location, redirect.source).toBe(expectedLocation);
+    }
+  });
+
+  test('serves the placeholder resume PDF', async ({ request }) => {
+    const response = await request.get('/static/Matteo_Bianchi_resume.pdf');
+
+    expect(response.status()).toBe(200);
+    expect(response.headers()['content-type']).toContain('application/pdf');
+    expect((await response.body()).subarray(0, 5).toString()).toBe('%PDF-');
+  });
+});
 
 test.describe('Static route experience', () => {
   for (const page of pages) {
