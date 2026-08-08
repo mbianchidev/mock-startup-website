@@ -41,7 +41,7 @@ async function syncBlogSocialImages() {
       throw new Error(`Blog post "${fileName}" requires a non-empty "image" field`)
     }
 
-    if (Object.hasOwn(socialImages, image)) {
+    if (Object.prototype.hasOwnProperty.call(socialImages, image)) {
       continue
     }
 

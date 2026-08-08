@@ -19,5 +19,8 @@ export const socialImages = socialImageCatalog
 export type SocialImageKey = keyof typeof socialImages
 
 export function isSocialImageKey(value: unknown): value is SocialImageKey {
-  return typeof value === 'string' && Object.hasOwn(socialImages, value)
+  return (
+    typeof value === 'string'
+    && Object.prototype.hasOwnProperty.call(socialImages, value)
+  )
 }
