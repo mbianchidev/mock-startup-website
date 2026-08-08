@@ -32,7 +32,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; base-uri 'self'; connect-src 'self' https://vercel.live; font-src 'self' data:; form-action 'self'; frame-ancestors 'self'; frame-src https://vercel.live; img-src 'self' data: blob: https://miro.medium.com https://cdn-images-1.medium.com https://vercel.live; manifest-src 'self'; media-src 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://vercel.live; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; worker-src 'self' blob:; upgrade-insecure-requests"
+          "value": "default-src 'self'; base-uri 'self'; connect-src 'self' https://vercel.live https://vitals.vercel-insights.com; font-src 'self' data:; form-action 'self'; frame-ancestors 'self'; frame-src https://vercel.live; img-src 'self' data: blob: https://miro.medium.com https://cdn-images-1.medium.com https://vercel.live; manifest-src 'self'; media-src 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://vercel.live https://va.vercel-scripts.com; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; worker-src 'self' blob:; upgrade-insecure-requests"
         },
         {
           "key": "Cross-Origin-Opener-Policy",

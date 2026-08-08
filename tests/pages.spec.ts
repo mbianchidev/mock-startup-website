@@ -270,6 +270,10 @@ test.describe('Static route experience', () => {
       'src',
       'https://va.vercel-scripts.com/v1/script.debug.js'
     );
+    await expect(page.locator('script[data-sdkn="@vercel/speed-insights/next"]')).toHaveAttribute(
+      'src',
+      'https://va.vercel-scripts.com/v1/speed-insights/script.debug.js'
+    );
   });
 
   test('serves responsive modern portrait formats', async ({ page }) => {
@@ -309,6 +313,8 @@ test.describe('Static route experience', () => {
     );
     expect(headers['Content-Security-Policy']).toContain("default-src 'self'");
     expect(headers['Content-Security-Policy']).toContain("object-src 'none'");
+    expect(headers['Content-Security-Policy']).toContain('https://va.vercel-scripts.com');
+    expect(headers['Content-Security-Policy']).toContain('https://vitals.vercel-insights.com');
     expect(headers['Content-Security-Policy']).not.toContain("'unsafe-eval'");
   });
 
