@@ -22,6 +22,7 @@ const pages = [
   { name: 'support', path: '/support', title: 'Support — Matteo' },
   { name: 'status', path: '/status', title: 'Status — Matteo' },
   { name: 'privacy', path: '/privacy', title: 'Privacy — Matteo' },
+  { name: 'cookies', path: '/cookies', title: 'Cookie Policy — Matteo' },
   { name: 'terms', path: '/terms', title: 'Terms — Matteo' },
 ];
 
@@ -554,7 +555,7 @@ test.describe('Static route experience', () => {
     }
   });
 
-  test('navigates to Privacy and Terms from the footer', async ({ page }) => {
+  test('navigates to every policy from the footer', async ({ page }) => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
 
     const footer = page.getByRole('contentinfo');
@@ -568,6 +569,17 @@ test.describe('Static route experience', () => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
     await page
       .getByRole('contentinfo')
+      .getByRole('link', { name: 'Cookie Policy' })
+      .click();
+    await expect(page).toHaveURL(/\/cookies\/?$/);
+    await expect(page).toHaveTitle('Cookie Policy — Matteo');
+    await expect(
+      page.getByRole('heading', { name: 'Cookies, minus the crumbs.' })
+    ).toBeVisible();
+
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page
+      .getByRole('contentinfo')
       .getByRole('link', { name: 'Terms of Service' })
       .click();
     await expect(page).toHaveURL(/\/terms\/?$/);
@@ -575,6 +587,22 @@ test.describe('Static route experience', () => {
     await expect(
       page.getByRole('heading', { name: 'Terms that fit on one reasonable page.' })
     ).toBeVisible();
+  });
+
+  test('documents the active measurement tools without claiming cookies', async ({ page }) => {
+    await page.goto('/privacy', { waitUntil: 'domcontentloaded' });
+
+    await expect(page.getByRole('heading', { name: /Anonymous audience measurement/ })).toBeVisible();
+    await expect(page.getByText('Vercel Web Analytics runs on every page')).toBeVisible();
+    await expect(page.getByText('Vercel Speed Insights runs on each page load')).toBeVisible();
+    await expect(page.getByRole('main').getByRole('link', { name: 'Cookie Policy' })).toHaveAttribute(
+      'href',
+      '/cookies/'
+    );
+
+    await page.goto('/cookies', { waitUntil: 'domcontentloaded' });
+    await expect(page.getByText(/does not set or read cookies/)).toBeVisible();
+    await expect(page.getByText(/does not use third-party cookies/).first()).toBeVisible();
   });
 
   test('uses the requested Product and Company footer taxonomy', async ({ page }) => {

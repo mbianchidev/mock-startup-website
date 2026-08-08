@@ -65,6 +65,8 @@ export function Footer() {
         <p className={styles.legalLinks}>
           <Link href="/privacy">Privacy</Link>
           <span aria-hidden="true">·</span>
+          <Link href="/cookies">Cookie Policy</Link>
+          <span aria-hidden="true">·</span>
           <Link href="/terms">Terms of Service</Link>
         </p>
       </div>
