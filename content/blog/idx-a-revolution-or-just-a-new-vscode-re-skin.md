@@ -3,6 +3,8 @@ title: "IDX a revolution or just a new VSCode re-skin?"
 date: "2023-08-12"
 author: "Matteo Bianchi"
 category: "Developer Tools"
+image: "profile"
+imageAlt: "Matteo Bianchi speaking on stage at KCD Denmark"
 excerpt: "Google released what seems to be a re-skin of the most loved IDE in the IT industry: Visual Studio Code. As they state in the product website idx aims to enhance the development experience through the revolutionary introduction of AI in development process..."
 readTime: "2 min read"
 ---

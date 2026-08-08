@@ -3,6 +3,8 @@ title: "Apple pays 4.15% APY on saving accounts?!"
 date: "2023-04-18"
 author: "Matteo Bianchi"
 category: "Finance"
+image: "profile"
+imageAlt: "Matteo Bianchi speaking on stage at KCD Denmark"
 excerpt: "How Apple and Goldman Sachs are challenging the old way of banking in the US."
 readTime: "3 min read"
 ---

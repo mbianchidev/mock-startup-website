@@ -42,6 +42,7 @@ This project was created to:
 - **Interactive compatibility diagnostics** with semantic buttons and live results
 - **Server-side rendering** with Next.js 15
 - **Static-exported route system** with route-specific metadata and useful no-JavaScript defaults
+- **Rich social previews** with canonical Open Graph and large-image Twitter cards backed by a strict local image catalog
 - **CSS Modules** for the homepage, global shell, and shared inner-page system
 - **WCAG-oriented behavior** with keyboard navigation, focus states, and reduced-motion fallbacks
 
@@ -186,6 +187,10 @@ duplicate an item in the `links` array and update its values:
 The built-in icon values are `mentor`, `youtube`, and `github`. To add another
 icon, extend `PublicLinkIcon` in `src/data/links.ts` and add its SVG case to
 `LinkIcon` in `src/app/links/page.tsx`.
+
+Blog posts select their social preview image with the required `image` and
+`imageAlt` frontmatter fields. See `content/blog/README.md` for the supported
+catalog keys and validation rules.
 
 ## 🔧 Available Scripts
 

@@ -4,6 +4,10 @@ import matter from 'gray-matter'
 import { remark } from 'remark'
 import html from 'remark-html'
 import gfm from 'remark-gfm'
+import {
+  isSocialImageKey,
+  type SocialImageKey,
+} from '@/lib/siteConfig'
 
 const postsDirectory = path.join(process.cwd(), 'content/blog')
 
@@ -14,6 +18,10 @@ export interface BlogPostMetadata {
   category: string
   excerpt: string
   slug: string
+  image: SocialImageKey
+  imageAlt: string
+  updated?: string
+  tags?: string[]
   readTime?: string
 }
 
@@ -21,8 +29,91 @@ export interface BlogPostData extends BlogPostMetadata {
   content: string
 }
 
+function requiredString(
+  data: Record<string, unknown>,
+  field: string,
+  fileName: string
+) {
+  const value = data[field]
+
+  if (typeof value !== 'string' || value.trim() === '') {
+    throw new Error(`Blog post "${fileName}" requires a non-empty "${field}" field`)
+  }
+
+  return value.trim()
+}
+
+function validDate(value: string, field: string, fileName: string) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+    throw new Error(`Blog post "${fileName}" has an invalid "${field}" date: ${value}`)
+  }
+
+  const parsedDate = new Date(`${value}T00:00:00.000Z`)
+
+  if (Number.isNaN(parsedDate.getTime()) || parsedDate.toISOString().slice(0, 10) !== value) {
+    throw new Error(`Blog post "${fileName}" has an invalid "${field}" date: ${value}`)
+  }
+
+  return value
+}
+
+function parseTags(value: unknown, fileName: string) {
+  if (value === undefined) {
+    return undefined
+  }
+
+  if (
+    !Array.isArray(value)
+    || value.length === 0
+    || value.some((tag) => typeof tag !== 'string' || tag.trim() === '')
+  ) {
+    throw new Error(`Blog post "${fileName}" must use a non-empty string list for "tags"`)
+  }
+
+  return value.map((tag) => tag.trim())
+}
+
+function parsePostMetadata(
+  fileName: string,
+  slug: string,
+  data: Record<string, unknown>,
+  content: string
+): BlogPostMetadata {
+  const image = requiredString(data, 'image', fileName)
+
+  if (!isSocialImageKey(image)) {
+    throw new Error(`Blog post "${fileName}" references an unknown social image: ${image}`)
+  }
+
+  const date = validDate(requiredString(data, 'date', fileName), 'date', fileName)
+  const updatedValue = data.updated
+  const updated =
+    updatedValue === undefined
+      ? undefined
+      : validDate(requiredString(data, 'updated', fileName), 'updated', fileName)
+  const readTimeValue = data.readTime
+  const readTime =
+    readTimeValue === undefined
+      ? calculateReadTime(content)
+      : requiredString(data, 'readTime', fileName)
+  const tags = parseTags(data.tags, fileName)
+
+  return {
+    slug,
+    title: requiredString(data, 'title', fileName),
+    date,
+    author: requiredString(data, 'author', fileName),
+    category: requiredString(data, 'category', fileName),
+    excerpt: requiredString(data, 'excerpt', fileName),
+    image,
+    imageAlt: requiredString(data, 'imageAlt', fileName),
+    ...(updated ? { updated } : {}),
+    ...(tags ? { tags } : {}),
+    readTime,
+  }
+}
+
 export function getSortedPostsData(): BlogPostMetadata[] {
-  // Ensure directory exists
   if (!fs.existsSync(postsDirectory)) {
     return []
   }
@@ -36,15 +127,12 @@ export function getSortedPostsData(): BlogPostMetadata[] {
       const fileContents = fs.readFileSync(fullPath, 'utf8')
       const matterResult = matter(fileContents)
 
-      return {
+      return parsePostMetadata(
+        fileName,
         slug,
-        title: matterResult.data.title || 'Untitled',
-        date: matterResult.data.date || new Date().toISOString(),
-        author: matterResult.data.author || 'Anonymous',
-        category: matterResult.data.category || 'General',
-        excerpt: matterResult.data.excerpt || '',
-        readTime: matterResult.data.readTime || calculateReadTime(matterResult.content),
-      } as BlogPostMetadata
+        matterResult.data,
+        matterResult.content
+      )
     })
 
   return allPostsData.sort((a, b) => {
@@ -76,6 +164,12 @@ export async function getPostData(slug: string): Promise<BlogPostData | null> {
 
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const matterResult = matter(fileContents)
+  const metadata = parsePostMetadata(
+    `${slug}.md`,
+    slug,
+    matterResult.data,
+    matterResult.content
+  )
 
   const processedContent = await remark()
     .use(gfm)
@@ -87,13 +181,7 @@ export async function getPostData(slug: string): Promise<BlogPostData | null> {
     .replace(/<img(?![^>]*\bloading=)([^>]*)>/g, '<img loading="lazy" decoding="async"$1>')
 
   return {
-    slug,
-    title: matterResult.data.title || 'Untitled',
-    date: matterResult.data.date || new Date().toISOString(),
-    author: matterResult.data.author || 'Anonymous',
-    category: matterResult.data.category || 'General',
-    excerpt: matterResult.data.excerpt || '',
-    readTime: matterResult.data.readTime || calculateReadTime(matterResult.content),
+    ...metadata,
     content: contentHtml,
   }
 }

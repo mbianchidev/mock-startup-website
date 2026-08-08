@@ -1,4 +1,5 @@
 import { ResponsivePortrait } from '@/components/ResponsivePortrait'
+import { profilePortrait } from '@/lib/siteConfig'
 import styles from './about.module.css'
 
 const chapters = [
@@ -203,7 +204,7 @@ export default function About() {
 
           <figure className={styles.portrait}>
             <ResponsivePortrait
-              alt="Matteo Bianchi speaking on stage at KCD Denmark"
+              alt={profilePortrait.alt}
               className={styles.portraitImage}
               sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1080px) 42vw, 460px"
               priority

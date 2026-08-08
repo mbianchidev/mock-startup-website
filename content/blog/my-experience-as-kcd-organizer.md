@@ -3,6 +3,8 @@ title: "My experience as KCD organizer"
 date: "2023-12-04"
 author: "Matteo Bianchi"
 category: "Community"
+image: "profile"
+imageAlt: "Matteo Bianchi speaking on stage at KCD Denmark"
 excerpt: "From attendee to organizer: a community story"
 readTime: "7 min read"
 ---

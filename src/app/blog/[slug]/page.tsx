@@ -3,7 +3,10 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { PageHero } from '@/components/PageHero'
 import { getPostData, getAllPostSlugs } from '@/lib/markdown'
-import { createPageMetadata } from '@/lib/siteMetadata'
+import {
+  createArticleMetadata,
+  createPageMetadata,
+} from '@/lib/siteMetadata'
 import styles from '@/app/inner.module.css'
 
 interface BlogPostPageProps {
@@ -28,10 +31,18 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     })
   }
 
-  return createPageMetadata({
+  return createArticleMetadata({
     title: `${post.title} — Matteo`,
     description: post.excerpt,
     path: `/blog/${post.slug}/`,
+    image: post.image,
+    imageAlt: post.imageAlt,
+    publishedTime: new Date(`${post.date}T00:00:00.000Z`).toISOString(),
+    ...(post.updated
+      ? { modifiedTime: new Date(`${post.updated}T00:00:00.000Z`).toISOString() }
+      : {}),
+    authors: [post.author],
+    tags: post.tags ?? [post.category],
   })
 }
 

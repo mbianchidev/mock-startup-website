@@ -1,4 +1,5 @@
 import RedirectPage from '@/components/RedirectPage'
+import { shortLinkMetadata } from '@/components/ShortLinkPage'
 
 export default function GitHubRedirect() {
   return (
@@ -10,7 +11,4 @@ export default function GitHubRedirect() {
   )
 }
 
-export const metadata = {
-  title: 'GitHub - Matteo Bianchi',
-  description: 'Redirecting to Matteo Bianchi GitHub profile'
-}
+export const metadata = shortLinkMetadata

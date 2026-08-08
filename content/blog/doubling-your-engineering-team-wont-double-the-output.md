@@ -3,6 +3,8 @@ title: "Doubling your engineering team won’t double the output"
 date: "2023-04-07"
 author: "Matteo Bianchi"
 category: "Engineering"
+image: "profile"
+imageAlt: "Matteo Bianchi speaking on stage at KCD Denmark"
 excerpt: "A qualitative analysis on the myth of linear growth: understanding the realities of expanding your engineering team(s)"
 readTime: "5 min read"
 ---

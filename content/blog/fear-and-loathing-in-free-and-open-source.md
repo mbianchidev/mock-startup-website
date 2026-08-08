@@ -3,6 +3,8 @@ title: "Fear and Loathing in Free and Open-Source"
 date: "2023-09-29"
 author: "Matteo Bianchi"
 category: "Open Source"
+image: "profile"
+imageAlt: "Matteo Bianchi speaking on stage at KCD Denmark"
 excerpt: "Why are all these companies moving to restrictive licenses or changing pricing models?"
 readTime: "4 min read"
 ---

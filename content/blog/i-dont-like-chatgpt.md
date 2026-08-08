@@ -3,6 +3,8 @@ title: "I don’t like ChatGPT."
 date: "2022-12-23"
 author: "Matteo Bianchi"
 category: "AI"
+image: "profile"
+imageAlt: "Matteo Bianchi speaking on stage at KCD Denmark"
 excerpt: "I cannot take it anymore, ChatGPT is everywhere. I must give you my 2 cents on it, even if it is completely uncalled for, or I’m gonna explode."
 readTime: "5 min read"
 ---

@@ -20,6 +20,8 @@ title: "Your Post Title"
 date: "YYYY-MM-DD"
 author: "Matteo Bianchi"
 category: "Category Name"
+image: "profile"
+imageAlt: "Matteo Bianchi speaking on stage at KCD Denmark"
 excerpt: "A brief description of your post (used in listing page)"
 ---
 
@@ -32,11 +34,19 @@ Your markdown content goes here...
 - **date**: Publication date in YYYY-MM-DD format
 - **author**: Use `Matteo Bianchi` for every post
 - **category**: Post category (e.g., "Cloud Native", "Kubernetes", "Security")
+- **image**: Social preview image key from `src/lib/siteConfig.ts` (`profile` or `brand`)
+- **imageAlt**: Concise alternative text describing the selected social preview image
 - **excerpt**: A short summary (1-2 sentences) displayed on the blog listing page
 
 ### Optional Fields
 
 - **readTime**: Reading time estimate (e.g., "5 min read"). If not provided, it will be calculated automatically.
+- **updated**: Last substantial update date in YYYY-MM-DD format. When present, it is published as the article modification time.
+- **tags**: YAML list of article tags. When omitted, the post category is used as the social metadata tag.
+
+The build fails when a required field is empty, a date is invalid, or `image`
+does not match the local catalog. Social preview images are resolved to absolute
+production URLs, so do not enter arbitrary paths or third-party image URLs.
 
 ## Markdown Support
 

@@ -1,4 +1,5 @@
 import RedirectPage from '@/components/RedirectPage'
+import { shortLinkMetadata } from '@/components/ShortLinkPage'
 
 export default function LinkedInRedirect() {
   return (
@@ -10,7 +11,4 @@ export default function LinkedInRedirect() {
   )
 }
 
-export const metadata = {
-  title: 'LinkedIn - Matteo Bianchi',
-  description: 'Redirecting to Matteo Bianchi LinkedIn profile'
-}
+export const metadata = shortLinkMetadata

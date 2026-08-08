@@ -1,4 +1,5 @@
 import RedirectPage from '@/components/RedirectPage'
+import { shortLinkMetadata } from '@/components/ShortLinkPage'
 
 export default function BlogRedirect() {
   return (
@@ -10,7 +11,4 @@ export default function BlogRedirect() {
   )
 }
 
-export const metadata = {
-  title: 'Blog - Matteo Bianchi',
-  description: 'Redirecting to Matteo Bianchi Blog'
-}
+export const metadata = shortLinkMetadata

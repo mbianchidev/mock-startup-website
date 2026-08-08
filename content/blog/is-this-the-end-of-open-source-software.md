@@ -3,6 +3,8 @@ title: "Is this the end of Open Source Software?"
 date: "2023-04-19"
 author: "Matteo Bianchi"
 category: "Open Source"
+image: "profile"
+imageAlt: "Matteo Bianchi speaking on stage at KCD Denmark"
 excerpt: "EU is trying to end OSS with a new law."
 readTime: "3 min read"
 ---
