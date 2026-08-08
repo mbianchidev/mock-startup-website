@@ -60,7 +60,19 @@ export function Footer() {
         </div>
       </div>
       <div className={styles.footerBottom}>
-        <p>&copy; {currentYear} Matteo. No vendor lock-in.</p>
+        <div className={styles.footerIdentity}>
+          <p>&copy; {currentYear} SyncTune. No vendor lock-in.</p>
+          <dl className={styles.businessIdentifiers} aria-label="Business registration details">
+            <div>
+              <dt>KVK</dt>
+              <dd>91602289</dd>
+            </div>
+            <div>
+              <dt>VAT</dt>
+              <dd>NL004901960B70</dd>
+            </div>
+          </dl>
+        </div>
         <p>Designed as a product. Operated as a human.</p>
         <p className={styles.legalLinks}>
           <Link href="/privacy">Privacy</Link>

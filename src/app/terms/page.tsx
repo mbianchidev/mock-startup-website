@@ -37,7 +37,7 @@ const sections = [
   {
     title: 'Liability',
     paragraphs: [
-      <>To the extent permitted by law, Matteo is not liable for indirect loss resulting solely from using or being unable to use this website.</>,
+      <>To the extent permitted by law, SyncTune is not liable for indirect loss resulting solely from using or being unable to use this website.</>,
     ],
   },
   {
