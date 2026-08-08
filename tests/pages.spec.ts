@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import pathRedirects from '../src/data/redirects.json';
+import { getSortedPostsData } from '../src/lib/markdown';
 import vercelConfig from '../vercel.json';
 
 const pages = [
@@ -48,6 +49,45 @@ test.describe('Short links', () => {
 });
 
 test.describe('Static route experience', () => {
+  test('publishes canonical sitemap and robots metadata routes', async ({ request }) => {
+    const sitemapResponse = await request.get('/sitemap.xml');
+    expect(sitemapResponse.ok()).toBe(true);
+
+    const sitemap = await sitemapResponse.text();
+    const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+    const expectedUrls = [
+      ...new Set([
+        ...pages.map(({ path }) =>
+          new URL(path.endsWith('/') ? path : `${path}/`, 'https://mbianchi.dev').toString()
+        ),
+        ...getSortedPostsData().map(({ slug }) => `https://mbianchi.dev/blog/${slug}/`),
+      ]),
+    ].sort();
+
+    expect(sitemap).toContain('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
+    expect(sitemapUrls).toEqual(expectedUrls);
+    expect(new Set(sitemapUrls).size).toBe(sitemapUrls.length);
+
+    for (const redirect of pathRedirects) {
+      expect(sitemapUrls).not.toContain(
+        new URL(`${redirect.source}/`, 'https://mbianchi.dev').toString()
+      );
+    }
+    expect(sitemapUrls.some((url) => url.includes('/redirect/'))).toBe(false);
+
+    const robotsResponse = await request.get('/robots.txt');
+    expect(robotsResponse.ok()).toBe(true);
+
+    const robots = await robotsResponse.text();
+    expect(robots).toContain('User-Agent: *');
+    expect(robots).toContain('Allow: /');
+    expect(robots).toContain('Disallow: /redirect/');
+    expect(robots).toContain('Disallow: /secret/');
+    expect(robots).toContain('Sitemap: https://mbianchi.dev/sitemap.xml');
+    expect(robots).toContain('Host: https://mbianchi.dev');
+    expect(robots).not.toContain('/_next/');
+  });
+
   for (const page of pages) {
     test(`renders ${page.name}`, async ({ page: browserPage }) => {
       await browserPage.goto(page.path, { waitUntil: 'domcontentloaded' });
