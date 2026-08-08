@@ -17,6 +17,7 @@ This project is a satirical product launch for Matteo Bianchi: a personal portfo
 - Production CSP, browser security headers, and asset caching configured through Vercel
 - Privacy-friendly traffic measurement through Vercel Web Analytics
 - Real-user Core Web Vitals collection through Vercel Speed Insights
+- Plain-language privacy and cookie policies that document the site’s actual Vercel data flows
 - An open-source proof ledger sourced from `src/data/projects.json`
 - A complete route system for field notes, changelog, portfolio, deployment history, pricing, legal, and support pages
 - A configurable `/links` endpoint manifest sourced from `src/data/links.ts`
@@ -131,6 +132,7 @@ src/
 │   ├── links/           # Configurable public link manifest
 │   ├── about/           # About page
 │   ├── careers/         # Careers page
+│   ├── cookies/         # Cookie policy
 │   ├── customers/       # Customers page
 │   ├── documentation/   # Documentation page
 │   ├── press/           # Press page
