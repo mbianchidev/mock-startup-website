@@ -1,13 +1,3 @@
-import portraitAvif1280 from '@/assets/matteo-kcd-denmark-1280.avif'
-import portraitAvif320 from '@/assets/matteo-kcd-denmark-320.avif'
-import portraitAvif640 from '@/assets/matteo-kcd-denmark-640.avif'
-import portraitAvif960 from '@/assets/matteo-kcd-denmark-960.avif'
-import portraitFallback from '@/assets/matteo-kcd-denmark.jpg'
-import portraitWebp1280 from '@/assets/matteo-kcd-denmark-1280.webp'
-import portraitWebp320 from '@/assets/matteo-kcd-denmark-320.webp'
-import portraitWebp640 from '@/assets/matteo-kcd-denmark-640.webp'
-import portraitWebp960 from '@/assets/matteo-kcd-denmark-960.webp'
-
 export const siteConfig = {
   name: 'Matteo',
   title: 'Matteo — The Human Platform',
@@ -23,16 +13,16 @@ export const siteConfig = {
 
 export const profilePortrait = {
   alt: 'Matteo Bianchi speaking on stage at KCD Denmark',
-  fallback: portraitFallback,
-  avif: [portraitAvif320, portraitAvif640, portraitAvif960, portraitAvif1280],
-  webp: [portraitWebp320, portraitWebp640, portraitWebp960, portraitWebp1280],
+  src: '/images/matteo-kcd-denmark.jpg',
+  width: 1600,
+  height: 1066,
 } as const
 
 export const socialImages = {
   profile: {
-    src: profilePortrait.fallback.src,
-    width: profilePortrait.fallback.width,
-    height: profilePortrait.fallback.height,
+    src: profilePortrait.src,
+    width: profilePortrait.width,
+    height: profilePortrait.height,
     alt: profilePortrait.alt,
     type: 'image/jpeg',
   },

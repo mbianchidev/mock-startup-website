@@ -168,9 +168,7 @@ test.describe('Static route experience', () => {
         openGraphImage!
       );
 
-      expect(openGraphImage).toMatch(
-        /^https:\/\/mbianchi\.dev\/_next\/static\/media\/matteo-kcd-denmark\.[a-f0-9]+\.jpg$/
-      );
+      expect(openGraphImage).toBe('https://mbianchi.dev/images/matteo-kcd-denmark.jpg');
       const imageResponse = await request.get(new URL(openGraphImage!).pathname);
       expect(imageResponse.ok(), openGraphImage!).toBe(true);
       expect(imageResponse.headers()['content-type']).toContain('image/jpeg');
