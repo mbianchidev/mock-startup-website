@@ -607,6 +607,33 @@ test.describe('Static route experience', () => {
     }
   });
 
+  test('shows SyncTune registration details without footer overflow', async ({ page }) => {
+    for (const viewport of [
+      { width: 390, height: 844 },
+      { width: 1600, height: 900 },
+    ]) {
+      await page.setViewportSize(viewport);
+      await page.goto('/', { waitUntil: 'domcontentloaded' });
+
+      const footer = page.getByRole('contentinfo');
+      await expect(footer).toContainText(`© ${new Date().getFullYear()} SyncTune`);
+      const businessDetails = footer.locator(
+        'dl[aria-label="Business registration details"]'
+      );
+      await expect(businessDetails.getByText('KVK', { exact: true })).toBeVisible();
+      await expect(businessDetails.getByText('91602289', { exact: true })).toBeVisible();
+      await expect(businessDetails.getByText('VAT', { exact: true })).toBeVisible();
+      await expect(
+        businessDetails.getByText('NL004901960B70', { exact: true })
+      ).toBeVisible();
+
+      const hasOverflow = await footer.evaluate(
+        (element) => element.scrollWidth > element.clientWidth
+      );
+      expect(hasOverflow).toBe(false);
+    }
+  });
+
   test('calculates an advisory quote accessibly', async ({ page }) => {
     await page.goto('/pricing', { waitUntil: 'domcontentloaded' });
     await page.locator('html[data-hydrated="true"]').waitFor();
