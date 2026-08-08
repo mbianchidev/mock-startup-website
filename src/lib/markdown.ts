@@ -10,6 +10,7 @@ import {
 import {
   getGeneratedBlogSocialImage,
   isLocalBlogImageReference,
+  isPublishedBlogPostFile,
   resolveLocalBlogImage,
 } from '@/lib/blogSocialImages'
 import type { SocialImageSource } from '@/lib/siteMetadata'
@@ -132,7 +133,7 @@ export function getSortedPostsData(): BlogPostMetadata[] {
 
   const fileNames = fs.readdirSync(postsDirectory)
   const allPostsData = fileNames
-    .filter((fileName) => fileName.endsWith('.md') && !fileName.toUpperCase().startsWith('README'))
+    .filter(isPublishedBlogPostFile)
     .map((fileName) => {
       const slug = fileName.replace(/\.md$/, '')
       const fullPath = path.join(postsDirectory, fileName)
@@ -163,7 +164,7 @@ export function getAllPostSlugs(): string[] {
 
   const fileNames = fs.readdirSync(postsDirectory)
   return fileNames
-    .filter((fileName) => fileName.endsWith('.md') && !fileName.toUpperCase().startsWith('README'))
+    .filter(isPublishedBlogPostFile)
     .map((fileName) => fileName.replace(/\.md$/, ''))
 }
 

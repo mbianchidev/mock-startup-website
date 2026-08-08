@@ -5,10 +5,14 @@ This directory contains blog posts written in Markdown format. Each blog post is
 ## File Structure
 
 Each blog post should be named using kebab-case (lowercase with hyphens), which will become the URL slug.
+Files whose names start with `_` are templates or drafts and are never published.
 
 Example:
 - File: `my-awesome-post.md`
 - URL: `/blog/my-awesome-post`
+
+Copy `_template.md` when starting a post, then rename the copy without the
+leading underscore to publish it.
 
 ## Frontmatter Format
 

@@ -6,6 +6,14 @@ const generatedManifestPath = path.join(generatedDirectory, 'blog-social-images.
 const publicDirectory = path.join(process.cwd(), 'public', 'blog-social-images')
 const supportedExtensions = new Set(['.avif', '.jpeg', '.jpg', '.png', '.webp'])
 
+function isPublishedBlogPostFile(fileName) {
+  return (
+    fileName.toLowerCase().endsWith('.md')
+    && fileName.toUpperCase() !== 'README.MD'
+    && !fileName.startsWith('_')
+  )
+}
+
 function isLocalBlogImageReference(value) {
   return typeof value === 'string' && (value.startsWith('./') || value.startsWith('../'))
 }
@@ -78,6 +86,7 @@ module.exports = {
   getBlogSocialImageOutput,
   getGeneratedBlogSocialImage,
   isLocalBlogImageReference,
+  isPublishedBlogPostFile,
   publicDirectory,
   resolveLocalBlogImage,
 }

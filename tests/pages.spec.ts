@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import pathRedirects from '../src/data/redirects.json';
-import { getSortedPostsData } from '../src/lib/markdown';
+import { getAllPostSlugs, getSortedPostsData } from '../src/lib/markdown';
 import { createAbsoluteImageUrl, withBasePath } from '../src/lib/siteMetadata';
 import vercelConfig from '../vercel.json';
 
@@ -51,6 +51,13 @@ test.describe('Short links', () => {
 });
 
 test.describe('Static route experience', () => {
+  test('does not publish underscore-prefixed blog templates', () => {
+    const slugs = getAllPostSlugs();
+
+    expect(slugs).not.toContain('_template');
+    expect(slugs.every((slug) => !slug.startsWith('_'))).toBe(true);
+  });
+
   test('publishes canonical sitemap and robots metadata routes', async ({ request }) => {
     const sitemapResponse = await request.get('/sitemap.xml');
     expect(sitemapResponse.ok()).toBe(true);

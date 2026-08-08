@@ -9,6 +9,7 @@ export const generatedDirectory: string
 export const generatedManifestPath: string
 export const publicDirectory: string
 
+export function isPublishedBlogPostFile(fileName: string): boolean
 export function isLocalBlogImageReference(value: unknown): value is string
 export function resolveLocalBlogImage(postFile: string, imageReference: string): string
 export function getBlogSocialImageOutput(

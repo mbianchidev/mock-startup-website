@@ -8,6 +8,7 @@ const {
   generatedManifestPath,
   getBlogSocialImageOutput,
   isLocalBlogImageReference,
+  isPublishedBlogPostFile,
   publicDirectory,
   resolveLocalBlogImage,
 } = require('../src/lib/blogSocialImages')
@@ -29,7 +30,7 @@ async function syncBlogSocialImages() {
   const manifest = {}
   const postFiles = fs
     .readdirSync(postsDirectory)
-    .filter((fileName) => fileName.endsWith('.md') && fileName.toUpperCase() !== 'README.MD')
+    .filter(isPublishedBlogPostFile)
 
   for (const fileName of postFiles) {
     const postFile = path.join(postsDirectory, fileName)
