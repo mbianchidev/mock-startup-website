@@ -1,64 +1,107 @@
-# AGENTS.md - Mock Startup Website
+# AGENTS.md
 
-## Dev environment tips
+## Project
 
-- This is a Next.js 15 project with React 19 and TypeScript
-- Use `npm run dev` to start the development server on http://localhost:3000
-- Run `npm install` to add new dependencies to the project
-- Use `npm run build` to create a production build with static export
-- The project uses static export configuration for GitHub Pages deployment
-- Check `package.json` for available scripts and dependencies
-- TypeScript configuration is in `tsconfig.json`
-- ESLint configuration is in `.eslintrc.json`
+- This is a statically exported personal portfolio built with Next.js 15.5, React 19, and strict TypeScript.
+- The application uses the App Router and deploys to Vercel. `npm run build` writes the static site to `out/`.
+- `PRODUCT.md` defines the product direction, voice, audience, and accessibility goals. Keep `README.md` aligned with setup, architecture, and deployment changes.
+- Use Node.js 20 and npm to match `.github/workflows/ci.yml`.
 
-## Testing instructions
+## Commands
 
-- Find the CI plan in the `.github/workflows/static.yml` file
-- Currently no test framework is configured - tests would need to be added if required
-- Run `npm run build` to ensure the project builds successfully
-- Run `npm run lint` to check code quality and TypeScript types
-- The build process creates a static export in the `out/` directory
-- Always run `npm run build` and `npm run lint` after making significant changes
-- Test the static export locally with `npx serve out` after building
+| Task | Command |
+| --- | --- |
+| Install exact dependencies | `npm ci` |
+| Start development server | `npm run dev` |
+| Lint and type-check | `npm run lint` |
+| Run Playwright tests | `npm run test:playwright` |
+| Build and validate static export | `npm run build` |
+| Preview the export | `npx serve out` |
+| Regenerate optimized portraits | `npm run images:optimize` |
 
-## Troubleshooting Common Issues
+Playwright starts the development server at `http://localhost:3000` automatically. Install Chromium with `npx playwright install chromium` if it is unavailable locally.
 
-### Dependency Issues
-If you encounter weird dependency issues or package conflicts:
-- Delete `package-lock.json` file
-- Delete `node_modules` folder
-- Run `npm install` again
-- This often resolves version conflicts and ensures a clean dependency tree
+## Repository map
 
-### Content Security Policy (CSP) Errors
-If you see CSP violations in the browser console:
-- Check if external scripts (like Font Awesome, analytics) are being blocked
-- Verify the CSP headers in `next.config.js` allow the required domains
-- For Font Awesome specifically, ensure `kit.fontawesome.com` is allowlisted
+- `src/app/`: App Router pages, layouts, metadata routes, and route-specific CSS Modules.
+- `src/components/`: Shared server and client components.
+- `src/data/`: Structured project, customer, link, and redirect data.
+- `src/lib/`: Markdown, metadata, and SEO helpers.
+- `content/blog/`: Markdown posts with front matter.
+- `public/`: Static images, brand assets, icons, and downloadable files.
+- `tests/pages.spec.ts`: Playwright route, interaction, accessibility, metadata, redirect, and security-header coverage.
+- `scripts/`: Image optimization and static redirect validation.
+- `vercel.json`: Production response headers and Content Security Policy.
 
-### Hydration Errors
-If you encounter React hydration mismatches:
-- Ensure server-rendered content matches client-side content exactly
-- Check for browser-specific APIs being used during SSR
-- Use `useEffect` for browser-only code
-- Consider using `dynamic` imports with `{ ssr: false }` for client-only components
+## Design and content system
 
-## Build & deployment process
+Treat the existing components and CSS tokens as the implementation source of truth. Preserve these design invariants when changing or adding UI.
 
-- The project is configured for static export to GitHub Pages
-- Build command: `npm run build` creates optimized static files
-- Output directory: `out/` (automatically generated)
-- The CI workflow sets `NEXT_BASE_PATH` for proper GitHub Pages subpath routing
-- Production builds should pass all linting and type checking
-- Static assets are optimized and images are unoptimized for static hosting
+### Creative direction
 
-## PR instructions
+- The creative north star is **"The Human Release Candidate"**: a high-performance product launch for a human, expressed through a black anodized chassis, fluorescent QA signals, engineering reports, and self-aware release notes.
+- Satire earns attention; inspectable open-source, speaking, delivery, and customer evidence earns credibility. Every joke should reveal useful information.
+- Use one dominant visual idea per section. Prefer asymmetric manifests, ledgers, consoles, and full-width records over repeated equal card grids.
+- Inner routes share the `PageHero` shell, then need route-specific body structures rather than template repetition.
+- Do not drift into a generic SaaS landing page, conventional corporate resume, chaotic meme site, or serious enterprise consultancy.
 
-- Title format: `[feature/fix] <descriptive-title>`
-- Always run `npm run lint` and `npm run build` before committing
-- Ensure the static export builds successfully
-- Check that TypeScript compilation passes without errors
-- Test functionality in development mode with `npm run dev`
-- Verify static export works with `npx serve out` after building
-- Follow the existing code style and component patterns
-- Update documentation if adding new features or changing functionality
+### Visual language
+
+- **Launch Black `#0A0A0B`** is the chassis, **Electric Cyan `#00D9FF`** means attention or action, **Proof Green `#00FF94`** means verified evidence or success, and **Signal White `#FFFFFF`** is the specification and reading surface.
+- Follow the two-signal rule: cyan and green have distinct meanings and should not be combined merely for decoration.
+- At most one cyan-drenched section should interrupt the dark page rhythm.
+- Use Archivo Black for oversized display statements and Public Sans for readable body copy. Display type carries one sharp idea, not paragraphs, fake metrics, or vague claims.
+- Keep body copy near a 65-70 character measure. Monospace or code-like styling is reserved for real system keys and states.
+- Depth is structural: allow only one deeply elevated chassis or console per viewport. Ordinary records stay flat and use full one-pixel borders.
+- Use approximately `16px` radii for major surfaces, `12px` for media, and `8px` to `10px` for controls.
+- Never add gradient text, glassmorphism, colored side-stripe borders, nested cards, or the standard hero-plus-metrics template.
+
+### Components and interaction
+
+- Primary actions use Electric Cyan with Launch Black text; Proof Green is reserved for a confirmed hover or success response. Secondary actions use a dark panel with a complete visible border.
+- Homepage primary actions should be at least `52px` tall. Interactive movement should stay within two to five pixels.
+- Pills and chips are static technology metadata, not disguised controls.
+- Essential claims, links, and default interactive results must exist in server-rendered HTML.
+- Motion should be short and purposeful: scan, pulse, state shift, or tactile response. Remove it under reduced motion without removing information.
+- Interactive business logic uses stable IDs, never display labels as keys. Native controls must expose state with appropriate elements and ARIA attributes.
+- The mobile navigation toggle and CTA must render in static HTML; preserve `aria-expanded`, `aria-controls`, Escape dismissal, and keyboard access.
+
+### Route and brand contracts
+
+- Navigation calls the capability manifest **Features** and the operating-environment inventory **Integrations**. The interactive compatibility lab remains a separate experience.
+- Proof Green may feature creator-owned evidence. Third-party star totals must be labeled as project signal and never presented as Matteo's contribution.
+- Blog posts, changelog entries, upstream contributions, roles, and deployments use full-width bordered records. Use years only where chronology carries meaning.
+- Long-form and legal pages use Signal White with Launch Black text, a `760px` to `820px` reading measure, generous line height, and horizontally scrollable code or tables.
+- Pricing controls use stable IDs, labeled inputs, `aria-pressed` presets, and an `output` element for the live quote.
+- Company marks stay local and load before marquee motion. They are grayscale at rest, reveal brand color on hover, pause during pointer inspection, and become manually scrollable when reduced motion is enabled. Copy must not imply endorsement.
+- Preserve the Duck Runtime identity. Approved editable assets are in `src/assets/brand/`; exported assets are in `public/brand/`, `public/icons/`, and `src/app/`.
+- Keep the full lockup at least `132px` wide and the compact mark at least `24px`. Below `32px`, use the simplified mark without the wing waveform.
+- Do not outline, rotate, recolor individual parts, add gradients, turn the duck yellow, separate the eye, or use detailed artwork at favicon scale.
+
+## Implementation conventions
+
+- Prefer Server Components. Add `'use client'` only for browser APIs, effects, or interactive state.
+- Use the `@/*` alias for imports from `src/`.
+- Reuse shared components and existing CSS Modules before adding new abstractions or styles.
+- Keep public routes compatible with `output: 'export'`; do not introduce runtime server dependencies.
+- Use `createPageMetadata` from `src/lib/siteMetadata.ts` for canonical metadata.
+- Keep essential content available in the initial HTML. Client-side interaction should enhance content, not unlock it.
+- Preserve WCAG 2.2 AA behavior: semantic HTML, keyboard access, visible focus, meaningful labels, sufficient contrast, and reduced-motion support.
+- Use `next/link` for internal navigation. External links opened in a new tab must use `rel="noopener noreferrer"`.
+- Prefer structured data changes in `src/data/` over duplicating content inside components.
+- Keep redirect declarations in `src/data/redirects.json` and their static fallback pages synchronized. The build validates this contract.
+- Blog posts belong in `content/blog/` and require `title`, `date`, `author`, `category`, and `excerpt` front matter.
+- If a new external origin is required, update the relevant directive in `vercel.json` instead of weakening the whole CSP.
+- Do not commit generated `.next/`, `out/`, `playwright-report/`, `test-results/`, or `tests/screenshots/` files.
+
+## Validation
+
+Run the same checks as CI before opening a pull request:
+
+```bash
+npm run lint
+npm run test:playwright
+npm run build
+```
+
+For visual changes, inspect affected routes at mobile and desktop widths and confirm keyboard and reduced-motion behavior. Use `[feature] <description>` or `[fix] <description>` for pull request titles.
