@@ -9,6 +9,8 @@ yarn-error.log*
 out/
 build/
 dist/
+.generated/
+/public/blog-social-images/
 
 # Environment variables
 .env

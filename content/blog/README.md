@@ -34,7 +34,7 @@ Your markdown content goes here...
 - **date**: Publication date in YYYY-MM-DD format
 - **author**: Use `Matteo Bianchi` for every post
 - **category**: Post category (e.g., "Cloud Native", "Kubernetes", "Security")
-- **image**: Social preview image key from `src/lib/siteConfig.ts` (`profile` or `brand`)
+- **image**: A built-in image key (`profile` or `brand`), or a local image path relative to the post file
 - **imageAlt**: Concise alternative text describing the selected social preview image
 - **excerpt**: A short summary (1-2 sentences) displayed on the blog listing page
 
@@ -44,9 +44,20 @@ Your markdown content goes here...
 - **updated**: Last substantial update date in YYYY-MM-DD format. When present, it is published as the article modification time.
 - **tags**: YAML list of article tags. When omitted, the post category is used as the social metadata tag.
 
-The build fails when a required field is empty, a date is invalid, or `image`
-does not match the local catalog. Social preview images are resolved to absolute
-production URLs, so do not enter arbitrary paths or third-party image URLs.
+For a post-specific image, keep the file in the repository and reference it
+relative to the Markdown file:
+
+```yaml
+image: "./images/my-post-cover.jpg"
+imageAlt: "Description of the post cover"
+```
+
+`npm run dev`, `npm run build`, and the Playwright test command validate the
+image, read its dimensions, and copy it to
+`public/blog-social-images/<post-slug>/` before Next.js starts. The emitted
+Open Graph and Twitter URL is absolute and production-safe. Supported formats
+are AVIF, JPEG, PNG, and WebP. Remote URLs and paths outside the repository are
+rejected, and missing or invalid images fail loudly.
 
 ## Markdown Support
 

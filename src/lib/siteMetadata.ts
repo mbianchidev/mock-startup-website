@@ -7,6 +7,16 @@ import {
 
 export const siteUrl = siteConfig.url
 
+export interface SocialImageDefinition {
+  src: string
+  width?: number
+  height?: number
+  alt?: string
+  type?: string
+}
+
+export type SocialImageSource = SocialImageKey | SocialImageDefinition
+
 export function getBasePath() {
   const configuredBasePath = process.env.NEXT_BASE_PATH?.trim()
 
@@ -56,15 +66,16 @@ export function createAbsoluteImageUrl(pathname: string) {
   return imageUrl
 }
 
-export function resolveSocialImage(image: SocialImageKey, imageAlt?: string) {
-  const selectedImage = socialImages[image]
+export function resolveSocialImage(image: SocialImageSource, imageAlt?: string) {
+  const selectedImage = typeof image === 'string' ? socialImages[image] : image
+  const alt = imageAlt ?? selectedImage.alt
 
   return {
     url: createAbsoluteImageUrl(selectedImage.src),
-    width: selectedImage.width,
-    height: selectedImage.height,
-    alt: imageAlt ?? selectedImage.alt,
-    type: selectedImage.type,
+    ...(selectedImage.width ? { width: selectedImage.width } : {}),
+    ...(selectedImage.height ? { height: selectedImage.height } : {}),
+    ...(alt ? { alt } : {}),
+    ...(selectedImage.type ? { type: selectedImage.type } : {}),
   }
 }
 
@@ -72,7 +83,7 @@ interface PageMetadata {
   title: string
   description: string
   path: string
-  image?: SocialImageKey
+  image?: SocialImageSource
   imageAlt?: string
 }
 

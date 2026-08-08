@@ -182,7 +182,8 @@ test.describe('Static route experience', () => {
 
     const expectedUrl =
       'https://mbianchi.dev/blog/yet-another-monumentally-long-year-in-review-2025/';
-    const expectedImage = 'https://mbianchi.dev/brand/matteo-mark.png';
+    const expectedImage =
+      'https://mbianchi.dev/blog-social-images/yet-another-monumentally-long-year-in-review-2025/matteo-mark.png';
 
     await expect(page.locator('meta[property="og:type"]')).toHaveAttribute('content', 'article');
     await expect(page.locator('meta[property="og:url"]')).toHaveAttribute('content', expectedUrl);
@@ -193,6 +194,14 @@ test.describe('Static route experience', () => {
     await expect(page.locator('meta[property="og:image:alt"]')).toHaveAttribute(
       'content',
       'Matteo human platform brand mark'
+    );
+    await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute(
+      'content',
+      '1024'
+    );
+    await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute(
+      'content',
+      '1024'
     );
     await expect(page.locator('meta[property="article:published_time"]')).toHaveAttribute(
       'content',

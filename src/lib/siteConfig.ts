@@ -1,3 +1,5 @@
+import socialImageCatalog from '@/data/socialImages.json'
+
 export const siteConfig = {
   name: 'Matteo',
   title: 'Matteo — The Human Platform',
@@ -11,32 +13,11 @@ export const siteConfig = {
   },
 } as const
 
-export const profilePortrait = {
-  alt: 'Matteo Bianchi speaking on stage at KCD Denmark',
-  src: '/images/matteo-kcd-denmark.jpg',
-  width: 1600,
-  height: 1066,
-} as const
-
-export const socialImages = {
-  profile: {
-    src: profilePortrait.src,
-    width: profilePortrait.width,
-    height: profilePortrait.height,
-    alt: profilePortrait.alt,
-    type: 'image/jpeg',
-  },
-  brand: {
-    src: '/brand/matteo-mark.png',
-    width: 1024,
-    height: 1024,
-    alt: 'Matteo human platform brand mark',
-    type: 'image/png',
-  },
-} as const
+export const profilePortrait = socialImageCatalog.profile
+export const socialImages = socialImageCatalog
 
 export type SocialImageKey = keyof typeof socialImages
 
 export function isSocialImageKey(value: unknown): value is SocialImageKey {
-  return typeof value === 'string' && value in socialImages
+  return typeof value === 'string' && Object.hasOwn(socialImages, value)
 }

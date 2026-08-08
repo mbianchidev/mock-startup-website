@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\" && next dev",
-    "build": "next build && node scripts/validate-static-redirects.cjs",
+    "blog:images": "node scripts/sync-blog-social-images.cjs",
+    "dev": "npm run blog:images && node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\" && next dev",
+    "build": "npm run blog:images && next build && node scripts/validate-static-redirects.cjs",
     "images:optimize": "node scripts/optimize-images.cjs",
     "start": "next start",
     "lint": "eslint .",
-    "test:playwright": "playwright test",
-    "test:screenshots": "playwright test --headed"
+    "test:playwright": "npm run blog:images && playwright test",
+    "test:screenshots": "npm run blog:images && playwright test --headed"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

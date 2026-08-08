@@ -6,8 +6,13 @@ import html from 'remark-html'
 import gfm from 'remark-gfm'
 import {
   isSocialImageKey,
-  type SocialImageKey,
 } from '@/lib/siteConfig'
+import {
+  getGeneratedBlogSocialImage,
+  isLocalBlogImageReference,
+  resolveLocalBlogImage,
+} from '@/lib/blogSocialImages'
+import type { SocialImageSource } from '@/lib/siteMetadata'
 
 const postsDirectory = path.join(process.cwd(), 'content/blog')
 
@@ -18,7 +23,7 @@ export interface BlogPostMetadata {
   category: string
   excerpt: string
   slug: string
-  image: SocialImageKey
+  image: SocialImageSource
   imageAlt: string
   updated?: string
   tags?: string[]
@@ -74,14 +79,21 @@ function parseTags(value: unknown, fileName: string) {
 }
 
 function parsePostMetadata(
-  fileName: string,
+  postFile: string,
   slug: string,
   data: Record<string, unknown>,
   content: string
 ): BlogPostMetadata {
+  const fileName = path.basename(postFile)
   const image = requiredString(data, 'image', fileName)
+  let socialImage: SocialImageSource
 
-  if (!isSocialImageKey(image)) {
+  if (isSocialImageKey(image)) {
+    socialImage = image
+  } else if (isLocalBlogImageReference(image)) {
+    resolveLocalBlogImage(postFile, image)
+    socialImage = getGeneratedBlogSocialImage(slug)
+  } else {
     throw new Error(`Blog post "${fileName}" references an unknown social image: ${image}`)
   }
 
@@ -105,7 +117,7 @@ function parsePostMetadata(
     author: requiredString(data, 'author', fileName),
     category: requiredString(data, 'category', fileName),
     excerpt: requiredString(data, 'excerpt', fileName),
-    image,
+    image: socialImage,
     imageAlt: requiredString(data, 'imageAlt', fileName),
     ...(updated ? { updated } : {}),
     ...(tags ? { tags } : {}),
@@ -128,7 +140,7 @@ export function getSortedPostsData(): BlogPostMetadata[] {
       const matterResult = matter(fileContents)
 
       return parsePostMetadata(
-        fileName,
+        fullPath,
         slug,
         matterResult.data,
         matterResult.content
@@ -165,7 +177,7 @@ export async function getPostData(slug: string): Promise<BlogPostData | null> {
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const matterResult = matter(fileContents)
   const metadata = parsePostMetadata(
-    `${slug}.md`,
+    fullPath,
     slug,
     matterResult.data,
     matterResult.content
