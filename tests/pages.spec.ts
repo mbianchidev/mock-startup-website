@@ -247,6 +247,8 @@ test.describe('Static route experience', () => {
     expect(response.ok()).toBe(true);
     expect(html).toMatch(/<meta name="robots" content="noindex, nofollow"\/?>/);
     expect(html).not.toContain('rel="canonical"');
+    expect(html).not.toContain('property="og:');
+    expect(html).not.toContain('name="twitter:');
   });
 
   test('publishes the configurable public link manifest', async ({ page }) => {

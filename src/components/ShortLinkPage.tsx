@@ -17,6 +17,8 @@ export const shortLinkMetadata: Metadata = {
     index: false,
     follow: false,
   },
+  openGraph: null,
+  twitter: null,
 }
 
 export default function ShortLinkPage({ source }: ShortLinkPageProps) {
