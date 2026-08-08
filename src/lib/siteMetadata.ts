@@ -2,6 +2,20 @@ import type { Metadata } from 'next'
 
 export const siteUrl = new URL('https://mbianchi.dev')
 
+function normalizePath(pathname: string) {
+  const basePath = process.env.NEXT_BASE_PATH?.replace(/^\/?/, '/').replace(/\/$/, '')
+  const pathWithoutBase =
+    basePath && basePath !== '/' && (pathname === basePath || pathname.startsWith(`${basePath}/`))
+      ? pathname.slice(basePath.length)
+      : pathname
+
+  return pathWithoutBase.startsWith('/') ? pathWithoutBase : `/${pathWithoutBase}`
+}
+
+export function createSiteUrl(pathname: string) {
+  return new URL(normalizePath(pathname), siteUrl)
+}
+
 interface PageMetadata {
   title: string
   description: string
@@ -13,7 +27,7 @@ export function createPageMetadata({
   description,
   path,
 }: PageMetadata): Metadata {
-  const canonical = new URL(path, siteUrl)
+  const canonical = createSiteUrl(path)
 
   return {
     title,
