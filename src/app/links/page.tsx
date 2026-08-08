@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
-import matteoPortrait from '@/assets/matteo-kcd-denmark.jpg'
+import { ResponsivePortrait } from '@/components/ResponsivePortrait'
 import { linksPageConfig, type PublicLinkIcon } from '@/data/links'
 import { createPageMetadata } from '@/lib/siteMetadata'
 import styles from './links.module.css'
@@ -50,8 +49,7 @@ export default function LinksPage() {
         <div className={styles.shell}>
           <div className={styles.profile}>
             <div className={styles.avatarFrame}>
-              <Image
-                src={matteoPortrait}
+              <ResponsivePortrait
                 alt="Matteo Bianchi speaking at KCD Denmark"
                 className={styles.avatar}
                 priority

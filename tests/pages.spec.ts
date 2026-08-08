@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import pathRedirects from '../src/data/redirects.json';
+import vercelConfig from '../vercel.json';
 
 const pages = [
   { name: 'homepage', path: '/', title: 'Matteo — The Human Platform' },
@@ -240,10 +241,10 @@ test.describe('Static route experience', () => {
 
     const headerLogo = page
       .getByRole('banner')
-      .getByRole('link', { name: 'Matteo — Human Platform home' });
+      .getByRole('link', { name: /Matteo\s*human platform/i });
     const footerLogo = page
       .getByRole('contentinfo')
-      .getByRole('link', { name: 'Matteo — Human Platform home' });
+      .getByRole('link', { name: /Matteo\s*human platform/i });
 
     await expect(headerLogo).toBeVisible();
     await expect(footerLogo).toBeVisible();
@@ -259,6 +260,52 @@ test.describe('Static route experience', () => {
       /\/manifest\.webmanifest$/
     );
     await expect(page.locator('link[rel~="icon"]').first()).toHaveAttribute('href', /icon|favicon/);
+    await expect(page.locator('link[href*="fonts.googleapis.com"]')).toHaveCount(0);
+    await expect(page.getByRole('link', { name: 'Skip to main content' })).toHaveAttribute(
+      'href',
+      '#main-content'
+    );
+    await expect(page.locator('main#main-content')).toHaveAttribute('tabindex', '-1');
+  });
+
+  test('serves responsive modern portrait formats', async ({ page }) => {
+    await page.goto('/', { waitUntil: 'load' });
+
+    const portrait = page.locator('picture[data-responsive-portrait]').first();
+    await expect(portrait.locator('source[type="image/avif"]')).toHaveAttribute(
+      'srcset',
+      /\.avif 320w.+\.avif 1280w/
+    );
+    await expect(portrait.locator('source[type="image/webp"]')).toHaveAttribute(
+      'srcset',
+      /\.webp 320w.+\.webp 1280w/
+    );
+    await expect
+      .poll(() => portrait.locator('img').evaluate((image: HTMLImageElement) => image.currentSrc))
+      .toMatch(/\.avif$/);
+  });
+
+  test('defines hardened production response headers', () => {
+    const routeHeaders = vercelConfig.headers.find(({ source }) => source === '/(.*)');
+    expect(routeHeaders).toBeDefined();
+
+    const headers = Object.fromEntries(
+      routeHeaders!.headers.map(({ key, value }) => [key, value])
+    );
+    expect(Object.keys(headers)).toEqual(
+      expect.arrayContaining([
+        'Content-Security-Policy',
+        'Cross-Origin-Opener-Policy',
+        'Permissions-Policy',
+        'Referrer-Policy',
+        'Strict-Transport-Security',
+        'X-Content-Type-Options',
+        'X-Frame-Options',
+      ])
+    );
+    expect(headers['Content-Security-Policy']).toContain("default-src 'self'");
+    expect(headers['Content-Security-Policy']).toContain("object-src 'none'");
+    expect(headers['Content-Security-Policy']).not.toContain("'unsafe-eval'");
   });
 
   test('reports status uptime and PTO incident', async ({ page }) => {

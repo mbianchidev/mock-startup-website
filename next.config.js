@@ -6,14 +6,13 @@ const pathRedirects = require('./src/data/redirects.json')
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
+  poweredByHeader: false,
+  reactStrictMode: true,
   async redirects() {
     return pathRedirects
   },
   images: {
     unoptimized: true,
-    dangerouslyAllowSVG: true,
-    contentDispositionType: 'attachment',
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 }
 

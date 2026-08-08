@@ -12,7 +12,6 @@ export function Footer() {
           <Link
             href="/"
             className={styles.footerLogo}
-            aria-label="Matteo — Human Platform home"
           >
             <BrandLogo />
           </Link>
@@ -22,21 +21,21 @@ export function Footer() {
           </p>
         </div>
         <div className={styles.footerLinks}>
-          <div className={styles.footerColumn} role="navigation" aria-label="Product">
+          <nav className={styles.footerColumn} aria-label="Product">
             <h3>Product</h3>
             <Link href="/#features">Features</Link>
             <Link href="/#integrations">Integrations</Link>
             <Link href="/pricing">Pricing</Link>
             <Link href="/roadmap">Changelog</Link>
-          </div>
-          <div className={styles.footerColumn} role="navigation" aria-label="Company">
+          </nav>
+          <nav className={styles.footerColumn} aria-label="Company">
             <h3>Company</h3>
             <Link href="/portfolio">Open source</Link>
             <Link href="/about">About</Link>
             <Link href="/careers">Careers</Link>
             <Link href="/customers">Customers</Link>
-          </div>
-          <div className={styles.footerColumn} role="navigation" aria-label="Resources">
+          </nav>
+          <nav className={styles.footerColumn} aria-label="Resources">
             <h3>Resources</h3>
             <Link href="/blog">Blog</Link>
             <Link href="/links">Links</Link>
@@ -44,8 +43,8 @@ export function Footer() {
             <Link href="/press">Press</Link>
             <Link href="/support">Support</Link>
             <Link href="/status">Status</Link>
-          </div>
-          <div className={styles.footerColumn} role="navigation" aria-label="Contact">
+          </nav>
+          <nav className={styles.footerColumn} aria-label="Contact">
             <h3>Open a ticket</h3>
             <a href="https://github.com/mbianchidev" target="_blank" rel="noopener noreferrer">
               GitHub
@@ -57,7 +56,7 @@ export function Footer() {
               Start trial
             </a>
             <a href="mailto:info@mb-consulting.dev">Consulting inquiries</a>
-          </div>
+          </nav>
         </div>
       </div>
       <div className={styles.footerBottom}>

@@ -82,7 +82,9 @@ export async function getPostData(slug: string): Promise<BlogPostData | null> {
     .use(html, { sanitize: false })
     .process(matterResult.content)
   
-  const contentHtml = processedContent.toString()
+  const contentHtml = processedContent
+    .toString()
+    .replace(/<img(?![^>]*\bloading=)([^>]*)>/g, '<img loading="lazy" decoding="async"$1>')
 
   return {
     slug,
