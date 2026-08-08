@@ -10,14 +10,12 @@ export interface PublicLink {
 
 interface LinksPageConfig {
   handle: string
-  tagline: string
   description: string
   links: PublicLink[]
 }
 
 export const linksPageConfig: LinksPageConfig = {
   handle: '@mbianchidev',
-  tagline: 'Code = Liability',
   description:
     'Senior engineer, open-source contributor, and professional translator between humans and distributed systems.',
   links: [

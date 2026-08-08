@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
 import matteoPortrait from '@/assets/matteo-kcd-denmark.jpg'
 import { linksPageConfig, type PublicLinkIcon } from '@/data/links'
 import { createPageMetadata } from '@/lib/siteMetadata'
@@ -60,9 +59,7 @@ export default function LinksPage() {
               />
               <span className={styles.onlineIndicator} aria-hidden="true" />
             </div>
-
             <h1>{linksPageConfig.handle}</h1>
-            <p className={styles.tagline}>{linksPageConfig.tagline}</p>
             <p className={styles.availability}>
               <span aria-hidden="true" />
               Public interface online
@@ -99,14 +96,6 @@ export default function LinksPage() {
               </li>
             ))}
           </ul>
-
-          <div className={styles.localFooter}>
-            <p>Three routes. Zero algorithmic roulette.</p>
-            <Link href="/">
-              Open full product
-              <span aria-hidden="true">→</span>
-            </Link>
-          </div>
         </div>
       </section>
     </div>

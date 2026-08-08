@@ -161,6 +161,25 @@ src/
 └── lib/                # Utility functions
 ```
 
+## 🔗 Configuring `/links`
+
+Profile copy and link destinations live in `src/data/links.ts`. To add a link,
+duplicate an item in the `links` array and update its values:
+
+```ts
+{
+  service: 'Service name',
+  title: 'Visible link title',
+  description: 'One-line description',
+  href: 'https://example.com',
+  icon: 'github',
+}
+```
+
+The built-in icon values are `mentor`, `youtube`, and `github`. To add another
+icon, extend `PublicLinkIcon` in `src/data/links.ts` and add its SVG case to
+`LinkIcon` in `src/app/links/page.tsx`.
+
 ## 🔧 Available Scripts
 
 - `npm run dev` - Clear stale `.next` artifacts and start the development server

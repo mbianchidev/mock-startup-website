@@ -67,6 +67,7 @@ test.describe('Static route experience', () => {
 
     const publicLinks = page.getByRole('region', { name: 'Public links' });
     await expect(page.getByRole('heading', { name: '@mbianchidev' })).toBeVisible();
+    await expect(publicLinks.getByRole('link')).toHaveCount(3);
 
     const expectedLinks = [
       {
