@@ -1,0 +1,169 @@
+[
+  {
+    "source": "/gh",
+    "destination": "https://github.com/mbianchidev",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/github",
+    "destination": "https://github.com/mbianchidev",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/so",
+    "destination": "https://stackoverflow.com/users/7410528/mbianchidev",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/cncf",
+    "destination": "https://community.cncf.io/u/m9crwf/#/about",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/resume",
+    "destination": "/static/Matteo_Bianchi_resume.pdf",
+    "permanent": false
+  },
+  {
+    "source": "/li",
+    "destination": "https://www.linkedin.com/in/mbianchidev/",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/linkedin",
+    "destination": "https://www.linkedin.com/in/mbianchidev/",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/x",
+    "destination": "https://x.com/mbianchidev",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/bsky",
+    "destination": "https://mbianchidev.bsky.social",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/mastodon",
+    "destination": "https://hachyderm.io/@mbianchidev",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/medium",
+    "destination": "https://medium.com/@mbianchidev",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/devto",
+    "destination": "https://dev.to/mbianchidev",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/mentor",
+    "destination": "https://mentors.to/mbianchidev",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/mentorship",
+    "destination": "https://mentors.to/mbianchidev",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/sessionize",
+    "destination": "https://sessionize.com/mbianchidev/",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/speakerdeck",
+    "destination": "https://speakerdeck.com/mbianchidev",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/badges",
+    "destination": "https://www.credly.com/users/mbianchidev/badges",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/credly",
+    "destination": "https://www.credly.com/users/mbianchidev/badges",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/cal",
+    "destination": "https://calendly.com/mbianchidev/book-a-session",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/bookings",
+    "destination": "https://cal.com/mbianchidev",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/book15",
+    "destination": "https://cal.com/mbianchidev/intro",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/book30",
+    "destination": "https://cal.com/mbianchidev/chat",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/book60",
+    "destination": "https://cal.com/mbianchidev/1-1-session",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/secret",
+    "destination": "https://cal.com/mbianchidev/secret",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/ref-ibkr",
+    "destination": "https://ibkr.com/referral/matteo953",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/ref-mentorcruise",
+    "destination": "https://mentorcruise.com/referrals/ELUv37rO1sSaC861SLnRDxwewvJxzpiR0Buq0S0M",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/tw",
+    "destination": "https://www.twitch.tv/mbianchidev",
+    "permanent": false,
+    "basePath": false
+  },
+  {
+    "source": "/yt",
+    "destination": "https://youtube.com/mbianchidev",
+    "permanent": false,
+    "basePath": false
+  }
+]
