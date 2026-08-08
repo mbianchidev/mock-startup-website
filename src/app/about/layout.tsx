@@ -1,8 +1,8 @@
 import { createPageMetadata } from '@/lib/siteMetadata'
 
 export const metadata = createPageMetadata({
-  title: 'Product Internals — Matteo',
-  description: 'How Matteo combines platform engineering, Solutions Engineering, AI automation, software, open source, and technical education.',
+  title: 'A Note from Our CEO — Matteo',
+  description: 'Matteo Bianchi’s candid story from learning to code at 15 through software engineering, DevOps, startups, open source, and GitHub.',
   path: '/about/',
 })
 
