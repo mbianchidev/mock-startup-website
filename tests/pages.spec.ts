@@ -6,7 +6,7 @@ import vercelConfig from '../vercel.json';
 const pages = [
   { name: 'homepage', path: '/', title: 'Matteo — The Human Platform' },
   { name: 'links', path: '/links', title: 'Links — Matteo' },
-  { name: 'about', path: '/about', title: 'Product Internals — Matteo' },
+  { name: 'about', path: '/about', title: 'A Note from Our CEO — Matteo' },
   { name: 'blog', path: '/blog', title: 'Field Notes — Matteo' },
   {
     name: 'blog-article',
@@ -269,11 +269,34 @@ test.describe('Static route experience', () => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
 
     const navigation = page.getByRole('navigation', { name: 'Primary navigation' });
-    for (const label of ['Product', 'Customers', 'Blog']) {
+    for (const label of ['Product', 'Customers', 'About', 'Blog']) {
       await expect(navigation.getByRole('link', { name: label, exact: true })).toBeVisible();
     }
     await expect(navigation.getByRole('link', { name: 'Features', exact: true })).toHaveCount(0);
     await expect(navigation.getByRole('link', { name: 'Integrations', exact: true })).toHaveCount(0);
+  });
+
+  test('presents the About page as an accessible CEO note', async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 844 });
+    await page.goto('/about', { waitUntil: 'domcontentloaded' });
+
+    await expect(page.getByRole('heading', { name: 'A note from our CEO.' })).toBeVisible();
+    await expect(page.getByRole('article', { name: 'A note from Matteo Bianchi' })).toBeVisible();
+    await expect(page.getByText('I was lying.', { exact: true })).toBeVisible();
+    await expect(page.getByText('To be continued…', { exact: true })).toBeVisible();
+    await expect(
+      page.getByRole('img', { name: 'Matteo Bianchi speaking on stage at KCD Denmark' })
+    ).toBeVisible();
+
+    await page.locator('html[data-hydrated="true"]').waitFor();
+    await page.getByRole('button', { name: 'Open navigation menu' }).click();
+    const aboutLink = page
+      .getByRole('navigation', { name: 'Primary navigation' })
+      .getByRole('link', { name: 'About', exact: true });
+    await expect(aboutLink).toHaveAttribute('aria-current', 'page');
+    await expect
+      .poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth))
+      .toBe(true);
   });
 
   test('renders the Duck Runtime identity and app metadata', async ({ page }) => {

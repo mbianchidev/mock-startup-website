@@ -9,7 +9,8 @@ import styles from './SiteShell.module.css'
 const navItems = [
   { href: '/#features', label: 'Product' },
   { href: '/customers', label: 'Customers' },
-  { href: '/blog', label: 'Blog' }
+  { href: '/about', label: 'About' },
+  { href: '/blog', label: 'Blog' },
 ]
 
 export function Header() {
