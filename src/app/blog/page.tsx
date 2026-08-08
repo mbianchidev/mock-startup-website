@@ -1,8 +1,10 @@
 import Link from 'next/link'
 import { PageHero } from '@/components/PageHero'
+import type { BlogPostMetadata } from '@/lib/markdown'
 import { getSortedPostsData } from '@/lib/markdown'
 import { createPageMetadata } from '@/lib/siteMetadata'
-import styles from '@/app/inner.module.css'
+import innerStyles from '@/app/inner.module.css'
+import styles from './blog.module.css'
 
 export const metadata = createPageMetadata({
   title: 'Field Notes — Matteo',
@@ -10,103 +12,249 @@ export const metadata = createPageMetadata({
   path: '/blog/',
 })
 
+function dateFromPost(date: string) {
+  return new Date(`${date}T00:00:00Z`)
+}
+
 function formatDate(date: string) {
-  return new Date(date).toLocaleDateString('en-US', {
+  return dateFromPost(date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
+    timeZone: 'UTC',
   })
+}
+
+function formatMonthYear(date: string) {
+  return dateFromPost(date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    timeZone: 'UTC',
+  })
+}
+
+function slugify(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '')
+}
+
+function makeExcerpt(post: BlogPostMetadata, maxLength = 210) {
+  const title = post.title
+    .replace(/[\u00a0\u2009\u200a\u200b\u202f\u205f\u3000]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+  let excerpt = post.excerpt
+    .replace(/[\u00a0\u2009\u200a\u200b\u202f\u205f\u3000]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .replace(/([.!?])(?=[A-Z])/g, '$1 ')
+    .trim()
+
+  if (excerpt.toLowerCase().startsWith(title.toLowerCase())) {
+    excerpt = excerpt.slice(title.length).replace(/^[\s:—-]+/, '')
+  }
+
+  if (excerpt.length <= maxLength) {
+    return excerpt
+  }
+
+  const shortened = excerpt.slice(0, maxLength)
+  const lastSpace = shortened.lastIndexOf(' ')
+
+  return `${shortened.slice(0, lastSpace > maxLength * 0.7 ? lastSpace : maxLength).trim()}…`
 }
 
 export default function BlogPage() {
   const posts = getSortedPostsData()
-  const [featuredPost, ...remainingPosts] = posts
-  const categoryCount = new Set(posts.map((post) => post.category)).size
+  const [featuredPost, ...otherPosts] = posts
+  const deskPosts = otherPosts.slice(0, 4)
+  const [deskFeature, ...deskRail] = deskPosts
+  const firstPostByCategory = new Map<string, string>()
+  const categoryCounts = new Map<string, number>()
+
+  for (const post of posts) {
+    categoryCounts.set(post.category, (categoryCounts.get(post.category) ?? 0) + 1)
+
+    if (!firstPostByCategory.has(post.category)) {
+      firstPostByCategory.set(post.category, post.slug)
+    }
+  }
+
+  const categories = [...categoryCounts.entries()].sort(([categoryA], [categoryB]) =>
+    categoryA.localeCompare(categoryB)
+  )
+  const firstPublishedYear = posts.at(-1)?.date.slice(0, 4)
 
   return (
-    <div className={styles.page}>
+    <div className={styles.blogPage}>
       <PageHero
         path="/blog"
-        title="Field notes, not content marketing."
-        description="Long-form lessons from cloud-native systems, developer relations, platform work, conferences, and the occasional industry funeral."
+        title="Field notes from the workbench."
+        description="Essays on building systems, growing technical communities, surviving conferences, and learning in public."
         tone="light"
         actions={
           featuredPost && (
-            <Link href={`/blog/${featuredPost.slug}`} className={styles.darkButton}>
-              Read the latest dispatch
+            <Link href={`/blog/${featuredPost.slug}`} className={innerStyles.darkButton}>
+              Read the latest field note
               <span aria-hidden="true">↗</span>
             </Link>
           )
         }
         aside={
-          <dl className={styles.heroSpecs}>
+          <dl className={innerStyles.heroSpecs}>
             <div>
-              <dt>Published</dt>
+              <dt>Archive</dt>
               <dd>{posts.length} field notes</dd>
             </div>
             <div>
               <dt>Coverage</dt>
-              <dd>{categoryCount} technical territories</dd>
+              <dd>{categories.length} subjects</dd>
             </div>
             <div>
-              <dt>Editorial policy</dt>
-              <dd>Useful before optimised</dd>
+              <dt>Latest issue</dt>
+              <dd>{featuredPost ? formatMonthYear(featuredPost.date) : 'Pending'}</dd>
+            </div>
+            <div>
+              <dt>Publishing since</dt>
+              <dd>{firstPublishedYear ?? 'Soon'}</dd>
             </div>
           </dl>
         }
       />
 
-      {featuredPost && (
-        <section className={styles.sectionDark} aria-labelledby="featured-note">
-          <div className={styles.sectionInner}>
-            <article className={styles.featuredPost}>
-              <div className={styles.featuredPostMeta}>
+      {featuredPost ? (
+        <section className={styles.leadSection} aria-label="Latest field note">
+          <div className={styles.sectionLabel}>
+            <span>Latest field note</span>
+            <span>Edition {String(posts.length).padStart(3, '0')}</span>
+          </div>
+          <article className={styles.leadStory}>
+            <div className={styles.leadMarker} aria-hidden="true">
+              <span>Latest</span>
+              <strong>{featuredPost.date.slice(0, 4)}</strong>
+            </div>
+            <div className={styles.leadCopy}>
+              <div className={styles.storyMeta}>
                 <span>{featuredPost.category}</span>
-                <span>{featuredPost.readTime}</span>
                 <time dateTime={featuredPost.date}>{formatDate(featuredPost.date)}</time>
+                <span>{featuredPost.readTime}</span>
               </div>
-              <div className={styles.featuredPostBody}>
-                <p>Latest dispatch</p>
-                <h2 id="featured-note">{featuredPost.title}</h2>
-                <p>{featuredPost.excerpt}</p>
-                <Link href={`/blog/${featuredPost.slug}`}>
-                  Read the full note
+              <h2 id="latest-note">{featuredPost.title}</h2>
+              <p>{makeExcerpt(featuredPost, 250)}</p>
+              <Link href={`/blog/${featuredPost.slug}`}>
+                Read the latest field note
+                <span aria-hidden="true">↗</span>
+              </Link>
+            </div>
+          </article>
+        </section>
+      ) : (
+        <section className={styles.emptyState} aria-labelledby="empty-blog">
+          <h2 id="empty-blog">The first field note is still on the workbench.</h2>
+          <p>New writing will appear here when it is ready to ship.</p>
+        </section>
+      )}
+
+      {deskPosts.length > 0 && (
+        <section className={styles.readingDesk} aria-labelledby="reading-desk">
+          <div className={styles.sectionHeading}>
+            <h2 id="reading-desk">The reading desk.</h2>
+            <p>
+              The newest arguments, post-mortems, guides, and annual dispatches,
+              selected from the top of the stack.
+            </p>
+          </div>
+          <div className={styles.deskGrid}>
+            {deskFeature && (
+              <article className={styles.deskFeature}>
+                <div className={styles.storyMeta}>
+                  <span>{deskFeature.category}</span>
+                  <time dateTime={deskFeature.date}>{formatDate(deskFeature.date)}</time>
+                </div>
+                <h3>{deskFeature.title}</h3>
+                <p>{makeExcerpt(deskFeature, 190)}</p>
+                <Link
+                  href={`/blog/${deskFeature.slug}`}
+                  aria-label={`Read ${deskFeature.title}`}
+                >
+                  <span>{deskFeature.readTime}</span>
                   <span aria-hidden="true">↗</span>
                 </Link>
-              </div>
-            </article>
+              </article>
+            )}
+            <div className={styles.deskRail}>
+              {deskRail.map((post) => (
+                <article key={post.slug} className={styles.deskRow}>
+                  <div className={styles.storyMeta}>
+                    <span>{post.category}</span>
+                    <time dateTime={post.date}>{formatDate(post.date)}</time>
+                  </div>
+                  <h3>{post.title}</h3>
+                  <Link href={`/blog/${post.slug}`} aria-label={`Read ${post.title}`}>
+                    <span>{post.readTime}</span>
+                    <span aria-hidden="true">↗</span>
+                  </Link>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
       )}
 
-      <section className={styles.sectionSoft} aria-labelledby="all-notes">
-        <div className={styles.sectionInner}>
-          <div className={styles.sectionIntro}>
-            <h2 id="all-notes">The rest of the archive.</h2>
-            <p>Release notes from a career that keeps shipping in public.</p>
-          </div>
-          <div className={styles.postList}>
-            {remainingPosts.map((post) => (
-              <article key={post.slug} className={styles.postRow}>
-                <div className={styles.postMeta}>
-                  <span>{post.category}</span>
-                  <time dateTime={post.date}>{formatDate(post.date)}</time>
-                </div>
-                <div className={styles.postCopy}>
-                  <h3>{post.title}</h3>
-                  <p>{post.excerpt}</p>
-                </div>
-                <div className={styles.postAction}>
-                  <span>{post.readTime}</span>
-                  <Link href={`/blog/${post.slug}`} aria-label={`Read ${post.title}`}>
-                    <span aria-hidden="true">↗</span>
-                  </Link>
-                </div>
-              </article>
+      {categories.length > 0 && (
+        <nav className={styles.topicDirectory} aria-label="Browse field notes by topic">
+          <h2>Follow the thread, not the algorithm.</h2>
+          <div className={styles.topicList}>
+            {categories.map(([category, count]) => (
+              <a key={category} href={`#topic-${slugify(category)}`}>
+                <span>{category}</span>
+                <span>
+                  {count} {count === 1 ? 'note' : 'notes'} ↓
+                </span>
+              </a>
             ))}
           </div>
-        </div>
-      </section>
+        </nav>
+      )}
+
+      {posts.length > 0 && (
+        <section className={styles.archive} aria-labelledby="archive-title">
+          <div className={styles.sectionHeading}>
+            <h2 id="archive-title">The complete archive.</h2>
+            <p>Newest first. No paywall, no newsletter gate, no engagement bait.</p>
+          </div>
+          <div className={styles.archiveList}>
+            {posts.map((post, index) => {
+              const isCategoryAnchor = firstPostByCategory.get(post.category) === post.slug
+
+              return (
+                <article
+                  key={post.slug}
+                  id={isCategoryAnchor ? `topic-${slugify(post.category)}` : undefined}
+                  className={styles.archiveRow}
+                >
+                  <div className={styles.archiveNumber}>
+                    {String(posts.length - index).padStart(3, '0')}
+                  </div>
+                  <div className={styles.archiveDate}>
+                    <time dateTime={post.date}>{formatDate(post.date)}</time>
+                    <span>{post.category}</span>
+                  </div>
+                  <div className={styles.archiveTitle}>
+                    <h3>{post.title}</h3>
+                    <p>{makeExcerpt(post, 130)}</p>
+                  </div>
+                  <Link href={`/blog/${post.slug}`} aria-label={`Read ${post.title}`}>
+                    <span>{post.readTime}</span>
+                    <span aria-hidden="true">↗</span>
+                  </Link>
+                </article>
+              )
+            })}
+          </div>
+        </section>
+      )}
     </div>
   )
 }

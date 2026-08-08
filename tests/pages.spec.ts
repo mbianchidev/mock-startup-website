@@ -190,6 +190,11 @@ test.describe('Static route experience', () => {
     await page.goto('/blog', { waitUntil: 'domcontentloaded' });
 
     await expect(page.getByText('27 field notes', { exact: true })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Field notes from the workbench.' })).toBeVisible();
+    await expect(page.getByRole('region', { name: 'Latest field note' })).toBeVisible();
+    await expect(page.getByRole('region', { name: 'The reading desk' })).toBeVisible();
+    await expect(page.getByRole('navigation', { name: 'Browse field notes by topic' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'The complete archive.' })).toBeVisible();
     await expect(page.getByRole('heading', { name: 'My 2023 wrapped' })).toBeVisible();
     await expect(page.getByRole('heading', { name: 'I don’t like ChatGPT.' })).toBeVisible();
     await expect(page.getByRole('link', { name: 'Read I don’t like ChatGPT.' })).toHaveAttribute(
