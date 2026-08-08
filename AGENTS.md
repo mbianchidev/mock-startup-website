@@ -1,64 +1,62 @@
-# AGENTS.md - Mock Startup Website
+# AGENTS.md
 
-## Dev environment tips
+## Project
 
-- This is a Next.js 15 project with React 19 and TypeScript
-- Use `npm run dev` to start the development server on http://localhost:3000
-- Run `npm install` to add new dependencies to the project
-- Use `npm run build` to create a production build with static export
-- The project uses static export configuration for GitHub Pages deployment
-- Check `package.json` for available scripts and dependencies
-- TypeScript configuration is in `tsconfig.json`
-- ESLint configuration is in `.eslintrc.json`
+- This is a statically exported personal portfolio built with Next.js 15.5, React 19, and strict TypeScript.
+- The application uses the App Router and deploys to Vercel. `npm run build` writes the static site to `out/`.
+- `PRODUCT.md` defines the product direction, voice, audience, and accessibility goals. Keep `README.md` aligned with setup, architecture, and deployment changes.
+- Use Node.js 20 and npm to match `.github/workflows/ci.yml`.
 
-## Testing instructions
+## Commands
 
-- Find the CI plan in the `.github/workflows/static.yml` file
-- Currently no test framework is configured - tests would need to be added if required
-- Run `npm run build` to ensure the project builds successfully
-- Run `npm run lint` to check code quality and TypeScript types
-- The build process creates a static export in the `out/` directory
-- Always run `npm run build` and `npm run lint` after making significant changes
-- Test the static export locally with `npx serve out` after building
+| Task | Command |
+| --- | --- |
+| Install exact dependencies | `npm ci` |
+| Start development server | `npm run dev` |
+| Lint and type-check | `npm run lint` |
+| Run Playwright tests | `npm run test:playwright` |
+| Build and validate static export | `npm run build` |
+| Preview the export | `npx serve out` |
+| Regenerate optimized portraits | `npm run images:optimize` |
 
-## Troubleshooting Common Issues
+Playwright starts the development server at `http://localhost:3000` automatically. Install Chromium with `npx playwright install chromium` if it is unavailable locally.
 
-### Dependency Issues
-If you encounter weird dependency issues or package conflicts:
-- Delete `package-lock.json` file
-- Delete `node_modules` folder
-- Run `npm install` again
-- This often resolves version conflicts and ensures a clean dependency tree
+## Repository map
 
-### Content Security Policy (CSP) Errors
-If you see CSP violations in the browser console:
-- Check if external scripts (like Font Awesome, analytics) are being blocked
-- Verify the CSP headers in `next.config.js` allow the required domains
-- For Font Awesome specifically, ensure `kit.fontawesome.com` is allowlisted
+- `src/app/`: App Router pages, layouts, metadata routes, and route-specific CSS Modules.
+- `src/components/`: Shared server and client components.
+- `src/data/`: Structured project, customer, link, and redirect data.
+- `src/lib/`: Markdown, metadata, and SEO helpers.
+- `content/blog/`: Markdown posts with front matter.
+- `public/`: Static images, brand assets, icons, and downloadable files.
+- `tests/pages.spec.ts`: Playwright route, interaction, accessibility, metadata, redirect, and security-header coverage.
+- `scripts/`: Image optimization and static redirect validation.
+- `vercel.json`: Production response headers and Content Security Policy.
 
-### Hydration Errors
-If you encounter React hydration mismatches:
-- Ensure server-rendered content matches client-side content exactly
-- Check for browser-specific APIs being used during SSR
-- Use `useEffect` for browser-only code
-- Consider using `dynamic` imports with `{ ssr: false }` for client-only components
+## Implementation conventions
 
-## Build & deployment process
+- Prefer Server Components. Add `'use client'` only for browser APIs, effects, or interactive state.
+- Use the `@/*` alias for imports from `src/`.
+- Reuse shared components and existing CSS Modules before adding new abstractions or styles.
+- Keep public routes compatible with `output: 'export'`; do not introduce runtime server dependencies.
+- Use `createPageMetadata` from `src/lib/siteMetadata.ts` for canonical metadata.
+- Keep essential content available in the initial HTML. Client-side interaction should enhance content, not unlock it.
+- Preserve WCAG 2.2 AA behavior: semantic HTML, keyboard access, visible focus, meaningful labels, sufficient contrast, and reduced-motion support.
+- Use `next/link` for internal navigation. External links opened in a new tab must use `rel="noopener noreferrer"`.
+- Prefer structured data changes in `src/data/` over duplicating content inside components.
+- Keep redirect declarations in `src/data/redirects.json` and their static fallback pages synchronized. The build validates this contract.
+- Blog posts belong in `content/blog/` and require `title`, `date`, `author`, `category`, and `excerpt` front matter.
+- If a new external origin is required, update the relevant directive in `vercel.json` instead of weakening the whole CSP.
+- Do not commit generated `.next/`, `out/`, `playwright-report/`, `test-results/`, or `tests/screenshots/` files.
 
-- The project is configured for static export to GitHub Pages
-- Build command: `npm run build` creates optimized static files
-- Output directory: `out/` (automatically generated)
-- The CI workflow sets `NEXT_BASE_PATH` for proper GitHub Pages subpath routing
-- Production builds should pass all linting and type checking
-- Static assets are optimized and images are unoptimized for static hosting
+## Validation
 
-## PR instructions
+Run the same checks as CI before opening a pull request:
 
-- Title format: `[feature/fix] <descriptive-title>`
-- Always run `npm run lint` and `npm run build` before committing
-- Ensure the static export builds successfully
-- Check that TypeScript compilation passes without errors
-- Test functionality in development mode with `npm run dev`
-- Verify static export works with `npx serve out` after building
-- Follow the existing code style and component patterns
-- Update documentation if adding new features or changing functionality
+```bash
+npm run lint
+npm run test:playwright
+npm run build
+```
+
+For visual changes, inspect affected routes at mobile and desktop widths and confirm keyboard and reduced-motion behavior. Use `[feature] <description>` or `[fix] <description>` for pull request titles.
