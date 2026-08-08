@@ -1,7 +1,6 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import matteoPortrait from '@/assets/matteo-kcd-denmark.jpg'
 import { PageHero } from '@/components/PageHero'
+import { ResponsivePortrait } from '@/components/ResponsivePortrait'
 import styles from '@/app/inner.module.css'
 
 const mission = [
@@ -95,11 +94,9 @@ export default function About() {
         }
         aside={
           <figure className={styles.portraitPanel}>
-            <Image
-              src={matteoPortrait}
+            <ResponsivePortrait
               alt="Matteo Bianchi presenting at KCD Denmark"
-              width={1600}
-              height={1066}
+              sizes="(max-width: 700px) calc(100vw - 64px), (max-width: 980px) min(736px, calc(100vw - 120px)), 430px"
               priority
             />
             <figcaption>Current production build / speaking interface enabled</figcaption>

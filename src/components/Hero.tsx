@@ -1,6 +1,5 @@
-import Image from 'next/image'
-import matteoPortrait from '@/assets/matteo-kcd-denmark.jpg'
 import styles from '@/app/home.module.css'
+import { ResponsivePortrait } from './ResponsivePortrait'
 
 export function Hero() {
   return (
@@ -48,12 +47,10 @@ export function Hero() {
             </span>
           </div>
           <div className={styles.portraitFrame}>
-            <Image
-              src={matteoPortrait}
+            <ResponsivePortrait
               alt="Matteo Bianchi speaking on stage at KCD Denmark"
-              width={900}
-              height={700}
               className={styles.portrait}
+              sizes="(max-width: 720px) calc(100vw - 60px), (max-width: 1050px) min(720px, calc(100vw - 120px)), 560px"
               priority
             />
             <span className={styles.portraitLabel}>LIVE SYSTEM</span>

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useEffect, useId, useState } from 'react'
 import { BrandLogo } from './BrandLogo'
 import styles from './SiteShell.module.css'
@@ -14,6 +15,15 @@ const navItems = [
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const navigationId = useId()
+  const pathname = usePathname()
+
+  const isCurrentPage = (href: string) => {
+    if (href.startsWith('/#')) {
+      return pathname === '/'
+    }
+
+    return pathname === href || pathname.startsWith(`${href}/`)
+  }
 
   useEffect(() => {
     document.documentElement.dataset.hydrated = 'true'
@@ -46,7 +56,6 @@ export function Header() {
         <Link
           href="/"
           className={styles.logo}
-          aria-label="Matteo — Human Platform home"
           onClick={() => setIsOpen(false)}
         >
           <BrandLogo priority />
@@ -71,7 +80,11 @@ export function Header() {
         >
           {navItems.map((item) => (
             <li key={item.href}>
-              <Link href={item.href} onClick={() => setIsOpen(false)}>
+              <Link
+                href={item.href}
+                aria-current={isCurrentPage(item.href) ? 'page' : undefined}
+                onClick={() => setIsOpen(false)}
+              >
                 {item.label}
               </Link>
             </li>

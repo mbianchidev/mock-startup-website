@@ -76,6 +76,10 @@ nav.nav {
     color: var(--text-primary);
 }
 
+.navList a[aria-current='page'] {
+    color: var(--text-primary);
+}
+
 .desktopCta,
 .mobileCta {
     display: inline-flex;
@@ -192,8 +196,12 @@ footer.footer {
 }
 
 .footerColumn {
+    display: block;
     flex: 0 1 150px;
     min-width: 130px;
+    max-width: none;
+    margin: 0;
+    padding: 0;
 }
 
 .footerColumn h3 {
@@ -226,7 +234,7 @@ footer.footer {
     margin: 0 auto;
     padding-top: 24px;
     border-top: 1px solid var(--border-subtle);
-    color: var(--text-tertiary);
+    color: var(--text-secondary);
     font-size: 0.8rem;
 }
 
@@ -237,6 +245,8 @@ footer.footer {
 
 .legalLinks a {
     color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 .header a:focus-visible,
