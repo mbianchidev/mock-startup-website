@@ -39,6 +39,7 @@ export function Footer() {
           <div className={styles.footerColumn} role="navigation" aria-label="Resources">
             <h3>Resources</h3>
             <Link href="/blog">Blog</Link>
+            <Link href="/links">Links</Link>
             <Link href="/documentation">Documentation</Link>
             <Link href="/press">Press</Link>
             <Link href="/support">Support</Link>
