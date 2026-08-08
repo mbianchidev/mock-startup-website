@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import pathRedirects from '../src/data/redirects.json';
 import { getSortedPostsData } from '../src/lib/markdown';
-import { createAbsoluteImageUrl } from '../src/lib/siteMetadata';
+import { createAbsoluteImageUrl, withBasePath } from '../src/lib/siteMetadata';
 import vercelConfig from '../vercel.json';
 
 const pages = [
@@ -230,6 +230,9 @@ test.describe('Static route experience', () => {
       ).toBe('https://mbianchi.dev/_next/static/media/preview.jpg');
       expect(createAbsoluteImageUrl('/mbianchi.dev/brand/matteo-mark.png').toString()).toBe(
         'https://mbianchi.dev/brand/matteo-mark.png'
+      );
+      expect(withBasePath('/images/matteo-kcd-denmark.jpg')).toBe(
+        '/mbianchi.dev/images/matteo-kcd-denmark.jpg'
       );
     } finally {
       if (previousBasePath === undefined) {

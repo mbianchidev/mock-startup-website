@@ -17,6 +17,21 @@ export function getBasePath() {
   return `/${configuredBasePath.replace(/^\/|\/$/g, '')}`
 }
 
+export function withBasePath(pathname: string) {
+  const normalizedPath = pathname.startsWith('/') ? pathname : `/${pathname}`
+  const basePath = getBasePath()
+
+  if (
+    !basePath
+    || normalizedPath === basePath
+    || normalizedPath.startsWith(`${basePath}/`)
+  ) {
+    return normalizedPath
+  }
+
+  return `${basePath}${normalizedPath}`
+}
+
 function normalizePath(pathname: string) {
   const basePath = getBasePath()
   const pathWithoutBase =

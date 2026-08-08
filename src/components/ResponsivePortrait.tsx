@@ -8,6 +8,7 @@ import portraitWebp320 from '@/assets/matteo-kcd-denmark-320.webp'
 import portraitWebp640 from '@/assets/matteo-kcd-denmark-640.webp'
 import portraitWebp960 from '@/assets/matteo-kcd-denmark-960.webp'
 import { profilePortrait } from '@/lib/siteConfig'
+import { withBasePath } from '@/lib/siteMetadata'
 
 interface ResponsivePortraitProps {
   alt: string
@@ -41,7 +42,7 @@ export function ResponsivePortrait({
       <source type="image/avif" srcSet={avifSrcSet} sizes={sizes} />
       <source type="image/webp" srcSet={webpSrcSet} sizes={sizes} />
       <Image
-        src={profilePortrait.src}
+        src={withBasePath(profilePortrait.src)}
         width={profilePortrait.width}
         height={profilePortrait.height}
         alt={alt}
