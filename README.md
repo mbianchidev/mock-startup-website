@@ -15,6 +15,7 @@ This project is a satirical product launch for Matteo Bianchi: a personal portfo
 - Homepage runway logos are bundled locally and loaded eagerly so marquee motion never reveals unloaded placeholders
 - Responsive AVIF and WebP portrait sources with a JPEG fallback for static-export image delivery
 - Production CSP, browser security headers, and asset caching configured through Vercel
+- Privacy-friendly traffic measurement through Vercel Web Analytics
 - An open-source proof ledger sourced from `src/data/projects.json`
 - A complete route system for field notes, changelog, portfolio, deployment history, pricing, legal, and support pages
 - A configurable `/links` endpoint manifest sourced from `src/data/links.ts`

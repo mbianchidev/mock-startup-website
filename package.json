@@ -12,6 +12,7 @@
     "test:screenshots": "playwright test --headed"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "gray-matter": "^4.0.3",
     "next": "^15.5.20",
     "react": "^19.1.0",

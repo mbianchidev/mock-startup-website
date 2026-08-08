@@ -266,6 +266,10 @@ test.describe('Static route experience', () => {
       '#main-content'
     );
     await expect(page.locator('main#main-content')).toHaveAttribute('tabindex', '-1');
+    await expect(page.locator('script[data-sdkn="@vercel/analytics/next"]')).toHaveAttribute(
+      'src',
+      'https://va.vercel-scripts.com/v1/script.debug.js'
+    );
   });
 
   test('serves responsive modern portrait formats', async ({ page }) => {
