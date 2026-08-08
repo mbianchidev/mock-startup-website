@@ -1,13 +1,14 @@
 import Image from 'next/image'
-import portraitFallback from '@/assets/matteo-kcd-denmark.jpg'
+import portraitAvif1280 from '@/assets/matteo-kcd-denmark-1280.avif'
 import portraitAvif320 from '@/assets/matteo-kcd-denmark-320.avif'
 import portraitAvif640 from '@/assets/matteo-kcd-denmark-640.avif'
 import portraitAvif960 from '@/assets/matteo-kcd-denmark-960.avif'
-import portraitAvif1280 from '@/assets/matteo-kcd-denmark-1280.avif'
+import portraitWebp1280 from '@/assets/matteo-kcd-denmark-1280.webp'
 import portraitWebp320 from '@/assets/matteo-kcd-denmark-320.webp'
 import portraitWebp640 from '@/assets/matteo-kcd-denmark-640.webp'
 import portraitWebp960 from '@/assets/matteo-kcd-denmark-960.webp'
-import portraitWebp1280 from '@/assets/matteo-kcd-denmark-1280.webp'
+import { profilePortrait } from '@/lib/siteConfig'
+import { withBasePath } from '@/lib/siteMetadata'
 
 interface ResponsivePortraitProps {
   alt: string
@@ -17,18 +18,18 @@ interface ResponsivePortraitProps {
 }
 
 const avifSrcSet = [
-  `${portraitAvif320.src} 320w`,
-  `${portraitAvif640.src} 640w`,
-  `${portraitAvif960.src} 960w`,
-  `${portraitAvif1280.src} 1280w`,
-].join(', ')
+  portraitAvif320,
+  portraitAvif640,
+  portraitAvif960,
+  portraitAvif1280,
+].map((image) => `${image.src} ${image.width}w`).join(', ')
 
 const webpSrcSet = [
-  `${portraitWebp320.src} 320w`,
-  `${portraitWebp640.src} 640w`,
-  `${portraitWebp960.src} 960w`,
-  `${portraitWebp1280.src} 1280w`,
-].join(', ')
+  portraitWebp320,
+  portraitWebp640,
+  portraitWebp960,
+  portraitWebp1280,
+].map((image) => `${image.src} ${image.width}w`).join(', ')
 
 export function ResponsivePortrait({
   alt,
@@ -41,7 +42,9 @@ export function ResponsivePortrait({
       <source type="image/avif" srcSet={avifSrcSet} sizes={sizes} />
       <source type="image/webp" srcSet={webpSrcSet} sizes={sizes} />
       <Image
-        src={portraitFallback}
+        src={withBasePath(profilePortrait.src)}
+        width={profilePortrait.width}
+        height={profilePortrait.height}
         alt={alt}
         className={className}
         sizes={sizes}

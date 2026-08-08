@@ -3,6 +3,8 @@ title: "The end of my first journey in the startup world"
 date: "2023-09-18"
 author: "Matteo Bianchi"
 category: "Startups"
+image: "profile"
+imageAlt: "Matteo Bianchi speaking on stage at KCD Denmark"
 excerpt: "Behind the scenes and lessons learned"
 readTime: "11 min read"
 ---

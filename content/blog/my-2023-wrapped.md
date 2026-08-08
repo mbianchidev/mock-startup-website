@@ -3,6 +3,8 @@ title: "My 2023 wrapped"
 date: "2023-12-24"
 author: "Matteo Bianchi"
 category: "Personal"
+image: "profile"
+imageAlt: "Matteo Bianchi speaking on stage at KCD Denmark"
 excerpt: "Self-reflection on 2023 and resolutions for 2024"
 readTime: "6 min read"
 ---

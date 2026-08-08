@@ -3,6 +3,8 @@ title: "New year resolutions of a fresh CTO"
 date: "2023-01-04"
 author: "Matteo Bianchi"
 category: "Startups"
+image: "profile"
+imageAlt: "Matteo Bianchi speaking on stage at KCD Denmark"
 excerpt: "Since January, after leaving my freelancing career, I have a accepted the challenge of becoming the Chief Technology Officer for a startup."
 readTime: "6 min read"
 ---

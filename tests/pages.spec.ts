@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import pathRedirects from '../src/data/redirects.json';
-import { getSortedPostsData } from '../src/lib/markdown';
+import { getAllPostSlugs, getSortedPostsData } from '../src/lib/markdown';
+import { createAbsoluteImageUrl, withBasePath } from '../src/lib/siteMetadata';
 import vercelConfig from '../vercel.json';
 
 const pages = [
@@ -50,6 +51,13 @@ test.describe('Short links', () => {
 });
 
 test.describe('Static route experience', () => {
+  test('does not publish underscore-prefixed blog templates', () => {
+    const slugs = getAllPostSlugs();
+
+    expect(slugs).not.toContain('_template');
+    expect(slugs.every((slug) => !slug.startsWith('_'))).toBe(true);
+  });
+
   test('publishes canonical sitemap and robots metadata routes', async ({ request }) => {
     const sitemapResponse = await request.get('/sitemap.xml');
     expect(sitemapResponse.ok()).toBe(true);
@@ -125,6 +133,141 @@ test.describe('Static route experience', () => {
       'href',
       'https://mbianchi.dev/blog/yet-another-monumentally-long-year-in-review-2025/'
     );
+  });
+
+  test('publishes complete default social previews with reachable images', async ({
+    page,
+    request,
+  }) => {
+    for (const route of ['/', '/about']) {
+      await page.goto(route, { waitUntil: 'domcontentloaded' });
+
+      const canonical = await page.locator('link[rel="canonical"]').getAttribute('href');
+      const openGraphImage = await page.locator('meta[property="og:image"]').getAttribute('content');
+
+      expect(canonical).toBe(
+        new URL(route.endsWith('/') ? route : `${route}/`, 'https://mbianchi.dev').toString()
+      );
+      await expect(page.locator('meta[property="og:type"]')).toHaveAttribute('content', 'website');
+      await expect(page.locator('meta[property="og:site_name"]')).toHaveAttribute(
+        'content',
+        'Matteo'
+      );
+      await expect(page.locator('meta[property="og:url"]')).toHaveAttribute('content', canonical!);
+      await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute(
+        'content',
+        '1600'
+      );
+      await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute(
+        'content',
+        '1066'
+      );
+      await expect(page.locator('meta[property="og:image:alt"]')).toHaveAttribute(
+        'content',
+        'Matteo Bianchi speaking on stage at KCD Denmark'
+      );
+      await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute(
+        'content',
+        'summary_large_image'
+      );
+      await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute(
+        'content',
+        openGraphImage!
+      );
+
+      expect(openGraphImage).toBe('https://mbianchi.dev/images/matteo-kcd-denmark.jpg');
+      const imageResponse = await request.get(new URL(openGraphImage!).pathname);
+      expect(imageResponse.ok(), openGraphImage!).toBe(true);
+      expect(imageResponse.headers()['content-type']).toContain('image/jpeg');
+    }
+  });
+
+  test('uses blog frontmatter to override article social previews', async ({ page, request }) => {
+    await page.goto('/blog/yet-another-monumentally-long-year-in-review-2025', {
+      waitUntil: 'domcontentloaded',
+    });
+
+    const expectedUrl =
+      'https://mbianchi.dev/blog/yet-another-monumentally-long-year-in-review-2025/';
+    const expectedImage =
+      'https://mbianchi.dev/blog-social-images/yet-another-monumentally-long-year-in-review-2025/matteo-mark.png';
+
+    await expect(page.locator('meta[property="og:type"]')).toHaveAttribute('content', 'article');
+    await expect(page.locator('meta[property="og:url"]')).toHaveAttribute('content', expectedUrl);
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
+      'content',
+      expectedImage
+    );
+    await expect(page.locator('meta[property="og:image:alt"]')).toHaveAttribute(
+      'content',
+      'Matteo human platform brand mark'
+    );
+    await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute(
+      'content',
+      '1024'
+    );
+    await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute(
+      'content',
+      '1024'
+    );
+    await expect(page.locator('meta[property="article:published_time"]')).toHaveAttribute(
+      'content',
+      '2025-12-29T00:00:00.000Z'
+    );
+    await expect(page.locator('meta[property="article:author"]')).toHaveAttribute(
+      'content',
+      'Matteo Bianchi'
+    );
+    await expect(page.locator('meta[property="article:tag"]')).toHaveAttribute(
+      'content',
+      'Personal'
+    );
+    await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute(
+      'content',
+      'summary_large_image'
+    );
+    await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute(
+      'content',
+      expectedImage
+    );
+
+    const imageResponse = await request.get(new URL(expectedImage).pathname);
+    expect(imageResponse.ok()).toBe(true);
+    expect(imageResponse.headers()['content-type']).toContain('image/png');
+  });
+
+  test('keeps social image URLs absolute and independent of an export base path', () => {
+    const previousBasePath = process.env.NEXT_BASE_PATH;
+    process.env.NEXT_BASE_PATH = '/mbianchi.dev';
+
+    try {
+      expect(
+        createAbsoluteImageUrl('/mbianchi.dev/_next/static/media/preview.jpg').toString()
+      ).toBe('https://mbianchi.dev/_next/static/media/preview.jpg');
+      expect(createAbsoluteImageUrl('/mbianchi.dev/brand/matteo-mark.png').toString()).toBe(
+        'https://mbianchi.dev/brand/matteo-mark.png'
+      );
+      expect(withBasePath('/images/matteo-kcd-denmark.jpg')).toBe(
+        '/mbianchi.dev/images/matteo-kcd-denmark.jpg'
+      );
+    } finally {
+      if (previousBasePath === undefined) {
+        delete process.env.NEXT_BASE_PATH;
+      } else {
+        process.env.NEXT_BASE_PATH = previousBasePath;
+      }
+    }
+  });
+
+  test('keeps redirect fallback pages noncanonical and noindex', async ({ request }) => {
+    const response = await request.get('/redirect/blog/');
+    const html = await response.text();
+
+    expect(response.ok()).toBe(true);
+    expect(html).toMatch(/<meta name="robots" content="noindex, nofollow"\/?>/);
+    expect(html).not.toContain('rel="canonical"');
+    expect(html).not.toContain('property="og:');
+    expect(html).not.toContain('name="twitter:');
   });
 
   test('publishes the configurable public link manifest', async ({ page }) => {

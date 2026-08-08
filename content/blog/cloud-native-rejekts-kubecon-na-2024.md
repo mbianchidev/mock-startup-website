@@ -3,6 +3,8 @@ title: "Cloud Native Rejekts + KubeCon NA 2024"
 date: "2024-11-18"
 author: "Matteo Bianchi"
 category: "Cloud Native"
+image: "profile"
+imageAlt: "Matteo Bianchi speaking on stage at KCD Denmark"
 excerpt: "A commentary on Rejekts and KubeCon NA in SLC, written while jet lagged coming back to Europe.Tech talks, new and old tech, laughs and Utah shitty anti-trans laws.RejektsThis round, like in Paris, I had the pleasure to attend and speak at Cloud..."
 ---
 

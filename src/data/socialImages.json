@@ -1,0 +1,16 @@
+{
+  "profile": {
+    "src": "/images/matteo-kcd-denmark.jpg",
+    "width": 1600,
+    "height": 1066,
+    "alt": "Matteo Bianchi speaking on stage at KCD Denmark",
+    "type": "image/jpeg"
+  },
+  "brand": {
+    "src": "/brand/matteo-mark.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": "Matteo human platform brand mark",
+    "type": "image/png"
+  }
+}

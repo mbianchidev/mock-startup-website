@@ -1,4 +1,5 @@
 import styles from '@/app/home.module.css'
+import { profilePortrait } from '@/lib/siteConfig'
 import { ResponsivePortrait } from './ResponsivePortrait'
 
 export function Hero() {
@@ -48,7 +49,7 @@ export function Hero() {
           </div>
           <div className={styles.portraitFrame}>
             <ResponsivePortrait
-              alt="Matteo Bianchi speaking on stage at KCD Denmark"
+              alt={profilePortrait.alt}
               className={styles.portrait}
               sizes="(max-width: 720px) calc(100vw - 60px), (max-width: 1050px) min(720px, calc(100vw - 120px)), 560px"
               priority

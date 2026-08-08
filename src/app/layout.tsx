@@ -5,7 +5,8 @@ import { Archivo_Black, Public_Sans } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
-import { siteUrl } from '@/lib/siteMetadata'
+import { siteConfig } from '@/lib/siteConfig'
+import { resolveSocialImage, siteUrl } from '@/lib/siteMetadata'
 
 const publicSans = Public_Sans({
   subsets: ['latin'],
@@ -22,10 +23,28 @@ const archivoBlack = Archivo_Black({
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,
-  applicationName: 'Matteo',
-  title: 'Matteo — The Human Platform',
-  description: 'Matteo Bianchi is a Senior Engineer across platforms, solutions, software, and AI, combining deep engineering with customer insight, open source, and technical communication.',
+  applicationName: siteConfig.name,
+  title: siteConfig.title,
+  description: siteConfig.description,
+  authors: [siteConfig.author],
+  creator: siteConfig.author.name,
+  publisher: siteConfig.author.name,
   referrer: 'strict-origin-when-cross-origin',
+  openGraph: {
+    title: siteConfig.title,
+    description: siteConfig.description,
+    type: 'website',
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    images: [resolveSocialImage('profile')],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [resolveSocialImage('profile')],
+  },
   appleWebApp: {
     capable: true,
     title: 'Matteo',

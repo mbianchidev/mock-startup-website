@@ -3,6 +3,8 @@ title: "Italy vs OpenAI: a fact-b(i)ased clarification"
 date: "2023-04-21"
 author: "Matteo Bianchi"
 category: "AI"
+image: "profile"
+imageAlt: "Matteo Bianchi speaking on stage at KCD Denmark"
 excerpt: "How italians panicked for (almost) no reason."
 readTime: "3 min read"
 ---

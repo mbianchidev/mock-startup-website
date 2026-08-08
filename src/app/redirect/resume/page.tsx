@@ -1,4 +1,5 @@
 import RedirectPage from '@/components/RedirectPage'
+import { shortLinkMetadata } from '@/components/ShortLinkPage'
 
 export default function ResumeRedirect() {
   return (
@@ -10,7 +11,4 @@ export default function ResumeRedirect() {
   )
 }
 
-export const metadata = {
-  title: 'Resume - Matteo Bianchi',
-  description: 'Matteo Bianchi Resume PDF'
-}
+export const metadata = shortLinkMetadata

@@ -3,6 +3,8 @@ title: "2023 DevOps is terrible."
 date: "2023-09-21"
 author: "Matteo Bianchi"
 category: "Platform Engineering"
+image: "profile"
+imageAlt: "Matteo Bianchi speaking on stage at KCD Denmark"
 excerpt: "My analysis of modern DevOps evolution into Platform Engineering. Just a new trend or a revolution in the IT industry?"
 readTime: "7 min read"
 ---

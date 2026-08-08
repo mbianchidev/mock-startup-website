@@ -1,7 +1,7 @@
 const path = require('node:path')
 const sharp = require('sharp')
 
-const source = path.join(process.cwd(), 'src/assets/matteo-kcd-denmark.jpg')
+const source = path.join(process.cwd(), 'public/images/matteo-kcd-denmark.jpg')
 const widths = [320, 640, 960, 1280]
 
 async function optimizePortraits() {
