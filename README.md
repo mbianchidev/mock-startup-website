@@ -15,6 +15,7 @@ This project is a satirical product launch for Matteo Bianchi: a personal portfo
 - Homepage runway logos are bundled locally and loaded eagerly so marquee motion never reveals unloaded placeholders
 - An open-source proof ledger sourced from `src/data/projects.json`
 - A complete route system for field notes, changelog, portfolio, deployment history, pricing, legal, and support pages
+- A configurable `/links` endpoint manifest sourced from `src/data/links.ts`
 - Original high-resolution organisation logos with a clean KubeLab monogram fallback throughout Customers
 - Verifiable contribution, speaking, and project benchmarks
 - Satirical release notes and direct trial calls to action
@@ -122,6 +123,7 @@ src/
 │   ├── page.tsx         # Homepage
 │   ├── home.module.css  # Homepage visual system
 │   ├── inner.module.css # Shared inner-page visual system
+│   ├── links/           # Configurable public link manifest
 │   ├── about/           # About page
 │   ├── careers/         # Careers page
 │   ├── customers/       # Customers page
@@ -154,9 +156,29 @@ src/
 ├── types/               # TypeScript type definitions
 │   └── index.ts
 ├── data/               # JSON data files
-│   └── customers.json
+│   ├── customers.json
+│   └── links.ts         # Profile copy and public link configuration
 └── lib/                # Utility functions
 ```
+
+## 🔗 Configuring `/links`
+
+Profile copy and link destinations live in `src/data/links.ts`. To add a link,
+duplicate an item in the `links` array and update its values:
+
+```ts
+{
+  service: 'Service name',
+  title: 'Visible link title',
+  description: 'One-line description',
+  href: 'https://example.com',
+  icon: 'github',
+}
+```
+
+The built-in icon values are `mentor`, `youtube`, and `github`. To add another
+icon, extend `PublicLinkIcon` in `src/data/links.ts` and add its SVG case to
+`LinkIcon` in `src/app/links/page.tsx`.
 
 ## 🔧 Available Scripts
 

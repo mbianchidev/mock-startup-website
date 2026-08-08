@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 
 const pages = [
   { name: 'homepage', path: '/', title: 'Matteo — The Human Platform' },
+  { name: 'links', path: '/links', title: 'Links — Matteo' },
   { name: 'about', path: '/about', title: 'Product Internals — Matteo' },
   { name: 'blog', path: '/blog', title: 'Field Notes — Matteo' },
   {
@@ -49,6 +50,9 @@ test.describe('Static route experience', () => {
     await page.goto('/about', { waitUntil: 'domcontentloaded' });
     await expect(canonical).toHaveAttribute('href', 'https://mbianchi.dev/about/');
 
+    await page.goto('/links', { waitUntil: 'domcontentloaded' });
+    await expect(canonical).toHaveAttribute('href', 'https://mbianchi.dev/links/');
+
     await page.goto('/blog/yet-another-monumentally-long-year-in-review-2025', {
       waitUntil: 'domcontentloaded',
     });
@@ -56,6 +60,35 @@ test.describe('Static route experience', () => {
       'href',
       'https://mbianchi.dev/blog/yet-another-monumentally-long-year-in-review-2025/'
     );
+  });
+
+  test('publishes the configurable public link manifest', async ({ page }) => {
+    await page.goto('/links', { waitUntil: 'domcontentloaded' });
+
+    const publicLinks = page.getByRole('region', { name: 'Public links' });
+    await expect(page.getByRole('heading', { name: '@mbianchidev' })).toBeVisible();
+    await expect(publicLinks.getByRole('link')).toHaveCount(3);
+
+    const expectedLinks = [
+      {
+        service: 'MentorCruise',
+        href: 'https://mentorcruise.com/mentor/matteobianchi',
+      },
+      {
+        service: 'YouTube',
+        href: 'https://youtube.com/mbianchidev',
+      },
+      {
+        service: 'GitHub',
+        href: 'https://github.com/mbianchidev',
+      },
+    ];
+
+    for (const expectedLink of expectedLinks) {
+      const link = publicLinks.getByRole('link', { name: new RegExp(expectedLink.service) });
+      await expect(link).toHaveAttribute('href', expectedLink.href);
+      await expect(link).toHaveAttribute('target', '_blank');
+    }
   });
 
   test('publishes the complete English blog archive', async ({ page }) => {
